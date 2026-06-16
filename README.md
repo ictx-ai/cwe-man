@@ -32,8 +32,8 @@ sheets.
 Install straight from the repo on any machine:
 
 ```sh
-git clone git@github.com:USER/REPO.git
-cd REPO
+git clone https://github.com/ictx-ai/cwe-man.git
+cd cwe-man
 ./install.sh            # system-wide; or ./install.sh ~/.local for no-root
 man cwe
 ```
