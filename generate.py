@@ -15,10 +15,15 @@ section listing the CVEs that CISA maps to that weakness, so you can see at
 a glance which KEVs belong to a CWE. Data lives in cwe_data.py and the two
 upstream CSVs, so the man pages, HTML and PDF never diverge.
 """
+import datetime
 import os
 from cwe_data import ENTRIES as CURATED, DATE, SOURCE, MANUAL
 from cwe_examples import EXAMPLES_SINGLE
 from kev import load_kev, load_catalog, kev_date
+
+# Date this run was produced; stamped into every page so you can tell at a
+# glance when the man pages were last regenerated.
+GEN_DATE = datetime.date.today().isoformat()
 
 OUTDIR = os.path.join(os.path.dirname(__file__), "man7")
 
@@ -77,7 +82,7 @@ def page(e, kev):
     title = e["id"].replace("-", "\\-")
     L = []
     L.append('.\\" Educational secure-coding reference. Generated, not hand-edited.')
-    L.append('.TH %s 7 "%s" "%s" "%s"' % (e["id"], DATE, SOURCE, MANUAL))
+    L.append('.TH %s 7 "%s" "%s" "%s"' % (e["id"], GEN_DATE, SOURCE, MANUAL))
     L.append(".SH NAME")
     L.append("%s \\- %s" % (title, esc(e["name"])))
     L.append(".SH RANK")
@@ -126,6 +131,10 @@ def page(e, kev):
     L.append(".SH NOTES")
     L.append("Defensive reference material. Each vulnerable snippet shows a pattern "
              "to recognize and avoid; the fixed snippet shows the recommended approach.")
+    L.append(".PP")
+    asof = kev_date()
+    L.append("Generated %s from %s. CISA KEV data as of %s." % (
+        esc(GEN_DATE), esc(SOURCE), esc(asof) if asof else "(unknown)"))
     return "\n".join(L) + "\n"
 
 
@@ -181,7 +190,7 @@ def index_page(entries, kev):
     n_kev = len(kev)
     L = []
     L.append("'\\\" t")   # preprocessor hint: this page must be run through tbl
-    L.append('.TH CWE 7 "%s" "%s" "%s"' % (DATE, SOURCE, MANUAL))
+    L.append('.TH CWE 7 "%s" "%s" "%s"' % (GEN_DATE, SOURCE, MANUAL))
     L.append(".SH NAME")
     L.append("cwe \\- index of KEV\\-referenced Common Weakness Enumerations")
     L.append(".SH DESCRIPTION")
@@ -219,6 +228,10 @@ def index_page(entries, kev):
     L.append(pages + ".")
     L.append(".PP")
     L.append("https://cwe.mitre.org/top25/ and https://www.cisa.gov/known\\-exploited\\-vulnerabilities\\-catalog")
+    L.append(".SH GENERATED")
+    asof = kev_date()
+    L.append("These pages were generated on \\fB%s\\fR. CISA KEV data as of %s." % (
+        esc(GEN_DATE), esc(asof) if asof else "(unknown)"))
     return "\n".join(L) + "\n"
 
 
