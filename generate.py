@@ -223,10 +223,18 @@ def index_page(entries, kev):
 
 
 if __name__ == "__main__":
+    import sys
+    curated_only = "--curated-only" in sys.argv
     os.makedirs(OUTDIR, exist_ok=True)
     kev = load_kev()
     needed = sorted(set(kev) | {cwe_num(e) for e in CURATED})
     catalog = load_catalog(ids=needed)
+    if not catalog and not curated_only:
+        sys.exit(
+            "ERROR: CWE catalog unavailable (install cwe2: `pip install cwe2`, "
+            "or `make deps`).\nRefusing to regenerate, because that would delete "
+            "the KEV stub pages and rebuild only the 26 curated ones.\n"
+            "Pass --curated-only if you really want just the 26-page set.")
     entries = build_entries(kev, catalog)
 
     # Refresh: drop stale generated pages so removed CWEs don't linger.

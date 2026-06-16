@@ -11,7 +11,7 @@ Data is copied into a fixed\-size buffer without verifying it fits; the excess o
 .SH MITIGATION
 Use size\-bounded copies (snprintf, strlcpy, memcpy with a validated length) and always pass the destination capacity. In C++ prefer std::string. Enable compiler hardening and fuzz parsers.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-06-16): \fB12\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-06-15): \fB12\fR exploited CVEs mapped to this weakness.
 .PP
 CVE\-2004\-0210, CVE\-2006\-2492, CVE\-2013\-0641, CVE\-2019\-11043, CVE\-2020\-5135, CVE\-2020\-15069, CVE\-2022\-37055, CVE\-2023\-33009, CVE\-2023\-33010, CVE\-2023\-41064, CVE\-2025\-20333, CVE\-2025\-43520.
 .SH EXAMPLES

@@ -11,7 +11,7 @@ A state\-changing request is accepted without proof the user intended it. Becaus
 .SH MITIGATION
 Require an unpredictable per\-session anti\-CSRF token on every state\-changing request and reject it if missing/wrong. Set session cookies SameSite=Lax or Strict, and re\-authenticate for the most sensitive actions.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-06-16): \fB4\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-06-15): \fB4\fR exploited CVEs mapped to this weakness.
 .PP
 CVE\-2014\-100005, CVE\-2016\-6277, CVE\-2020\-10181, CVE\-2023\-2533.
 .SH EXAMPLES

@@ -9,7 +9,7 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product receives input from an upstream component that specifies attributes that are to be initialized or updated in an object, but it does not properly control modifications of attributes of the object prototype. By adding or modifying attributes of an object prototype, it is possible to create attributes that exist on every object, or replace critical attributes with malicious ones. This can be problematic if the product depends on existence or non\-existence of certain attributes, or uses pre\-defined attributes of object prototype (such as hasOwnProperty, toString or valueOf). This weakness is usually exploited by using a special attribute of objects called proto, constructor or prototype. Such attributes give access to the object prototype. This weakness is often found in code that assigns object attributes based on user input, or merges or clones objects recursively.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-06-16): \fB1\fR exploited CVE mapped to this weakness.
+CISA KEV catalog (as of 2026-06-15): \fB1\fR exploited CVE mapped to this weakness.
 .PP
 CVE\-2026\-34621.
 .SH EXAMPLES

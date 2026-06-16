@@ -11,7 +11,7 @@ A pointer expected to be valid is NULL when dereferenced, usually crashing the p
 .SH MITIGATION
 Check the result of anything that can return NULL before dereferencing, and define the failure path. Static analysers catch many; in modern C++/Rust use optional types to make absence explicit.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-06-16): \fB1\fR exploited CVE mapped to this weakness.
+CISA KEV catalog (as of 2026-06-15): \fB1\fR exploited CVE mapped to this weakness.
 .PP
 CVE\-2026\-21525.
 .SH EXAMPLES
