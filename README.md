@@ -29,23 +29,6 @@ pattern to recognize and avoid, paired with the recommended fix — the same
 teaching style used by MITRE's own demonstrative examples and the OWASP cheat
 sheets.
 
-## Putting it in a git repo
-
-The contents of this folder are the project root. The man pages in `man7/` are
-committed so anyone can `git clone` and `./install.sh` with no build step; the
-HTML and PDF are treated as build artifacts and ignored by `.gitignore`
-(regenerate them with `make html` / `make pdf`). To commit them anyway, delete
-those two lines from `.gitignore`.
-
-```sh
-git init
-git add .
-git commit -m "CWE Top 25 (2025) reference: man pages + HTML/PDF"
-git branch -M main
-git remote add origin git@github.com:USER/REPO.git
-git push -u origin main
-```
-
 Install straight from the repo on any machine:
 
 ```sh
