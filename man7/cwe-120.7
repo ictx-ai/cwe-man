@@ -1,0 +1,53 @@
+.\" Educational secure-coding reference. Generated, not hand-edited.
+.TH CWE-120 7 "2025-12-11" "CWE Top 25 (2025)" "Software Weakness Reference"
+.SH NAME
+CWE\-120 \- Buffer Copy without Checking Size of Input (Classic Buffer Overflow)
+.SH RANK
+2025 CWE Top 25 rank: \fB#11\fR (2024 rank: NEW).
+.SH CLASSIFICATION
+Class: Memory Safety.
+.SH DESCRIPTION
+Data is copied into a fixed\-size buffer without verifying it fits; the excess overwrites adjacent memory. The classic root of decades of remote code execution. A C/C++ class.
+.SH MITIGATION
+Use size\-bounded copies (snprintf, strlcpy, memcpy with a validated length) and always pass the destination capacity. In C++ prefer std::string. Enable compiler hardening and fuzz parsers.
+.SH KNOWN EXPLOITED VULNERABILITIES
+CISA KEV catalog (as of 2026-06-16): \fB12\fR exploited CVEs mapped to this weakness.
+.PP
+CVE\-2004\-0210, CVE\-2006\-2492, CVE\-2013\-0641, CVE\-2019\-11043, CVE\-2020\-5135, CVE\-2020\-15069, CVE\-2022\-37055, CVE\-2023\-33009, CVE\-2023\-33010, CVE\-2023\-41064, CVE\-2025\-20333, CVE\-2025\-43520.
+.SH EXAMPLES
+One vulnerable\->fixed pair per ecosystem (C, C++).
+.SS C
+\fIVulnerable:\fR
+.RS
+.EX
+char msg[32];
+sprintf(msg, "Welcome, %s!", user);   /* overflows if user is long */
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+char msg[32];
+snprintf(msg, sizeof msg, "Welcome, %s!", user);   /* bounded */
+.EE
+.RE
+.SS C++
+\fIVulnerable:\fR
+.RS
+.EX
+char msg[32];
+std::sprintf(msg, "Welcome, %s!", user.c_str());   // unbounded
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+std::string msg = "Welcome, " + user + "!";        // grows as needed
+.EE
+.RE
+.SH SEE ALSO
+\fBcwe\fR(7) (index), CWE\-121, CWE\-122, CWE\-787.
+.PP
+Authoritative definition: https://cwe.mitre.org/data/definitions/120.html
+.SH NOTES
+Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.

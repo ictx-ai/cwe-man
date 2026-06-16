@@ -1,0 +1,22 @@
+.\" Educational secure-coding reference. Generated, not hand-edited.
+.TH CWE-591 7 "2025-12-11" "CWE Top 25 (2025)" "Software Weakness Reference"
+.SH NAME
+CWE\-591 \- Sensitive Data Storage in Improperly Locked Memory
+.SH RANK
+KEV\-referenced weakness. Not part of the 2025 CWE Top 25; documented here because it appears in the CISA KEV catalog.
+.SH CLASSIFICATION
+Class: KEV\-referenced weakness.
+.SH DESCRIPTION
+The product stores sensitive data in memory that is not locked, or that has been incorrectly locked, which might cause the memory to be written to swap files on disk by the virtual memory manager. This can make the data more accessible to external actors. On Windows systems the VirtualLock function can lock a page of memory to ensure that it will remain present in memory and not be swapped to disk. However, on older versions of Windows, such as 95, 98, or Me, the VirtualLock() function is only a stub and provides no protection. On POSIX systems the mlock() call ensures that a page will stay resident in memory but does not guarantee that the page will not appear in the swap. Therefore, it is unsuitable for use as a protection mechanism for sensitive data. Some platforms, in particular Linux, do make the guarantee that the page will not be swapped, but this is non\-standard and is not portable. Calls to mlock() also require supervisor privilege. Return values for both of these calls must be checked to ensure that the lock operation was actually successful.
+.SH KNOWN EXPLOITED VULNERABILITIES
+CISA KEV catalog (as of 2026-06-16): \fB2\fR exploited CVEs mapped to this weakness.
+.PP
+CVE\-2023\-28229, CVE\-2024\-38106.
+.SH EXAMPLES
+No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
+.SH SEE ALSO
+\fBcwe\fR(7) (index).
+.PP
+Authoritative definition: https://cwe.mitre.org/data/definitions/591.html
+.SH NOTES
+Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.

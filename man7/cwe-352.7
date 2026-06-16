@@ -1,0 +1,120 @@
+.\" Educational secure-coding reference. Generated, not hand-edited.
+.TH CWE-352 7 "2025-12-11" "CWE Top 25 (2025)" "Software Weakness Reference"
+.SH NAME
+CWE\-352 \- Cross\-Site Request Forgery (CSRF)
+.SH RANK
+2025 CWE Top 25 rank: \fB#3\fR (2024 rank: 4).
+.SH CLASSIFICATION
+Class: Web / Session.
+.SH DESCRIPTION
+A state\-changing request is accepted without proof the user intended it. Because browsers attach cookies automatically, a malicious page can make a logged\-in victim's browser submit a forged request the server cannot distinguish from a legitimate one.
+.SH MITIGATION
+Require an unpredictable per\-session anti\-CSRF token on every state\-changing request and reject it if missing/wrong. Set session cookies SameSite=Lax or Strict, and re\-authenticate for the most sensitive actions.
+.SH KNOWN EXPLOITED VULNERABILITIES
+CISA KEV catalog (as of 2026-06-16): \fB4\fR exploited CVEs mapped to this weakness.
+.PP
+CVE\-2014\-100005, CVE\-2016\-6277, CVE\-2020\-10181, CVE\-2023\-2533.
+.SH EXAMPLES
+One vulnerable\->fixed pair per ecosystem (Node.js, Python, Java, Go, PHP).
+.SS Node.js
+\fIVulnerable:\fR
+.RS
+.EX
+app.post('/transfer', (req, res) => {        // trusts the session cookie only
+  transfer(req.session.user, req.body.to, req.body.amount);
+  res.send('ok');
+});
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+app.post('/transfer', (req, res) => {
+  if (!req.body.csrf || req.body.csrf !== req.session.csrf)
+    return res.sendStatus(403);              // anti-CSRF token required
+  transfer(req.session.user, req.body.to, req.body.amount);
+  res.send('ok');
+});
+// session cookie: { sameSite: 'lax' }
+.EE
+.RE
+.SS Python
+\fIVulnerable:\fR
+.RS
+.EX
+@app.post('/transfer')
+def transfer():                              # no token check
+    do_transfer(session['user'], request.form['to'], request.form['amount'])
+    return 'ok'
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+@app.post('/transfer')
+def transfer():
+    if not hmac.compare_digest(session.get('csrf',''), request.form.get('csrf','')):
+        abort(403)                           # anti-CSRF token required
+    do_transfer(session['user'], request.form['to'], request.form['amount'])
+    return 'ok'
+# app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
+.EE
+.RE
+.SS Java
+\fIVulnerable:\fR
+.RS
+.EX
+// Spring Security
+http.csrf(csrf -> csrf.disable());           // protection switched off
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+// Spring Security enables CSRF tokens by default; keep it on
+http.csrf(Customizer.withDefaults());
+// and use SameSite cookies: server.servlet.session.cookie.same-site=lax
+.EE
+.RE
+.SS Go
+\fIVulnerable:\fR
+.RS
+.EX
+http.HandleFunc("/transfer", func(w http.ResponseWriter, r *http.Request) {
+    doTransfer(user(r), r.FormValue("to"), r.FormValue("amount"))   // no token
+})
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+import "github.com/gorilla/csrf"
+// Wrap the mux; the middleware validates a per-session token on unsafe methods
+mux := csrf.Protect(key, csrf.SameSite(csrf.SameSiteLaxMode))(router)
+// templates embed {{ .csrfField }} which the middleware checks
+.EE
+.RE
+.SS PHP
+\fIVulnerable:\fR
+.RS
+.EX
+// transfer.php
+do_transfer($_SESSION['user'], $_POST['to'], $_POST['amount']);   // no token
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+if (!hash_equals($_SESSION['csrf'] ?? '', $_POST['csrf'] ?? '')) {
+    http_response_code(403); exit;           // anti-CSRF token required
+}
+do_transfer($_SESSION['user'], $_POST['to'], $_POST['amount']);
+// session_set_cookie_params(['samesite' => 'Lax']);
+.EE
+.RE
+.SH SEE ALSO
+\fBcwe\fR(7) (index), CWE\-1275, CWE\-306, OWASP A01:2021 Broken Access Control.
+.PP
+Authoritative definition: https://cwe.mitre.org/data/definitions/352.html
+.SH NOTES
+Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.

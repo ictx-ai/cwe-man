@@ -1,0 +1,22 @@
+.\" Educational secure-coding reference. Generated, not hand-edited.
+.TH CWE-749 7 "2025-12-11" "CWE Top 25 (2025)" "Software Weakness Reference"
+.SH NAME
+CWE\-749 \- Exposed Dangerous Method or Function
+.SH RANK
+KEV\-referenced weakness. Not part of the 2025 CWE Top 25; documented here because it appears in the CISA KEV catalog.
+.SH CLASSIFICATION
+Class: KEV\-referenced weakness.
+.SH DESCRIPTION
+The product provides an Applications Programming Interface (API) or similar interface for interaction with external actors, but the interface includes a dangerous method or function that is not properly restricted. This weakness can lead to a wide variety of resultant weaknesses, depending on the behavior of the exposed method. It can apply to any number of technologies and approaches, such as ActiveX controls, Java functions, IOCTLs, and so on. The exposure can occur in a few different ways: The function/method was never intended to be exposed to outside actors. The function/method was only intended to be accessible to a limited set of actors, such as Internet\-based access from a single web site.
+.SH KNOWN EXPLOITED VULNERABILITIES
+CISA KEV catalog (as of 2026-06-16): \fB2\fR exploited CVEs mapped to this weakness.
+.PP
+CVE\-2018\-19322, CVE\-2021\-36942.
+.SH EXAMPLES
+No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
+.SH SEE ALSO
+\fBcwe\fR(7) (index).
+.PP
+Authoritative definition: https://cwe.mitre.org/data/definitions/749.html
+.SH NOTES
+Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.

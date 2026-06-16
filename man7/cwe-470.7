@@ -1,0 +1,98 @@
+.\" Educational secure-coding reference. Generated, not hand-edited.
+.TH CWE-470 7 "2025-12-11" "CWE Top 25 (2025)" "Software Weakness Reference"
+.SH NAME
+CWE\-470 \- Use of Externally\-Controlled Input to Select Classes or Code (Unsafe Reflection)
+.SH RANK
+Appendix \- not part of the 2025 CWE Top 25.
+.SH CLASSIFICATION
+Class: Injection / Appendix (not in Top 25).
+.SH DESCRIPTION
+NOTE: CWE\-470 is NOT part of the 2025 CWE Top 25; it is included here as a related weakness for completeness.
+.PP
+Externally\-controlled input chooses which class is loaded or which method/code is invoked via reflection. An attacker who controls the name can instantiate unexpected classes or reach code paths that enable code execution, denial of service, or logic bypass. Closely related to CWE\-94 and CWE\-502.
+.SH MITIGATION
+Never let untrusted input name a class, method, or module directly. Map a small set of allowed identifiers to known types/handlers with an allow\-list, and reject anything else.
+.SH KNOWN EXPLOITED VULNERABILITIES
+CISA KEV catalog (as of 2026-06-16): \fB1\fR exploited CVE mapped to this weakness.
+.PP
+CVE\-2021\-21985.
+.SH EXAMPLES
+One vulnerable\->fixed pair per ecosystem (Java, C#/.NET, Python, Node.js).
+.SS Java
+\fIVulnerable:\fR
+.RS
+.EX
+String cls = req.getParameter("handler");
+Object h = Class.forName(cls).getDeclaredConstructor().newInstance();   // any class
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+Map<String, Supplier<Handler>> allow = Map.of(
+    "csv",  CsvHandler::new,
+    "json", JsonHandler::new);
+Supplier<Handler> s = allow.get(req.getParameter("handler"));
+if (s == null) throw new IllegalArgumentException("unknown handler");
+Handler h = s.get();   // only known types can be created
+.EE
+.RE
+.SS C#/.NET
+\fIVulnerable:\fR
+.RS
+.EX
+var t = Type.GetType(Request["handler"]);          // any type
+var h = Activator.CreateInstance(t);
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+IHandler h = Request["handler"] switch {
+    "csv"  => new CsvHandler(),
+    "json" => new JsonHandler(),
+    _      => throw new ArgumentException("unknown handler"),
+};   // allow-list of known types
+.EE
+.RE
+.SS Python
+\fIVulnerable:\fR
+.RS
+.EX
+mod = importlib.import_module(request.args['module'])
+obj = getattr(mod, request.args['cls'])()   # arbitrary class from user input
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+HANDLERS = {'csv': CsvHandler, 'json': JsonHandler}
+cls = HANDLERS.get(request.args['handler'])
+if cls is None:
+    abort(400)
+obj = cls()   # only known classes
+.EE
+.RE
+.SS Node.js
+\fIVulnerable:\fR
+.RS
+.EX
+const handler = require(req.query.module);   // dynamic require from user input
+handler.run();
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+const HANDLERS = { csv: () => require('./csv'), json: () => require('./json') };
+const make = HANDLERS[req.query.handler];
+if (!make) return res.sendStatus(400);
+make().run();   // allow-listed modules only
+.EE
+.RE
+.SH SEE ALSO
+\fBcwe\fR(7) (index), CWE\-94, CWE\-502, CWE\-20.
+.PP
+Authoritative definition: https://cwe.mitre.org/data/definitions/470.html
+.SH NOTES
+Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.

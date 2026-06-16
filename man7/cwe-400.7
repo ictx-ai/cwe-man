@@ -1,0 +1,35 @@
+.\" Educational secure-coding reference. Generated, not hand-edited.
+.TH CWE-400 7 "2025-12-11" "CWE Top 25 (2025)" "Software Weakness Reference"
+.SH NAME
+CWE\-400 \- Uncontrolled Resource Consumption
+.SH RANK
+KEV\-referenced weakness. Not part of the 2025 CWE Top 25; documented here because it appears in the CISA KEV catalog.
+.SH CLASSIFICATION
+Class: KEV\-referenced weakness.
+.SH DESCRIPTION
+The product does not properly control the allocation and maintenance of a limited resource, thereby enabling an actor to influence the amount of resources consumed, eventually leading to the exhaustion of available resources. Limited resources include memory, file system storage, database connection pool entries, and CPU. If an attacker can trigger the allocation of these limited resources, but the number or size of the resources is not controlled, then the attacker could cause a denial of service that consumes all available resources. This would prevent valid users from accessing the product, and it could potentially have an impact on the surrounding environment. For example, a memory exhaustion attack against an application could slow down the application as well as its host operating system. There are at least three distinct scenarios which can commonly lead to resource exhaustion: Lack of throttling for the number of allocated resources Losing all references to a resource before reaching the shutdown stage Not closing/returning a resource after processing Resource exhaustion problems are often result due to an incorrect implementation of the following situations: Error conditions and other exceptional circumstances. Confusion over which part of the program is responsible for releasing the resource.
+.SH KNOWN EXPLOITED VULNERABILITIES
+CISA KEV catalog (as of 2026-06-16): \fB5\fR exploited CVEs mapped to this weakness.
+.PP
+CVE\-2020\-3566, CVE\-2020\-3569, CVE\-2021\-44228, CVE\-2023\-44487, CVE\-2026\-28318.
+.SH EXAMPLES
+One vulnerable\->fixed pair per ecosystem (Node.js).
+.SS Node.js
+\fIVulnerable:\fR
+.RS
+.EX
+app.post('/upload', (req, res) => { /* no body-size limit -> DoS */ });
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+app.use(express.json({ limit: '100kb' }));   // cap request size
+.EE
+.RE
+.SH SEE ALSO
+\fBcwe\fR(7) (index).
+.PP
+Authoritative definition: https://cwe.mitre.org/data/definitions/400.html
+.SH NOTES
+Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.

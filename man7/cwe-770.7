@@ -1,0 +1,122 @@
+.\" Educational secure-coding reference. Generated, not hand-edited.
+.TH CWE-770 7 "2025-12-11" "CWE Top 25 (2025)" "Software Weakness Reference"
+.SH NAME
+CWE\-770 \- Allocation of Resources Without Limits or Throttling
+.SH RANK
+2025 CWE Top 25 rank: \fB#25\fR (2024 rank: 26).
+.SH CLASSIFICATION
+Class: Resource Management / Availability.
+.SH DESCRIPTION
+A reusable resource (memory, file handles, threads, connections, CPU) is allocated for an actor without limits or throttling. An attacker triggers excessive allocation to exhaust the resource and deny service.
+.SH MITIGATION
+Impose explicit limits: maximum request/body size, per\-client rate limiting, quotas, timeouts, and capped pools with back\-pressure. Reject work that exceeds limits early rather than allocating first.
+.SH KNOWN EXPLOITED VULNERABILITIES
+No entries in the current CISA KEV catalog (as of 2026-06-16) reference this weakness.
+.SH EXAMPLES
+One vulnerable\->fixed pair per ecosystem (Node.js, Python, Java, Go, PHP).
+.SS Node.js
+\fIVulnerable:\fR
+.RS
+.EX
+app.post('/render', (req, res) => {   // no size/rate limit
+  let body = '';
+  req.on('data', c => body += c);     // unbounded buffering
+  req.on('end', () => res.send(heavyRender(body)));
+});
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+app.use(express.text({ limit: '1mb' }));            // body cap
+app.post('/render', rateLimit({ max: 10, windowMs: 60000 }), (req, res) => {
+  res.send(heavyRender(req.body));
+});
+.EE
+.RE
+.SS Python
+\fIVulnerable:\fR
+.RS
+.EX
+@app.post('/render')
+def render():
+    data = request.get_data()   # no size/rate limit
+    return heavy_render(data)
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+app.config['MAX_CONTENT_LENGTH'] = 1 * 1024 * 1024   # 1 MiB cap
+@app.post('/render')
+@limiter.limit('10/minute')                           # per-client throttle
+def render():
+    return heavy_render(request.get_data())
+.EE
+.RE
+.SS Java
+\fIVulnerable:\fR
+.RS
+.EX
+@PostMapping("/render")
+public String render(@RequestBody String body) {   // no size/rate limit
+    return heavyRender(body);
+}
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+// application.properties: spring.servlet.multipart.max-request-size=1MB
+@PostMapping("/render")
+@RateLimiter(name = "render")   // resilience4j per-client throttle
+public String render(@RequestBody @Size(max = 1_000_000) String body) {
+    return heavyRender(body);
+}
+.EE
+.RE
+.SS Go
+\fIVulnerable:\fR
+.RS
+.EX
+func render(w http.ResponseWriter, r *http.Request) {
+    body, _ := io.ReadAll(r.Body)   // unbounded read
+    w.Write(heavyRender(body))
+}
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+func render(w http.ResponseWriter, r *http.Request) {
+    r.Body = http.MaxBytesReader(w, r.Body, 1<<20)   // 1 MiB cap
+    body, err := io.ReadAll(r.Body)
+    if err != nil { http.Error(w, "too large", 413); return }
+    w.Write(heavyRender(body))   // plus a rate-limiting middleware + timeouts
+}
+.EE
+.RE
+.SS PHP
+\fIVulnerable:\fR
+.RS
+.EX
+$data = file_get_contents('php://input');   // bounded only by memory_limit
+echo heavy_render($data);
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+// php.ini: post_max_size = 1M ; and rate-limit at the web server / WAF.
+$len = (int)($_SERVER['CONTENT_LENGTH'] ?? 0);
+if ($len > 1048576) { http_response_code(413); exit; }
+$data = file_get_contents('php://input');
+echo heavy_render($data);
+.EE
+.RE
+.SH SEE ALSO
+\fBcwe\fR(7) (index), CWE\-400, CWE\-789, CWE\-307.
+.PP
+Authoritative definition: https://cwe.mitre.org/data/definitions/770.html
+.SH NOTES
+Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.

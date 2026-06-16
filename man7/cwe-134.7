@@ -1,0 +1,35 @@
+.\" Educational secure-coding reference. Generated, not hand-edited.
+.TH CWE-134 7 "2025-12-11" "CWE Top 25 (2025)" "Software Weakness Reference"
+.SH NAME
+CWE\-134 \- Use of Externally\-Controlled Format String
+.SH RANK
+KEV\-referenced weakness. Not part of the 2025 CWE Top 25; documented here because it appears in the CISA KEV catalog.
+.SH CLASSIFICATION
+Class: KEV\-referenced weakness.
+.SH DESCRIPTION
+The product uses a function that accepts a format string as an argument, but the format string originates from an external source. When an attacker can modify an externally\-controlled format string, this can lead to buffer overflows, denial of service, or data representation problems. It should be noted that in some circumstances, such as internationalization, the set of format strings is externally controlled by design. If the source of these format strings is trusted (e.g. only contained in library files that are only modifiable by the system administrator), then the external control might not itself pose a vulnerability.
+.SH KNOWN EXPLOITED VULNERABILITIES
+CISA KEV catalog (as of 2026-06-16): \fB3\fR exploited CVEs mapped to this weakness.
+.PP
+CVE\-2019\-1579, CVE\-2020\-3118, CVE\-2024\-23113.
+.SH EXAMPLES
+One vulnerable\->fixed pair per ecosystem (C).
+.SS C
+\fIVulnerable:\fR
+.RS
+.EX
+printf(user_input);          /* format-string injection */
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+printf("%s", user_input);
+.EE
+.RE
+.SH SEE ALSO
+\fBcwe\fR(7) (index).
+.PP
+Authoritative definition: https://cwe.mitre.org/data/definitions/134.html
+.SH NOTES
+Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.

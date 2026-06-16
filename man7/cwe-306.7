@@ -1,0 +1,115 @@
+.\" Educational secure-coding reference. Generated, not hand-edited.
+.TH CWE-306 7 "2025-12-11" "CWE Top 25 (2025)" "Software Weakness Reference"
+.SH NAME
+CWE\-306 \- Missing Authentication for Critical Function
+.SH RANK
+2025 CWE Top 25 rank: \fB#21\fR (2024 rank: 25).
+.SH CLASSIFICATION
+Class: Authentication.
+.SH DESCRIPTION
+A critical function is reachable without authentication: admin panels, debug interfaces, firmware\-update or internal APIs are exposed so any actor who can reach the network path can invoke them.
+.SH MITIGATION
+Require authentication for every sensitive function and verify it server\-side; do not rely on an endpoint being hidden. Combine with authorization and an extra factor for the most dangerous operations.
+.SH KNOWN EXPLOITED VULNERABILITIES
+CISA KEV catalog (as of 2026-06-16): \fB35\fR exploited CVEs mapped to this weakness.
+.PP
+CVE\-2019\-5591, CVE\-2019\-9082, CVE\-2020\-3952, CVE\-2020\-6207, CVE\-2020\-6287, CVE\-2020\-13927, CVE\-2020\-24363, CVE\-2021\-20021, CVE\-2021\-37415, CVE\-2021\-44077, CVE\-2022\-1388, CVE\-2022\-21587, CVE\-2022\-23227, CVE\-2022\-24990, CVE\-2022\-26143, CVE\-2022\-26501, CVE\-2022\-26925, CVE\-2023\-27532, CVE\-2023\-28461, CVE\-2023\-36846, CVE\-2023\-36847, CVE\-2023\-36851, CVE\-2024\-0012, CVE\-2024\-5910, CVE\-2024\-47575, CVE\-2025\-0108, CVE\-2025\-3248, CVE\-2025\-4008, CVE\-2025\-32433, CVE\-2025\-61757, CVE\-2026\-24423, CVE\-2026\-33017, CVE\-2026\-35273, CVE\-2026\-39987, CVE\-2026\-41940.
+.SH EXAMPLES
+One vulnerable\->fixed pair per ecosystem (Node.js, Python, Java, Go, PHP).
+.SS Node.js
+\fIVulnerable:\fR
+.RS
+.EX
+app.post('/admin/shutdown', (req, res) => {   // no auth
+  systemShutdown();
+  res.send('bye');
+});
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+app.post('/admin/shutdown', requireAuth, requireRole('admin'), (req, res) => {
+  systemShutdown();
+  res.send('bye');
+});
+.EE
+.RE
+.SS Python
+\fIVulnerable:\fR
+.RS
+.EX
+@app.post('/admin/shutdown')   # no auth
+def shutdown():
+    system_shutdown()
+    return 'bye'
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+@app.post('/admin/shutdown')
+@login_required
+@require_role('admin')
+def shutdown():
+    system_shutdown()
+    return 'bye'
+.EE
+.RE
+.SS Java
+\fIVulnerable:\fR
+.RS
+.EX
+// Spring Security
+http.authorizeHttpRequests(a -> a.requestMatchers("/admin/**").permitAll());
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+http.authorizeHttpRequests(a -> a
+    .requestMatchers("/admin/**").hasRole("ADMIN")   // authenticated + authorized
+    .anyRequest().authenticated());
+.EE
+.RE
+.SS Go
+\fIVulnerable:\fR
+.RS
+.EX
+http.HandleFunc("/admin/shutdown", func(w http.ResponseWriter, r *http.Request) {
+    systemShutdown()   // no auth
+})
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+http.Handle("/admin/shutdown", requireRole("admin",
+  http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+      systemShutdown()
+  })))
+.EE
+.RE
+.SS PHP
+\fIVulnerable:\fR
+.RS
+.EX
+// admin_shutdown.php - no auth
+system_shutdown();
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+if (empty($_SESSION['user']) || ($_SESSION['role'] ?? '') !== 'admin') {
+    http_response_code(401); exit;
+}
+system_shutdown();
+.EE
+.RE
+.SH SEE ALSO
+\fBcwe\fR(7) (index), CWE\-862, CWE\-287, OWASP A07:2021 Auth Failures.
+.PP
+Authoritative definition: https://cwe.mitre.org/data/definitions/306.html
+.SH NOTES
+Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.

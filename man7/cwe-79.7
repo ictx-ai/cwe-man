@@ -1,0 +1,111 @@
+.\" Educational secure-coding reference. Generated, not hand-edited.
+.TH CWE-79 7 "2025-12-11" "CWE Top 25 (2025)" "Software Weakness Reference"
+.SH NAME
+CWE\-79 \- Improper Neutralization of Input During Web Page Generation (Cross\-site Scripting)
+.SH RANK
+2025 CWE Top 25 rank: \fB#1\fR (2024 rank: 1).
+.SH CLASSIFICATION
+Class: Injection / Web.
+.SH DESCRIPTION
+User\-controllable input is embedded in a web page served to other users without being neutralised as executable script. In the victim's browser the attacker's markup or JavaScript runs in the site's security context, enabling session theft, credential capture and account takeover.
+.PP
+Forms: stored (payload persisted server\-side), reflected (echoed from the request) and DOM\-based (written into the DOM client\-side).
+.SH MITIGATION
+Contextually encode untrusted data on output (HTML, attribute, JS contexts). Prefer an auto\-escaping template engine, set a strict Content\-Security\-Policy, and never build HTML by raw string concatenation.
+.SH KNOWN EXPLOITED VULNERABILITIES
+CISA KEV catalog (as of 2026-06-16): \fB33\fR exploited CVEs mapped to this weakness.
+.PP
+CVE\-2012\-0767, CVE\-2013\-5223, CVE\-2014\-2120, CVE\-2018\-6882, CVE\-2018\-19943, CVE\-2018\-19953, CVE\-2019\-3929, CVE\-2019\-9978, CVE\-2019\-18426, CVE\-2020\-3580, CVE\-2020\-11023, CVE\-2020\-35730, CVE\-2021\-1879, CVE\-2021\-26829, CVE\-2022\-24682, CVE\-2022\-27926, CVE\-2022\-39197, CVE\-2022\-42948, CVE\-2023\-5631, CVE\-2023\-34192, CVE\-2023\-37580, CVE\-2023\-43770, CVE\-2024\-11182, CVE\-2024\-27443, CVE\-2024\-37383, CVE\-2024\-42009, CVE\-2024\-43573, CVE\-2024\-44309, CVE\-2025\-27915, CVE\-2025\-48700, CVE\-2025\-66376, CVE\-2025\-68461, CVE\-2026\-42897.
+.SH EXAMPLES
+One vulnerable\->fixed pair per ecosystem (Node.js, Python, Java, Go, PHP).
+.SS Node.js
+\fIVulnerable:\fR
+.RS
+.EX
+app.get('/hi', (req, res) =>
+  res.send('<h1>Hello ' + req.query.name + '</h1>'));   // reflected XSS
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+const escapeHtml = s => String(s).replace(/[&<>"']/g, c =>
+  ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+app.get('/hi', (req, res) =>
+  res.send('<h1>Hello ' + escapeHtml(req.query.name) + '</h1>'));
+// Better: an auto-escaping template (e.g. <%= name %> in EJS).
+.EE
+.RE
+.SS Python
+\fIVulnerable:\fR
+.RS
+.EX
+@app.get('/hi')
+def hi():
+    return '<h1>Hello ' + request.args['name'] + '</h1>'   # reflected XSS
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+@app.get('/hi')
+def hi():
+    # Jinja auto-escapes by default
+    return render_template_string('<h1>Hello {{ name }}</h1>',
+                                  name=request.args['name'])
+.EE
+.RE
+.SS Java
+\fIVulnerable:\fR
+.RS
+.EX
+String name = req.getParameter("name");
+resp.getWriter().println("<h1>Hello " + name + "</h1>");   // reflected XSS
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+import org.owasp.encoder.Encode;
+String name = req.getParameter("name");
+resp.getWriter().println("<h1>Hello " + Encode.forHtml(name) + "</h1>");
+.EE
+.RE
+.SS Go
+\fIVulnerable:\fR
+.RS
+.EX
+name := r.URL.Query().Get("name")
+fmt.Fprintf(w, "<h1>Hello %s</h1>", name)   // reflected XSS
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+import "html/template"
+var t = template.Must(template.New("p").Parse("<h1>Hello {{.}}</h1>"))
+// html/template context-encodes automatically
+t.Execute(w, r.URL.Query().Get("name"))
+.EE
+.RE
+.SS PHP
+\fIVulnerable:\fR
+.RS
+.EX
+echo "<h1>Hello " . $_GET['name'] . "</h1>";   // reflected XSS
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+echo "<h1>Hello "
+   . htmlspecialchars($_GET['name'], ENT_QUOTES, 'UTF-8')
+   . "</h1>";
+.EE
+.RE
+.SH SEE ALSO
+\fBcwe\fR(7) (index), CWE\-80, CWE\-116, OWASP A03:2021 Injection.
+.PP
+Authoritative definition: https://cwe.mitre.org/data/definitions/79.html
+.SH NOTES
+Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.

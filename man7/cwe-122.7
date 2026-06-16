@@ -1,0 +1,55 @@
+.\" Educational secure-coding reference. Generated, not hand-edited.
+.TH CWE-122 7 "2025-12-11" "CWE Top 25 (2025)" "Software Weakness Reference"
+.SH NAME
+CWE\-122 \- Heap\-based Buffer Overflow
+.SH RANK
+2025 CWE Top 25 rank: \fB#16\fR (2024 rank: NEW).
+.SH CLASSIFICATION
+Class: Memory Safety.
+.SH DESCRIPTION
+An overflow of a heap\-allocated buffer. Overrunning it corrupts adjacent heap objects or allocator metadata; with heap grooming this becomes a reliable code execution primitive. Common in parsers. A C/C++ class.
+.SH MITIGATION
+Allocate based on the actual required size and bound every copy by it. Validate length fields and use checked arithmetic for size calculations to avoid integer overflow. In C++ prefer std::vector. Test with AddressSanitizer.
+.SH KNOWN EXPLOITED VULNERABILITIES
+CISA KEV catalog (as of 2026-06-16): \fB30\fR exploited CVEs mapped to this weakness.
+.PP
+CVE\-2019\-3568, CVE\-2021\-1647, CVE\-2021\-3156, CVE\-2021\-21017, CVE\-2021\-21148, CVE\-2021\-21166, CVE\-2021\-21220, CVE\-2021\-30551, CVE\-2021\-30563, CVE\-2021\-30632, CVE\-2021\-35395, CVE\-2021\-38003, CVE\-2022\-2294, CVE\-2022\-3723, CVE\-2022\-4262, CVE\-2022\-26318, CVE\-2022\-31199, CVE\-2023\-4911, CVE\-2023\-23376, CVE\-2023\-27997, CVE\-2023\-28252, CVE\-2023\-36036, CVE\-2024\-30051, CVE\-2024\-38812, CVE\-2024\-49138, CVE\-2025\-21333, CVE\-2025\-21418, CVE\-2025\-24985, CVE\-2025\-24993, CVE\-2025\-32706.
+.SH EXAMPLES
+One vulnerable\->fixed pair per ecosystem (C, C++).
+.SS C
+\fIVulnerable:\fR
+.RS
+.EX
+char *buf = malloc(8);
+memcpy(buf, input, input_len);   /* input_len unchecked: heap overflow */
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+if (input_len > 8) return -1;    /* reject oversize input */
+char *buf = malloc(8);
+if (!buf) return -1;
+memcpy(buf, input, input_len);   /* within bounds */
+.EE
+.RE
+.SS C++
+\fIVulnerable:\fR
+.RS
+.EX
+int *a = new int[8];
+std::memcpy(a, src, n * sizeof(int));   // n unchecked: heap overflow
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+std::vector<int> a(src, src + n);       // allocates exactly n; no overflow
+.EE
+.RE
+.SH SEE ALSO
+\fBcwe\fR(7) (index), CWE\-120, CWE\-787, CWE\-190.
+.PP
+Authoritative definition: https://cwe.mitre.org/data/definitions/122.html
+.SH NOTES
+Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.

@@ -1,0 +1,36 @@
+.\" Educational secure-coding reference. Generated, not hand-edited.
+.TH CWE-59 7 "2025-12-11" "CWE Top 25 (2025)" "Software Weakness Reference"
+.SH NAME
+CWE\-59 \- Improper Link Resolution Before File Access ('Link Following')
+.SH RANK
+KEV\-referenced weakness. Not part of the 2025 CWE Top 25; documented here because it appears in the CISA KEV catalog.
+.SH CLASSIFICATION
+Class: KEV\-referenced weakness.
+.SH DESCRIPTION
+The product attempts to access a file based on the filename, but it does not properly prevent that filename from identifying a link or shortcut that resolves to an unintended resource.
+.SH KNOWN EXPLOITED VULNERABILITIES
+CISA KEV catalog (as of 2026-06-16): \fB16\fR exploited CVEs mapped to this weakness.
+.PP
+CVE\-2019\-0841, CVE\-2019\-1064, CVE\-2019\-1069, CVE\-2019\-1129, CVE\-2019\-1130, CVE\-2019\-1253, CVE\-2019\-1315, CVE\-2019\-1385, CVE\-2020\-0787, CVE\-2020\-36193, CVE\-2022\-30333, CVE\-2023\-36874, CVE\-2025\-21391, CVE\-2025\-48384, CVE\-2025\-60710, CVE\-2026\-41091.
+.SH EXAMPLES
+One vulnerable\->fixed pair per ecosystem (Python).
+.SS Python
+\fIVulnerable:\fR
+.RS
+.EX
+open(path, "w").write(data)        # follows an attacker-planted symlink
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_NOFOLLOW | os.O_EXCL, 0o600)
+os.write(fd, data)
+.EE
+.RE
+.SH SEE ALSO
+\fBcwe\fR(7) (index).
+.PP
+Authoritative definition: https://cwe.mitre.org/data/definitions/59.html
+.SH NOTES
+Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.

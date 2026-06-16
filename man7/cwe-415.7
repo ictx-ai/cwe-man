@@ -1,0 +1,40 @@
+.\" Educational secure-coding reference. Generated, not hand-edited.
+.TH CWE-415 7 "2025-12-11" "CWE Top 25 (2025)" "Software Weakness Reference"
+.SH NAME
+CWE\-415 \- Double Free
+.SH RANK
+KEV\-referenced weakness. Not part of the 2025 CWE Top 25; documented here because it appears in the CISA KEV catalog.
+.SH CLASSIFICATION
+Class: KEV\-referenced weakness.
+.SH DESCRIPTION
+The product calls free() twice on the same memory address, potentially leading to modification of unexpected memory locations. When a program calls free() twice with the same argument, the program's memory management data structures become corrupted. This corruption can cause the program to crash or, in some circumstances, cause two later calls to malloc() to return the same pointer. If malloc() returns the same value twice and the program later gives the attacker control over the data that is written into this doubly\-allocated memory, the program becomes vulnerable to a buffer overflow attack.
+.SH KNOWN EXPLOITED VULNERABILITIES
+CISA KEV catalog (as of 2026-06-16): \fB3\fR exploited CVEs mapped to this weakness.
+.PP
+CVE\-2018\-4990, CVE\-2020\-9859, CVE\-2021\-22600.
+.SH EXAMPLES
+One vulnerable\->fixed pair per ecosystem (C).
+.SS C
+\fIVulnerable:\fR
+.RS
+.EX
+free(p);
+/* ... */
+free(p);                     /* double free */
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+free(p);
+p = NULL;                    /* free(NULL) is a no-op */
+/* ... */
+free(p);
+.EE
+.RE
+.SH SEE ALSO
+\fBcwe\fR(7) (index).
+.PP
+Authoritative definition: https://cwe.mitre.org/data/definitions/415.html
+.SH NOTES
+Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.

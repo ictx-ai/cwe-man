@@ -1,0 +1,22 @@
+.\" Educational secure-coding reference. Generated, not hand-edited.
+.TH CWE-74 7 "2025-12-11" "CWE Top 25 (2025)" "Software Weakness Reference"
+.SH NAME
+CWE\-74 \- Improper Neutralization of Special Elements in Output Used by a Downstream Component ('Injection')
+.SH RANK
+KEV\-referenced weakness. Not part of the 2025 CWE Top 25; documented here because it appears in the CISA KEV catalog.
+.SH CLASSIFICATION
+Class: KEV\-referenced weakness.
+.SH DESCRIPTION
+The product constructs all or part of a command, data structure, or record using externally\-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify how it is parsed or interpreted when it is sent to a downstream component. Software or other automated logic has certain assumptions about what constitutes data and control respectively. It is the lack of verification of these assumptions for user\-controlled input that leads to injection problems. Injection problems encompass a wide variety of issues \-\- all mitigated in very different ways and usually attempted in order to alter the control flow of the process. For this reason, the most effective way to discuss these weaknesses is to note the distinct features that classify them as injection weaknesses. The most important issue to note is that all injection problems share one thing in common \-\- i.e., they allow for the injection of control plane data into the user\-controlled data plane. This means that the execution of the process may be altered by sending code in through legitimate data channels, using no other mechanism. While buffer overflows, and many other flaws, involve the use of some further issue to gain execution, injection problems need only for the data to be parsed.
+.SH KNOWN EXPLOITED VULNERABILITIES
+CISA KEV catalog (as of 2026-06-16): \fB12\fR exploited CVEs mapped to this weakness.
+.PP
+CVE\-2019\-2725, CVE\-2019\-11581, CVE\-2019\-17558, CVE\-2020\-8468, CVE\-2020\-17496, CVE\-2020\-28949, CVE\-2022\-35914, CVE\-2022\-43769, CVE\-2022\-46169, CVE\-2023\-22527, CVE\-2025\-20281, CVE\-2025\-20337.
+.SH EXAMPLES
+No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
+.SH SEE ALSO
+\fBcwe\fR(7) (index).
+.PP
+Authoritative definition: https://cwe.mitre.org/data/definitions/74.html
+.SH NOTES
+Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.

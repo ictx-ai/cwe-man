@@ -1,0 +1,124 @@
+.\" Educational secure-coding reference. Generated, not hand-edited.
+.TH CWE-862 7 "2025-12-11" "CWE Top 25 (2025)" "Software Weakness Reference"
+.SH NAME
+CWE\-862 \- Missing Authorization
+.SH RANK
+2025 CWE Top 25 rank: \fB#4\fR (2024 rank: 9).
+.SH CLASSIFICATION
+Class: Access Control.
+.SH DESCRIPTION
+No authorization check is performed when an actor accesses a resource or performs an action. Authentication establishes who the user is, but the code never confirms they are allowed to do the operation, so any authenticated (or anonymous) user reaches privileged functionality.
+.SH MITIGATION
+Enforce an explicit authorization decision on every sensitive operation, ideally centrally (middleware/filter/annotation) so it cannot be forgotten. Deny by default; check the specific permission for the specific action.
+.SH KNOWN EXPLOITED VULNERABILITIES
+CISA KEV catalog (as of 2026-06-16): \fB11\fR exploited CVEs mapped to this weakness.
+.PP
+CVE\-2021\-3493, CVE\-2021\-30657, CVE\-2021\-30713, CVE\-2021\-37976, CVE\-2022\-0492, CVE\-2022\-0543, CVE\-2023\-52163, CVE\-2024\-57726, CVE\-2025\-6205, CVE\-2025\-20362, CVE\-2025\-40602.
+.SH EXAMPLES
+One vulnerable\->fixed pair per ecosystem (Node.js, Python, Java, Go, PHP).
+.SS Node.js
+\fIVulnerable:\fR
+.RS
+.EX
+app.delete('/users/:id', (req, res) => {     // no role check
+  users.delete(req.params.id);
+  res.sendStatus(204);
+});
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+const requireAdmin = (req, res, next) =>
+  req.user?.role === 'admin' ? next() : res.sendStatus(403);
+app.delete('/users/:id', requireAdmin, (req, res) => {
+  users.delete(req.params.id);
+  res.sendStatus(204);
+});
+.EE
+.RE
+.SS Python
+\fIVulnerable:\fR
+.RS
+.EX
+@app.delete('/users/<int:uid>')
+def delete_user(uid):                        # no role check
+    User.delete(uid)
+    return '', 204
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+@app.delete('/users/<int:uid>')
+@require_role('admin')                        # explicit authorization
+def delete_user(uid):
+    User.delete(uid)
+    return '', 204
+.EE
+.RE
+.SS Java
+\fIVulnerable:\fR
+.RS
+.EX
+@DeleteMapping("/users/{id}")
+public void delete(@PathVariable Long id) {   // no role check
+    userService.delete(id);
+}
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+@PreAuthorize("hasRole('ADMIN')")             // checked before the method runs
+@DeleteMapping("/users/{id}")
+public void delete(@PathVariable Long id) {
+    userService.delete(id);
+}
+.EE
+.RE
+.SS Go
+\fIVulnerable:\fR
+.RS
+.EX
+func deleteUser(w http.ResponseWriter, r *http.Request) {   // no role check
+    users.Delete(mux.Vars(r)["id"])
+    w.WriteHeader(204)
+}
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+func deleteUser(w http.ResponseWriter, r *http.Request) {
+    if !currentUser(r).IsAdmin {
+        http.Error(w, "forbidden", http.StatusForbidden); return
+    }
+    users.Delete(mux.Vars(r)["id"])
+    w.WriteHeader(204)
+}
+.EE
+.RE
+.SS PHP
+\fIVulnerable:\fR
+.RS
+.EX
+// delete_user.php
+delete_user($_GET['id']);                     // no role check
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+if (($_SESSION['role'] ?? '') !== 'admin') {
+    http_response_code(403); exit;            // explicit authorization
+}
+delete_user($_GET['id']);
+.EE
+.RE
+.SH SEE ALSO
+\fBcwe\fR(7) (index), CWE\-285, CWE\-863, OWASP A01:2021 Broken Access Control.
+.PP
+Authoritative definition: https://cwe.mitre.org/data/definitions/862.html
+.SH NOTES
+Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.

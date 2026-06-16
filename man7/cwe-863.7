@@ -1,0 +1,135 @@
+.\" Educational secure-coding reference. Generated, not hand-edited.
+.TH CWE-863 7 "2025-12-11" "CWE Top 25 (2025)" "Software Weakness Reference"
+.SH NAME
+CWE\-863 \- Incorrect Authorization
+.SH RANK
+2025 CWE Top 25 rank: \fB#17\fR (2024 rank: 18).
+.SH CLASSIFICATION
+Class: Access Control.
+.SH DESCRIPTION
+An authorization check exists but is logically flawed, so it permits actions it should deny: comparing the wrong field, only checking authentication, or failing open. Unlike Missing Authorization, the check is present but wrong.
+.SH MITIGATION
+Check the specific permission for the specific object the actor touches, not merely that they are authenticated. Fail closed on any error. Centralise the policy so the same correct check is reused.
+.SH KNOWN EXPLOITED VULNERABILITIES
+CISA KEV catalog (as of 2026-06-16): \fB16\fR exploited CVEs mapped to this weakness.
+.PP
+CVE\-2019\-7192, CVE\-2021\-3560, CVE\-2021\-22986, CVE\-2021\-30533, CVE\-2021\-40655, CVE\-2022\-41091, CVE\-2023\-21715, CVE\-2023\-22518, CVE\-2023\-24880, CVE\-2023\-38035, CVE\-2024\-21287, CVE\-2024\-38856, CVE\-2025\-21479, CVE\-2025\-21480, CVE\-2025\-24200, CVE\-2025\-55177.
+.SH EXAMPLES
+One vulnerable\->fixed pair per ecosystem (Node.js, Python, Java, Go, PHP).
+.SS Node.js
+\fIVulnerable:\fR
+.RS
+.EX
+app.get('/orders/:id', requireAuth, async (req, res) => {
+  const order = await Order.findById(req.params.id);
+  res.json(order);   // any logged-in user can read any order
+});
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+app.get('/orders/:id', requireAuth, async (req, res) => {
+  const order = await Order.findById(req.params.id);
+  if (!order || order.userId !== req.user.id) return res.sendStatus(403);
+  res.json(order);   // object-level ownership check
+});
+.EE
+.RE
+.SS Python
+\fIVulnerable:\fR
+.RS
+.EX
+@app.get('/orders/<int:oid>')
+def view(oid):
+    order = Order.get(oid)
+    if current_user.is_authenticated:   # only checks login, not ownership
+        return order.json()
+    abort(401)
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+@app.get('/orders/<int:oid>')
+def view(oid):
+    order = Order.get(oid)
+    if order is None or order.owner_id != current_user.id:
+        abort(403)                      # object-level ownership check
+    return order.json()
+.EE
+.RE
+.SS Java
+\fIVulnerable:\fR
+.RS
+.EX
+@GetMapping("/orders/{id}")
+public Order view(@PathVariable Long id, Authentication auth) {
+    if (auth.isAuthenticated())         // login only, not ownership
+        return repo.findById(id).orElseThrow();
+    throw new AccessDeniedException("401");
+}
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+@GetMapping("/orders/{id}")
+public Order view(@PathVariable Long id, @AuthenticationPrincipal User me) {
+    Order o = repo.findById(id).orElseThrow();
+    if (!o.getOwnerId().equals(me.getId()))
+        throw new AccessDeniedException("403");   // ownership check
+    return o;
+}
+.EE
+.RE
+.SS Go
+\fIVulnerable:\fR
+.RS
+.EX
+func view(w http.ResponseWriter, r *http.Request) {
+    o := getOrder(id(r))
+    if loggedIn(r) {            // login only
+        json.NewEncoder(w).Encode(o)
+    }
+}
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+func view(w http.ResponseWriter, r *http.Request) {
+    o := getOrder(id(r))
+    if o == nil || o.OwnerID != currentUser(r).ID {
+        http.Error(w, "forbidden", 403); return   // ownership check
+    }
+    json.NewEncoder(w).Encode(o)
+}
+.EE
+.RE
+.SS PHP
+\fIVulnerable:\fR
+.RS
+.EX
+$order = get_order($_GET['id']);
+if (isset($_SESSION['user'])) {        // login only
+    echo json_encode($order);
+}
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+$order = get_order($_GET['id']);
+if (!$order || $order['owner_id'] !== ($_SESSION['user']['id'] ?? null)) {
+    http_response_code(403); exit;     // ownership check
+}
+echo json_encode($order);
+.EE
+.RE
+.SH SEE ALSO
+\fBcwe\fR(7) (index), CWE\-862, CWE\-285, CWE\-639.
+.PP
+Authoritative definition: https://cwe.mitre.org/data/definitions/863.html
+.SH NOTES
+Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.

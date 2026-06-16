@@ -1,0 +1,89 @@
+.\" Educational secure-coding reference. Generated, not hand-edited.
+.TH CWE-94 7 "2025-12-11" "CWE Top 25 (2025)" "Software Weakness Reference"
+.SH NAME
+CWE\-94 \- Improper Control of Generation of Code (Code Injection)
+.SH RANK
+2025 CWE Top 25 rank: \fB#10\fR (2024 rank: 11).
+.SH CLASSIFICATION
+Class: Injection.
+.SH DESCRIPTION
+The application builds code from untrusted input and then interprets/executes it, so the payload runs in the application's own language runtime \- usually full control of the process. Typical sinks are eval() and dynamic templates.
+.SH MITIGATION
+Never pass untrusted data to eval/exec or a general script engine. Use a purpose\-built safe parser for the intended data (a math\-expression library, a literal parser, or a data format like JSON). Keep code and data separate.
+.SH KNOWN EXPLOITED VULNERABILITIES
+CISA KEV catalog (as of 2026-06-16): \fB64\fR exploited CVEs mapped to this weakness.
+.PP
+CVE\-2008\-4250, CVE\-2009\-0238, CVE\-2009\-0556, CVE\-2009\-0557, CVE\-2009\-1151, CVE\-2009\-1862, CVE\-2009\-3129, CVE\-2010\-0188, CVE\-2012\-0158, CVE\-2012\-1856, CVE\-2013\-1347, CVE\-2013\-3163, CVE\-2013\-3906, CVE\-2013\-4810, CVE\-2014\-4148, CVE\-2014\-6287, CVE\-2014\-6352, CVE\-2015\-1635, CVE\-2015\-7450, CVE\-2017\-7494, CVE\-2017\-9841, CVE\-2018\-1273, CVE\-2018\-14667, CVE\-2019\-0193, CVE\-2019\-4716, CVE\-2019\-7609, CVE\-2019\-9082, CVE\-2019\-16759, CVE\-2020\-8218, CVE\-2020\-8243, CVE\-2020\-8644, CVE\-2021\-22894, CVE\-2021\-22900, CVE\-2021\-39144, CVE\-2021\-44529, CVE\-2022\-3236, CVE\-2022\-22947, CVE\-2022\-22954, CVE\-2022\-22963, CVE\-2022\-22965, CVE\-2022\-24816, CVE\-2022\-41223, CVE\-2023\-3519, CVE\-2023\-6548, CVE\-2023\-24955, CVE\-2023\-25717, CVE\-2023\-29492, CVE\-2023\-33246, CVE\-2024\-20359, CVE\-2024\-21351, CVE\-2024\-56145, CVE\-2025\-1976, CVE\-2025\-4428, CVE\-2025\-6204, CVE\-2025\-23209, CVE\-2025\-32432, CVE\-2025\-37164, CVE\-2025\-49704, CVE\-2025\-54068, CVE\-2026\-1281, CVE\-2026\-1340, CVE\-2026\-20045, CVE\-2026\-33017, CVE\-2026\-34197.
+.SH EXAMPLES
+One vulnerable\->fixed pair per ecosystem (Node.js, Python, Java, PHP).
+.SS Node.js
+\fIVulnerable:\fR
+.RS
+.EX
+const result = eval(req.body.expr);   // arbitrary code execution
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+const { evaluate } = require('mathjs');
+const result = evaluate(req.body.expr);   // restricted math grammar, no JS eval
+.EE
+.RE
+.SS Python
+\fIVulnerable:\fR
+.RS
+.EX
+return eval(expr)   # e.g. expr="__import__('os').system('id')"
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+import ast, operator
+_OPS = {ast.Add: operator.add, ast.Sub: operator.sub,
+        ast.Mult: operator.mul, ast.Div: operator.truediv}
+def ev(n):
+    if isinstance(n, ast.Constant): return n.value
+    if isinstance(n, ast.BinOp):    return _OPS[type(n.op)](ev(n.left), ev(n.right))
+    raise ValueError('unsupported')
+return ev(ast.parse(expr, mode='eval').body)
+.EE
+.RE
+.SS Java
+\fIVulnerable:\fR
+.RS
+.EX
+// Nashorn / any javax.script engine
+engine.eval(userInput);   // arbitrary code execution
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+// Do NOT feed untrusted input to a script engine.
+// Parse the intended grammar with a typed, restricted parser instead:
+double result = new net.objecthunter.exp4j.ExpressionBuilder(userInput)
+                    .build().evaluate();   // arithmetic only
+.EE
+.RE
+.SS PHP
+\fIVulnerable:\fR
+.RS
+.EX
+eval('$r = ' . $_GET['expr'] . ';');   // arbitrary code execution
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+// Never eval() user input. Use a dedicated math evaluator:
+$r = (new \\NXP\\MathExecutor())->execute($_GET['expr']);   // arithmetic only
+.EE
+.RE
+.SH SEE ALSO
+\fBcwe\fR(7) (index), CWE\-95, CWE\-502, OWASP A03:2021 Injection.
+.PP
+Authoritative definition: https://cwe.mitre.org/data/definitions/94.html
+.SH NOTES
+Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.

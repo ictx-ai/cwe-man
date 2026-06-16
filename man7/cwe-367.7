@@ -1,0 +1,38 @@
+.\" Educational secure-coding reference. Generated, not hand-edited.
+.TH CWE-367 7 "2025-12-11" "CWE Top 25 (2025)" "Software Weakness Reference"
+.SH NAME
+CWE\-367 \- Time\-of\-check Time\-of\-use (TOCTOU) Race Condition
+.SH RANK
+KEV\-referenced weakness. Not part of the 2025 CWE Top 25; documented here because it appears in the CISA KEV catalog.
+.SH CLASSIFICATION
+Class: KEV\-referenced weakness.
+.SH DESCRIPTION
+The product checks the state of a resource before using that resource, but the resource's state can change between the check and the use in a way that invalidates the results of the check. This can cause the product to perform invalid actions when the resource is in an unexpected state. This weakness can be security\-relevant when an attacker can influence the state of the resource between check and use. This can happen with shared resources such as files, memory, or even variables in multithreaded programs.
+.SH KNOWN EXPLOITED VULNERABILITIES
+CISA KEV catalog (as of 2026-06-16): \fB5\fR exploited CVEs mapped to this weakness.
+.PP
+CVE\-2022\-48618, CVE\-2023\-35311, CVE\-2024\-30088, CVE\-2025\-22224, CVE\-2025\-38352.
+.SH EXAMPLES
+One vulnerable\->fixed pair per ecosystem (Python).
+.SS Python
+\fIVulnerable:\fR
+.RS
+.EX
+if os.access(path, os.W_OK):       # check
+    open(path, "w").write(data)    # ...use: race window (TOCTOU)
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
+with os.fdopen(fd, "w") as f:      # atomic; no check/use gap
+    f.write(data)
+.EE
+.RE
+.SH SEE ALSO
+\fBcwe\fR(7) (index).
+.PP
+Authoritative definition: https://cwe.mitre.org/data/definitions/367.html
+.SH NOTES
+Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.

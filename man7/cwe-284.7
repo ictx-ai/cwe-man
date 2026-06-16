@@ -1,0 +1,119 @@
+.\" Educational secure-coding reference. Generated, not hand-edited.
+.TH CWE-284 7 "2025-12-11" "CWE Top 25 (2025)" "Software Weakness Reference"
+.SH NAME
+CWE\-284 \- Improper Access Control
+.SH RANK
+2025 CWE Top 25 rank: \fB#19\fR (2024 rank: NEW).
+.SH CLASSIFICATION
+Class: Access Control.
+.SH DESCRIPTION
+Access to a resource is not restricted, or is incorrectly restricted, from an unauthorized actor. The broad parent of missing/incorrect authorization, weak permission models, and unprotected resources.
+.SH MITIGATION
+Enforce access control at the server for every resource and entry point, default to deny, and rely on a centralised, well\-tested authorization layer rather than UI restrictions or obscurity. Apply least privilege.
+.SH KNOWN EXPLOITED VULNERABILITIES
+CISA KEV catalog (as of 2026-06-16): \fB31\fR exploited CVEs mapped to this weakness.
+.PP
+CVE\-2014\-3120, CVE\-2015\-1427, CVE\-2016\-3393, CVE\-2016\-3715, CVE\-2016\-4437, CVE\-2016\-7256, CVE\-2016\-8735, CVE\-2019\-1653, CVE\-2020\-2506, CVE\-2020\-8193, CVE\-2020\-8196, CVE\-2021\-22941, CVE\-2021\-23874, CVE\-2022\-23134, CVE\-2023\-7028, CVE\-2023\-23752, CVE\-2023\-24489, CVE\-2023\-26360, CVE\-2023\-27350, CVE\-2023\-29298, CVE\-2023\-38205, CVE\-2024\-20767, CVE\-2024\-27348, CVE\-2024\-40766, CVE\-2024\-45519, CVE\-2025\-12480, CVE\-2025\-24989, CVE\-2025\-31125, CVE\-2025\-33073, CVE\-2025\-59230, CVE\-2026\-35616.
+.SH EXAMPLES
+One vulnerable\->fixed pair per ecosystem (Node.js, Python, Java, Go, PHP).
+.SS Node.js
+\fIVulnerable:\fR
+.RS
+.EX
+// /reports route is only linked from the admin UI, but nothing guards it
+app.get('/reports/:name', (req, res) =>
+  res.sendFile('/reports/' + req.params.name));   // reachable by anyone
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+app.get('/reports/:name', requireAuth, (req, res) => {
+  if (!canRead(req.user, req.params.name)) return res.sendStatus(403);
+  res.sendFile(safePath('/reports', req.params.name));
+});
+.EE
+.RE
+.SS Python
+\fIVulnerable:\fR
+.RS
+.EX
+@app.get('/reports/<name>')
+def report(name):                       # no guard; relies on UI not linking it
+    return send_from_directory('/reports', name)
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+@app.get('/reports/<name>')
+@login_required
+def report(name):
+    if not can_read(current_user, name):
+        abort(403)
+    return send_from_directory('/reports', name)
+.EE
+.RE
+.SS Java
+\fIVulnerable:\fR
+.RS
+.EX
+protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
+    serveFile("/reports/" + req.getParameter("name"), resp);   // unguarded
+}
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
+    if (!authz.canRead(currentUser(req), req.getParameter("name"))) {
+        resp.sendError(403); return;
+    }
+    serveFile(safePath(req.getParameter("name")), resp);
+}
+.EE
+.RE
+.SS Go
+\fIVulnerable:\fR
+.RS
+.EX
+http.HandleFunc("/reports/", func(w http.ResponseWriter, r *http.Request) {
+    http.ServeFile(w, r, "/reports/"+r.URL.Query().Get("name"))   // unguarded
+})
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+http.HandleFunc("/reports/", func(w http.ResponseWriter, r *http.Request) {
+    if !canRead(currentUser(r), r.URL.Query().Get("name")) {
+        http.Error(w, "forbidden", 403); return
+    }
+    http.ServeFile(w, r, safePath("/reports", r.URL.Query().Get("name")))
+})
+.EE
+.RE
+.SS PHP
+\fIVulnerable:\fR
+.RS
+.EX
+// report.php - no guard
+readfile('/reports/' . basename($_GET['name']));
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+if (!can_read($_SESSION['user'] ?? null, $_GET['name'])) {
+    http_response_code(403); exit;
+}
+readfile('/reports/' . basename($_GET['name']));
+.EE
+.RE
+.SH SEE ALSO
+\fBcwe\fR(7) (index), CWE\-862, CWE\-863, OWASP A01:2021 Broken Access Control.
+.PP
+Authoritative definition: https://cwe.mitre.org/data/definitions/284.html
+.SH NOTES
+Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.

@@ -1,0 +1,107 @@
+.\" Educational secure-coding reference. Generated, not hand-edited.
+.TH CWE-200 7 "2025-12-11" "CWE Top 25 (2025)" "Software Weakness Reference"
+.SH NAME
+CWE\-200 \- Exposure of Sensitive Information to an Unauthorized Actor
+.SH RANK
+2025 CWE Top 25 rank: \fB#20\fR (2024 rank: 17).
+.SH CLASSIFICATION
+Class: Information Disclosure.
+.SH DESCRIPTION
+Sensitive information (credentials, keys, personal data, internal details) is disclosed to an actor not authorized to see it \- directly (returning secret fields) or indirectly (verbose errors, debug output, metadata).
+.SH MITIGATION
+Return only the fields each caller is entitled to (allow\-list). Keep secrets out of logs and error messages, disable debug output in production, and return generic errors to clients while logging detail server\-side.
+.SH KNOWN EXPLOITED VULNERABILITIES
+CISA KEV catalog (as of 2026-06-16): \fB24\fR exploited CVEs mapped to this weakness.
+.PP
+CVE\-2013\-0631, CVE\-2013\-0632, CVE\-2013\-7331, CVE\-2015\-4495, CVE\-2015\-5317, CVE\-2016\-0162, CVE\-2016\-2388, CVE\-2016\-3298, CVE\-2016\-3351, CVE\-2016\-4655, CVE\-2016\-6415, CVE\-2017\-0022, CVE\-2017\-0059, CVE\-2017\-0147, CVE\-2017\-5521, CVE\-2020\-3259, CVE\-2021\-25369, CVE\-2021\-41277, CVE\-2023\-21237, CVE\-2023\-28432, CVE\-2024\-24919, CVE\-2025\-31125, CVE\-2026\-20133, CVE\-2026\-20805.
+.SH EXAMPLES
+One vulnerable\->fixed pair per ecosystem (Node.js, Python, Java, Go, PHP).
+.SS Node.js
+\fIVulnerable:\fR
+.RS
+.EX
+const user = await User.findById(req.params.id);
+res.json(user);   // serialises passwordHash, totpSecret, ...
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+const user = await User.findById(req.params.id);
+res.json({ id: user.id, name: user.name });   // explicit safe fields
+.EE
+.RE
+.SS Python
+\fIVulnerable:\fR
+.RS
+.EX
+u = User.get(uid)
+return jsonify(u.__dict__)   # includes password hash, secrets
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+u = User.get(uid)
+return jsonify({'id': u.id, 'name': u.name})   # safe fields only
+.EE
+.RE
+.SS Java
+\fIVulnerable:\fR
+.RS
+.EX
+@GetMapping("/users/{id}")
+public User get(@PathVariable Long id) {        // entity leaks all columns
+    return repo.findById(id).orElseThrow();
+}
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+public record UserDto(Long id, String name) {}
+@GetMapping("/users/{id}")
+public UserDto get(@PathVariable Long id) {     // DTO with safe fields only
+    User u = repo.findById(id).orElseThrow();
+    return new UserDto(u.getId(), u.getName());
+}
+.EE
+.RE
+.SS Go
+\fIVulnerable:\fR
+.RS
+.EX
+json.NewEncoder(w).Encode(user)   // struct exports PasswordHash, etc.
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+// Tag secret fields so they never serialise:
+type User struct {
+    ID           int    `json:"id"`
+    Name         string `json:"name"`
+    PasswordHash string `json:"-"`   // excluded from JSON
+}
+json.NewEncoder(w).Encode(user)
+.EE
+.RE
+.SS PHP
+\fIVulnerable:\fR
+.RS
+.EX
+echo json_encode($user);   // whole row incl. password_hash
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+echo json_encode(['id' => $user['id'], 'name' => $user['name']]);  // safe fields
+.EE
+.RE
+.SH SEE ALSO
+\fBcwe\fR(7) (index), CWE\-209, CWE\-532, OWASP A02:2021 Cryptographic Failures.
+.PP
+Authoritative definition: https://cwe.mitre.org/data/definitions/200.html
+.SH NOTES
+Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.

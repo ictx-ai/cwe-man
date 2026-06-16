@@ -1,0 +1,120 @@
+.\" Educational secure-coding reference. Generated, not hand-edited.
+.TH CWE-434 7 "2025-12-11" "CWE Top 25 (2025)" "Software Weakness Reference"
+.SH NAME
+CWE\-434 \- Unrestricted Upload of File with Dangerous Type
+.SH RANK
+2025 CWE Top 25 rank: \fB#12\fR (2024 rank: 10).
+.SH CLASSIFICATION
+Class: Web / File Handling.
+.SH DESCRIPTION
+Uploads are accepted without adequately restricting the type or how the file is handled. An attacker uploads executable content (e.g. a web shell) into a location the server executes, achieving remote code execution.
+.SH MITIGATION
+Validate by content (not just extension); allow\-list permitted types; generate a server\-side random filename; store uploads outside the web root or where scripts never execute; serve with a safe Content\-Type/Content\-Disposition.
+.SH KNOWN EXPLOITED VULNERABILITIES
+CISA KEV catalog (as of 2026-06-16): \fB20\fR exploited CVEs mapped to this weakness.
+.PP
+CVE\-2017\-12615, CVE\-2017\-12617, CVE\-2018\-4063, CVE\-2018\-15961, CVE\-2019\-8394, CVE\-2020\-8260, CVE\-2020\-13671, CVE\-2020\-25213, CVE\-2021\-20022, CVE\-2021\-26828, CVE\-2021\-27860, CVE\-2021\-31207, CVE\-2024\-7399, CVE\-2024\-7694, CVE\-2024\-39717, CVE\-2024\-50623, CVE\-2024\-57968, CVE\-2025\-2749, CVE\-2025\-31324, CVE\-2025\-52691.
+.SH EXAMPLES
+One vulnerable\->fixed pair per ecosystem (Node.js, Python, Java, Go, PHP).
+.SS Node.js
+\fIVulnerable:\fR
+.RS
+.EX
+// multer with original name under the web root
+const dest = '/var/www/html/uploads/' + req.file.originalname;   // shell.js
+fs.renameSync(req.file.path, dest);
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+import { fileTypeFromFile } from 'file-type';
+const ALLOW = { 'image/png': 'png', 'image/jpeg': 'jpg' };
+const t = await fileTypeFromFile(req.file.path);
+if (!t || !ALLOW[t.mime]) return res.sendStatus(415);
+const name = crypto.randomUUID() + '.' + ALLOW[t.mime];
+fs.renameSync(req.file.path, '/srv/uploads/' + name);   // outside web root
+.EE
+.RE
+.SS Python
+\fIVulnerable:\fR
+.RS
+.EX
+# Flask
+file.save(os.path.join('/var/www/html/uploads', file.filename))   # shell.py
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+import imghdr, uuid
+kind = imghdr.what(file.stream)            # validate by content
+if kind not in ('png', 'jpeg'):
+    abort(415)
+name = f"{uuid.uuid4()}.{kind}"
+file.save(os.path.join('/srv/uploads', name))   # outside web root
+.EE
+.RE
+.SS Java
+\fIVulnerable:\fR
+.RS
+.EX
+// Spring
+file.transferTo(new File("/var/www/html/" + file.getOriginalFilename()));
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+String mime = new Tika().detect(file.getInputStream());   // validate content
+Map<String,String> allow = Map.of("image/png","png","image/jpeg","jpg");
+if (!allow.containsKey(mime)) throw new ResponseStatusException(UNSUPPORTED_MEDIA_TYPE);
+String name = UUID.randomUUID() + "." + allow.get(mime);
+file.transferTo(Path.of("/srv/uploads", name));   // outside web root
+.EE
+.RE
+.SS Go
+\fIVulnerable:\fR
+.RS
+.EX
+dst, _ := os.Create("/var/www/html/uploads/" + header.Filename)   // shell
+io.Copy(dst, file)
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+buf := make([]byte, 512)
+n, _ := file.Read(buf)
+mime := http.DetectContentType(buf[:n])   // validate by content
+ext, ok := map[string]string{"image/png": "png", "image/jpeg": "jpg"}[mime]
+if !ok { http.Error(w, "type", 415); return }
+file.Seek(0, io.SeekStart)
+dst, _ := os.Create("/srv/uploads/" + uuid.NewString() + "." + ext)  // outside root
+io.Copy(dst, file)
+.EE
+.RE
+.SS PHP
+\fIVulnerable:\fR
+.RS
+.EX
+$dest = '/var/www/html/uploads/' . $_FILES['f']['name'];   // shell.php
+move_uploaded_file($_FILES['f']['tmp_name'], $dest);
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+$allow = ['image/png' => 'png', 'image/jpeg' => 'jpg'];
+$mime = (new finfo(FILEINFO_MIME_TYPE))->file($_FILES['f']['tmp_name']);
+if (!isset($allow[$mime])) { http_response_code(415); exit; }
+$name = bin2hex(random_bytes(16)) . '.' . $allow[$mime];
+move_uploaded_file($_FILES['f']['tmp_name'], '/srv/uploads/' . $name); // outside root
+.EE
+.RE
+.SH SEE ALSO
+\fBcwe\fR(7) (index), CWE\-94, CWE\-79, OWASP A04:2021 Insecure Design.
+.PP
+Authoritative definition: https://cwe.mitre.org/data/definitions/434.html
+.SH NOTES
+Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.

@@ -1,0 +1,129 @@
+.\" Educational secure-coding reference. Generated, not hand-edited.
+.TH CWE-918 7 "2025-12-11" "CWE Top 25 (2025)" "Software Weakness Reference"
+.SH NAME
+CWE\-918 \- Server\-Side Request Forgery (SSRF)
+.SH RANK
+2025 CWE Top 25 rank: \fB#22\fR (2024 rank: 19).
+.SH CLASSIFICATION
+Class: Web / Injection.
+.SH DESCRIPTION
+The server fetches a URL supplied or influenced by the user without validating the destination, so an attacker coerces requests to internal services, link\-local cloud metadata endpoints, or arbitrary hosts \- bypassing network controls and exposing internal data.
+.SH MITIGATION
+Allow\-list permitted hosts/schemes; resolve the hostname and reject private, loopback and link\-local ranges; disable redirects to disallowed targets; and isolate outbound requests from internal/metadata services.
+.SH KNOWN EXPLOITED VULNERABILITIES
+CISA KEV catalog (as of 2026-06-16): \fB17\fR exploited CVEs mapped to this weakness.
+.PP
+CVE\-2019\-9621, CVE\-2020\-7796, CVE\-2021\-21311, CVE\-2021\-21973, CVE\-2021\-21975, CVE\-2021\-21985, CVE\-2021\-22054, CVE\-2021\-22175, CVE\-2021\-26855, CVE\-2021\-27103, CVE\-2021\-34473, CVE\-2021\-39935, CVE\-2021\-40438, CVE\-2022\-41040, CVE\-2023\-41763, CVE\-2024\-21893, CVE\-2025\-61884.
+.SH EXAMPLES
+One vulnerable\->fixed pair per ecosystem (Node.js, Python, Java, Go, PHP).
+.SS Node.js
+\fIVulnerable:\fR
+.RS
+.EX
+const r = await fetch(req.query.url);   // http://169.254.169.254/... reachable
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+const ALLOWED = new Set(['api.partner.example']);
+const u = new URL(req.query.url);
+if (!ALLOWED.has(u.hostname)) return res.sendStatus(400);
+const { address } = await dns.promises.lookup(u.hostname);
+if (isPrivateIp(address)) return res.sendStatus(400);
+const r = await fetch(u, { redirect: 'manual' });
+.EE
+.RE
+.SS Python
+\fIVulnerable:\fR
+.RS
+.EX
+return requests.get(url).text   # url may target internal/metadata services
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+import ipaddress, socket
+ALLOWED = {'api.partner.example'}
+host = requests.utils.urlparse(url).hostname
+if host not in ALLOWED: raise ValueError('host not allowed')
+ip = ipaddress.ip_address(socket.gethostbyname(host))
+if ip.is_private or ip.is_loopback or ip.is_link_local:
+    raise ValueError('internal address blocked')
+return requests.get(url, allow_redirects=False, timeout=5).text
+.EE
+.RE
+.SS Java
+\fIVulnerable:\fR
+.RS
+.EX
+InputStream in = new URL(url).openStream();   // internal targets reachable
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+URI u = URI.create(url);
+if (!Set.of("api.partner.example").contains(u.getHost()))
+    throw new SecurityException("host not allowed");
+InetAddress ip = InetAddress.getByName(u.getHost());
+if (ip.isSiteLocalAddress() || ip.isLoopbackAddress() || ip.isLinkLocalAddress())
+    throw new SecurityException("internal address blocked");
+HttpClient.newBuilder().followRedirects(Redirect.NEVER).build()
+          .send(HttpRequest.newBuilder(u).build(), BodyHandlers.ofString());
+.EE
+.RE
+.SS Go
+\fIVulnerable:\fR
+.RS
+.EX
+resp, _ := http.Get(url)   // internal targets reachable
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+u, _ := neturl.Parse(url)
+if u.Hostname() != "api.partner.example" {
+    http.Error(w, "host not allowed", 400); return
+}
+ips, _ := net.LookupIP(u.Hostname())
+for _, ip := range ips {
+    if ip.IsPrivate() || ip.IsLoopback() || ip.IsLinkLocalUnicast() {
+        http.Error(w, "internal blocked", 400); return
+    }
+}
+client := &http.Client{CheckRedirect: func(*http.Request, []*http.Request) error {
+    return http.ErrUseLastResponse }}
+resp, _ := client.Get(u.String())
+.EE
+.RE
+.SS PHP
+\fIVulnerable:\fR
+.RS
+.EX
+echo file_get_contents($_GET['url']);   // internal targets reachable
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+$host = parse_url($_GET['url'], PHP_URL_HOST);
+if ($host !== 'api.partner.example') { http_response_code(400); exit; }
+$ip = gethostbyname($host);
+if (!filter_var($ip, FILTER_VALIDATE_IP,
+        FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE)) {
+    http_response_code(400); exit;   // private/reserved blocked
+}
+$ch = curl_init($_GET['url']);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, false);
+echo curl_exec($ch);
+.EE
+.RE
+.SH SEE ALSO
+\fBcwe\fR(7) (index), CWE\-20, CWE\-610, OWASP A10:2021 SSRF.
+.PP
+Authoritative definition: https://cwe.mitre.org/data/definitions/918.html
+.SH NOTES
+Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.

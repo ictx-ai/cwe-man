@@ -1,0 +1,35 @@
+.\" Educational secure-coding reference. Generated, not hand-edited.
+.TH CWE-732 7 "2025-12-11" "CWE Top 25 (2025)" "Software Weakness Reference"
+.SH NAME
+CWE\-732 \- Incorrect Permission Assignment for Critical Resource
+.SH RANK
+KEV\-referenced weakness. Not part of the 2025 CWE Top 25; documented here because it appears in the CISA KEV catalog.
+.SH CLASSIFICATION
+Class: KEV\-referenced weakness.
+.SH DESCRIPTION
+The product specifies permissions for a security\-critical resource in a way that allows that resource to be read or modified by unintended actors. When a resource is given a permission setting that provides access to a wider range of actors than required, it could lead to the exposure of sensitive information, or the modification of that resource by unintended parties. This is especially dangerous when the resource is related to program configuration, execution, or sensitive user data. For example, consider a misconfigured storage account for the cloud that can be read or written by a public or anonymous user.
+.SH KNOWN EXPLOITED VULNERABILITIES
+CISA KEV catalog (as of 2026-06-16): \fB2\fR exploited CVEs mapped to this weakness.
+.PP
+CVE\-2018\-13374, CVE\-2019\-15752.
+.SH EXAMPLES
+One vulnerable\->fixed pair per ecosystem (Python).
+.SS Python
+\fIVulnerable:\fR
+.RS
+.EX
+os.chmod(secret, 0o777)            # world-readable/writable
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+os.chmod(secret, 0o600)            # owner only
+.EE
+.RE
+.SH SEE ALSO
+\fBcwe\fR(7) (index).
+.PP
+Authoritative definition: https://cwe.mitre.org/data/definitions/732.html
+.SH NOTES
+Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.

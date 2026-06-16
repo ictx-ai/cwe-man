@@ -1,0 +1,38 @@
+.\" Educational secure-coding reference. Generated, not hand-edited.
+.TH CWE-191 7 "2025-12-11" "CWE Top 25 (2025)" "Software Weakness Reference"
+.SH NAME
+CWE\-191 \- Integer Underflow (Wrap or Wraparound)
+.SH RANK
+KEV\-referenced weakness. Not part of the 2025 CWE Top 25; documented here because it appears in the CISA KEV catalog.
+.SH CLASSIFICATION
+Class: KEV\-referenced weakness.
+.SH DESCRIPTION
+The product subtracts one value from another, such that the result is less than the minimum allowable integer value, which produces a value that is not equal to the correct result. This can happen in signed and unsigned cases.
+.SH KNOWN EXPLOITED VULNERABILITIES
+CISA KEV catalog (as of 2026-06-16): \fB2\fR exploited CVEs mapped to this weakness.
+.PP
+CVE\-2014\-0497, CVE\-2021\-31956.
+.SH EXAMPLES
+One vulnerable\->fixed pair per ecosystem (C).
+.SS C
+\fIVulnerable:\fR
+.RS
+.EX
+size_t n = recv_len - header_len;   /* underflows if recv_len < header_len */
+memcpy(dst, src, n);                /* huge copy */
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+if (recv_len < header_len) return -1;
+size_t n = recv_len - header_len;
+memcpy(dst, src, n);
+.EE
+.RE
+.SH SEE ALSO
+\fBcwe\fR(7) (index).
+.PP
+Authoritative definition: https://cwe.mitre.org/data/definitions/191.html
+.SH NOTES
+Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.

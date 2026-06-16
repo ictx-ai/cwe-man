@@ -1,0 +1,57 @@
+.\" Educational secure-coding reference. Generated, not hand-edited.
+.TH CWE-476 7 "2025-12-11" "CWE Top 25 (2025)" "Software Weakness Reference"
+.SH NAME
+CWE\-476 \- NULL Pointer Dereference
+.SH RANK
+2025 CWE Top 25 rank: \fB#13\fR (2024 rank: 21).
+.SH CLASSIFICATION
+Class: Memory Safety / Reliability.
+.SH DESCRIPTION
+A pointer expected to be valid is NULL when dereferenced, usually crashing the program (denial of service). Typically from an unchecked return value or unhandled error path. Shown in C/C++; the managed analog is an unchecked null object reference.
+.SH MITIGATION
+Check the result of anything that can return NULL before dereferencing, and define the failure path. Static analysers catch many; in modern C++/Rust use optional types to make absence explicit.
+.SH KNOWN EXPLOITED VULNERABILITIES
+CISA KEV catalog (as of 2026-06-16): \fB1\fR exploited CVE mapped to this weakness.
+.PP
+CVE\-2026\-21525.
+.SH EXAMPLES
+One vulnerable\->fixed pair per ecosystem (C, C++).
+.SS C
+\fIVulnerable:\fR
+.RS
+.EX
+struct cfg *c = find_config(key);   /* may return NULL */
+printf("%d\\n", c->timeout);          /* crash if c == NULL */
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+struct cfg *c = find_config(key);
+if (c == NULL) { log_warn("missing %s", key); return; }
+printf("%d\\n", c->timeout);
+.EE
+.RE
+.SS C++
+\fIVulnerable:\fR
+.RS
+.EX
+Cfg *c = find_config(key);   // may return nullptr
+std::cout << c->timeout;      // crash if null
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+if (std::optional<Cfg> c = find_config(key))   // explicit presence check
+    std::cout << c->timeout;
+else
+    log_warn("missing config");
+.EE
+.RE
+.SH SEE ALSO
+\fBcwe\fR(7) (index), CWE\-690, CWE\-252.
+.PP
+Authoritative definition: https://cwe.mitre.org/data/definitions/476.html
+.SH NOTES
+Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.

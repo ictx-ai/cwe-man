@@ -1,0 +1,13 @@
+# Default-deny: ignore everything, then allow-list what belongs in the repo.
+*
+!*/
+!.gitignore
+# source of truth + tooling
+!*.py
+!Makefile
+!install.sh
+!*.md
+# generated man pages (committed so `git clone && ./install.sh` needs no build)
+!man7/*.7
+# bundled KEV snapshot (refreshed by `make regen`)
+!data/known_exploited_vulnerabilities.csv

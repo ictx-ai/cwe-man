@@ -1,0 +1,55 @@
+.\" Educational secure-coding reference. Generated, not hand-edited.
+.TH CWE-121 7 "2025-12-11" "CWE Top 25 (2025)" "Software Weakness Reference"
+.SH NAME
+CWE\-121 \- Stack\-based Buffer Overflow
+.SH RANK
+2025 CWE Top 25 rank: \fB#14\fR (2024 rank: NEW).
+.SH CLASSIFICATION
+Class: Memory Safety.
+.SH DESCRIPTION
+An overflow of a buffer on the call stack. Because local buffers sit near saved registers and the return address, an overflow can redirect execution \- historically the most exploited overflow. A C/C++ class.
+.SH MITIGATION
+Never use unbounded input functions (gets). Read into a sized buffer, enable stack canaries, ASLR and non\-executable stacks, and fuzz parsers. In C++ use std::string / std::getline.
+.SH KNOWN EXPLOITED VULNERABILITIES
+CISA KEV catalog (as of 2026-06-16): \fB10\fR exploited CVEs mapped to this weakness.
+.PP
+CVE\-2020\-5735, CVE\-2021\-20038, CVE\-2022\-20700, CVE\-2022\-20701, CVE\-2022\-20708, CVE\-2025\-0282, CVE\-2025\-20352, CVE\-2025\-22457, CVE\-2025\-42599, CVE\-2025\-53521.
+.SH EXAMPLES
+One vulnerable\->fixed pair per ecosystem (C, C++).
+.SS C
+\fIVulnerable:\fR
+.RS
+.EX
+char line[64];
+gets(line);          /* unbounded read straight onto the stack */
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+char line[64];
+if (fgets(line, sizeof line, stdin))   /* bounded by sizeof line */
+    process(line);
+.EE
+.RE
+.SS C++
+\fIVulnerable:\fR
+.RS
+.EX
+char line[64];
+std::cin >> line;    // operator>> into char[] can overflow the stack buffer
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+std::string line;
+std::getline(std::cin, line);   // grows to fit the input
+.EE
+.RE
+.SH SEE ALSO
+\fBcwe\fR(7) (index), CWE\-120, CWE\-122, CWE\-787.
+.PP
+Authoritative definition: https://cwe.mitre.org/data/definitions/121.html
+.SH NOTES
+Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.

@@ -1,0 +1,106 @@
+.\" Educational secure-coding reference. Generated, not hand-edited.
+.TH CWE-639 7 "2025-12-11" "CWE Top 25 (2025)" "Software Weakness Reference"
+.SH NAME
+CWE\-639 \- Authorization Bypass Through User\-Controlled Key (IDOR)
+.SH RANK
+2025 CWE Top 25 rank: \fB#24\fR (2024 rank: 30).
+.SH CLASSIFICATION
+Class: Access Control.
+.SH DESCRIPTION
+A user\-supplied key (e.g. a record ID) looks up a resource without verifying the user is authorized for that specific object. Changing the identifier (an 'insecure direct object reference') exposes other users' data.
+.SH MITIGATION
+Tie object lookups to the authenticated principal: filter by owner, or verify ownership after lookup and deny otherwise. Unpredictable identifiers help but never replace an authorization check.
+.SH KNOWN EXPLOITED VULNERABILITIES
+No entries in the current CISA KEV catalog (as of 2026-06-16) reference this weakness.
+.SH EXAMPLES
+One vulnerable\->fixed pair per ecosystem (Node.js, Python, Java, Go, PHP).
+.SS Node.js
+\fIVulnerable:\fR
+.RS
+.EX
+const inv = await Invoice.findById(req.params.id);   // any id by URL edit
+res.json(inv);
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+const inv = await Invoice.findOne({ _id: req.params.id, owner: req.user.id });
+if (!inv) return res.sendStatus(404);   // scoped to the caller
+res.json(inv);
+.EE
+.RE
+.SS Python
+\fIVulnerable:\fR
+.RS
+.EX
+inv = Invoice.get(request.args['id'])   # any id
+return inv.json()
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+inv = Invoice.query.filter_by(id=request.args['id'],
+                              owner_id=current_user.id).first_or_404()
+return inv.json()
+.EE
+.RE
+.SS Java
+\fIVulnerable:\fR
+.RS
+.EX
+@GetMapping("/invoices/{id}")
+public Invoice get(@PathVariable Long id) {           // any id
+    return repo.findById(id).orElseThrow();
+}
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+@GetMapping("/invoices/{id}")
+public Invoice get(@PathVariable Long id, @AuthenticationPrincipal User me) {
+    return repo.findByIdAndOwnerId(id, me.getId())    // scoped to caller
+               .orElseThrow(() -> new AccessDeniedException("403"));
+}
+.EE
+.RE
+.SS Go
+\fIVulnerable:\fR
+.RS
+.EX
+row := db.QueryRow("SELECT * FROM invoices WHERE id = ?", id(r))   // any id
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+row := db.QueryRow(
+  "SELECT * FROM invoices WHERE id = ? AND owner_id = ?",
+  id(r), currentUser(r).ID)   // scoped to caller
+.EE
+.RE
+.SS PHP
+\fIVulnerable:\fR
+.RS
+.EX
+$inv = $db->query("SELECT * FROM invoices WHERE id = " . (int)$_GET['id']);
+echo json_encode($inv->fetch());   // any id
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+$stmt = $db->prepare(
+  "SELECT * FROM invoices WHERE id = ? AND owner_id = ?");
+$stmt->execute([$_GET['id'], $_SESSION['user']['id']]);   // scoped to caller
+echo json_encode($stmt->fetch());
+.EE
+.RE
+.SH SEE ALSO
+\fBcwe\fR(7) (index), CWE\-862, CWE\-863, OWASP A01:2021 Broken Access Control.
+.PP
+Authoritative definition: https://cwe.mitre.org/data/definitions/639.html
+.SH NOTES
+Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.

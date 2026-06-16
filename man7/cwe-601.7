@@ -1,0 +1,37 @@
+.\" Educational secure-coding reference. Generated, not hand-edited.
+.TH CWE-601 7 "2025-12-11" "CWE Top 25 (2025)" "Software Weakness Reference"
+.SH NAME
+CWE\-601 \- URL Redirection to Untrusted Site ('Open Redirect')
+.SH RANK
+KEV\-referenced weakness. Not part of the 2025 CWE Top 25; documented here because it appears in the CISA KEV catalog.
+.SH CLASSIFICATION
+Class: KEV\-referenced weakness.
+.SH DESCRIPTION
+A web application accepts a user\-controlled input that specifies a link to an external site, and uses that link in a Redirect. This simplifies phishing attacks. An http parameter may contain a URL value and could cause the web application to redirect the request to the specified URL. By modifying the URL value to a malicious site, an attacker may successfully launch a phishing scam and steal user credentials. Because the server name in the modified link is identical to the original site, phishing attempts have a more trustworthy appearance. Whether this issue poses a vulnerability will be subject to the intended behavior of the application. For example, a search engine might intentionally provide redirects to arbitrary URLs.
+.SH KNOWN EXPLOITED VULNERABILITIES
+CISA KEV catalog (as of 2026-06-16): \fB1\fR exploited CVE mapped to this weakness.
+.PP
+CVE\-2012\-0518.
+.SH EXAMPLES
+One vulnerable\->fixed pair per ecosystem (Node.js).
+.SS Node.js
+\fIVulnerable:\fR
+.RS
+.EX
+app.get('/go', (req, res) => res.redirect(req.query.url));   // open redirect
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+const allow = new Set(['/home', '/help']);
+app.get('/go', (req, res) =>
+  res.redirect(allow.has(req.query.url) ? req.query.url : '/home'));
+.EE
+.RE
+.SH SEE ALSO
+\fBcwe\fR(7) (index).
+.PP
+Authoritative definition: https://cwe.mitre.org/data/definitions/601.html
+.SH NOTES
+Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.

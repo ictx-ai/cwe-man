@@ -1,0 +1,105 @@
+.\" Educational secure-coding reference. Generated, not hand-edited.
+.TH CWE-89 7 "2025-12-11" "CWE Top 25 (2025)" "Software Weakness Reference"
+.SH NAME
+CWE\-89 \- Improper Neutralization of Special Elements used in an SQL Command (SQL Injection)
+.SH RANK
+2025 CWE Top 25 rank: \fB#2\fR (2024 rank: 3).
+.SH CLASSIFICATION
+Class: Injection.
+.SH DESCRIPTION
+User input is concatenated into an SQL statement, so attacker\-supplied metacharacters change the query's meaning. This allows reading or modifying arbitrary data, authentication bypass, and sometimes command execution on the database host.
+.SH MITIGATION
+Use parameterized queries / prepared statements so the driver sends SQL structure and values separately. Apply least\-privilege DB accounts and allow\-list any identifier (table/column) that cannot be parameterized.
+.SH KNOWN EXPLOITED VULNERABILITIES
+CISA KEV catalog (as of 2026-06-16): \fB28\fR exploited CVEs mapped to this weakness.
+.PP
+CVE\-2016\-2386, CVE\-2017\-18362, CVE\-2018\-7841, CVE\-2019\-7481, CVE\-2019\-12989, CVE\-2020\-5722, CVE\-2020\-12271, CVE\-2020\-17463, CVE\-2020\-29574, CVE\-2021\-20016, CVE\-2021\-20028, CVE\-2021\-27101, CVE\-2021\-42258, CVE\-2021\-44026, CVE\-2023\-34362, CVE\-2023\-46748, CVE\-2023\-48788, CVE\-2024\-6670, CVE\-2024\-9379, CVE\-2024\-9465, CVE\-2024\-29824, CVE\-2024\-43468, CVE\-2025\-25181, CVE\-2025\-25257, CVE\-2025\-57819, CVE\-2026\-9082, CVE\-2026\-21643, CVE\-2026\-42208.
+.SH EXAMPLES
+One vulnerable\->fixed pair per ecosystem (Node.js, Python, Java, Go, PHP).
+.SS Node.js
+\fIVulnerable:\fR
+.RS
+.EX
+// node-postgres
+const r = await db.query(
+  "SELECT * FROM users WHERE name = '" + name + "'");   // injectable
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+const r = await db.query(
+  "SELECT * FROM users WHERE name = $1", [name]);       // bound parameter
+.EE
+.RE
+.SS Python
+\fIVulnerable:\fR
+.RS
+.EX
+q = "SELECT * FROM users WHERE name = '%s'" % username   # injectable
+conn.execute(q).fetchall()
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+q = "SELECT * FROM users WHERE name = ?"                  # placeholder
+conn.execute(q, (username,)).fetchall()
+.EE
+.RE
+.SS Java
+\fIVulnerable:\fR
+.RS
+.EX
+Statement st = conn.createStatement();
+ResultSet rs = st.executeQuery(
+  "SELECT * FROM users WHERE name = '" + name + "'");    // injectable
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+PreparedStatement ps = conn.prepareStatement(
+  "SELECT * FROM users WHERE name = ?");
+ps.setString(1, name);                                   // bound parameter
+ResultSet rs = ps.executeQuery();
+.EE
+.RE
+.SS Go
+\fIVulnerable:\fR
+.RS
+.EX
+rows, _ := db.Query(
+  "SELECT * FROM users WHERE name = '" + name + "'")     // injectable
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+rows, _ := db.Query(
+  "SELECT * FROM users WHERE name = ?", name)            // bound parameter
+.EE
+.RE
+.SS PHP
+\fIVulnerable:\fR
+.RS
+.EX
+// PDO
+$rows = $db->query(
+  "SELECT * FROM users WHERE name = '" . $name . "'");   // injectable
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+$stmt = $db->prepare("SELECT * FROM users WHERE name = ?");
+$stmt->execute([$name]);                                 // bound parameter
+$rows = $stmt->fetchAll();
+.EE
+.RE
+.SH SEE ALSO
+\fBcwe\fR(7) (index), CWE\-20, CWE\-943, OWASP A03:2021 Injection.
+.PP
+Authoritative definition: https://cwe.mitre.org/data/definitions/89.html
+.SH NOTES
+Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
