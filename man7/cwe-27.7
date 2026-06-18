@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-27 7 "2026-06-15" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-27 7 "2026-06-17" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-27 \- Path Traversal: 'dir/../../filename'
 .SH RANK
@@ -9,7 +9,7 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize multiple internal ../ sequences that can resolve to a location that is outside of that directory. This allows attackers to traverse the file system to access files or directories that are outside of the restricted directory. The 'directory/../../filename' manipulation is useful for bypassing some path traversal protection schemes. Sometimes a program only removes one ../ sequence, so multiple ../ can bypass that check. Alternately, this manipulation could be used to bypass a check for ../ at the beginning of the pathname, moving up more than one directory level.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-06-15): \fB1\fR exploited CVE mapped to this weakness.
+CISA KEV catalog (as of 2026-06-17): \fB1\fR exploited CVE mapped to this weakness.
 .PP
 CVE\-2024\-23897.
 .SH EXAMPLES
@@ -21,4 +21,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/27.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-06\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-15.
+Generated 2026\-06\-17 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-17.

@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-862 7 "2026-06-15" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-862 7 "2026-06-17" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-862 \- Missing Authorization
 .SH RANK
@@ -11,7 +11,7 @@ No authorization check is performed when an actor accesses a resource or perform
 .SH MITIGATION
 Enforce an explicit authorization decision on every sensitive operation, ideally centrally (middleware/filter/annotation) so it cannot be forgotten. Deny by default; check the specific permission for the specific action.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-06-15): \fB11\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-06-17): \fB11\fR exploited CVEs mapped to this weakness.
 .PP
 CVE\-2021\-3493, CVE\-2021\-30657, CVE\-2021\-30713, CVE\-2021\-37976, CVE\-2022\-0492, CVE\-2022\-0543, CVE\-2023\-52163, CVE\-2024\-57726, CVE\-2025\-6205, CVE\-2025\-20362, CVE\-2025\-40602.
 .SH EXAMPLES
@@ -123,4 +123,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/862.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-06\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-15.
+Generated 2026\-06\-17 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-17.

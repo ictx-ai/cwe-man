@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-639 7 "2026-06-15" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-639 7 "2026-06-17" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-639 \- Authorization Bypass Through User\-Controlled Key (IDOR)
 .SH RANK
@@ -11,7 +11,7 @@ A user\-supplied key (e.g. a record ID) looks up a resource without verifying th
 .SH MITIGATION
 Tie object lookups to the authenticated principal: filter by owner, or verify ownership after lookup and deny otherwise. Unpredictable identifiers help but never replace an authorization check.
 .SH KNOWN EXPLOITED VULNERABILITIES
-No entries in the current CISA KEV catalog (as of 2026-06-15) reference this weakness.
+No entries in the current CISA KEV catalog (as of 2026-06-17) reference this weakness.
 .SH EXAMPLES
 One vulnerable\->fixed pair per ecosystem (Node.js, Python, Java, Go, PHP).
 .SS Node.js
@@ -105,4 +105,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/639.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-06\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-15.
+Generated 2026\-06\-17 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-17.

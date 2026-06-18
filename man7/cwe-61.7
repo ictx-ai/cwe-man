@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-61 7 "2026-06-15" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-61 7 "2026-06-17" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-61 \- UNIX Symbolic Link (Symlink) Following
 .SH RANK
@@ -9,7 +9,7 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product, when opening a file or directory, does not sufficiently account for when the file is a symbolic link that resolves to a target outside of the intended control sphere. This could allow an attacker to cause the product to operate on unauthorized files. A product that allows UNIX symbolic links (symlink) as part of paths whether in internal code or through user input can allow an attacker to spoof the symbolic link and traverse the file system to unintended locations or access arbitrary files. The symbolic link can permit an attacker to read/write/corrupt a file that they originally did not have permissions to access.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-06-15): \fB1\fR exploited CVE mapped to this weakness.
+CISA KEV catalog (as of 2026-06-17): \fB1\fR exploited CVE mapped to this weakness.
 .PP
 CVE\-2026\-54420.
 .SH EXAMPLES
@@ -21,4 +21,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/61.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-06\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-15.
+Generated 2026\-06\-17 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-17.

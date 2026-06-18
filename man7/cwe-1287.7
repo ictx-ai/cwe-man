@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-1287 7 "2026-06-15" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-1287 7 "2026-06-17" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-1287 \- Improper Validation of Specified Type of Input
 .SH RANK
@@ -9,7 +9,7 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product receives input that is expected to be of a certain type, but it does not validate or incorrectly validates that the input is actually of the expected type. When input does not comply with the expected type, attackers could trigger unexpected errors, cause incorrect actions to take place, or exploit latent vulnerabilities that would not be possible if the input conformed with the expected type. This weakness can appear in type\-unsafe programming languages, or in programming languages that support casting or conversion of an input to another type.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-06-15): \fB1\fR exploited CVE mapped to this weakness.
+CISA KEV catalog (as of 2026-06-17): \fB1\fR exploited CVE mapped to this weakness.
 .PP
 CVE\-2024\-4879.
 .SH EXAMPLES
@@ -21,4 +21,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/1287.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-06\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-15.
+Generated 2026\-06\-17 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-17.

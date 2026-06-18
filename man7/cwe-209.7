@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-209 7 "2026-06-15" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-209 7 "2026-06-17" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-209 \- Generation of Error Message Containing Sensitive Information
 .SH RANK
@@ -9,7 +9,7 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product generates an error message that includes sensitive information about its environment, users, or associated data. The sensitive information may be valuable information on its own (such as a password), or it may be useful for launching other, more serious attacks. The error message may be created in different ways: self\-generated: the source code explicitly constructs the error message and delivers it externally\-generated: the external environment, such as a language interpreter, handles the error and constructs its own message, whose contents are not under direct control by the programmer An attacker may use the contents of error messages to help launch another, more focused attack. For example, an attempt to exploit a path traversal weakness (CWE\-22) might yield the full pathname of the installed application. In turn, this could be used to select the proper number of .. sequences to navigate to the targeted file. An attack using SQL injection (CWE\-89) might not initially succeed, but an error message could reveal the malformed query, which would expose query logic and possibly even passwords or other sensitive information used within the query.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-06-15): \fB2\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-06-17): \fB2\fR exploited CVEs mapped to this weakness.
 .PP
 CVE\-2024\-29059, CVE\-2025\-47813.
 .SH EXAMPLES
@@ -37,4 +37,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/209.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-06\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-15.
+Generated 2026\-06\-17 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-17.

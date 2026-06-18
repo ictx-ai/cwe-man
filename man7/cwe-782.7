@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-782 7 "2026-06-15" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-782 7 "2026-06-17" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-782 \- Exposed IOCTL with Insufficient Access Control
 .SH RANK
@@ -9,7 +9,7 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product implements an IOCTL with functionality that should be restricted, but it does not properly enforce access control for the IOCTL. When an IOCTL contains privileged functionality and is exposed unnecessarily, attackers may be able to access this functionality by invoking the IOCTL. Even if the functionality is benign, if the programmer has assumed that the IOCTL would only be accessed by a trusted process, there may be little or no validation of the incoming data, exposing weaknesses that would never be reachable if the attacker cannot call the IOCTL directly. The implementations of IOCTLs will differ between operating system types and versions, so the methods of attack and prevention may vary widely.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-06-15): \fB1\fR exploited CVE mapped to this weakness.
+CISA KEV catalog (as of 2026-06-17): \fB1\fR exploited CVE mapped to this weakness.
 .PP
 CVE\-2021\-21551.
 .SH EXAMPLES
@@ -21,4 +21,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/782.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-06\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-15.
+Generated 2026\-06\-17 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-17.

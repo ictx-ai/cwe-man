@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-78 7 "2026-06-15" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-78 7 "2026-06-17" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-78 \- Improper Neutralization of Special Elements used in an OS Command (OS Command Injection)
 .SH RANK
@@ -11,7 +11,7 @@ Untrusted input is placed into a command run by a system shell without neutralis
 .SH MITIGATION
 Avoid invoking a shell. Pass arguments as a vector to an exec\-style API so the OS treats them as data, not shell syntax. If a shell is unavoidable, strictly allow\-list input. Run with least privilege.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-06-15): \fB103\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-06-17): \fB103\fR exploited CVEs mapped to this weakness.
 .PP
 CVE\-2014\-6271, CVE\-2014\-6278, CVE\-2014\-7169, CVE\-2016\-11021, CVE\-2017\-3506, CVE\-2017\-6077, CVE\-2017\-6334, CVE\-2017\-6884, CVE\-2017\-18368, CVE\-2018\-6530, CVE\-2018\-6961, CVE\-2018\-9276, CVE\-2018\-10562, CVE\-2018\-11138, CVE\-2018\-14558, CVE\-2018\-14839, CVE\-2018\-14933, CVE\-2018\-19949, CVE\-2019\-7256, CVE\-2019\-10149, CVE\-2019\-11001, CVE\-2019\-11539, CVE\-2019\-12991, CVE\-2019\-15107, CVE\-2019\-15949, CVE\-2019\-16057, CVE\-2019\-16920, CVE\-2019\-17621, CVE\-2019\-19356, CVE\-2019\-20500, CVE\-2020\-1956, CVE\-2020\-2509, CVE\-2020\-4006, CVE\-2020\-4428, CVE\-2020\-7247, CVE\-2020\-8515, CVE\-2020\-8816, CVE\-2020\-9054, CVE\-2020\-9377, CVE\-2020\-10221, CVE\-2020\-10987, CVE\-2020\-11978, CVE\-2020\-12641, CVE\-2020\-15415, CVE\-2020\-16846, CVE\-2020\-25223, CVE\-2020\-25506, CVE\-2021\-1497, CVE\-2021\-1498, CVE\-2021\-20035, CVE\-2021\-21315, CVE\-2021\-22502, CVE\-2021\-25296, CVE\-2021\-25297, CVE\-2021\-25298, CVE\-2021\-27102, CVE\-2021\-27104, CVE\-2021\-27561, CVE\-2021\-35394, CVE\-2021\-36260, CVE\-2021\-36380, CVE\-2021\-40407, CVE\-2021\-45382, CVE\-2022\-26258, CVE\-2022\-28810, CVE\-2022\-29303, CVE\-2022\-30525, CVE\-2022\-33891, CVE\-2022\-36804, CVE\-2022\-44877, CVE\-2023\-20273, CVE\-2023\-25280, CVE\-2023\-27992, CVE\-2023\-28771, CVE\-2023\-39780, CVE\-2023\-44221, CVE\-2023\-47565, CVE\-2023\-49897, CVE\-2024\-1212, CVE\-2024\-4577, CVE\-2024\-6047, CVE\-2024\-8190, CVE\-2024\-8957, CVE\-2024\-9463, CVE\-2024\-11120, CVE\-2024\-12686, CVE\-2024\-12987, CVE\-2024\-20399, CVE\-2024\-40890, CVE\-2024\-40891, CVE\-2024\-50603, CVE\-2025\-1316, CVE\-2025\-9377, CVE\-2025\-11953, CVE\-2025\-48703, CVE\-2025\-54948, CVE\-2025\-58034, CVE\-2025\-64328, CVE\-2025\-66644, CVE\-2026\-1731, CVE\-2026\-10520, CVE\-2026\-25108, CVE\-2026\-42271.
 .SH EXAMPLES
@@ -91,4 +91,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/78.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-06\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-15.
+Generated 2026\-06\-17 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-17.

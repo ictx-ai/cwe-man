@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-502 7 "2026-06-15" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-502 7 "2026-06-17" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-502 \- Deserialization of Untrusted Data
 .SH RANK
@@ -11,7 +11,7 @@ Untrusted data is deserialized without sufficient verification. Rich formats can
 .SH MITIGATION
 Do not deserialize untrusted data with formats that can execute code (pickle, Java native serialization, PHP unserialize, node\-serialize). Use a data\-only format such as JSON, validate against a schema, and if unavoidable restrict allowed types and sign the payload.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-06-15): \fB65\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-06-17): \fB65\fR exploited CVEs mapped to this weakness.
 .PP
 CVE\-2015\-4852, CVE\-2017\-3066, CVE\-2017\-9805, CVE\-2017\-12149, CVE\-2018\-0824, CVE\-2018\-2628, CVE\-2018\-4939, CVE\-2018\-15133, CVE\-2018\-1000861, CVE\-2019\-0344, CVE\-2019\-6340, CVE\-2019\-9874, CVE\-2019\-9875, CVE\-2019\-10068, CVE\-2019\-15271, CVE\-2019\-18935, CVE\-2020\-0618, CVE\-2020\-2555, CVE\-2020\-5741, CVE\-2020\-7961, CVE\-2020\-10189, CVE\-2020\-17144, CVE\-2021\-26857, CVE\-2021\-27852, CVE\-2021\-31010, CVE\-2021\-35464, CVE\-2021\-35587, CVE\-2021\-39144, CVE\-2021\-42237, CVE\-2021\-42321, CVE\-2021\-44228, CVE\-2022\-21445, CVE\-2022\-31199, CVE\-2022\-35405, CVE\-2022\-41082, CVE\-2022\-47986, CVE\-2023\-0669, CVE\-2023\-21529, CVE\-2023\-26359, CVE\-2023\-29300, CVE\-2023\-38203, CVE\-2023\-40044, CVE\-2023\-43208, CVE\-2023\-46604, CVE\-2024\-8069, CVE\-2024\-20953, CVE\-2024\-28986, CVE\-2024\-38094, CVE\-2024\-40711, CVE\-2025\-0994, CVE\-2025\-5086, CVE\-2025\-10035, CVE\-2025\-23006, CVE\-2025\-24016, CVE\-2025\-24813, CVE\-2025\-26399, CVE\-2025\-40551, CVE\-2025\-42999, CVE\-2025\-49113, CVE\-2025\-53690, CVE\-2025\-53770, CVE\-2025\-59287, CVE\-2026\-20131, CVE\-2026\-20963, CVE\-2026\-45247.
 .SH EXAMPLES
@@ -83,4 +83,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/502.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-06\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-15.
+Generated 2026\-06\-17 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-17.
