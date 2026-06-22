@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-121 7 "2026-06-17" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-121 7 "2026-06-22" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-121 \- Stack\-based Buffer Overflow
 .SH RANK
@@ -11,7 +11,7 @@ An overflow of a buffer on the call stack. Because local buffers sit near saved 
 .SH MITIGATION
 Never use unbounded input functions (gets). Read into a sized buffer, enable stack canaries, ASLR and non\-executable stacks, and fuzz parsers. In C++ use std::string / std::getline.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-06-17): \fB10\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-06-22): \fB10\fR exploited CVEs mapped to this weakness.
 .PP
 CVE\-2020\-5735, CVE\-2021\-20038, CVE\-2022\-20700, CVE\-2022\-20701, CVE\-2022\-20708, CVE\-2025\-0282, CVE\-2025\-20352, CVE\-2025\-22457, CVE\-2025\-42599, CVE\-2025\-53521.
 .SH EXAMPLES
@@ -54,4 +54,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/121.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-06\-17 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-17.
+Generated 2026\-06\-22 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-22.

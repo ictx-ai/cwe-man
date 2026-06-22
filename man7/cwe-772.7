@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-772 7 "2026-06-17" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-772 7 "2026-06-22" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-772 \- Missing Release of Resource after Effective Lifetime
 .SH RANK
@@ -9,7 +9,7 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product does not release a resource after its effective lifetime has ended, i.e., after the resource is no longer needed. When a resource is not released after use, it can allow attackers to cause a denial of service by causing the allocation of resources without triggering their release. Frequently\-affected resources include memory, CPU, disk space, power or battery, etc.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-06-17): \fB1\fR exploited CVE mapped to this weakness.
+CISA KEV catalog (as of 2026-06-22): \fB1\fR exploited CVE mapped to this weakness.
 .PP
 CVE\-2024\-20481.
 .SH EXAMPLES
@@ -21,4 +21,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/772.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-06\-17 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-17.
+Generated 2026\-06\-22 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-22.

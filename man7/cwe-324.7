@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-324 7 "2026-06-17" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-324 7 "2026-06-22" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-324 \- Use of a Key Past its Expiration Date
 .SH RANK
@@ -9,7 +9,7 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product uses a cryptographic key or password past its expiration date, which diminishes its safety significantly by increasing the timing window for cracking attacks against that key. While the expiration of keys does not necessarily ensure that they are compromised, it is a significant concern that keys which remain in use for prolonged periods of time have a decreasing probability of integrity. For this reason, it is important to replace keys within a period of time proportional to their strength.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-06-17): \fB1\fR exploited CVE mapped to this weakness.
+CISA KEV catalog (as of 2026-06-22): \fB1\fR exploited CVE mapped to this weakness.
 .PP
 CVE\-2025\-47827.
 .SH EXAMPLES
@@ -21,4 +21,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/324.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-06\-17 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-17.
+Generated 2026\-06\-22 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-22.

@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-416 7 "2026-06-17" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-416 7 "2026-06-22" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-416 \- Use After Free
 .SH RANK
@@ -11,7 +11,7 @@ Memory is referenced after being freed. The freed block may be reallocated for a
 .SH MITIGATION
 Null out pointers after free, establish clear ownership, and avoid multiple aliases to freed memory. Use AddressSanitizer/Valgrind; in C++ use smart pointers; consider Rust where its ownership model prevents the class.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-06-17): \fB92\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-06-22): \fB92\fR exploited CVEs mapped to this weakness.
 .PP
 CVE\-2010\-0249, CVE\-2012\-4792, CVE\-2013\-2551, CVE\-2014\-0322, CVE\-2014\-1776, CVE\-2015\-0313, CVE\-2015\-5122, CVE\-2015\-5123, CVE\-2016\-0984, CVE\-2016\-7855, CVE\-2016\-7892, CVE\-2016\-9079, CVE\-2017\-0261, CVE\-2017\-0263, CVE\-2018\-4878, CVE\-2018\-15982, CVE\-2019\-0211, CVE\-2019\-0708, CVE\-2019\-1429, CVE\-2019\-2215, CVE\-2019\-5786, CVE\-2019\-8526, CVE\-2019\-8605, CVE\-2019\-13720, CVE\-2020\-0674, CVE\-2020\-3992, CVE\-2020\-6572, CVE\-2020\-6819, CVE\-2020\-9715, CVE\-2020\-16017, CVE\-2021\-0920, CVE\-2021\-1048, CVE\-2021\-1905, CVE\-2021\-4102, CVE\-2021\-21193, CVE\-2021\-21206, CVE\-2021\-25370, CVE\-2021\-25394, CVE\-2021\-26411, CVE\-2021\-28550, CVE\-2021\-28663, CVE\-2021\-29256, CVE\-2021\-30554, CVE\-2021\-30633, CVE\-2021\-30661, CVE\-2021\-30762, CVE\-2021\-30858, CVE\-2021\-31166, CVE\-2021\-34486, CVE\-2021\-37973, CVE\-2021\-37975, CVE\-2021\-40449, CVE\-2022\-0609, CVE\-2022\-2586, CVE\-2022\-3038, CVE\-2022\-22071, CVE\-2022\-22620, CVE\-2022\-26485, CVE\-2022\-26486, CVE\-2022\-38181, CVE\-2023\-0266, CVE\-2023\-4211, CVE\-2023\-21608, CVE\-2023\-21674, CVE\-2023\-28205, CVE\-2023\-29336, CVE\-2023\-32373, CVE\-2023\-33063, CVE\-2023\-36802, CVE\-2023\-41974, CVE\-2023\-43000, CVE\-2024\-1086, CVE\-2024\-4610, CVE\-2024\-4671, CVE\-2024\-9680, CVE\-2024\-36971, CVE\-2024\-38107, CVE\-2024\-38193, CVE\-2024\-43047, CVE\-2025\-21334, CVE\-2025\-21335, CVE\-2025\-24085, CVE\-2025\-24983, CVE\-2025\-27038, CVE\-2025\-29824, CVE\-2025\-30400, CVE\-2025\-32701, CVE\-2025\-32709, CVE\-2025\-43529, CVE\-2025\-62221, CVE\-2026\-2441, CVE\-2026\-5281.
 .SH EXAMPLES
@@ -58,4 +58,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/416.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-06\-17 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-17.
+Generated 2026\-06\-22 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-22.

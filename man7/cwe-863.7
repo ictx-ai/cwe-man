@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-863 7 "2026-06-17" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-863 7 "2026-06-22" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-863 \- Incorrect Authorization
 .SH RANK
@@ -11,7 +11,7 @@ An authorization check exists but is logically flawed, so it permits actions it 
 .SH MITIGATION
 Check the specific permission for the specific object the actor touches, not merely that they are authenticated. Fail closed on any error. Centralise the policy so the same correct check is reused.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-06-17): \fB16\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-06-22): \fB16\fR exploited CVEs mapped to this weakness.
 .PP
 CVE\-2019\-7192, CVE\-2021\-3560, CVE\-2021\-22986, CVE\-2021\-30533, CVE\-2021\-40655, CVE\-2022\-41091, CVE\-2023\-21715, CVE\-2023\-22518, CVE\-2023\-24880, CVE\-2023\-38035, CVE\-2024\-21287, CVE\-2024\-38856, CVE\-2025\-21479, CVE\-2025\-21480, CVE\-2025\-24200, CVE\-2025\-55177.
 .SH EXAMPLES
@@ -134,4 +134,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/863.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-06\-17 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-17.
+Generated 2026\-06\-22 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-22.

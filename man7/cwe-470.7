@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-470 7 "2026-06-17" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-470 7 "2026-06-22" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-470 \- Use of Externally\-Controlled Input to Select Classes or Code (Unsafe Reflection)
 .SH RANK
@@ -13,7 +13,7 @@ Externally\-controlled input chooses which class is loaded or which method/code 
 .SH MITIGATION
 Never let untrusted input name a class, method, or module directly. Map a small set of allowed identifiers to known types/handlers with an allow\-list, and reject anything else.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-06-17): \fB1\fR exploited CVE mapped to this weakness.
+CISA KEV catalog (as of 2026-06-22): \fB1\fR exploited CVE mapped to this weakness.
 .PP
 CVE\-2021\-21985.
 .SH EXAMPLES
@@ -97,4 +97,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/470.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-06\-17 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-17.
+Generated 2026\-06\-22 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-22.

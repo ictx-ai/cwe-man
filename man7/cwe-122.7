@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-122 7 "2026-06-17" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-122 7 "2026-06-22" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-122 \- Heap\-based Buffer Overflow
 .SH RANK
@@ -11,7 +11,7 @@ An overflow of a heap\-allocated buffer. Overrunning it corrupts adjacent heap o
 .SH MITIGATION
 Allocate based on the actual required size and bound every copy by it. Validate length fields and use checked arithmetic for size calculations to avoid integer overflow. In C++ prefer std::vector. Test with AddressSanitizer.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-06-17): \fB30\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-06-22): \fB30\fR exploited CVEs mapped to this weakness.
 .PP
 CVE\-2019\-3568, CVE\-2021\-1647, CVE\-2021\-3156, CVE\-2021\-21017, CVE\-2021\-21148, CVE\-2021\-21166, CVE\-2021\-21220, CVE\-2021\-30551, CVE\-2021\-30563, CVE\-2021\-30632, CVE\-2021\-35395, CVE\-2021\-38003, CVE\-2022\-2294, CVE\-2022\-3723, CVE\-2022\-4262, CVE\-2022\-26318, CVE\-2022\-31199, CVE\-2023\-4911, CVE\-2023\-23376, CVE\-2023\-27997, CVE\-2023\-28252, CVE\-2023\-36036, CVE\-2024\-30051, CVE\-2024\-38812, CVE\-2024\-49138, CVE\-2025\-21333, CVE\-2025\-21418, CVE\-2025\-24985, CVE\-2025\-24993, CVE\-2025\-32706.
 .SH EXAMPLES
@@ -54,4 +54,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/122.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-06\-17 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-17.
+Generated 2026\-06\-22 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-22.

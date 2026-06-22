@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-200 7 "2026-06-17" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-200 7 "2026-06-22" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-200 \- Exposure of Sensitive Information to an Unauthorized Actor
 .SH RANK
@@ -11,7 +11,7 @@ Sensitive information (credentials, keys, personal data, internal details) is di
 .SH MITIGATION
 Return only the fields each caller is entitled to (allow\-list). Keep secrets out of logs and error messages, disable debug output in production, and return generic errors to clients while logging detail server\-side.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-06-17): \fB24\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-06-22): \fB24\fR exploited CVEs mapped to this weakness.
 .PP
 CVE\-2013\-0631, CVE\-2013\-0632, CVE\-2013\-7331, CVE\-2015\-4495, CVE\-2015\-5317, CVE\-2016\-0162, CVE\-2016\-2388, CVE\-2016\-3298, CVE\-2016\-3351, CVE\-2016\-4655, CVE\-2016\-6415, CVE\-2017\-0022, CVE\-2017\-0059, CVE\-2017\-0147, CVE\-2017\-5521, CVE\-2020\-3259, CVE\-2021\-25369, CVE\-2021\-41277, CVE\-2023\-21237, CVE\-2023\-28432, CVE\-2024\-24919, CVE\-2025\-31125, CVE\-2026\-20133, CVE\-2026\-20805.
 .SH EXAMPLES
@@ -106,4 +106,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/200.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-06\-17 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-17.
+Generated 2026\-06\-22 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-22.

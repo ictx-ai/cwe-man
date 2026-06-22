@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-190 7 "2026-06-17" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-190 7 "2026-06-22" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-190 \- Integer Overflow or Wraparound
 .SH RANK
@@ -9,7 +9,7 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product performs a calculation that can produce an integer overflow or wraparound, when the logic assumes that the resulting value will always be larger than the original value. This can introduce other weaknesses when the calculation is used for resource management or execution control. An integer overflow or wraparound occurs when an integer value is incremented to a value that is too large to store in the associated representation. When this occurs, the value may wrap to become a very small or negative number. While this may be intended behavior in circumstances that rely on wrapping, it can have security consequences if the wrap is unexpected. This is especially the case if the integer overflow can be triggered using user\-supplied inputs. This becomes security\-critical when the result is used to control looping, make a security decision, or determine the offset or size in behaviors such as memory allocation, copying, concatenation, etc.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-06-17): \fB16\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-06-22): \fB16\fR exploited CVEs mapped to this weakness.
 .PP
 CVE\-2016\-1010, CVE\-2018\-6065, CVE\-2018\-14634, CVE\-2021\-30663, CVE\-2021\-30860, CVE\-2021\-30952, CVE\-2022\-0185, CVE\-2023\-2136, CVE\-2023\-6345, CVE\-2023\-21823, CVE\-2023\-32434, CVE\-2023\-33107, CVE\-2024\-38080, CVE\-2025\-24985, CVE\-2025\-48595, CVE\-2026\-21385.
 .SH EXAMPLES
@@ -38,4 +38,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/190.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-06\-17 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-17.
+Generated 2026\-06\-22 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-22.

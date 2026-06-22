@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-125 7 "2026-06-17" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-125 7 "2026-06-22" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-125 \- Out\-of\-bounds Read
 .SH RANK
@@ -11,7 +11,7 @@ Data is read past the end (or before the start) of a buffer, leaking adjacent me
 .SH MITIGATION
 Validate every index and length against the actual buffer size before reading; use correct loop bounds. In C++ prefer .at() and range\-based iteration. Sanitizers and fuzzing find many of these.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-06-17): \fB17\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-06-22): \fB17\fR exploited CVEs mapped to this weakness.
 .PP
 CVE\-2014\-0160, CVE\-2016\-5198, CVE\-2017\-5030, CVE\-2020\-11899, CVE\-2021\-25487, CVE\-2022\-22674, CVE\-2022\-22675, CVE\-2023\-28204, CVE\-2023\-36424, CVE\-2023\-42916, CVE\-2024\-53150, CVE\-2025\-5419, CVE\-2025\-5777, CVE\-2025\-22226, CVE\-2025\-24991, CVE\-2026\-3055, CVE\-2026\-11645.
 .SH EXAMPLES
@@ -60,4 +60,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/125.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-06\-17 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-17.
+Generated 2026\-06\-22 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-22.

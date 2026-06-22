@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-119 7 "2026-06-17" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-119 7 "2026-06-22" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-119 \- Improper Restriction of Operations within the Bounds of a Memory Buffer
 .SH RANK
@@ -9,7 +9,7 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product performs operations on a memory buffer, but it can read from or write to a memory location that is outside of the intended boundary of the buffer. Certain languages allow direct addressing of memory locations and do not automatically ensure that these locations are valid for the memory buffer that is being referenced. This can cause read or write operations to be performed on memory locations that may be associated with other variables, data structures, or internal program data. As a result, an attacker may be able to execute arbitrary code, alter the intended control flow, read sensitive information, or cause the system to crash.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-06-17): \fB84\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-06-22): \fB84\fR exploited CVEs mapped to this weakness.
 .PP
 CVE\-2007\-5659, CVE\-2008\-2992, CVE\-2009\-0563, CVE\-2009\-3459, CVE\-2009\-3953, CVE\-2010\-2572, CVE\-2010\-2883, CVE\-2010\-3333, CVE\-2010\-4344, CVE\-2010\-4398, CVE\-2011\-1889, CVE\-2012\-1889, CVE\-2012\-2034, CVE\-2013\-1331, CVE\-2013\-1675, CVE\-2013\-1690, CVE\-2013\-2597, CVE\-2013\-3346, CVE\-2013\-3660, CVE\-2014\-1761, CVE\-2014\-3931, CVE\-2014\-4404, CVE\-2014\-6332, CVE\-2014\-8439, CVE\-2015\-1642, CVE\-2015\-2360, CVE\-2015\-2419, CVE\-2015\-2424, CVE\-2015\-2425, CVE\-2015\-2426, CVE\-2015\-2502, CVE\-2015\-2546, CVE\-2015\-3113, CVE\-2015\-5119, CVE\-2016\-0189, CVE\-2016\-1646, CVE\-2016\-4523, CVE\-2016\-4657, CVE\-2016\-6366, CVE\-2016\-7193, CVE\-2016\-7200, CVE\-2016\-7201, CVE\-2016\-10174, CVE\-2017\-0005, CVE\-2017\-0101, CVE\-2017\-0149, CVE\-2017\-0222, CVE\-2017\-6736, CVE\-2017\-6737, CVE\-2017\-6738, CVE\-2017\-6739, CVE\-2017\-6740, CVE\-2017\-6742, CVE\-2017\-6743, CVE\-2017\-6744, CVE\-2017\-6862, CVE\-2017\-7269, CVE\-2017\-8540, CVE\-2017\-11774, CVE\-2017\-11826, CVE\-2017\-11882, CVE\-2017\-1000253, CVE\-2018\-0151, CVE\-2018\-0167, CVE\-2018\-0175, CVE\-2018\-4344, CVE\-2018\-6789, CVE\-2018\-7445, CVE\-2019\-8720, CVE\-2020\-0796, CVE\-2020\-29557, CVE\-2021\-22991, CVE\-2021\-30666, CVE\-2021\-30983, CVE\-2021\-31979, CVE\-2021\-33771, CVE\-2022\-22706, CVE\-2023\-4966, CVE\-2023\-6549, CVE\-2025\-6543, CVE\-2025\-7775, CVE\-2025\-31277, CVE\-2026\-3910, CVE\-2026\-20700.
 .SH EXAMPLES
@@ -36,4 +36,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/119.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-06\-17 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-17.
+Generated 2026\-06\-22 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-22.

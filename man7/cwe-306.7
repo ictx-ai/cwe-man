@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-306 7 "2026-06-17" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-306 7 "2026-06-22" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-306 \- Missing Authentication for Critical Function
 .SH RANK
@@ -11,9 +11,9 @@ A critical function is reachable without authentication: admin panels, debug int
 .SH MITIGATION
 Require authentication for every sensitive function and verify it server\-side; do not rely on an endpoint being hidden. Combine with authorization and an extra factor for the most dangerous operations.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-06-17): \fB35\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-06-22): \fB36\fR exploited CVEs mapped to this weakness.
 .PP
-CVE\-2019\-5591, CVE\-2019\-9082, CVE\-2020\-3952, CVE\-2020\-6207, CVE\-2020\-6287, CVE\-2020\-13927, CVE\-2020\-24363, CVE\-2021\-20021, CVE\-2021\-37415, CVE\-2021\-44077, CVE\-2022\-1388, CVE\-2022\-21587, CVE\-2022\-23227, CVE\-2022\-24990, CVE\-2022\-26143, CVE\-2022\-26501, CVE\-2022\-26925, CVE\-2023\-27532, CVE\-2023\-28461, CVE\-2023\-36846, CVE\-2023\-36847, CVE\-2023\-36851, CVE\-2024\-0012, CVE\-2024\-5910, CVE\-2024\-47575, CVE\-2025\-0108, CVE\-2025\-3248, CVE\-2025\-4008, CVE\-2025\-32433, CVE\-2025\-61757, CVE\-2026\-24423, CVE\-2026\-33017, CVE\-2026\-35273, CVE\-2026\-39987, CVE\-2026\-41940.
+CVE\-2019\-5591, CVE\-2019\-9082, CVE\-2020\-3952, CVE\-2020\-6207, CVE\-2020\-6287, CVE\-2020\-13927, CVE\-2020\-24363, CVE\-2021\-20021, CVE\-2021\-37415, CVE\-2021\-44077, CVE\-2022\-1388, CVE\-2022\-21587, CVE\-2022\-23227, CVE\-2022\-24990, CVE\-2022\-26143, CVE\-2022\-26501, CVE\-2022\-26925, CVE\-2023\-27532, CVE\-2023\-28461, CVE\-2023\-36846, CVE\-2023\-36847, CVE\-2023\-36851, CVE\-2024\-0012, CVE\-2024\-5910, CVE\-2024\-47575, CVE\-2025\-0108, CVE\-2025\-3248, CVE\-2025\-4008, CVE\-2025\-32433, CVE\-2025\-61757, CVE\-2026\-20253, CVE\-2026\-24423, CVE\-2026\-33017, CVE\-2026\-35273, CVE\-2026\-39987, CVE\-2026\-41940.
 .SH EXAMPLES
 One vulnerable\->fixed pair per ecosystem (Node.js, Python, Java, Go, PHP).
 .SS Node.js
@@ -114,4 +114,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/306.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-06\-17 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-17.
+Generated 2026\-06\-22 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-22.

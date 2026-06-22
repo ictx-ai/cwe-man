@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-476 7 "2026-06-17" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-476 7 "2026-06-22" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-476 \- NULL Pointer Dereference
 .SH RANK
@@ -11,7 +11,7 @@ A pointer expected to be valid is NULL when dereferenced, usually crashing the p
 .SH MITIGATION
 Check the result of anything that can return NULL before dereferencing, and define the failure path. Static analysers catch many; in modern C++/Rust use optional types to make absence explicit.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-06-17): \fB1\fR exploited CVE mapped to this weakness.
+CISA KEV catalog (as of 2026-06-22): \fB1\fR exploited CVE mapped to this weakness.
 .PP
 CVE\-2026\-21525.
 .SH EXAMPLES
@@ -56,4 +56,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/476.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-06\-17 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-17.
+Generated 2026\-06\-22 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-22.

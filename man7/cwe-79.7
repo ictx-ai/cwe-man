@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-79 7 "2026-06-17" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-79 7 "2026-06-22" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-79 \- Improper Neutralization of Input During Web Page Generation (Cross\-site Scripting)
 .SH RANK
@@ -13,7 +13,7 @@ Forms: stored (payload persisted server\-side), reflected (echoed from the reque
 .SH MITIGATION
 Contextually encode untrusted data on output (HTML, attribute, JS contexts). Prefer an auto\-escaping template engine, set a strict Content\-Security\-Policy, and never build HTML by raw string concatenation.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-06-17): \fB33\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-06-22): \fB33\fR exploited CVEs mapped to this weakness.
 .PP
 CVE\-2012\-0767, CVE\-2013\-5223, CVE\-2014\-2120, CVE\-2018\-6882, CVE\-2018\-19943, CVE\-2018\-19953, CVE\-2019\-3929, CVE\-2019\-9978, CVE\-2019\-18426, CVE\-2020\-3580, CVE\-2020\-11023, CVE\-2020\-35730, CVE\-2021\-1879, CVE\-2021\-26829, CVE\-2022\-24682, CVE\-2022\-27926, CVE\-2022\-39197, CVE\-2022\-42948, CVE\-2023\-5631, CVE\-2023\-34192, CVE\-2023\-37580, CVE\-2023\-43770, CVE\-2024\-11182, CVE\-2024\-27443, CVE\-2024\-37383, CVE\-2024\-42009, CVE\-2024\-43573, CVE\-2024\-44309, CVE\-2025\-27915, CVE\-2025\-48700, CVE\-2025\-66376, CVE\-2025\-68461, CVE\-2026\-42897.
 .SH EXAMPLES
@@ -110,4 +110,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/79.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-06\-17 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-17.
+Generated 2026\-06\-22 from CWE Top 25 (2025). CISA KEV data as of 2026\-06\-22.
