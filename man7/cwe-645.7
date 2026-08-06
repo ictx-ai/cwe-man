@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-645 7 "2026-07-29" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-645 7 "2026-08-05" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-645 \- Overly Restrictive Account Lockout Mechanism
 .SH RANK
@@ -9,7 +9,7 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product contains an account lockout protection mechanism, but the mechanism is too restrictive and can be triggered too easily, which allows attackers to deny service to legitimate users by causing their accounts to be locked out. Account lockout is a security feature often present in applications as a countermeasure to the brute force attack on the password based authentication mechanism of the system. After a certain number of failed login attempts, the users' account may be disabled for a certain period of time or until it is unlocked by an administrator. Other security events may also possibly trigger account lockout. However, an attacker may use this very security feature to deny service to legitimate system users. It is therefore important to ensure that the account lockout security mechanism is not overly restrictive.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-07-16): \fB1\fR exploited CVE mapped to this weakness.
+CISA KEV catalog (as of 2026-08-05): \fB1\fR exploited CVE mapped to this weakness.
 .PP
 CVE\-2023\-4346.
 .SH EXAMPLES
@@ -21,4 +21,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/645.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-07\-29 from CWE Top 25 (2025). CISA KEV data as of 2026\-07\-16.
+Generated 2026\-08\-05 from CWE Top 25 (2025). CISA KEV data as of 2026\-08\-05.
