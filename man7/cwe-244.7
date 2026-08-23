@@ -1,0 +1,24 @@
+.\" Educational secure-coding reference. Generated, not hand-edited.
+.TH CWE-244 7 "2026-08-23" "CWE Top 25 (2025)" "Software Weakness Reference"
+.SH NAME
+CWE\-244 \- Improper Clearing of Heap Memory Before Release ('Heap Inspection')
+.SH RANK
+KEV\-referenced weakness. Not part of the 2025 CWE Top 25; documented here because it appears in the CISA KEV catalog.
+.SH CLASSIFICATION
+Class: KEV\-referenced weakness.
+.SH DESCRIPTION
+Using realloc() to resize buffers that store sensitive information can leave the sensitive information exposed to attack, because it is not removed from memory. When sensitive data such as a password or an encryption key is not removed from memory, it could be exposed to an attacker using a heap inspection attack that reads the sensitive data using memory dumps or other methods. The realloc() function is commonly used to increase the size of a block of allocated memory. This operation often requires copying the contents of the old memory block into a new and larger block. This operation leaves the contents of the original block intact but inaccessible to the program, preventing the program from being able to scrub sensitive data from memory. If an attacker can later examine the contents of a memory dump, the sensitive data could be exposed.
+.SH KNOWN EXPLOITED VULNERABILITIES
+CISA KEV catalog (as of 2026-08-23): \fB1\fR exploited CVE mapped to this weakness.
+.PP
+CVE\-2026\-20349.
+.SH EXAMPLES
+No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
+.SH SEE ALSO
+\fBcwe\fR(7) (index).
+.PP
+Authoritative definition: https://cwe.mitre.org/data/definitions/244.html
+.SH NOTES
+Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
+.PP
+Generated 2026\-08\-23 from CWE Top 25 (2025). CISA KEV data as of 2026\-08\-23.
