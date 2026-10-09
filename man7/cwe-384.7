@@ -1,0 +1,40 @@
+.\" Educational secure-coding reference. Generated, not hand-edited.
+.TH CWE-384 7 "2026-10-08" "CWE Top 25 (2025)" "Software Weakness Reference"
+.SH NAME
+CWE\-384 \- Session Fixation
+.SH RANK
+KEV\-referenced weakness. Not part of the 2025 CWE Top 25; documented here because it appears in the CISA KEV catalog.
+.SH CLASSIFICATION
+Class: KEV\-referenced weakness.
+.SH DESCRIPTION
+Authenticating a user, or otherwise establishing a new user session, without invalidating any existing session identifier gives an attacker the opportunity to steal authenticated sessions. Such a scenario is commonly observed when: A web application authenticates a user without first invalidating the existing session, thereby continuing to use the session already associated with the user. An attacker is able to force a known session identifier on a user so that, once the user authenticates, the attacker has access to the authenticated session. The application or container uses predictable session identifiers. In the generic exploit of session fixation vulnerabilities, an attacker creates a new session on a web application and records the associated session identifier. The attacker then causes the victim to associate, and possibly authenticate, against the server using that session identifier, giving the attacker access to the user's account through the active session.
+.SH KNOWN EXPLOITED VULNERABILITIES
+CISA KEV catalog (as of 2026-10-08): \fB1\fR exploited CVE mapped to this weakness.
+.PP
+CVE\-2026\-102489.
+.SH EXAMPLES
+One vulnerable\->fixed pair per ecosystem (Node.js).
+.SS Node.js
+\fIVulnerable:\fR
+.RS
+.EX
+// keeps the same session id across the login boundary
+req.session.user = user;
+.EE
+.RE
+\fIFixed:\fR
+.RS
+.EX
+req.session.regenerate(err => {     // fresh id on privilege change
+  req.session.user = user;
+});
+.EE
+.RE
+.SH SEE ALSO
+\fBcwe\fR(7) (index).
+.PP
+Authoritative definition: https://cwe.mitre.org/data/definitions/384.html
+.SH NOTES
+Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
+.PP
+Generated 2026\-10\-08 from CWE Top 25 (2025). CISA KEV data as of 2026\-10\-08.

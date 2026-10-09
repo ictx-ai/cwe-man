@@ -1,0 +1,24 @@
+.\" Educational secure-coding reference. Generated, not hand-edited.
+.TH CWE-841 7 "2026-10-08" "CWE Top 25 (2025)" "Software Weakness Reference"
+.SH NAME
+CWE\-841 \- Improper Enforcement of Behavioral Workflow
+.SH RANK
+KEV\-referenced weakness. Not part of the 2025 CWE Top 25; documented here because it appears in the CISA KEV catalog.
+.SH CLASSIFICATION
+Class: KEV\-referenced weakness.
+.SH DESCRIPTION
+The product supports a session in which more than one behavior must be performed by an actor, but it does not properly ensure that the actor performs the behaviors in the required sequence. By performing actions in an unexpected order, or by omitting steps, an attacker could manipulate the business logic of the product or cause it to enter an invalid state. In some cases, this can also expose resultant weaknesses. For example, a file\-sharing protocol might require that an actor perform separate steps to provide a username, then a password, before being able to transfer files. If the file\-sharing server accepts a password command followed by a transfer command, without any username being provided, the product might still perform the transfer. Note that this is different than CWE\-696, which focuses on when the product performs actions in the wrong sequence; this entry is closely related, but it is focused on ensuring that the actor performs actions in the correct sequence. Workflow\-related behaviors include: Steps are performed in the expected order. Required steps are not omitted. Steps are not interrupted. Steps are performed in a timely fashion.
+.SH KNOWN EXPLOITED VULNERABILITIES
+CISA KEV catalog (as of 2026-10-08): \fB1\fR exploited CVE mapped to this weakness.
+.PP
+CVE\-2026\-67279.
+.SH EXAMPLES
+No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
+.SH SEE ALSO
+\fBcwe\fR(7) (index).
+.PP
+Authoritative definition: https://cwe.mitre.org/data/definitions/841.html
+.SH NOTES
+Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
+.PP
+Generated 2026\-10\-08 from CWE Top 25 (2025). CISA KEV data as of 2026\-10\-08.
