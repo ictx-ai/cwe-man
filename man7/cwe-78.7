@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-78 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-78 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-78 \- Improper Neutralization of Special Elements used in an OS Command (OS Command Injection)
 .SH RANK
@@ -11,9 +11,1956 @@ Untrusted input is placed into a command run by a system shell without neutralis
 .SH MITIGATION
 Avoid invoking a shell. Pass arguments as a vector to an exec\-style API so the OS treats them as data, not shell syntax. If a shell is unavoidable, strictly allow\-list input. Run with least privilege.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB115\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB115\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2014\-6271
+GNU Bourne\-Again Shell (Bash), added 2022\-01\-28.
 .PP
-CVE\-2014\-6271, CVE\-2014\-6278, CVE\-2014\-7169, CVE\-2016\-11021, CVE\-2017\-3506, CVE\-2017\-6077, CVE\-2017\-6334, CVE\-2017\-6884, CVE\-2017\-18368, CVE\-2018\-6530, CVE\-2018\-6961, CVE\-2018\-9276, CVE\-2018\-10562, CVE\-2018\-11138, CVE\-2018\-14558, CVE\-2018\-14839, CVE\-2018\-14933, CVE\-2018\-19949, CVE\-2019\-7256, CVE\-2019\-10149, CVE\-2019\-11001, CVE\-2019\-11539, CVE\-2019\-12991, CVE\-2019\-15107, CVE\-2019\-15949, CVE\-2019\-16057, CVE\-2019\-16920, CVE\-2019\-17621, CVE\-2019\-19356, CVE\-2019\-20500, CVE\-2020\-1956, CVE\-2020\-2509, CVE\-2020\-4006, CVE\-2020\-4428, CVE\-2020\-7247, CVE\-2020\-8515, CVE\-2020\-8816, CVE\-2020\-9054, CVE\-2020\-9377, CVE\-2020\-10221, CVE\-2020\-10987, CVE\-2020\-11978, CVE\-2020\-12641, CVE\-2020\-15415, CVE\-2020\-16846, CVE\-2020\-25223, CVE\-2020\-25506, CVE\-2021\-1497, CVE\-2021\-1498, CVE\-2021\-20035, CVE\-2021\-21315, CVE\-2021\-22502, CVE\-2021\-25296, CVE\-2021\-25297, CVE\-2021\-25298, CVE\-2021\-27102, CVE\-2021\-27104, CVE\-2021\-27561, CVE\-2021\-35394, CVE\-2021\-36260, CVE\-2021\-36380, CVE\-2021\-40407, CVE\-2021\-45382, CVE\-2022\-26258, CVE\-2022\-28810, CVE\-2022\-29303, CVE\-2022\-30525, CVE\-2022\-33891, CVE\-2022\-36804, CVE\-2022\-44877, CVE\-2023\-20273, CVE\-2023\-25280, CVE\-2023\-27992, CVE\-2023\-28771, CVE\-2023\-39780, CVE\-2023\-44221, CVE\-2023\-47565, CVE\-2023\-49897, CVE\-2024\-1212, CVE\-2024\-4577, CVE\-2024\-6047, CVE\-2024\-8190, CVE\-2024\-8957, CVE\-2024\-9463, CVE\-2024\-11120, CVE\-2024\-12686, CVE\-2024\-12987, CVE\-2024\-20399, CVE\-2024\-40890, CVE\-2024\-40891, CVE\-2024\-50603, CVE\-2025\-1316, CVE\-2025\-9377, CVE\-2025\-11953, CVE\-2025\-48703, CVE\-2025\-54948, CVE\-2025\-58034, CVE\-2025\-64328, CVE\-2025\-66644, CVE\-2025\-67038, CVE\-2026\-1731, CVE\-2026\-10520, CVE\-2026\-16812, CVE\-2026\-25089, CVE\-2026\-25108, CVE\-2026\-39808, CVE\-2026\-42271, CVE\-2026\-49869, CVE\-2026\-73570, CVE\-2026\-83549, CVE\-2026\-105134, CVE\-2026\-106931, CVE\-2026\-110447, CVE\-2026\-111560, CVE\-2026\-116779.
+GNU Bourne\-Again Shell (Bash) Arbitrary Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+GNU Bash through 4.3 processes trailing strings after function definitions in the values of environment variables, which allows remote attackers to execute code.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-07\-28.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2014\-6271
+.SS CVE\-2014\-6278
+GNU GNU Bash, added 2025\-10\-02.
+.PP
+GNU Bash OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+GNU Bash contains an OS command injection vulnerability which allows remote attackers to execute arbitrary commands via a crafted environment.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-10\-23.
+.PP
+\fIReferences:\fR
+.br
+http://ftp.gnu.org/gnu/bash/bash\-4.3\-patches/bash43\-027
+.br
+https://support.broadcom.com/web/ecx/support\-content\-notification/\-/external/content/SecurityAdvisories/0/23467
+.br
+https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco\-sa\-20140926\-bash
+.br
+https://www.ibm.com/support/pages/security\-bulletin\-update\-vulnerabilities\-bash\-affect\-aix\-toolbox\-linux\-applications\-cve\-2014\-6271\-cve\-2014\-6277\-cve\-2014\-6278\-cve\-2014\-7169\-cve\-2014\-7186\-and\-cve\-2014\-7187
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2014\-6278
+.SS CVE\-2014\-7169
+GNU Bourne\-Again Shell (Bash), added 2022\-01\-28.
+.PP
+GNU Bourne\-Again Shell (Bash) Arbitrary Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+GNU Bash through 4.3 processes trailing strings after function definitions in the values of environment variables, which allows remote attackers to execute code. This CVE correctly remediates the vulnerability in CVE\-2014\-6271.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-07\-28.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2014\-7169
+.SS CVE\-2016\-11021
+D\-Link DCS\-930L Devices, added 2022\-03\-25.
+.PP
+D\-Link DCS\-930L Devices OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+setSystemCommand on D\-Link DCS\-930L devices allows a remote attacker to execute code via an OS command.
+.PP
+\fIRemediation:\fR
+The impacted product is end\-of\-life and should be disconnected if still in use.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2016\-11021
+.SS CVE\-2017\-3506
+Oracle WebLogic Server, added 2024\-06\-03.
+.PP
+Oracle WebLogic Server OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Oracle WebLogic Server, a product within the Fusion Middleware suite, contains an OS command injection vulnerability that allows an attacker to execute arbitrary code via a specially crafted HTTP request that includes a malicious XML document.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-06\-24.
+.PP
+\fIReferences:\fR
+.br
+https://www.oracle.com/security\-alerts/cpuapr2017.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-3506
+.SS CVE\-2017\-6077
+NETGEAR Wireless Router DGN2200, added 2022\-03\-07.
+.PP
+NETGEAR DGN2200 Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+NETGEAR DGN2200 wireless routers contain a vulnerability that allows for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-09\-07.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-6077
+.SS CVE\-2017\-6334
+NETGEAR DGN2200 Devices, added 2022\-03\-25.
+.PP
+NETGEAR DGN2200 Devices OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+dnslookup.cgi on NETGEAR DGN2200 devices with firmware through 10.0.0.50 allows remote authenticated users to execute arbitrary OS commands
+.PP
+\fIRemediation:\fR
+The impacted product is end\-of\-life and should be disconnected if still in use.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-6334
+.SS CVE\-2017\-6884
+Zyxel EMG2926 Routers, added 2023\-09\-18, ransomware: Known.
+.PP
+Zyxel EMG2926 Routers Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Zyxel EMG2926 routers contain a command injection vulnerability located in the diagnostic tools, specifically the nslookup function. A malicious user may exploit numerous vectors to execute malicious commands on the router, such as the ping_ip parameter to the expert/maintenance/diagnostic/nslookup URI.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-10\-09.
+.PP
+\fIReferences:\fR
+.br
+https://www.zyxel.com/global/en/support/security\-advisories/zyxel\-security\-advisory\-for\-command\-injection\-vulnerability\-in\-emg2926\-q10a\-ethernet\-cpe
+.br
+https://www.zyxelguard.com/Zyxel\-EOL.asp
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-6884
+.SS CVE\-2017\-18368
+Zyxel P660HN\-T1A Routers, added 2023\-08\-07.
+.PP
+Zyxel P660HN\-T1A Routers Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Zyxel P660HN\-T1A routers contain a command injection vulnerability in the Remote System Log forwarding function, which is accessible by an unauthenticated user and exploited via the remote_host parameter of the ViewLog.asp page.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-08\-28.
+.PP
+\fIReferences:\fR
+.br
+https://www.zyxel.com/global/en/support/security\-advisories/zyxel\-security\-advisory\-for\-a\-new\-variant\-of\-gafgyt\-malware
+.br
+https://www.zyxel.com/global/en/support/security\-advisories/zyxel\-security\-advisory\-for\-command\-injection\-vulnerability\-in\-p660hn\-t1a\-dsl\-cpe
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-18368
+.SS CVE\-2018\-6530
+D\-Link Multiple Routers, added 2022\-09\-08, ransomware: Known.
+.PP
+D\-Link Multiple Routers OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Multiple D\-Link routers contain an unspecified vulnerability that allows for execution of OS commands.
+.PP
+\fIRemediation:\fR
+The vendor D\-Link published an advisory stating the fix under CVE\-2018\-20114 properly patches KEV entry CVE\-2018\-6530. If the device is still supported, apply updates per vendor instructions. If the affected device has since entered its end\-of\-life, it should be disconnected if still in use.
+ Due 2022\-09\-29.
+.PP
+\fIReferences:\fR
+.br
+https://supportannouncement.us.dlink.com/announcement/publication.aspx?name=SAP10105
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-6530
+.SS CVE\-2018\-6961
+VMware SD\-WAN Edge, added 2022\-03\-25.
+.PP
+VMware SD\-WAN Edge by VeloCloud Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+VMware SD\-WAN Edge by VeloCloud contains a command injection vulnerability in the local web UI component. Successful exploitation of this issue could result in remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-6961
+.SS CVE\-2018\-9276
+Paessler PRTG Network Monitor, added 2025\-02\-04.
+.PP
+Paessler PRTG Network Monitor OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Paessler PRTG Network Monitor contains an OS command injection vulnerability that allows an attacker with administrative privileges to execute commands via the PRTG System Administrator web console.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-02\-25.
+.PP
+\fIReferences:\fR
+.br
+https://www.paessler.com/prtg/history/prtg\-18#18.2.39
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-9276
+.SS CVE\-2018\-10562
+Dasan Gigabit Passive Optical Network (GPON) Routers, added 2022\-03\-31, ransomware: Known.
+.PP
+Dasan GPON Routers Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Dasan GPON Routers contain an authentication bypass vulnerability. When combined with CVE\-2018\-10561, exploitation can allow an attacker to perform remote code execution.
+.PP
+\fIRemediation:\fR
+The impacted product is end\-of\-life and should be disconnected if still in use.
+ Due 2022\-04\-21.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-10562
+.SS CVE\-2018\-11138
+Quest KACE System Management Appliance, added 2022\-03\-25, ransomware: Known.
+.PP
+Quest KACE System Management Appliance Remote Command Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The '/common/download_agent_installer.php' script in the Quest KACE System Management Appliance is accessible by anonymous users and can be abused to perform remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-11138
+.SS CVE\-2018\-14558
+Tenda AC7, AC9, and AC10 Routers, added 2021\-11\-03.
+.PP
+Tenda AC7, AC9, and AC10 Routers Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Tenda AC7, AC9, and AC10 devices contain a command injection vulnerability due to  the "formsetUsbUnload" function executes a dosystemCmd function with untrusted input. Successful exploitation allows an attacker to execute OS commands via a crafted goform/setUsbUnload request.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-14558
+.SS CVE\-2018\-14839
+LG N1A1 NAS, added 2022\-03\-25.
+.PP
+LG N1A1 NAS Remote Command Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+LG N1A1 NAS 3718.510 is affected by a remote code execution vulnerability.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-14839
+.SS CVE\-2018\-14933
+NUUO NVRmini Devices, added 2024\-12\-18.
+.PP
+NUUO NVRmini Devices OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+NUUO NVRmini devices contain an OS command injection vulnerability. This vulnerability allows remote command execution via shell metacharacters in the uploaddir parameter for a writeuploaddir command.
+.PP
+\fIRemediation:\fR
+The impacted product is end\-of\-life (EoL) and/or end\-of\-service (EoS). Users should discontinue utilization of the product.
+ Due 2025\-01\-08.
+.PP
+\fIReferences:\fR
+.br
+https://nuuo.com/wp\-content/uploads/2023/03/NUUO\-EOL\-letter%EF%BC%BFNVRmini\-2\-and\-NVRsolo\-series.pdf
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-14933
+.SS CVE\-2018\-19949
+QNAP Network Attached Storage (NAS), added 2022\-05\-24, ransomware: Known.
+.PP
+QNAP NAS File Station Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A command injection vulnerability affecting QNAP NAS File Station could allow remote attackers to run commands.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-14.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-19949
+.SS CVE\-2019\-7256
+Nice Linear eMerge E3\-Series, added 2024\-03\-25.
+.PP
+Nice Linear eMerge E3\-Series OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Nice Linear eMerge E3\-Series contains an OS command injection vulnerability that allows an attacker to conduct remote code execution.
+.PP
+\fIRemediation:\fR
+Contact the vendor for guidance on remediating firmware, per their advisory.
+ Due 2024\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://linear\-solutions.com/wp\-content/uploads/E3\-Bulletin\-06\-27\-2023.pdf
+.br
+https://www.cisa.gov/news\-events/ics\-advisories/icsa\-24\-065\-01
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-7256
+.SS CVE\-2019\-10149
+Exim Mail Transfer Agent (MTA), added 2022\-01\-10.
+.PP
+Exim Mail Transfer Agent (MTA) Improper Input Validation.
+.PP
+\fIHow it is exploited (CISA):\fR
+Improper validation of recipient address in deliver_message() function in /src/deliver.c may lead to remote command execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-07\-10.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-10149
+.SS CVE\-2019\-11001
+Reolink Multiple IP Cameras, added 2024\-12\-18.
+.PP
+Reolink Multiple IP Cameras OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Reolink RLC\-410W, C1 Pro, C2 Pro, RLC\-422W, and RLC\-511W IP cameras contain an authenticated OS command injection vulnerability. This vulnerability allows an authenticated admin to use the "TestEmail" functionality to inject and run OS commands as root.
+.PP
+\fIRemediation:\fR
+The impacted product could be end\-of\-life (EoL) and/or end\-of\-service (EoS). Users should discontinue product utilization if a current mitigation is unavailable.
+ Due 2025\-01\-08.
+.PP
+\fIReferences:\fR
+.br
+https://reolink.com/product\-eol/
+.br
+https://reolink.com/download\-center/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-11001
+.SS CVE\-2019\-11539
+Ivanti Pulse Connect Secure and Pulse Policy Secure, added 2021\-11\-03, ransomware: Known.
+.PP
+Ivanti Pulse Connect Secure and Policy Secure Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ivanti Pulse Connect Secure and Policy Secure allows an authenticated attacker from the admin web interface to inject and execute commands.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-11539
+.SS CVE\-2019\-12991
+Citrix SD\-WAN and NetScaler, added 2022\-03\-25.
+.PP
+Citrix SD\-WAN and NetScaler Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Authenticated Command Injection in Citrix SD\-WAN Appliance and NetScaler SD\-WAN Appliance.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-12991
+.SS CVE\-2019\-15107
+Webmin Webmin, added 2022\-03\-25, ransomware: Known.
+.PP
+Webmin Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+An issue was discovered in Webmin. The parameter old in password_change.cgi contains a command injection vulnerability.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-15107
+.SS CVE\-2019\-15949
+Nagios Nagios XI, added 2021\-11\-03.
+.PP
+Nagios XI Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Nagios XI contains a remote code execution vulnerability in which a user can modify the check_plugin executable and insert malicious commands to execute as root.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-15949
+.SS CVE\-2019\-16057
+D\-Link DNS\-320 Storage Device, added 2022\-04\-15, ransomware: Known.
+.PP
+D\-Link DNS\-320 Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The login_mgr.cgi script in D\-Link DNS\-320 is vulnerable to remote code execution.
+.PP
+\fIRemediation:\fR
+The impacted product is end\-of\-life and should be disconnected if still in use.
+ Due 2022\-05\-06.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-16057
+.SS CVE\-2019\-16920
+D\-Link Multiple Routers, added 2022\-03\-25.
+.PP
+D\-Link Multiple Routers Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Multiple D\-Link routers contain a command injection vulnerability which can allow attackers to achieve full system compromise.
+.PP
+\fIRemediation:\fR
+The impacted product is end\-of\-life and should be disconnected if still in use.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-16920
+.SS CVE\-2019\-17621
+D\-Link DIR\-859 Router, added 2023\-06\-29.
+.PP
+D\-Link DIR\-859 Router Command Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+D\-Link DIR\-859 router contains a command execution vulnerability in the UPnP endpoint URL, /gena.cgi. Exploitation allows an unauthenticated remote attacker to execute system commands as root by sending a specially crafted HTTP SUBSCRIBE request to the UPnP service when connecting to the local network.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-07\-20.
+.PP
+\fIReferences:\fR
+.br
+https://supportannouncement.us.dlink.com/announcement/publication.aspx?name=SAP10147
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-17621
+.SS CVE\-2019\-19356
+Netis WF2419 Devices, added 2021\-11\-03.
+.PP
+Netis WF2419 Devices Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Netis WF2419 devices contains an unspecified vulnerability that allows an attacker to perform remote code execution as root through the router's web management page.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-19356
+.SS CVE\-2019\-20500
+D\-Link DWL\-2600AP Access Point, added 2023\-06\-29.
+.PP
+D\-Link DWL\-2600AP Access Point Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+D\-Link DWL\-2600AP access point contains an authenticated command injection vulnerability via the Save Configuration functionality in the Web interface, using shell metacharacters in the admin.cgi?action=config_save configBackup or downloadServerip parameter.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-07\-20.
+.PP
+\fIReferences:\fR
+.br
+https://supportannouncement.us.dlink.com/announcement/publication.aspx?name=SAP10113
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-20500
+.SS CVE\-2020\-1956
+Apache Kylin, added 2022\-03\-25.
+.PP
+Apache Kylin OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apache Kylin contains an OS command injection vulnerability which could permit an attacker to perform remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-1956
+.SS CVE\-2020\-2509
+QNAP QNAP Network\-Attached Storage (NAS), added 2022\-04\-11.
+.PP
+QNAP Network\-Attached Storage (NAS) Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+QNAP NAS devices contain a command injection vulnerability which could allow attackers to perform remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-02.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-2509
+.SS CVE\-2020\-4006
+VMware Multiple Products, added 2021\-11\-03.
+.PP
+Multiple VMware Products Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+VMware Workspace One Access, Access Connector, Identity Manager, and Identity Manager Connector contain a command injection vulnerability. An attacker with network access to the administrative configurator on port 8443 and a valid password for the configurator administrator account can execute commands with unrestricted privileges on the underlying operating system.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-4006
+.SS CVE\-2020\-4428
+IBM Data Risk Manager, added 2021\-11\-03.
+.PP
+IBM Data Risk Manager Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+IBM Data Risk Manager contains an unspecified vulnerability which could allow a remote, authenticated attacker to execute commands on the system.�
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-4428
+.SS CVE\-2020\-7247
+OpenBSD OpenSMTPD, added 2022\-03\-25.
+.PP
+OpenSMTPD Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+smtp_mailaddr in smtp_session.c in OpenSMTPD, as used in OpenBSD and other products, allows remote attackers to execute arbitrary commands as root via a crafted SMTP session.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-7247
+.SS CVE\-2020\-8515
+DrayTek Multiple Vigor Routers, added 2021\-11\-03.
+.PP
+Multiple DrayTek Vigor Routers Web Management Page Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+DrayTek Vigor3900, Vigor2960, and Vigor300B routers contain an unspecified vulnerability that allows for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-8515
+.SS CVE\-2020\-8816
+Pi\-hole AdminLTE, added 2021\-12\-10.
+.PP
+Pi\-Hole AdminLTE Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Pi\-hole Web v4.3.2 (aka AdminLTE) allows Remote Code Execution by privileged dashboard users via a crafted DHCP static lease.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-10.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-8816
+.SS CVE\-2020\-9054
+Zyxel Multiple Network\-Attached Storage (NAS) Devices, added 2022\-03\-25.
+.PP
+Zyxel Multiple NAS Devices OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Multiple Zyxel network\-attached storage (NAS) devices contain a pre\-authentication command injection vulnerability, which may allow a remote, unauthenticated attacker to execute arbitrary code.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-9054
+.SS CVE\-2020\-9377
+D\-Link DIR\-610 Devices, added 2022\-03\-25.
+.PP
+D\-Link DIR\-610 Devices Remote Command Execution.
+.PP
+\fIHow it is exploited (CISA):\fR
+D\-Link DIR\-610 devices allow remote code execution via the cmd parameter to command.php.
+.PP
+\fIRemediation:\fR
+The impacted product is end\-of\-life and should be disconnected if still in use.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-9377
+.SS CVE\-2020\-10221
+rConfig rConfig, added 2021\-11\-03.
+.PP
+rConfig OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+rConfig lib/ajaxHandlers/ajaxAddTemplate.php contains an OS command injection vulnerability that allows remote attackers to execute OS commands via shell metacharacters in the fileName POST parameter.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-10221
+.SS CVE\-2020\-10987
+Tenda AC1900 Router AC15 Model, added 2021\-11\-03.
+.PP
+Tenda AC1900 Router AC15 Model Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Tenda AC1900 Router AC15 Model contains an unspecified vulnerability that allows remote attackers to execute system commands via the deviceName POST parameter.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-10987
+.SS CVE\-2020\-11978
+Apache Airflow, added 2022\-01\-18.
+.PP
+Apache Airflow Command Injection.
+.PP
+\fIHow it is exploited (CISA):\fR
+A remote code/command injection vulnerability was discovered in one of the example DAGs shipped with Airflow.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-07\-18.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-11978
+.SS CVE\-2020\-12641
+Roundcube Roundcube Webmail, added 2023\-06\-22.
+.PP
+Roundcube Webmail Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Roundcube Webmail contains an remote code execution vulnerability that allows attackers to execute code via shell metacharacters in a configuration setting for im_convert_path or im_identify_path.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-07\-13.
+.PP
+\fIReferences:\fR
+.br
+https://roundcube.net/news/2020/04/29/security\-updates\-1.4.4\-1.3.11\-and\-1.2.10
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-12641
+.SS CVE\-2020\-15415
+DrayTek Multiple Vigor Routers, added 2024\-09\-30.
+.PP
+DrayTek Multiple Vigor Routers OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+DrayTek Vigor3900, Vigor2960, and Vigor300B devices contain an OS command injection vulnerability in cgi\-bin/mainfunction.cgi/cvmcfgupload that allows for remote code execution via shell metacharacters in a filename when the text/x\-python\-script content type is used.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-10\-21.
+.PP
+\fIReferences:\fR
+.br
+https://www.draytek.com/about/security\-advisory/vigor3900\-/\-vigor2960\-/\-vigor300b\-remote\-code\-injection/execution\-vulnerability\-(cve\-2020\-14472
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-15415
+.SS CVE\-2020\-16846
+SaltStack Salt, added 2021\-11\-03.
+.PP
+SaltStack Salt Shell Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SaltStack Salt allows an unauthenticated user with network access to the Salt API to use shell injections to run code on the Salt API using the SSH client. This vulnerability affects any users running the Salt API.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-16846
+.SS CVE\-2020\-25223
+Sophos SG UTM, added 2022\-03\-25.
+.PP
+Sophos SG UTM Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A remote code execution vulnerability exists in the WebAdmin of Sophos SG UTM.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-25223
+.SS CVE\-2020\-25506
+D\-Link DNS\-320 Device, added 2021\-11\-03.
+.PP
+D\-Link DNS\-320 Device Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+D\-Link DNS\-320 device contains a command injection vulnerability in the sytem_mgr.cgi component that may allow for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-25506
+.SS CVE\-2021\-1497
+Cisco HyperFlex HX, added 2021\-11\-03.
+.PP
+Cisco HyperFlex HX Installer Virtual Machine Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Cisco HyperFlex HX Installer Virtual Machine contains an insufficient input validation vulnerability which could allow an attacker to execute commands on an affected device as the root user.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-1497
+.SS CVE\-2021\-1498
+Cisco HyperFlex HX, added 2021\-11\-03.
+.PP
+Cisco HyperFlex HX Data Platform Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Cisco HyperFlex HX Installer Virtual Machine contains an insufficient input validation vulnerability which could allow an attacker to execute commands on an affected device as the tomcat8 user.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-1498
+.SS CVE\-2021\-20035
+SonicWall SMA100 Appliances, added 2025\-04\-16.
+.PP
+SonicWall SMA100 Appliances OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SonicWall SMA100 appliances contain an OS command injection vulnerability in the management interface that allows a remote authenticated attacker to inject arbitrary commands as a 'nobody' user, which could potentially lead to code execution.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-05\-07.
+.PP
+\fIReferences:\fR
+.br
+https://psirt.global.sonicwall.com/vuln\-detail/SNWLID\-2021\-0022
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-20035
+.SS CVE\-2021\-21315
+Npm package System Information Library for Node.JS, added 2022\-01\-18.
+.PP
+System Information Library for Node.JS Command Injection.
+.PP
+\fIHow it is exploited (CISA):\fR
+In this vulnerability, an attacker can send a malicious payload that will exploit the name parameter. After successful exploitation, attackers can execute remote.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-02\-01.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-21315
+.SS CVE\-2021\-22502
+Micro Focus Operation Bridge Reporter (OBR), added 2021\-11\-03.
+.PP
+Micro Focus Operation Bridge Report (OBR) Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Micro Focus Operation Bridge Report (OBR) contains an unspecified vulnerability that allows for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-22502
+.SS CVE\-2021\-25296
+Nagios Nagios XI, added 2022\-01\-18.
+.PP
+Nagios XI OS Command Injection.
+.PP
+\fIHow it is exploited (CISA):\fR
+Nagios XI contains a vulnerability which can lead to OS command injection on the Nagios XI server.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-02\-01.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-25296
+.SS CVE\-2021\-25297
+Nagios Nagios XI, added 2022\-01\-18.
+.PP
+Nagios XI OS Command Injection.
+.PP
+\fIHow it is exploited (CISA):\fR
+Nagios XI contains a vulnerability which can lead to OS command injection on the Nagios XI server.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-02\-01.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-25297
+.SS CVE\-2021\-25298
+Nagios Nagios XI, added 2022\-01\-18.
+.PP
+Nagios XI OS Command Injection.
+.PP
+\fIHow it is exploited (CISA):\fR
+Nagios XI contains a vulnerability which can lead to OS command injection on the Nagios XI server.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-02\-01.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-25298
+.SS CVE\-2021\-27102
+Accellion FTA, added 2021\-11\-03, ransomware: Known.
+.PP
+Accellion FTA OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Accellion FTA contains an OS command injection vulnerability exploited via a local web service call.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-27102
+.SS CVE\-2021\-27104
+Accellion FTA, added 2021\-11\-03, ransomware: Known.
+.PP
+Accellion FTA OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Accellion FTA contains an OS command injection vulnerability exploited via a crafted POST request to various admin endpoints.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-27104
+.SS CVE\-2021\-27561
+Yealink Device Management, added 2021\-11\-03.
+.PP
+Yealink Device Management Server\-Side Request Forgery (SSRF) Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Yealink Device Management contains a server\-side request forgery (SSRF) vulnerability that allows for unauthenticated remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-27561
+.SS CVE\-2021\-35394
+Realtek Jungle Software Development Kit (SDK), added 2021\-12\-10.
+.PP
+Realtek Jungle SDK Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+RealTek Jungle SDK contains multiple memory corruption vulnerabilities which can allow an attacker to perform remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-12\-24.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-35394
+.SS CVE\-2021\-36260
+Hikvision Security cameras web server, added 2022\-01\-10.
+.PP
+Hikvision Improper Input Validation.
+.PP
+\fIHow it is exploited (CISA):\fR
+A command injection vulnerability in the web server of some Hikvision product. Due to the insufficient input validation.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-01\-24.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-36260
+.SS CVE\-2021\-36380
+Sunhillo SureLine, added 2024\-03\-05.
+.PP
+Sunhillo SureLine OS Command Injection Vulnerablity.
+.PP
+\fIHow it is exploited (CISA):\fR
+Sunhillo SureLine contains an OS command injection vulnerability that allows an attacker to cause a denial\-of\-service or utilize the device for persistence on the network via shell metacharacters in ipAddr or dnsAddr in /cgi/networkDiag.cgi.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-03\-26.
+.PP
+\fIReferences:\fR
+.br
+https://www.sunhillo.com/fb011/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-36380
+.SS CVE\-2021\-40407
+Reolink RLC\-410W IP Camera, added 2024\-12\-18.
+.PP
+Reolink RLC\-410W IP Camera OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Reolink RLC\-410W IP cameras contain an authenticated OS command injection vulnerability in the device network settings functionality.
+.PP
+\fIRemediation:\fR
+The impacted product could be end\-of\-life (EoL) and/or end\-of\-service (EoS). Users should discontinue product utilization if a current mitigation is unavailable.
+ Due 2025\-01\-08.
+.PP
+\fIReferences:\fR
+.br
+https://reolink.com/product\-eol/
+.br
+https://reolink.com/download\-center/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-40407
+.SS CVE\-2021\-45382
+D\-Link Multiple Routers, added 2022\-04\-04.
+.PP
+D\-Link Multiple Routers Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A remote code execution vulnerability exists in all series H/W revisions routers via the DDNS function in ncc2 binary file.
+.PP
+\fIRemediation:\fR
+The impacted product is end\-of\-life and should be disconnected if still in use.
+ Due 2022\-04\-25.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-45382
+.SS CVE\-2022\-26258
+D\-Link DIR\-820L, added 2022\-09\-08.
+.PP
+D\-Link DIR\-820L Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+D\-Link DIR\-820L contains an unspecified vulnerability in Device Name parameter in /lan.asp which allows for remote code execution.
+.PP
+\fIRemediation:\fR
+The impacted product is end\-of\-life and should be disconnected if still in use.
+ Due 2022\-09\-29.
+.PP
+\fIReferences:\fR
+.br
+https://supportannouncement.us.dlink.com/announcement/publication.aspx?name=SAP10295
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-26258
+.SS CVE\-2022\-28810
+Zoho ManageEngine, added 2023\-03\-07.
+.PP
+Zoho ManageEngine ADSelfService Plus Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Zoho ManageEngine ADSelfService Plus contains an unspecified vulnerability allowing for remote code execution when performing a password change or reset.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-03\-28.
+.PP
+\fIReferences:\fR
+.br
+https://www.manageengine.com/products/self\-service\-password/advisory/CVE\-2022\-28810.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-28810
+.SS CVE\-2022\-29303
+SolarView Compact, added 2023\-07\-13.
+.PP
+SolarView Compact Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SolarView Compact contains a command injection vulnerability due to improper validation of input values on the send test mail console of the product's web server.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-08\-03.
+.PP
+\fIReferences:\fR
+.br
+https://jvn.jp/en/vu/JVNVU92327282/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-29303
+.SS CVE\-2022\-30525
+Zyxel Multiple Firewalls, added 2022\-05\-16.
+.PP
+Zyxel Multiple Firewalls OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A command injection vulnerability in the CGI program of some Zyxel firewall versions could allow an attacker to modify specific files and then execute some OS commands on a vulnerable device.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-06.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-30525
+.SS CVE\-2022\-33891
+Apache Spark, added 2023\-03\-07.
+.PP
+Apache Spark Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apache Spark contains a command injection vulnerability via Spark User Interface (UI) when Access Control Lists (ACLs) are enabled.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-03\-28.
+.PP
+\fIReferences:\fR
+.br
+https://lists.apache.org/thread/p847l3kopoo5bjtmxrcwk21xp6tjxqlc
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-33891
+.SS CVE\-2022\-36804
+Atlassian Bitbucket Server and Data Center, added 2022\-09\-30.
+.PP
+Atlassian Bitbucket Server and Data Center Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Multiple API endpoints of Atlassian Bitbucket Server and Data Center contain a command injection vulnerability where an attacker with access to a public Bitbucket repository, or with read permissions to a private one, can execute code by sending a malicious HTTP request.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-10\-21.
+.PP
+\fIReferences:\fR
+.br
+https://jira.atlassian.com/browse/BSERV\-13438
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-36804
+.SS CVE\-2022\-44877
+CWP Control Web Panel, added 2023\-01\-17.
+.PP
+CWP Control Web Panel OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+CWP Control Web Panel (formerly CentOS Web Panel) contains an OS command injection vulnerability that allows remote attackers to execute commands via shell metacharacters in the login parameter.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-02\-07.
+.PP
+\fIReferences:\fR
+.br
+https://control\-webpanel.com/changelog#1669855527714\-450fb335\-6194
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-44877
+.SS CVE\-2023\-20273
+Cisco Cisco IOS XE Web UI, added 2023\-10\-23.
+.PP
+Cisco IOS XE Web UI Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Cisco IOS XE contains a command injection vulnerability in the web user interface. When chained with CVE\-2023\-20198, the attacker can leverage the new local user to elevate privilege to root and write the implant to the file system. Cisco identified CVE\-2023\-20273 as the vulnerability exploited to deploy the implant. CVE\-2021\-1435, previously associated with the exploitation events, is no longer believed to be related to this activity.
+.PP
+\fIRemediation:\fR
+Verify that instances of Cisco IOS XE Web UI are in compliance with BOD 23\-02 and apply mitigations per vendor instructions. For affected products (Cisco IOS XE Web UI exposed to the internet or to untrusted networks), follow vendor instructions to determine if a system may have been compromised and immediately report positive findings to CISA.
+ Due 2023\-10\-27.
+.PP
+\fIReferences:\fR
+.br
+https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco\-sa\-iosxe\-webui\-privesc\-j22SaA4z
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-20273
+.SS CVE\-2023\-25280
+D\-Link DIR\-820 Router, added 2024\-09\-30.
+.PP
+D\-Link DIR\-820 Router OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+D\-Link DIR\-820 routers contain an OS command injection vulnerability that allows a remote, unauthenticated attacker to escalate privileges to root via a crafted payload with the ping_addr parameter to ping.ccp.
+.PP
+\fIRemediation:\fR
+The impacted product is end\-of\-life (EoL) and/or end\-of\-service (EoS). Users should discontinue utilization of the product.
+ Due 2024\-10\-21.
+.PP
+\fIReferences:\fR
+.br
+https://supportannouncement.us.dlink.com/security/publication.aspx?name=SAP10358
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-25280
+.SS CVE\-2023\-27992
+Zyxel Multiple Network\-Attached Storage (NAS) Devices, added 2023\-06\-23.
+.PP
+Zyxel Multiple NAS Devices Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Multiple Zyxel network\-attached storage (NAS) devices contain a pre\-authentication command injection vulnerability that could allow an unauthenticated attacker to execute commands remotely via a crafted HTTP request.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-07\-14.
+.PP
+\fIReferences:\fR
+.br
+https://www.zyxel.com/global/en/support/security\-advisories/zyxel\-security\-advisory\-for\-pre\-authentication\-command\-injection\-vulnerability\-in\-nas\-products
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-27992
+.SS CVE\-2023\-28771
+Zyxel Multiple Firewalls, added 2023\-05\-31.
+.PP
+Zyxel Multiple Firewalls OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Zyxel ATP, USG FLEX, VPN, and ZyWALL/USG firewalls allow for improper error message handling which could allow an unauthenticated attacker to execute OS commands remotely by sending crafted packets to an affected device.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-06\-21.
+.PP
+\fIReferences:\fR
+.br
+https://www.zyxel.com/global/en/support/security\-advisories/zyxel\-security\-advisory\-for\-remote\-command\-injection\-vulnerability\-of\-firewalls
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-28771
+.SS CVE\-2023\-39780
+ASUS RT\-AX55 Routers, added 2025\-06\-02.
+.PP
+ASUS RT\-AX55 Routers OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+ASUS RT\-AX55 devices contain an OS command injection vulnerability that could allow a remote, authenticated attacker to execute arbitrary commands. As represented by CVE\-2023\-41346.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-06\-23.
+.PP
+\fIReferences:\fR
+.br
+https://www.asus.com/networking\-iot\-servers/wifi\-6/all\-series/rt\-ax55/helpdesk_bios/?model2Name=RT\-AX55
+.br
+https://www.asus.com/content/asus\-product\-security\-advisory/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-39780
+.SS CVE\-2023\-44221
+SonicWall SMA100 Appliances, added 2025\-05\-01.
+.PP
+SonicWall SMA100 Appliances OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SonicWall SMA100 appliances contain an OS command injection vulnerability in the SSL\-VPN management interface that allows a remote, authenticated attacker with administrative privilege to inject arbitrary commands as a 'nobody' user.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-05\-22.
+.PP
+\fIReferences:\fR
+.br
+https://psirt.global.sonicwall.com/vuln\-detail/SNWLID\-2023\-0018
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-44221
+.SS CVE\-2023\-47565
+QNAP VioStor NVR, added 2023\-12\-21.
+.PP
+QNAP VioStor NVR OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+QNAP VioStar NVR contains an OS command injection vulnerability that allows authenticated users to execute commands via a network.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-01\-11.
+.PP
+\fIReferences:\fR
+.br
+https://www.qnap.com/en/security\-advisory/qsa\-23\-48
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-47565
+.SS CVE\-2023\-49897
+FXC AE1021, AE1021PE, added 2023\-12\-21.
+.PP
+FXC AE1021, AE1021PE OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+FXC AE1021 and AE1021PE contain an OS command injection vulnerability that allows authenticated users to execute commands via a network.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-01\-11.
+.PP
+\fIReferences:\fR
+.br
+https://www.fxc.jp/news/20231206
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-49897
+.SS CVE\-2024\-1212
+Progress Kemp LoadMaster, added 2024\-11\-18.
+.PP
+Progress Kemp LoadMaster OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Progress Kemp LoadMaster contains an OS command injection vulnerability that allows an unauthenticated, remote attacker to access the system through the LoadMaster management interface, enabling arbitrary system command execution.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-12\-09.
+.PP
+\fIReferences:\fR
+.br
+https://community.progress.com/s/article/Release\-Notice\-LMOS\-7\-2\-59\-2\-7\-2\-54\-8\-7\-2\-48\-10\-CVE\-2024\-1212
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-1212
+.SS CVE\-2024\-4577
+PHP Group PHP, added 2024\-06\-12, ransomware: Known.
+.PP
+PHP\-CGI OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+PHP, specifically Windows\-based PHP used in CGI mode, contains an OS command injection vulnerability that allows for arbitrary code execution. This vulnerability is a patch bypass for CVE\-2012\-1823.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-07\-03.
+.PP
+\fIReferences:\fR
+.br
+https://www.php.net/ChangeLog\-8.php#
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-4577
+.SS CVE\-2024\-6047
+GeoVision Multiple Devices, added 2025\-05\-07.
+.PP
+GeoVision Devices OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Multiple GeoVision devices contain an OS command injection vulnerability that allows a remote, unauthenticated attacker to inject and execute arbitrary system commands. The impacted products could be end\-of\-life (EoL) and/or end\-of\-service (EoS). Users should discontinue product utilization.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-05\-28.
+.PP
+\fIReferences:\fR
+.br
+https://dlcdn.geovision.com.tw/TechNotice/CyberSecurity/Security_Advisory_IP_Device_2024\-11.pdf
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-6047
+.SS CVE\-2024\-8190
+Ivanti Cloud Services Appliance, added 2024\-09\-13.
+.PP
+Ivanti Cloud Services Appliance OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ivanti Cloud Services Appliance (CSA) contains an OS command injection vulnerability in the administrative console which can allow an authenticated attacker with application admin privileges to pass commands to the underlying OS.
+.PP
+\fIRemediation:\fR
+As Ivanti CSA has reached End\-of\-Life status, users are urged to remove CSA 4.6.x from service or upgrade to the 5.0.x line of supported solutions, as future vulnerabilities on the 4.6.x version of CSA are unlikely to receive future security updates.
+ Due 2024\-10\-04.
+.PP
+\fIReferences:\fR
+.br
+https://forums.ivanti.com/s/article/Security\-Advisory\-Ivanti\-Cloud\-Service\-Appliance\-CSA\-CVE\-2024\-8190
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-8190
+.SS CVE\-2024\-8957
+PTZOptics PT30X\-SDI/NDI Cameras, added 2024\-11\-04.
+.PP
+PTZOptics PT30X\-SDI/NDI Cameras OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+PTZOptics PT30X\-SDI/NDI cameras contain an OS command injection vulnerability that allows a remote, authenticated attacker to escalate privileges to root via a crafted payload with the ntp_addr parameter of the /cgi\-bin/param.cgi CGI script.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-11\-25.
+.PP
+\fIReferences:\fR
+.br
+https://ptzoptics.com/firmware\-changelog/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-8957
+.SS CVE\-2024\-9463
+Palo Alto Networks Expedition, added 2024\-11\-14.
+.PP
+Palo Alto Networks Expedition OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Palo Alto Networks Expedition contains an OS command injection vulnerability that allows an unauthenticated attacker to run arbitrary OS commands as root in Expedition, resulting in disclosure of usernames, cleartext passwords, device configurations, and device API keys of PAN\-OS firewalls.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-12\-05.
+.PP
+\fIReferences:\fR
+.br
+https://security.paloaltonetworks.com/PAN\-SA\-2024\-0010
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-9463
+.SS CVE\-2024\-11120
+GeoVision Multiple Devices, added 2025\-05\-07.
+.PP
+GeoVision Devices OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Multiple GeoVision devices contain an OS command injection vulnerability that allows a remote, unauthenticated attacker to inject and execute arbitrary system commands. The impacted products could be end\-of\-life (EoL) and/or end\-of\-service (EoS). Users should discontinue product utilization.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-05\-28.
+.PP
+\fIReferences:\fR
+.br
+https://dlcdn.geovision.com.tw/TechNotice/CyberSecurity/Security_Advisory_IP_Device_2024\-11.pdf
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-11120
+.SS CVE\-2024\-12686
+BeyondTrust Privileged Remote Access (PRA) and Remote Support (RS), added 2025\-01\-13.
+.PP
+BeyondTrust Privileged Remote Access (PRA) and Remote Support (RS) OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+BeyondTrust Privileged Remote Access (PRA) and Remote Support (RS) contain an OS command injection vulnerability that can be exploited by an attacker with existing administrative privileges to upload a malicious file. Successful exploitation of this vulnerability can allow a remote attacker to execute underlying operating system commands within the context of the site user.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-02\-03.
+.PP
+\fIReferences:\fR
+.br
+https://www.beyondtrust.com/trust\-center/security\-advisories/bt24\-11
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-12686
+.SS CVE\-2024\-12987
+DrayTek Vigor Routers, added 2025\-05\-15.
+.PP
+DrayTek Vigor Routers OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+DrayTek Vigor2960, Vigor300B, and Vigor3900 routers contain an OS command injection vulnerability due to an unknown function of the file /cgi\-bin/mainfunction.cgi/apmcfgupload of the component web management interface.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-06\-05.
+.PP
+\fIReferences:\fR
+.br
+https://fw.draytek.com.tw/Vigor2960/Firmware/v1.5.1.5/DrayTek_Vigor2960_V1.5.1.5_01release\-note.pdf
+.br
+https://fw.draytek.com.tw/Vigor300B/Firmware/v1.5.1.5/DrayTek_Vigor300B_V1.5.1.5_01release\-note.pdf
+.br
+https://fw.draytek.com.tw/Vigor3900/Firmware/v1.5.1.5/DrayTek_Vigor3900_V1.5.1.5_01release\-note.pdf
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-12987
+.SS CVE\-2024\-20399
+Cisco NX\-OS, added 2024\-07\-02.
+.PP
+Cisco NX\-OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Cisco NX\-OS contains a command injection vulnerability in the command line interface (CLI) that could allow an authenticated, local attacker to execute commands as root on the underlying operating system of an affected device.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-07\-23.
+.PP
+\fIReferences:\fR
+.br
+https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco\-sa\-nxos\-cmd\-injection\-xD9OhyOP
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-20399
+.SS CVE\-2024\-40890
+Zyxel DSL CPE Devices, added 2025\-02\-11.
+.PP
+Zyxel DSL CPE OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Multiple Zyxel DSL CPE devices contain a post\-authentication command injection vulnerability in the CGI program that could allow an authenticated attacker to execute OS commands via a crafted HTTP request.
+.PP
+\fIRemediation:\fR
+The impacted product could be end\-of\-life (EoL) and/or end\-of\-service (EoS). Users should discontinue product utilization if a current mitigation is unavailable.
+ Due 2025\-03\-04.
+.PP
+\fIReferences:\fR
+.br
+https://www.zyxel.com/global/en/support/security\-advisories/zyxel\-security\-advisory\-for\-command\-injection\-and\-insecure\-default\-credentials\-vulnerabilities\-in\-certain\-legacy\-dsl\-cpe\-02\-04\-2025
+.br
+https://www.zyxel.com/service\-provider/global/en/security\-advisories/zyxel\-security\-advisory\-command\-injection\-insecure\-in\-certain\-legacy\-dsl\-cpe\-02\-04\-2025
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-40890
+.SS CVE\-2024\-40891
+Zyxel DSL CPE Devices, added 2025\-02\-11.
+.PP
+Zyxel DSL CPE OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Multiple Zyxel DSL CPE devices contain a post\-authentication command injection vulnerability in the management commands that could allow an authenticated attacker to execute OS commands via Telnet.
+.PP
+\fIRemediation:\fR
+The impacted product could be end\-of\-life (EoL) and/or end\-of\-service (EoS). Users should discontinue product utilization if a current mitigation is unavailable.
+ Due 2025\-03\-04.
+.PP
+\fIReferences:\fR
+.br
+https://www.zyxel.com/global/en/support/security\-advisories/zyxel\-security\-advisory\-for\-command\-injection\-and\-insecure\-default\-credentials\-vulnerabilities\-in\-certain\-legacy\-dsl\-cpe\-02\-04\-2025
+.br
+https://www.zyxel.com/service\-provider/global/en/security\-advisories/zyxel\-security\-advisory\-command\-injection\-insecure\-in\-certain\-legacy\-dsl\-cpe\-02\-04\-2025
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-40891
+.SS CVE\-2024\-50603
+Aviatrix Controllers, added 2025\-01\-16.
+.PP
+Aviatrix Controllers OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Aviatrix Controllers contain an OS command injection vulnerability that could allow an unauthenticated attacker to execute arbitrary code. Shell metacharacters can be sent to /v1/api in cloud_type for list_flightpath_destination_instances, or src_cloud_type for flightpath_connection_test.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-02\-06.
+.PP
+\fIReferences:\fR
+.br
+https://docs.aviatrix.com/documentation/latest/release\-notices/psirt\-advisories/psirt\-advisories.html?expand=true
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-50603
+.SS CVE\-2025\-1316
+Edimax IC\-7100 IP Camera, added 2025\-03\-19.
+.PP
+Edimax IC\-7100 IP Camera OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Edimax IC\-7100 IP camera contains an OS command injection vulnerability due to improper input sanitization that allows an attacker to achieve remote code execution via specially crafted requests. The impacted product could be end\-of\-life (EoL) and/or end\-of\-service (EoS). Users should discontinue product utilization.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-04\-09.
+.PP
+\fIReferences:\fR
+.br
+https://www.edimax.com/edimax/post/post/data/edimax/global/press_releases/4801/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-1316
+.SS CVE\-2025\-9377
+TP\-Link Multiple Routers, added 2025\-09\-03.
+.PP
+TP\-Link Archer C7(EU) and TL\-WR841N/ND(MS) OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+TP\-Link Archer C7(EU) and TL\-WR841N/ND(MS) contain an OS command injection vulnerability that exists in the Parental Control page. The impacted products could be end\-of\-life (EoL) and/or end\-of\-service (EoS). Users should discontinue product utilization.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-09\-24.
+.PP
+\fIReferences:\fR
+.br
+https://www.tp\-link.com/us/support/faq/4308/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-9377
+.SS CVE\-2025\-11953
+React Native Community CLI, added 2026\-02\-05.
+.PP
+React Native Community CLI OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+React Native Community CLI contains an OS command injection vulnerability which could allow unauthenticated network attackers to send POST requests to the Metro Development Server and run arbitrary executables via a vulnerable endpoint exposed by the server. On Windows, attackers can also execute arbitrary shell commands with fully controlled arguments.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-02\-26.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/react\-native\-community/cli/commit/15089907d1f1301b22c72d7f68846a2ef20df547
+.br
+https://github.com/react\-native\-community/cli/pull/2735
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-11953
+.SS CVE\-2025\-48703
+CWP Control Web Panel, added 2025\-11\-04.
+.PP
+CWP Control Web Panel OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+CWP Control Web Panel (formerly CentOS Web Panel) contains an OS command Injection vulnerability that allows unauthenticated remote code execution via shell metacharacters in the t_total parameter in a filemanager changePerm request. A valid non\-root username must be known.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-11\-25.
+.PP
+\fIReferences:\fR
+.br
+https://control\-webpanel.com/changelog
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-48703
+.SS CVE\-2025\-54948
+Trend Micro Apex One, added 2025\-08\-18.
+.PP
+Trend Micro Apex One OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Trend Micro Apex One Management Console (on\-premise) contains an OS command injection vulnerability that could allow a pre\-authenticated remote attacker to upload malicious code and execute commands on affected installations.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-09\-08.
+.PP
+\fIReferences:\fR
+.br
+https://success.trendmicro.com/en\-US/solution/KA\-0020652
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-54948
+.SS CVE\-2025\-58034
+Fortinet FortiWeb, added 2025\-11\-18.
+.PP
+Fortinet FortiWeb OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Fortinet FortiWeb contains an OS command Injection vulnerability that may allow an authenticated attacker to execute unauthorized code on the underlying system via crafted HTTP requests or CLI commands.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-11\-25.
+.PP
+\fIReferences:\fR
+.br
+https://fortiguard.fortinet.com/psirt/FG\-IR\-25\-513
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-58034
+.SS CVE\-2025\-64328
+Sangoma FreePBX, added 2026\-02\-03.
+.PP
+Sangoma FreePBX OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Sangoma FreePBX Endpoint Manager contains an OS command injection vulnerability that could allow for a post\-authentication command injection by an authenticated known user via the testconnection \-> check_ssh_connect() function. An attacker can leverage this vulnerability to potentially obtain remote access to the system as an asterisk user.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-02\-24.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/FreePBX/security\-reporting/security/advisories/GHSA\-vm9p\-46mv\-5xvw
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-64328
+.SS CVE\-2025\-66644
+Array Networks ArrayOS AG, added 2025\-12\-08.
+.PP
+Array Networks ArrayOS AG OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Array Networks ArrayOS AG contains an OS command injection vulnerability that could allow an attacker to execute arbitrary commands.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-12\-29.
+.PP
+\fIReferences:\fR
+.br
+https://support.arraynetworks.net/prx/001/http/supportportal.arraynetworks.net/ag.html
+.br
+https://www.jpcert.or.jp/at/2025/at250024.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-66644
+.SS CVE\-2025\-67038
+Lantronix EDS5000, added 2026\-06\-23.
+.PP
+Lantronix EDS5000 Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Lantronix EDS5000 contains a code injection vulnerability that could allow attackers to inject arbitrary OS commands into the username parameter. Injected commands are executed with root privileges.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-06\-26.
+.PP
+\fIReferences:\fR
+.br
+https://ltrxdev.atlassian.net/wiki/spaces/LTRXTS/pages/2538438657/Latest+Firmware+for+the+EDS5000+series+EDS5008+EDS5016+EDS5032
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-67038
+.SS CVE\-2026\-1731
+BeyondTrust Remote Support (RS) and Privileged Remote Access (PRA), added 2026\-02\-13, ransomware: Known.
+.PP
+BeyondTrust Remote Support (RS) and Privileged Remote Access (PRA) OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+BeyondTrust Remote Support (RS) and Privileged Remote Access (PRA)contain an OS command injection vulnerability. Successful exploitation could allow an unauthenticated remote attacker to execute operating system commands in the context of the site user. Successful exploitation requires no authentication or user interaction and may lead to system compromise, including unauthorized access, data exfiltration, and service disruption.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-02\-16.
+.PP
+\fIReferences:\fR
+.br
+https://www.beyondtrust.com/trust\-center/security\-advisories/bt26\-02
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-1731
+.SS CVE\-2026\-10520
+Ivanti Sentry, added 2026\-06\-11.
+.PP
+Ivanti Sentry OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ivanti Sentry (formerly known as MobileIron Sentry) contains an OS command injection vulnerability which could allow a remote unauthenticated user to achieve root\-level remote code execution. This vulnerability can be successfully exploited in cases where the Sentry appliance is in an unmanaged state with its endpoints externally reachable. The use of mTLS with EPMM or restricted HTTPS access through Neurons for MDM makes interfaces inaccessible to external actors.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-06\-14.
+.PP
+\fIReferences:\fR
+.br
+https://hub.ivanti.com/s/article/Security\-Advisory\-Ivanti\-Sentry\-CVE\-2026\-10520\-CVE\-2026\-10523?language=en_US
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-10520
+.SS CVE\-2026\-16812
+Arista VeloCloud Orchestrator, added 2026\-07\-27.
+.PP
+Arista VeloCloud Orchestrator On\-Prem OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Arista VeloCloud Orchestrator On\-Prem contains an OS command injection vulnerability that may allow a remote attacker to access privileged internal functionality and impact the VCO host. Successful exploitation may compromise the confidentiality, integrity, and availability of the orchestrator and data managed by the orchestrator.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-07\-30.
+.PP
+\fIReferences:\fR
+.br
+https://www.arista.com/en/support/advisories\-notices/security\-advisory/24364\-security\-advisory\-0144
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-16812
+.SS CVE\-2026\-25089
+Fortinet FortiSandbox, added 2026\-07\-16.
+.PP
+Fortinet FortiSandbox OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Fortinet FortiSandbox, FortiSandbox Cloud, and FortiSandbox PaaS contain an OS command injection vulnerability that allows an unauthenticated attacker to execute unauthorized commands via specifically crafted HTTP requests.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-07\-19.
+.PP
+\fIReferences:\fR
+.br
+https://fortiguard.fortinet.com/psirt/FG\-IR\-26\-141
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-25089
+.SS CVE\-2026\-25108
+Soliton Systems K.K FileZen, added 2026\-02\-24.
+.PP
+Soliton Systems K.K FileZen OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Soliton Systems K.K FileZen contains an OS command injection vulnerability when an user logs\-in to the affected product and sends a specially crafted HTTP request.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-03\-17.
+.PP
+\fIReferences:\fR
+.br
+https://jvn.jp/en/jp/JVN84622767/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-25108
+.SS CVE\-2026\-39808
+Fortinet FortiSandbox, added 2026\-07\-16.
+.PP
+Fortinet FortiSandbox OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Fortinet FortiSandbox contains an OS command injection vulnerability that could allow an unauthenticated attacker to execute unauthorized code or commands via crafted HTTP requests.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-07\-19.
+.PP
+\fIReferences:\fR
+.br
+https://fortiguard.fortinet.com/psirt/FG\-IR\-26\-100
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-39808
+.SS CVE\-2026\-42271
+BerriAI LiteLLM, added 2026\-06\-08.
+.PP
+BerriAI LiteLLM Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+BerriAI LiteLLM contains a command injection vulnerability that could allow any authenticated user, including holders of low\-privilege internal\-user keys, to run arbitrary commands on the host.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-06\-22.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/BerriAI/litellm/security/advisories/GHSA\-v4p8\-mg3p\-g94g
+.br
+https://github.com/BerriAI/litellm/releases/tag/v1.83.7\-stable
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-42271
+.SS CVE\-2026\-49869
+Kestra Kestra OSS, added 2026\-09\-02.
+.PP
+Kestra OSS OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Kestra OSS contains an OS command injection vulnerability that could allow an unauthenticated remote attacker to create and execute arbitrary workflows without credentials.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-05.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/kestra\-io/kestra/security/advisories/GHSA\-5vc5\-wxxq\-3fjx
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-49869
+.SS CVE\-2026\-73570
+Synacor Zimbra Collaboration Suite (ZCS), added 2026\-08\-21.
+.PP
+Zimbra Collaboration Suite (ZCS) OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Zimbra Collaboration Suite (ZCS) contains an OS command injection vulnerability which could allow an unauthenticated attacker to send specially crafted SMTP requests that may result in execution of arbitrary operating system commands as the Zimbra user.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-08\-24.
+.PP
+\fIReferences:\fR
+.br
+https://wiki.zimbra.com/wiki/Zimbra_Security_Advisories
+.br
+https://blog.zimbra.com/2026/07/patch\-release\-update\-zimbra\-10\-1\-20/
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-73570
+.SS CVE\-2026\-83549
+SonicWall SMA1000 Appliances, added 2026\-09\-02.
+.PP
+SonicWall SMA1000 Appliances OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SonicWall SMA1000 Appliances contains an OS command injection vulnerability that could enable a remote authenticated attacker as administrator to execute arbitrary OS commands, resulting in remote code execution.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-05.
+.PP
+\fIReferences:\fR
+.br
+https://psirt.global.sonicwall.com/vuln\-detail/SNWLID\-2026\-0016
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-83549
+.SS CVE\-2026\-105134
+Ahsay AhsayCBS, added 2026\-10\-14.
+.PP
+Ahsay AhsayCBS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ahsay AhsayCBS contains a command injection vulnerability that could allow a remote attacker to execute operating system commands via manipulation of the random parameter in the Replication Receiver component’s /rps/api/json/UpdateReceivers.do endpoint. This vulnerability can be chained with CVE\-2026\-105133.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-10\-17.
+.PP
+\fIReferences:\fR
+.br
+https://www.ahsay.com/en/company/announcements/patch\-cve\-105133\-105134\-update
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-105134
+.SS CVE\-2026\-106931
+EG Secure Solutions SiteGuard Server Edition, added 2026\-10\-20.
+.PP
+EG Secure Solutions SiteGuard Server Edition OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+EG Secure Solutions SiteGuard Server Edition contains an OS command injection vulnerability which may allow an attacker to execute arbitrary OS commands with root or SYSTEM privileges on the system running the affected product.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-10\-23.
+.PP
+\fIReferences:\fR
+.br
+https://www.eg\-secure.co.jp/siteguard/news/alert\-202610\-1
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-106931
+.SS CVE\-2026\-110447
+Collabora Collabora Online – Built\-in CODE Server, added 2026\-10\-23.
+.PP
+Collabora Online – Built\-in CODE Server OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Collabora Collabora Online – Built\-in CODE Server when used within the NextCloud platform contains an OS command injection vulnerability that allows for remote code execution when the CODE server isn't running.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-10\-26.
+.PP
+\fIReferences:\fR
+.br
+https://help.nextcloud.com/t/to\-collabora\-built\-in\-user\-update\-asap/250516
+.br
+https://github.com/CollaboraOnline/online/security/advisories/GHSA\-g3vx\-3m76\-fghh
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-110447
+.SS CVE\-2026\-111560
+Barracuda Networks Multiple Products, added 2026\-11\-10.
+.PP
+Barracuda Networks Multiple Products OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Barracuda Networks Email Security Gateway (ESG), Load Balancer, Application Delivery Controller (ADC), Message Archiver (BMA), WAF Control Center (WCC), Web Application Firewall (WAF), and Web Security Gateway (WSG) contain an OS command injection vulnerability. This vulnerability could allow an authenticated administrator to inject OS commands that execute with root privileges when the crafted timezone value is subsequently processed. This vulnerability can be chained with CVE\-2026\-116606
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-11\-13.
+.PP
+\fIReferences:\fR
+.br
+https://trust.barracuda.com/security/pre\-authentication\-authorization\-bypass\-command\-injection
+.br
+https://github.com/mandiant/Vulnerability\-Disclosures/blob/master/2026/MNDT\-2026\-0041.md
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-111560
+.SS CVE\-2026\-116779
+SignalWire FreeSwitch, added 2026\-11\-09.
+.PP
+SignalWire FreeSwitch Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SignalWire FreeSwitch contains a code injection vulnerability that permits configuration and credential disclosure, arbitrary call control, and command execution.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-11\-12.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/signalwire/freeswitch/security/advisories/GHSA\-mg63\-h38w\-8p9p
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-116779
 .SH EXAMPLES
 One vulnerable\->fixed pair per ecosystem (Node.js, Python, Java, Go, PHP).
 .SS Node.js
@@ -91,4 +2038,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/78.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

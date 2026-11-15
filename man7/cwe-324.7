@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-324 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-324 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-324 \- Use of a Key Past its Expiration Date
 .SH RANK
@@ -9,9 +9,24 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product uses a cryptographic key or password past its expiration date, which diminishes its safety significantly by increasing the timing window for cracking attacks against that key. While the expiration of keys does not necessarily ensure that they are compromised, it is a significant concern that keys which remain in use for prolonged periods of time have a decreasing probability of integrity. For this reason, it is important to replace keys within a period of time proportional to their strength.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB1\fR exploited CVE mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB1\fR exploited CVE mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2025\-47827
+IGEL IGEL OS, added 2025\-10\-14.
 .PP
-CVE\-2025\-47827.
+IGEL OS Use of a Key Past its Expiration Date Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+IGEL OS contains a use of a key past its expiration date vulnerability that allows for Secure Boot bypass. The igel\-flash\-driver module improperly verifies a cryptographic signature. Ultimately, a crafted root filesystem can be mounted from an unverified SquashFS image.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-11\-04.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2025\-47827
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-47827
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +36,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/324.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

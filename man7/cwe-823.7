@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-823 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-823 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-823 \- Use of Out\-of\-range Pointer Offset
 .SH RANK
@@ -9,9 +9,39 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product performs pointer arithmetic on a valid pointer, but it uses an offset that can point outside of the intended range of valid memory locations for the resulting pointer. While a pointer can contain a reference to any arbitrary memory location, a program typically only intends to use the pointer to access limited portions of memory, such as contiguous memory used to access an individual array. Programs may use offsets in order to access fields or sub\-elements stored within structured data. The offset might be out\-of\-range if it comes from an untrusted source, is the result of an incorrect calculation, or occurs because of another error. If an attacker can control or influence the offset so that it points outside of the intended boundaries of the structure, then the attacker may be able to read or write to memory locations that are used elsewhere in the product. As a result, the attack might change the state of the product as accessed through program variables, cause a crash or instable behavior, and possibly lead to code execution.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB2\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB2\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2021\-33742
+Microsoft Windows, added 2021\-11\-03.
 .PP
-CVE\-2021\-33742, CVE\-2023\-33106.
+Microsoft Windows MSHTML Platform Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows MSHTML Platform contains an unspecified vulnerability that allows for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-33742
+.SS CVE\-2023\-33106
+Qualcomm Multiple Chipsets, added 2023\-12\-05.
+.PP
+Qualcomm Multiple Chipsets Use of Out\-of\-Range Pointer Offset Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Multiple Qualcomm chipsets contain a use of out\-of\-range pointer offset vulnerability due to memory corruption in Graphics while submitting a large list of sync points in an AUX command to the IOCTL_KGSL_GPU_AUX_COMMAND.
+.PP
+\fIRemediation:\fR
+Apply remediations or mitigations per vendor instructions or discontinue use of the product if remediation or mitigations are unavailable.
+ Due 2023\-12\-26.
+.PP
+\fIReferences:\fR
+.br
+https://git.codelinaro.org/clo/la/kernel/msm\-4.19/\-/commit/1e46e81dbeb69aafd5842ce779f07e617680fd58
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-33106
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +51,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/823.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

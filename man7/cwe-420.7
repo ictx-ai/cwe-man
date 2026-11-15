@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-420 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-420 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-420 \- Unprotected Alternate Channel
 .SH RANK
@@ -9,9 +9,41 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product protects a primary channel, but it does not use the same level of protection for an alternate channel.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB2\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB2\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2023\-20198
+Cisco IOS XE Web UI, added 2023\-10\-16.
 .PP
-CVE\-2023\-20198, CVE\-2025\-54309.
+Cisco IOS XE Web UI Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Cisco IOS XE Web UI contains a privilege escalation vulnerability in the web user interface that could allow a remote, unauthenticated attacker to create an account with privilege level 15 access. The attacker can then use that account to gain control of the affected device.
+.PP
+\fIRemediation:\fR
+Verify that instances of Cisco IOS XE Web UI are in compliance with BOD 23\-02 and apply mitigations per vendor instructions. For affected products (Cisco IOS XE Web UI exposed to the internet or to untrusted networks), follow vendor instructions to determine if a system may have been compromised and immediately report positive findings to CISA.
+ Due 2023\-10\-20.
+.PP
+\fIReferences:\fR
+.br
+https://www.cisco.com/c/en/us/support/docs/ios\-nx\-os\-software/ios\-xe\-dublin\-17121/221128\-software\-fix\-availability\-for\-cisco\-ios.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-20198
+.SS CVE\-2025\-54309
+CrushFTP CrushFTP, added 2025\-07\-22.
+.PP
+CrushFTP Unprotected Alternate Channel Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+CrushFTP contains an unprotected alternate channel vulnerability. When the DMZ proxy feature is not used, mishandles AS2 validation and consequently allows remote attackers to obtain admin access via HTTPS.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-08\-12.
+.PP
+\fIReferences:\fR
+.br
+https://www.crushftp.com/crush11wiki/Wiki.jsp?page=CompromiseJuly2025
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-54309
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +53,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/420.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

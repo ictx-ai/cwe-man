@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-1188 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-1188 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-1188 \- Initialization of a Resource with an Insecure Default
 .SH RANK
@@ -9,9 +9,88 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product initializes or sets a resource with a default that is intended to be changed by the administrator, but the default is not secure. Developers often choose default values that leave the product as open and easy to use as possible out\-of\-the\-box, under the assumption that the administrator can (or should) change the default value. However, this ease\-of\-use comes at a cost when the default is insecure and the administrator does not change it.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB5\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB5\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2020\-13927
+Apache Airflow's Experimental API, added 2022\-01\-18.
 .PP
-CVE\-2020\-13927, CVE\-2022\-24706, CVE\-2023\-6448, CVE\-2023\-27524, CVE\-2025\-48927.
+Apache Airflow's Experimental API Authentication Bypass.
+.PP
+\fIHow it is exploited (CISA):\fR
+The previous default setting for Airflow's Experimental API was to allow all API requests without authentication.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-07\-18.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-13927
+.SS CVE\-2022\-24706
+Apache CouchDB, added 2022\-08\-25.
+.PP
+Apache CouchDB Insecure Default Initialization of Resource Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apache CouchDB contains an insecure default initialization of resource vulnerability which can allow an attacker to escalate to administrative privileges.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-09\-15.
+.PP
+\fIReferences:\fR
+.br
+https://lists.apache.org/thread/w24wo0h8nlctfps65txvk0oc5hdcnv00
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-24706
+.SS CVE\-2023\-6448
+Unitronics Vision PLC and HMI, added 2023\-12\-11.
+.PP
+Unitronics Vision PLC and HMI Insecure Default Password Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Unitronics Vision Series PLCs and HMIs ship with an insecure default password, which if left unchanged, can allow attackers to execute remote commands.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-12\-18.
+.PP
+\fIReferences:\fR
+.br
+https://downloads.unitronicsplc.com/Sites/plc/Technical_Library/Unitronics\-Cybersecurity\-Advisory\-2023\-001\-CVE\-2023\-6448.pdf
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-6448
+.SS CVE\-2023\-27524
+Apache Superset, added 2024\-01\-08.
+.PP
+Apache Superset Insecure Default Initialization of Resource Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apache Superset contains an insecure default initialization of a resource vulnerability that allows an attacker to authenticate and access unauthorized resources on installations that have not altered the default configured SECRET_KEY according to installation instructions.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-01\-29.
+.PP
+\fIReferences:\fR
+.br
+https://lists.apache.org/thread/n0ftx60sllf527j7g11kmt24wvof8xyk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-27524
+.SS CVE\-2025\-48927
+TeleMessage TM SGNL, added 2025\-07\-01.
+.PP
+TeleMessage TM SGNL Initialization of a Resource with an Insecure Default Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+TeleMessage TM SGNL contains an initialization of a resource with an insecure default vulnerability. This vulnerability relies on how the Spring Boot Actuator is configured with an exposed heap dump endpoint at a /heapdump URI.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-07\-22.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-48927
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +100,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/1188.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

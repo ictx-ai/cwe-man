@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-476 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-476 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-476 \- NULL Pointer Dereference
 .SH RANK
@@ -11,9 +11,24 @@ A pointer expected to be valid is NULL when dereferenced, usually crashing the p
 .SH MITIGATION
 Check the result of anything that can return NULL before dereferencing, and define the failure path. Static analysers catch many; in modern C++/Rust use optional types to make absence explicit.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB1\fR exploited CVE mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB1\fR exploited CVE mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2026\-21525
+Microsoft Windows, added 2026\-02\-10.
 .PP
-CVE\-2026\-21525.
+Microsoft Windows NULL Pointer Dereference Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Remote Access Connection Manager contains a NULL pointer dereference that could allow an unauthorized attacker to deny service locally.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-03\-03.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2026\-21525
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-21525
 .SH EXAMPLES
 One vulnerable\->fixed pair per ecosystem (C, C++).
 .SS C
@@ -56,4 +71,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/476.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

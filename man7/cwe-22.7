@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-22 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-22 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-22 \- Improper Limitation of a Pathname to a Restricted Directory (Path Traversal)
 .SH RANK
@@ -11,9 +11,1381 @@ User input builds a file path without neutralising sequences such as "../" that 
 .SH MITIGATION
 Resolve to a canonical absolute path and verify it remains within the intended base directory before opening. Prefer allow\-listing known file identifiers over accepting raw paths.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB82\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB82\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2010\-2861
+Adobe ColdFusion, added 2022\-03\-25, ransomware: Known.
 .PP
-CVE\-2010\-2861, CVE\-2014\-0130, CVE\-2014\-0780, CVE\-2015\-0016, CVE\-2015\-0666, CVE\-2015\-3035, CVE\-2015\-4068, CVE\-2016\-0752, CVE\-2016\-3976, CVE\-2017\-12637, CVE\-2018\-2380, CVE\-2018\-5430, CVE\-2018\-13379, CVE\-2018\-14847, CVE\-2018\-18809, CVE\-2019\-3396, CVE\-2019\-3398, CVE\-2019\-5418, CVE\-2019\-7194, CVE\-2019\-7195, CVE\-2019\-7483, CVE\-2019\-11510, CVE\-2019\-16278, CVE\-2019\-18187, CVE\-2019\-19781, CVE\-2019\-20085, CVE\-2020\-1631, CVE\-2020\-4430, CVE\-2020\-5902, CVE\-2020\-11652, CVE\-2020\-11738, CVE\-2020\-14864, CVE\-2020\-36193, CVE\-2021\-3199, CVE\-2021\-20023, CVE\-2021\-20090, CVE\-2021\-20123, CVE\-2021\-20124, CVE\-2021\-26086, CVE\-2021\-36741, CVE\-2021\-40444, CVE\-2021\-41773, CVE\-2021\-42013, CVE\-2021\-43798, CVE\-2022\-26352, CVE\-2022\-26500, CVE\-2022\-27925, CVE\-2022\-29464, CVE\-2022\-30333, CVE\-2022\-41328, CVE\-2022\-41352, CVE\-2023\-32315, CVE\-2023\-35081, CVE\-2023\-38950, CVE\-2023\-47246, CVE\-2024\-0769, CVE\-2024\-1708, CVE\-2024\-4885, CVE\-2024\-7262, CVE\-2024\-7399, CVE\-2024\-8963, CVE\-2024\-11667, CVE\-2024\-28995, CVE\-2024\-32113, CVE\-2024\-41713, CVE\-2024\-55550, CVE\-2024\-57727, CVE\-2024\-57728, CVE\-2025\-2749, CVE\-2025\-4632, CVE\-2025\-6218, CVE\-2025\-8110, CVE\-2025\-27920, CVE\-2025\-34028, CVE\-2025\-61624, CVE\-2026\-20262, CVE\-2026\-34909, CVE\-2026\-48282, CVE\-2026\-59310, CVE\-2026\-66384, CVE\-2026\-93616, CVE\-2026\-104286.
+Adobe ColdFusion Directory Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A directory traversal vulnerability exists in the administrator console in Adobe ColdFusion which allows remote attackers to read arbitrary files.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2010\-2861
+.SS CVE\-2014\-0130
+Rails Ruby on Rails, added 2022\-03\-25.
+.PP
+Ruby on Rails Directory Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Directory traversal vulnerability in actionpack/lib/abstract_controller/base.rb in the implicit\-render implementation in Ruby on Rails allows remote attackers to read arbitrary files via a crafted request.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2014\-0130
+.SS CVE\-2014\-0780
+InduSoft Web Studio, added 2022\-04\-15.
+.PP
+InduSoft Web Studio NTWebServer Directory Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+InduSoft Web Studio NTWebServer contains a directory traversal vulnerability that allows remote attackers to read administrative passwords in APP files, allowing for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-06.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2014\-0780
+.SS CVE\-2015\-0016
+Microsoft Windows, added 2022\-05\-25.
+.PP
+Microsoft Windows TS WebProxy Directory Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Directory traversal vulnerability in the TS WebProxy (TSWbPrxy) component in Microsoft Windows allows remote attackers to escalate privileges.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2015\-0016
+.SS CVE\-2015\-0666
+Cisco Prime Data Center Network Manager (DCNM), added 2022\-03\-25.
+.PP
+Cisco Prime Data Center Network Manager (DCNM) Directory Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Directory traversal vulnerability in the fmserver servlet in Cisco Prime Data Center Network Manager (DCNM) allows remote attackers to read arbitrary files.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2015\-0666
+.SS CVE\-2015\-3035
+TP\-Link Multiple Archer Devices, added 2022\-03\-25.
+.PP
+TP\-Link Multiple Archer Devices Directory Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Directory traversal vulnerability in multiple TP\-Link Archer devices allows remote attackers to read arbitrary files via a .. (dot dot) in the PATH_INFO to login/.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2015\-3035
+.SS CVE\-2015\-4068
+Arcserve Unified Data Protection (UDP), added 2022\-03\-25.
+.PP
+Arcserve Unified Data Protection (UDP) Directory Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Directory traversal vulnerability in Arcserve UDP allows remote attackers to obtain sensitive information or cause a denial of service.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2015\-4068
+.SS CVE\-2016\-0752
+Rails Ruby on Rails, added 2022\-03\-25.
+.PP
+Ruby on Rails Directory Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Directory traversal vulnerability in Action View in Ruby on Rails allows remote attackers to read arbitrary files.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2016\-0752
+.SS CVE\-2016\-3976
+SAP NetWeaver, added 2021\-11\-03.
+.PP
+SAP NetWeaver Directory Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SAP NetWeaver Application Server Java Platforms contains a directory traversal vulnerability via a ..\e (dot dot backslash) in the fileName parameter to CrashFileDownloadServlet. This allows remote attackers to read files.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2016\-3976
+.SS CVE\-2017\-12637
+SAP NetWeaver, added 2025\-03\-19.
+.PP
+SAP NetWeaver Directory Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SAP NetWeaver Application Server (AS) Java contains a directory traversal vulnerability in scheduler/ui/js/ffffffffbca41eb4/UIUtilJavaScriptJS that allows a remote attacker to read arbitrary files via a .. (dot dot) in the query string.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-04\-09.
+.PP
+\fIReferences:\fR
+.br
+https://me.sap.com/notes/3476549
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-12637
+.SS CVE\-2018\-2380
+SAP Customer Relationship Management (CRM), added 2021\-11\-03, ransomware: Known.
+.PP
+SAP Customer Relationship Management (CRM) Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SAP Customer Relationship Management (CRM) contains a path traversal vulnerability that allows an attacker to exploit insufficient validation of path information provided by users.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-2380
+.SS CVE\-2018\-5430
+TIBCO JasperReports, added 2022\-12\-29.
+.PP
+TIBCO JasperReports Server Information Disclosure Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+TIBCO JasperReports Server contain a vulnerability which may allow any authenticated user read\-only access to the contents of the web application, including key configuration files.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-01\-19.
+.PP
+\fIReferences:\fR
+.br
+https://www.tibco.com/support/advisories/2018/04/tibco\-security\-advisory\-april\-17\-2018\-tibco\-jasperreports\-2018\-5430
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-5430
+.SS CVE\-2018\-13379
+Fortinet FortiOS, added 2021\-11\-03, ransomware: Known.
+.PP
+Fortinet FortiOS SSL VPN Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Fortinet FortiOS SSL VPN web portal contains a path traversal vulnerability that may allow an unauthenticated attacker to download FortiOS system files through specially crafted HTTP resource requests.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-13379
+.SS CVE\-2018\-14847
+MikroTik RouterOS, added 2021\-12\-01.
+.PP
+MikroTik Router OS Directory Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+MikroTik RouterOS through 6.42 allows unauthenticated remote attackers to read arbitrary files and remote authenticated attackers to write arbitrary files due to a directory traversal vulnerability in the WinBox interface.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-01.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-14847
+.SS CVE\-2018\-18809
+TIBCO JasperReports, added 2022\-12\-29.
+.PP
+TIBCO JasperReports Library Directory Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+TIBCO JasperReports Library contains a directory\-traversal vulnerability that may allow web server users to access contents of the host system.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-01\-19.
+.PP
+\fIReferences:\fR
+.br
+https://www.tibco.com/support/advisories/2019/03/tibco\-security\-advisory\-march\-6\-2019\-tibco\-jasperreports\-library\-2018\-18809
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-18809
+.SS CVE\-2019\-3396
+Atlassian Confluence Server and Data Server, added 2021\-11\-03, ransomware: Known.
+.PP
+Atlassian Confluence Server and Data Center Server\-Side Template Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Atlassian Confluence Server and Data Center contain a server\-side template injection vulnerability that may allow an attacker to achieve path traversal and remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-3396
+.SS CVE\-2019\-3398
+Atlassian Confluence Server and Data Center, added 2021\-11\-03.
+.PP
+Atlassian Confluence Server and Data Center Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Atlassian Confluence Server and Data Center contain a path traversal vulnerability in the downloadallattachments resource that may allow a privileged, remote attacker to write files. Exploitation can lead to remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-3398
+.SS CVE\-2019\-5418
+Rails Ruby on Rails, added 2025\-07\-07.
+.PP
+Rails Ruby on Rails Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Rails Ruby on Rails contains a path traversal vulnerability in Action View. Specially crafted accept headers in combination with calls to `render file:` can cause arbitrary files on the target server to be rendered, disclosing the file contents.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-07\-28.
+.PP
+\fIReferences:\fR
+.br
+https://web.archive.org/web/20190313201629/https://weblog.rubyonrails.org/2019/3/13/Rails\-4\-2\-5\-1\-5\-1\-6\-2\-have\-been\-released/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-5418
+.SS CVE\-2019\-7194
+QNAP Photo Station, added 2022\-06\-08, ransomware: Known.
+.PP
+QNAP Photo Station Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+QNAP devices running Photo Station contain an external control of file name or path vulnerability allowing remote attackers to access or modify system files.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-22.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-7194
+.SS CVE\-2019\-7195
+QNAP Photo Station, added 2022\-06\-08, ransomware: Known.
+.PP
+QNAP Photo Station Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+QNAP devices running Photo Station contain an external control of file name or path vulnerability allowing remote attackers to access or modify system files.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-22.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-7195
+.SS CVE\-2019\-7483
+SonicWall SMA100, added 2022\-03\-28.
+.PP
+SonicWall SMA100 Directory Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+In SonicWall SMA100, an unauthenticated Directory Traversal vulnerability in the handleWAFRedirect CGI allows the user to test for the presence of a file on the server.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-18.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-7483
+.SS CVE\-2019\-11510
+Ivanti Pulse Connect Secure, added 2021\-11\-03, ransomware: Known.
+.PP
+Ivanti Pulse Connect Secure Arbitrary File Read Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ivanti Pulse Connect Secure contains an arbitrary file read vulnerability that allows an unauthenticated remote attacker with network access via HTTPS to send a specially crafted URI.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://www.cisa.gov/news\-events/directives/ed\-21\-03\-mitigate\-pulse\-connect\-secure\-product\-vulnerabilities
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-11510
+.SS CVE\-2019\-16278
+Nostromo nhttpd, added 2024\-11\-07.
+.PP
+Nostromo nhttpd Directory Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Nostromo nhttpd contains a directory traversal vulnerability in the http_verify() function in a non\-chrooted nhttpd server allowing for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-11\-28.
+.PP
+\fIReferences:\fR
+.br
+https://www.nazgul.ch/dev/nostromo_cl.txt
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-16278
+.SS CVE\-2019\-18187
+Trend Micro OfficeScan, added 2021\-11\-03.
+.PP
+Trend Micro OfficeScan Directory Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Trend Micro OfficeScan contains a directory traversal vulnerability by extracting files from a zip file to a specific folder on the OfficeScan server, leading to remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-18187
+.SS CVE\-2019\-19781
+Citrix Application Delivery Controller (ADC), Gateway, and SD\-WAN WANOP Appliance, added 2021\-11\-03, ransomware: Known.
+.PP
+Citrix ADC, Gateway, and SD\-WAN WANOP Appliance Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Citrix ADC, Citrix Gateway, and multiple Citrix SD\-WAN WANOP appliance models contain an unspecified vulnerability that could allow an unauthenticated attacker to perform code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-19781
+.SS CVE\-2019\-20085
+TVT NVMS\-1000, added 2021\-11\-03.
+.PP
+TVT NVMS\-1000 Directory Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+TVT devices utilizing NVMS\-1000 software contain a directory traversal vulnerability via GET /.. requests.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-20085
+.SS CVE\-2020\-1631
+Juniper Junos OS, added 2022\-03\-25.
+.PP
+Juniper Junos OS Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A path traversal vulnerability in the HTTP/HTTPS service used by J\-Web, Web Authentication, Dynamic\-VPN (DVPN), Firewall Authentication Pass\-Through with Web\-Redirect, and Zero Touch Provisioning (ZTP) allows an unauthenticated attacker to perform remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-1631
+.SS CVE\-2020\-4430
+IBM Data Risk Manager, added 2021\-11\-03.
+.PP
+IBM Data Risk Manager Directory Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+IBM Data Risk Manager contains a directory traversal vulnerability that could allow a remote authenticated attacker to traverse directories and send a specially crafted URL request to download arbitrary files from the system.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-4430
+.SS CVE\-2020\-5902
+F5 BIG\-IP, added 2021\-11\-03, ransomware: Known.
+.PP
+F5 BIG\-IP Traffic Management User Interface (TMUI) Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+F5 BIG\-IP Traffic Management User Interface (TMUI) contains a remote code execution vulnerability in undisclosed pages.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-5902
+.SS CVE\-2020\-11652
+SaltStack Salt, added 2021\-11\-03.
+.PP
+SaltStack Salt Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SaltStack Salt contains a path traversal vulnerability in the salt\-master process ClearFuncs which allows directory access to authenticated users. Salt users who follow fundamental internet security guidelines and best practices are not affected by this vulnerability.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-11652
+.SS CVE\-2020\-11738
+WordPress Snap Creek Duplicator Plugin, added 2021\-11\-03.
+.PP
+WordPress Snap Creek Duplicator Plugin File Download Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+WordPress Snap Creek Duplicator plugin contains a file download vulnerability when an administrator creates a new copy of their site that allows an attacker to download the generated files from their Wordpress dashboard. This vulnerability affects Duplicator and Dulplicator Pro.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-11738
+.SS CVE\-2020\-14864
+Oracle Intelligence Enterprise Edition, added 2022\-01\-18.
+.PP
+Oracle Business Intelligence Enterprise Edition Path Transversal.
+.PP
+\fIHow it is exploited (CISA):\fR
+Path traversal vulnerability, where an attacker can target the preview FilePath parameter of the getPreviewImage function to get access to arbitrary system file.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-07\-18.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-14864
+.SS CVE\-2020\-36193
+PEAR Archive_Tar, added 2022\-08\-25.
+.PP
+PEAR Archive_Tar Improper Link Resolution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+PEAR Archive_Tar Tar.php allows write operations with directory traversal due to inadequate checking of symbolic links. PEAR stands for PHP Extension and Application Repository and it is an open\-source framework and distribution system for reusable PHP components with known usage in third\-party products such as Drupal Core and Red Hat Linux.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-09\-15.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/pear/Archive_Tar/commit/cde460582ff389404b5b3ccb59374e9b389de916
+.br
+https://www.drupal.org/sa\-core\-2021\-001
+.br
+https://access.redhat.com/security/cve/cve\-2020\-36193
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-36193
+.SS CVE\-2021\-3199
+ONLYOFFICE Docs, added 2026\-10\-08.
+.PP
+ONLYOFFICE Docs Server Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+ONLYOFFICE Docs contains a path traversal vulnerability that can occur when JWT is used, via a /.. sequence in an image upload parameter and could allow for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-10\-11.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/ONLYOFFICE/DocumentServer/blob/903fe5ab7a275bd69c3c3346af2d21cf87ebeabf/CHANGELOG.md#563
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-3199
+.SS CVE\-2021\-20023
+SonicWall SonicWall Email Security, added 2021\-11\-03, ransomware: Known.
+.PP
+SonicWall Email Security Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SonicWall Email Security contains a path traversal vulnerability that allows a post\-authenticated attacker to read files on the remote host. This vulnerability has known usage in a SonicWall Email Security exploit chain along with CVE\-2021\-20021 and CVE\-2021\-20022 to achieve privilege escalation.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-20023
+.SS CVE\-2021\-20090
+Arcadyan Buffalo Firmware, added 2021\-11\-03.
+.PP
+Arcadyan Buffalo Firmware Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Arcadyan Buffalo firmware contains a path traversal vulnerability that could allow unauthenticated, remote attackers to bypass authentication and access sensitive information. This vulnerability affects multiple routers across several different vendors.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-20090
+.SS CVE\-2021\-20123
+DrayTek VigorConnect, added 2024\-09\-03.
+.PP
+Draytek VigorConnect Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Draytek VigorConnect contains a path traversal vulnerability in the DownloadFileServlet endpoint. An unauthenticated attacker could leverage this vulnerability to download arbitrary files from the underlying operating system with root privileges.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-09\-24.
+.PP
+\fIReferences:\fR
+.br
+https://www.draytek.com/about/security\-advisory/vigorconnect\-software\-security\-vulnerability\-(cve\-2021\-20123\-cve\-2021\-20129
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-20123
+.SS CVE\-2021\-20124
+DrayTek VigorConnect, added 2024\-09\-03.
+.PP
+Draytek VigorConnect Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Draytek VigorConnect contains a path traversal vulnerability in the file download functionality of the WebServlet endpoint. An unauthenticated attacker could leverage this vulnerability to download arbitrary files from the underlying operating system with root privileges.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-09\-24.
+.PP
+\fIReferences:\fR
+.br
+https://www.draytek.com/about/security\-advisory/vigorconnect\-software\-security\-vulnerability\-(cve\-2021\-20123\-cve\-2021\-20129
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-20124
+.SS CVE\-2021\-26086
+Atlassian Jira Server and Data Center, added 2024\-11\-12.
+.PP
+Atlassian Jira Server and Data Center Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Atlassian Jira Server and Data Center contain a path traversal vulnerability that allows a remote attacker to read particular files in the /WEB\-INF/web.xml endpoint.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-12\-03.
+.PP
+\fIReferences:\fR
+.br
+https://jira.atlassian.com/browse/JRASERVER\-72695
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-26086
+.SS CVE\-2021\-36741
+Trend Micro Apex One, Apex One as a Service, and Worry\-Free Business Security, added 2021\-11\-03.
+.PP
+Trend Micro Multiple Products Improper Input Validation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Trend Micro Apex One, Apex One as a Service, and Worry\-Free Business Security contain an improper input validation vulnerability that allows a remote attacker to upload files.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://success.trendmicro.com/dcx/s/solution/000287819?language=en_US
+.br
+https://success.trendmicro.com/dcx/s/solution/000287820?language=en_US
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-36741
+.SS CVE\-2021\-40444
+Microsoft MSHTML, added 2021\-11\-03, ransomware: Known.
+.PP
+Microsoft MSHTML Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft MSHTML contains a unspecified vulnerability that allows for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-40444
+.SS CVE\-2021\-41773
+Apache HTTP Server, added 2021\-11\-03, ransomware: Known.
+.PP
+Apache HTTP Server Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apache HTTP Server contains a path traversal vulnerability that allows an attacker to perform remote code execution if files outside directories configured by Alias\-like directives are not under default �require all denied� or if CGI scripts are enabled. The original patch issued under this CVE ID is insufficient, please review remediation information under CVE\-2021\-42013.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-41773
+.SS CVE\-2021\-42013
+Apache HTTP Server, added 2021\-11\-03, ransomware: Known.
+.PP
+Apache HTTP Server Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apache HTTP Server contains a path traversal vulnerability that allows an attacker to perform remote code execution if files outside directories configured by Alias\-like directives are not under default require all denied or if CGI scripts are enabled. This CVE ID resolves an incomplete patch for CVE\-2021\-41773.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-42013
+.SS CVE\-2021\-43798
+Grafana Labs Grafana, added 2025\-10\-09.
+.PP
+Grafana Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Grafana contains a path traversal vulnerability that could allow access to local files.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-10\-30.
+.PP
+\fIReferences:\fR
+.br
+https://grafana.com/blog/2021/12/07/grafana\-8.3.1\-8.2.7\-8.1.8\-and\-8.0.7\-released\-with\-high\-severity\-security\-fix/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-43798
+.SS CVE\-2022\-26352
+dotCMS dotCMS, added 2022\-08\-25, ransomware: Known.
+.PP
+dotCMS Unrestricted Upload of File Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+dotCMS ContentResource API contains an unrestricted upload of file with a dangerous type vulnerability that allows for directory traversal, in which the file is saved outside of the intended storage location. Exploitation allows for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-09\-15.
+.PP
+\fIReferences:\fR
+.br
+https://www.dotcms.com/security/SI\-62
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-26352
+.SS CVE\-2022\-26500
+Veeam Backup & Replication, added 2022\-12\-13, ransomware: Known.
+.PP
+Veeam Backup & Replication Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The Veeam Distribution Service in the Backup & Replication application allows unauthenticated users to access internal API functions. A remote attacker can send input to the internal API which may lead to uploading and executing of malicious code.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-01\-03.
+.PP
+\fIReferences:\fR
+.br
+https://www.veeam.com/kb4288
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-26500
+.SS CVE\-2022\-27925
+Synacor Zimbra Collaboration Suite (ZCS), added 2022\-08\-11, ransomware: Known.
+.PP
+Synacor Zimbra Collaboration Suite (ZCS) Arbitrary File Upload Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Synacor Zimbra Collaboration Suite (ZCS) contains flaw in the mboximport functionality, allowing an authenticated attacker to upload arbitrary files to perform remote code execution. This vulnerability was chained with CVE\-2022\-37042 which allows for unauthenticated remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-09\-01.
+.PP
+\fIReferences:\fR
+.br
+https://blog.zimbra.com/2022/08/authentication\-bypass\-in\-mailboximportservlet\-vulnerability/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-27925
+.SS CVE\-2022\-29464
+WSO2 Multiple Products, added 2022\-04\-25, ransomware: Known.
+.PP
+WSO2 Multiple Products Unrestrictive Upload of File Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Multiple WSO2 products allow for unrestricted file upload, resulting in remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-16.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-29464
+.SS CVE\-2022\-30333
+RARLAB UnRAR, added 2022\-08\-09, ransomware: Known.
+.PP
+RARLAB UnRAR Directory Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+RARLAB UnRAR on Linux and UNIX contains a directory traversal vulnerability, allowing an attacker to write to files during an extract (unpack) operation.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-08\-30.
+.PP
+\fIReferences:\fR
+.br
+https://www.rarlab.com/rar/rarlinux\-x32\-612.tar.gz
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-30333
+.SS CVE\-2022\-41328
+Fortinet FortiOS, added 2023\-03\-14.
+.PP
+Fortinet FortiOS Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Fortinet FortiOS contains a path traversal vulnerability that may allow a local privileged attacker to read and write files via crafted CLI commands.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-04\-04.
+.PP
+\fIReferences:\fR
+.br
+https://www.fortiguard.com/psirt/FG\-IR\-22\-369
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-41328
+.SS CVE\-2022\-41352
+Synacor Zimbra Collaboration Suite (ZCS), added 2022\-10\-20, ransomware: Known.
+.PP
+Synacor Zimbra Collaboration Suite (ZCS) Arbitrary File Upload Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Synacor Zimbra Collaboration Suite (ZCS) allows an attacker to upload arbitrary files using cpio package to gain incorrect access to any other user accounts.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-11\-10.
+.PP
+\fIReferences:\fR
+.br
+https://wiki.zimbra.com/wiki/Security_Center
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-41352
+.SS CVE\-2023\-32315
+Ignite Realtime Openfire, added 2023\-08\-24.
+.PP
+Ignite Realtime Openfire Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ignite Realtime Openfire contains a path traversal vulnerability that allows an unauthenticated attacker to access restricted pages in the Openfire Admin Console reserved for administrative users.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-09\-14.
+.PP
+\fIReferences:\fR
+.br
+https://www.igniterealtime.org/downloads/#openfire
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-32315
+.SS CVE\-2023\-35081
+Ivanti Endpoint Manager Mobile (EPMM), added 2023\-07\-31.
+.PP
+Ivanti Endpoint Manager Mobile (EPMM) Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ivanti Endpoint Manager Mobile (EPMM) contains a path traversal vulnerability that enables an authenticated administrator to perform malicious file writes to the EPMM server. This vulnerability can be used in conjunction with CVE\-2023\-35078 to bypass authentication and ACLs restrictions (if applicable).
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-08\-21.
+.PP
+\fIReferences:\fR
+.br
+https://forums.ivanti.com/s/article/CVE\-2023\-35081\-Arbitrary\-File\-Write?language=en_US
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-35081
+.SS CVE\-2023\-38950
+ZKTeco BioTime, added 2025\-05\-19.
+.PP
+ZKTeco BioTime Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+ZKTeco BioTime contains a path traversal vulnerability in the iclock API that allows an unauthenticated attacker to read arbitrary files via supplying a crafted payload.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-06\-09.
+.PP
+\fIReferences:\fR
+.br
+https://www.zkteco.com/en/Security_Bulletinsibs
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-38950
+.SS CVE\-2023\-47246
+SysAid SysAid Server, added 2023\-11\-13, ransomware: Known.
+.PP
+SysAid Server Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SysAid Server (on\-premises version) contains a path traversal vulnerability that leads to code execution.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-12\-04.
+.PP
+\fIReferences:\fR
+.br
+https://www.sysaid.com/blog/service\-desk/on\-premise\-software\-security\-vulnerability\-notification
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-47246
+.SS CVE\-2024\-0769
+D\-Link DIR\-859 Router, added 2025\-06\-25.
+.PP
+D\-Link DIR\-859 Router Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+D\-Link DIR\-859 routers contain a path traversal vulnerability in the file /hedwig.cgi of the component HTTP POST Request Handler. Manipulation of the argument service with the input ../../../../htdocs/webinc/getcfg/DHCPS6.BRIDGE\-1.xml allows for the leakage of session data potentially enabling privilege escalation and unauthorized control of the device. This vulnerability affects legacy D\-Link products. All associated hardware revisions have reached their end\-of\-life (EOL) or end\-of\-service (EOS) life cycle and should be retired and replaced per vendor instructions.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-07\-16.
+.PP
+\fIReferences:\fR
+.br
+https://supportannouncement.us.dlink.com/announcement/publication.aspx?name=SAP10371
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-0769
+.SS CVE\-2024\-1708
+ConnectWise ScreenConnect, added 2026\-04\-28, ransomware: Known.
+.PP
+ConnectWise ScreenConnect Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+ConnectWise ScreenConnect contains a path traversal vulnerability which could allow an attacker to execute remote code or directly impact confidential data and critical systems.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-05\-12.
+.PP
+\fIReferences:\fR
+.br
+https://www.connectwise.com/company/trust/security\-bulletins/connectwise\-screenconnect\-23.9.8
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-1708
+.SS CVE\-2024\-4885
+Progress WhatsUp Gold, added 2025\-03\-03.
+.PP
+Progress WhatsUp Gold Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Progress WhatsUp Gold contains a path traversal vulnerability that allows an unauthenticated attacker to achieve remote code execution.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-03\-24.
+.PP
+\fIReferences:\fR
+.br
+https://community.progress.com/s/article/WhatsUp\-Gold\-Security\-Bulletin\-June\-2024
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-4885
+.SS CVE\-2024\-7262
+Kingsoft WPS Office, added 2024\-09\-03.
+.PP
+Kingsoft WPS Office Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Kingsoft WPS Office contains a path traversal vulnerability in promecefpluginhost.exe on Windows that allows an attacker to load an arbitrary Windows library.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-09\-24.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-7262
+.SS CVE\-2024\-7399
+Samsung MagicINFO 9 Server, added 2026\-04\-24.
+.PP
+Samsung MagicINFO 9 Server Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Samsung MagicINFO 9 Server contains a path traversal vulnerability that could allow an attacker to write arbitrary files as system authority.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-05\-08.
+.PP
+\fIReferences:\fR
+.br
+https://security.samsungtv.com/securityUpdates
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-7399
+.SS CVE\-2024\-8963
+Ivanti Cloud Services Appliance (CSA), added 2024\-09\-19.
+.PP
+Ivanti Cloud Services Appliance (CSA) Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ivanti Cloud Services Appliance (CSA) contains a path traversal vulnerability that could allow a remote, unauthenticated attacker to access restricted functionality. If CVE\-2024\-8963 is used in conjunction with CVE\-2024\-8190, an attacker could bypass admin authentication and execute arbitrary commands on the appliance.
+.PP
+\fIRemediation:\fR
+As Ivanti CSA has reached End\-of\-Life status, users are urged to remove CSA 4.6.x from service or upgrade to the 5.0.x line of supported solutions, as future vulnerabilities on the 4.6.x version of CSA are unlikely to receive security updates.
+ Due 2024\-10\-10.
+.PP
+\fIReferences:\fR
+.br
+https://forums.ivanti.com/s/article/Security\-Advisory\-Ivanti\-CSA\-4\-6\-Cloud\-Services\-Appliance\-CVE\-2024\-8963
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-8963
+.SS CVE\-2024\-11667
+Zyxel Multiple Firewalls, added 2024\-12\-03, ransomware: Known.
+.PP
+Zyxel Multiple Firewalls Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Multiple Zyxel firewalls contain a path traversal vulnerability in the web management interface that could allow an attacker to download or upload files via a crafted URL.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-12\-24.
+.PP
+\fIReferences:\fR
+.br
+https://www.zyxel.com/global/en/support/security\-advisories/zyxel\-security\-advisory\-protecting\-against\-recent\-firewall\-threats\-11\-21\-2024
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-11667
+.SS CVE\-2024\-28995
+SolarWinds Serv\-U, added 2024\-07\-17.
+.PP
+SolarWinds Serv\-U Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SolarWinds Serv\-U contains a path traversal vulnerability that allows an attacker access to read sensitive files on the host machine.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-08\-07.
+.PP
+\fIReferences:\fR
+.br
+https://www.solarwinds.com/trust\-center/security\-advisories/cve\-2024\-28995
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-28995
+.SS CVE\-2024\-32113
+Apache OFBiz, added 2024\-08\-07.
+.PP
+Apache OFBiz Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apache OFBiz contains a path traversal vulnerability that could allow for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-08\-28.
+.PP
+\fIReferences:\fR
+.br
+https://lists.apache.org/thread/w6s60okgkxp2th1sr8vx0ndmgk68fqrd
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-32113
+.SS CVE\-2024\-41713
+Mitel MiCollab, added 2025\-01\-07, ransomware: Known.
+.PP
+Mitel MiCollab Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Mitel MiCollab contains a path traversal vulnerability that could allow an attacker to gain unauthorized and unauthenticated access. This vulnerability can be chained with CVE\-2024\-55550, which allows an unauthenticated, remote attacker to read arbitrary files on the server.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-01\-28.
+.PP
+\fIReferences:\fR
+.br
+https://www.mitel.com/support/security\-advisories/mitel\-product\-security\-advisory\-misa\-2024\-0029
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-41713
+.SS CVE\-2024\-55550
+Mitel MiCollab, added 2025\-01\-07, ransomware: Known.
+.PP
+Mitel MiCollab Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Mitel MiCollab contains a path traversal vulnerability that could allow an authenticated attacker with administrative privileges to read local files within the system due to insufficient input sanitization. This vulnerability can be chained with CVE\-2024\-41713, which allows an unauthenticated, remote attacker to read arbitrary files on the server.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-01\-28.
+.PP
+\fIReferences:\fR
+.br
+https://www.mitel.com/support/security\-advisories/mitel\-product\-security\-advisory\-misa\-2024\-0029
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-55550
+.SS CVE\-2024\-57727
+SimpleHelp SimpleHelp, added 2025\-02\-13, ransomware: Known.
+.PP
+SimpleHelp Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SimpleHelp remote support software contains multiple path traversal vulnerabilities that allow unauthenticated remote attackers to download arbitrary files from the SimpleHelp host via crafted HTTP requests. These files may include server configuration files and hashed user passwords.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-03\-06.
+.PP
+\fIReferences:\fR
+.br
+https://simple\-help.com/kb\-\-\-security\-vulnerabilities\-01\-2025
+.br
+https://www.cisa.gov/news\-events/cybersecurity\-advisories/aa25\-163a
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-57727
+.SS CVE\-2024\-57728
+SimpleHelp SimpleHelp, added 2026\-04\-24, ransomware: Known.
+.PP
+SimpleHelp Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SimpleHelp contains a path traversal vulnerability that allows admin users to upload arbitrary files anywhere on the file system by uploading a crafted zip file (i.e. zip slip). This can be exploited to execute arbitrary code on the host in the context of the SimpleHelp server user.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-05\-08.
+.PP
+\fIReferences:\fR
+.br
+https://simple\-help.com/kb\-\-\-security\-vulnerabilities\-01\-2025#security\-vulnerabilities\-in\-simplehelp\-5\-5\-7\-and\-earlier
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-57728
+.SS CVE\-2025\-2749
+Kentico Kentico Xperience, added 2026\-04\-20.
+.PP
+Kentico Xperience Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Kentico Xperience contains a path traversal vulnerability that could allow an authenticated user's Staging Sync Server to upload arbitrary data to path relative locations.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-05\-04.
+.PP
+\fIReferences:\fR
+.br
+https://devnet.kentico.com/download/hotfixes
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-2749
+.SS CVE\-2025\-4632
+Samsung MagicINFO 9 Server, added 2025\-05\-22.
+.PP
+Samsung MagicINFO 9 Server Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Samsung MagicINFO 9 Server contains a path traversal vulnerability that allows an attacker to write arbitrary file as system authority.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-06\-12.
+.PP
+\fIReferences:\fR
+.br
+https://security.samsungtv.com/securityUpdates#SVP\-MAY\-2025
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-4632
+.SS CVE\-2025\-6218
+RARLAB WinRAR, added 2025\-12\-09.
+.PP
+RARLAB WinRAR Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+RARLAB WinRAR contains a path traversal vulnerability allowing an attacker to execute code in the context of the current user.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-12\-30.
+.PP
+\fIReferences:\fR
+.br
+https://www.win\-rar.com/singlenewsview.html?&L=0&tx_ttnews%5Btt_news%5D=276&cHash=b5165454d983fc9717bc8748901a64f9
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-6218
+.SS CVE\-2025\-8110
+Gogs Gogs, added 2026\-01\-12.
+.PP
+Gogs Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Gogs contains a path traversal vulnerability affecting improper Symbolic link handling in the PutContents API that could allow for code execution.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-02\-02.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/gogs/gogs/commit/553707f3fd5f68f47f531cfcff56aa3ec294c6f6
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-8110
+.SS CVE\-2025\-27920
+Srimax Output Messenger, added 2025\-05\-19.
+.PP
+Srimax Output Messenger Directory Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Srimax Output Messenger contains a directory traversal vulnerability that allows an attacker to access sensitive files outside the intended directory, potentially leading to configuration leakage or arbitrary file access.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-06\-09.
+.PP
+\fIReferences:\fR
+.br
+https://www.outputmessenger.com/cve\-2025\-27920/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-27920
+.SS CVE\-2025\-34028
+Commvault Command Center, added 2025\-05\-02.
+.PP
+Commvault Command Center Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Commvault Command Center contains a path traversal vulnerability that allows a remote, unauthenticated attacker to execute arbitrary code.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-05\-23.
+.PP
+\fIReferences:\fR
+.br
+https://documentation.commvault.com/securityadvisories/CV_2025_04_1.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-34028
+.SS CVE\-2025\-61624
+Fortinet Multiple Products, added 2026\-10\-16.
+.PP
+Fortinet Multiple Products Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+FortiOS, FortiPAM, FortiProxy, and FortiSwitchManager contain a path traversal vulnerability that may allow an authenticated attacker with admin profile and at least read\-write permissions to write or delete arbitrary files via specific CLI commands.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-10\-19.
+.PP
+\fIReferences:\fR
+.br
+https://fortiguard.fortinet.com/psirt/FG\-IR\-26\-122
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-61624
+.SS CVE\-2026\-20262
+Cisco Catalyst SD\-WAN Manager, added 2026\-06\-15.
+.PP
+Cisco Catalyst SD\-WAN Manager Directory or Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Cisco Catalyst SD\-WAN Manager contains a directory or path traversal vulnerability that could allow an authenticated, remote attacker to create a file or overwrite any file on the filesystem of an affected system.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-06\-29.
+.PP
+\fIReferences:\fR
+.br
+https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco\-sa\-sdwan\-arbfw\-c2rZvQ
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-20262
+.SS CVE\-2026\-34909
+Ubiquiti UniFi OS, added 2026\-06\-23.
+.PP
+Ubiquiti UniFi OS Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ubiquiti UniFi OS contains a path traversal vulnerability which could allow a malicious actor with access to the network to access files on the underlying system that could be manipulated to access an underlying account.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-06\-26.
+.PP
+\fIReferences:\fR
+.br
+https://community.ui.com/releases/Security\-Advisory\-Bulletin\-064\-064/84811c09\-4cf4\-42ab\-bd61\-cc994445963b
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-34909
+.SS CVE\-2026\-48282
+Adobe ColdFusion, added 2026\-07\-07.
+.PP
+Adobe ColdFusion Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Adobe ColdFusion contains a path traversal vulnerability that could lead to arbitrary code execution in the context of the current user.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-07\-10.
+.PP
+\fIReferences:\fR
+.br
+https://helpx.adobe.com/security/products/coldfusion/apsb26\-68.html
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-48282
+.SS CVE\-2026\-59310
+Broadcom VMware vCenter, added 2026\-08\-18, ransomware: Known.
+.PP
+Broadcom VMware vCenter Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Broadcom VMware vCenter contains a path traversal vulnerability which could allow a threat actor with network access to vCenter to execute arbitrary code.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-08\-21.
+.PP
+\fIReferences:\fR
+.br
+https://support.broadcom.com/web/ecx/support\-content\-notification/\-/external/content/SecurityAdvisories/0/38017
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-59310
+.SS CVE\-2026\-66384
+JFrog Artifactory, added 2026\-08\-27.
+.PP
+JFrog Artifactory Improper Limitation of a Pathname to a Restricted Directory Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+JFrog Artifactory contains an improper limitation of a pathname to a restricted directory vulnerability. This can allow an authenticated user to write data outside the intended Docker cache path under specific remote\-repository conditions.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-10.
+.PP
+\fIReferences:\fR
+.br
+https://docs.jfrog.com/releases/docs/jfrog\-security\-advisories
+.br
+https://docs.jfrog.com/releases/docs/artifactory\-self\-managed\-releases
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-66384
+.SS CVE\-2026\-93616
+Check Point Multiple Products, added 2026\-09\-22.
+.PP
+Check Point Multiple Products Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Check Point Security Management Server, Multi\-Domain Security Management Server, Log Server, Multi\-Domain Log Server, and SmartEvent contain a path traversal vulnerability that allows an unauthenticated attacker to upload and execute arbitrary scripts.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-25.
+.PP
+\fIReferences:\fR
+.br
+https://support.checkpoint.com/results/sk/sk1000171/
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-93616
+.SS CVE\-2026\-104286
+Fortinet FortiMail, added 2026\-10\-01.
+.PP
+Fortinet FortiMail Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Fortinet FortiMail contains a path traversal and an improper neutralization of NULL byte or NULL character vulnerability that may allow an unauthenticated attacker to write arbitrary files on the underlying system via crafted HTTP or HTTPS requests.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-10\-04.
+.PP
+\fIReferences:\fR
+.br
+https://fortiguard.fortinet.com/psirt/FG\-IR\-26\-175
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-104286
 .SH EXAMPLES
 One vulnerable\->fixed pair per ecosystem (Node.js, Python, Java, Go, PHP).
 .SS Node.js
@@ -111,4 +1483,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/22.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-822 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-822 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-822 \- Untrusted Pointer Dereference
 .SH RANK
@@ -9,9 +9,92 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product obtains a value from an untrusted source, converts this value to a pointer, and dereferences the resulting pointer. An attacker can supply a pointer for memory locations that the product is not expecting. If the pointer is dereferenced for a write operation, the attack might allow modification of critical state variables, cause a crash, or execute code. If the dereferencing operation is for a read, then the attack might allow reading of sensitive data, cause a crash, or set a variable to an unexpected value (since the value will be read from an unexpected memory location). There are several variants of this weakness, including but not necessarily limited to: The untrusted value is directly invoked as a function call. In OS kernels or drivers where there is a boundary between userland and privileged memory spaces, an untrusted pointer might enter through an API or system call (see CWE\-781 for one such example). Inadvertently accepting the value from an untrusted control sphere when it did not have to be accepted as input at all. This might occur when the code was originally developed to be run by a single user in a non\-networked environment, and the code is then ported to or otherwise exposed to a networked environment.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB5\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB5\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2023\-29360
+Microsoft Streaming Service, added 2024\-02\-29.
 .PP
-CVE\-2023\-29360, CVE\-2023\-36033, CVE\-2024\-21338, CVE\-2024\-35250, CVE\-2025\-24990.
+Microsoft Streaming Service Untrusted Pointer Dereference Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Streaming Service contains an untrusted pointer dereference vulnerability that allows for privilege escalation, enabling a local attacker to gain SYSTEM privileges.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-03\-21.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2023\-29360
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-29360
+.SS CVE\-2023\-36033
+Microsoft Windows, added 2023\-11\-14.
+.PP
+Microsoft Windows Desktop Window Manager (DWM) Core Library Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Desktop Window Manager (DWM) Core Library contains an unspecified vulnerability that allows for privilege escalation.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-12\-05.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2023\-36033
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-36033
+.SS CVE\-2024\-21338
+Microsoft Windows, added 2024\-03\-04, ransomware: Known.
+.PP
+Microsoft Windows Kernel Exposed IOCTL with Insufficient Access Control Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Kernel contains an exposed IOCTL with insufficient access control vulnerability within the IOCTL (input and output control) dispatcher in appid.sys that allows a local attacker to achieve privilege escalation.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-03\-25.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2024\-21338
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-21338
+.SS CVE\-2024\-35250
+Microsoft Windows, added 2024\-12\-16.
+.PP
+Microsoft Windows Kernel\-Mode Driver Untrusted Pointer Dereference Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Kernel\-Mode Driver contains an untrusted pointer dereference vulnerability that allows a local attacker to escalate privileges.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-01\-06.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2024\-35250
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-35250
+.SS CVE\-2025\-24990
+Microsoft Windows, added 2025\-10\-14.
+.PP
+Microsoft Windows Untrusted Pointer Dereference Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Agere Modem Driver contains an untrusted pointer dereference vulnerability that allows for privilege escalation. An attacker who successfully exploited this vulnerability could gain administrator privileges.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-11\-04.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2025\-24990
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-24990
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +104,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/822.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

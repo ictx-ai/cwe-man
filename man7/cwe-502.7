@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-502 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-502 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-502 \- Deserialization of Untrusted Data
 .SH RANK
@@ -11,9 +11,1230 @@ Untrusted data is deserialized without sufficient verification. Rich formats can
 .SH MITIGATION
 Do not deserialize untrusted data with formats that can execute code (pickle, Java native serialization, PHP unserialize, node\-serialize). Use a data\-only format such as JSON, validate against a schema, and if unavoidable restrict allowed types and sign the payload.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB71\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB71\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2015\-4852
+Oracle WebLogic Server, added 2021\-11\-03.
 .PP
-CVE\-2015\-4852, CVE\-2017\-3066, CVE\-2017\-9805, CVE\-2017\-12149, CVE\-2018\-0824, CVE\-2018\-2628, CVE\-2018\-4939, CVE\-2018\-15133, CVE\-2018\-1000861, CVE\-2019\-0344, CVE\-2019\-6340, CVE\-2019\-9874, CVE\-2019\-9875, CVE\-2019\-10068, CVE\-2019\-15271, CVE\-2019\-18935, CVE\-2020\-0618, CVE\-2020\-2555, CVE\-2020\-5741, CVE\-2020\-7961, CVE\-2020\-10189, CVE\-2020\-17144, CVE\-2021\-23758, CVE\-2021\-26857, CVE\-2021\-27852, CVE\-2021\-31010, CVE\-2021\-35464, CVE\-2021\-35587, CVE\-2021\-39144, CVE\-2021\-42237, CVE\-2021\-42321, CVE\-2021\-44228, CVE\-2022\-21445, CVE\-2022\-31199, CVE\-2022\-35405, CVE\-2022\-41082, CVE\-2022\-47986, CVE\-2023\-0669, CVE\-2023\-21529, CVE\-2023\-26359, CVE\-2023\-29300, CVE\-2023\-38203, CVE\-2023\-40044, CVE\-2023\-43208, CVE\-2023\-46604, CVE\-2024\-8069, CVE\-2024\-20953, CVE\-2024\-28986, CVE\-2024\-38094, CVE\-2024\-40711, CVE\-2025\-0994, CVE\-2025\-5086, CVE\-2025\-10035, CVE\-2025\-23006, CVE\-2025\-24016, CVE\-2025\-24813, CVE\-2025\-26399, CVE\-2025\-40551, CVE\-2025\-42999, CVE\-2025\-49113, CVE\-2025\-53690, CVE\-2025\-53770, CVE\-2025\-59287, CVE\-2026\-12569, CVE\-2026\-20131, CVE\-2026\-20963, CVE\-2026\-45247, CVE\-2026\-45659, CVE\-2026\-50522, CVE\-2026\-58644, CVE\-2026\-63077.
+Oracle WebLogic Server Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Oracle WebLogic Server contains a deserialization of untrusted data vulnerability within Apache Commons, which can allow for for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2015\-4852
+.SS CVE\-2017\-3066
+Adobe ColdFusion, added 2025\-02\-24.
+.PP
+Adobe ColdFusion Deserialization Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Adobe ColdFusion contains a deserialization vulnerability in the Apache BlazeDS library that allows for arbitrary code execution.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-03\-17.
+.PP
+\fIReferences:\fR
+.br
+https://helpx.adobe.com/security/products/coldfusion/apsb17\-14.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-3066
+.SS CVE\-2017\-9805
+Apache Struts, added 2021\-11\-03.
+.PP
+Apache Struts Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apache Struts REST Plugin uses an XStreamHandler with an instance of XStream for deserialization without any type filtering, which can lead to remote code execution when deserializing XML payloads.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-9805
+.SS CVE\-2017\-12149
+Red Hat JBoss Application Server, added 2021\-12\-10, ransomware: Known.
+.PP
+Red Hat JBoss Application Server Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The JBoss Application Server, shipped with Red Hat Enterprise Application Platform 5.2, allows an attacker to execute arbitrary code via crafted serialized data.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-10.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-12149
+.SS CVE\-2018\-0824
+Microsoft Windows, added 2024\-08\-05.
+.PP
+Microsoft COM for Windows Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft COM for Windows contains a deserialization of untrusted data vulnerability that allows for privilege escalation and remote code execution via a specially crafted file or script.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-08\-26.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/advisory/CVE\-2018\-0824
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-0824
+.SS CVE\-2018\-2628
+Oracle WebLogic Server, added 2022\-09\-08.
+.PP
+Oracle WebLogic Server Unspecified Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Oracle WebLogic Server contains an unspecified vulnerability which can allow an unauthenticated attacker with T3 network access to compromise the server.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-09\-29.
+.PP
+\fIReferences:\fR
+.br
+https://www.oracle.com/security\-alerts/cpuapr2018.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-2628
+.SS CVE\-2018\-4939
+Adobe ColdFusion, added 2021\-11\-03.
+.PP
+Adobe ColdFusion Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Adobe ColdFusion contains a deserialization of untrusted data vulnerability that could allow for code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-4939
+.SS CVE\-2018\-15133
+Laravel Laravel Framework, added 2024\-01\-16.
+.PP
+Laravel Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Laravel Framework contains a deserialization of untrusted data vulnerability, allowing for remote command execution. This vulnerability may only be exploited if a malicious user has accessed the application encryption key (APP_KEY environment variable).
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-02\-06.
+.PP
+\fIReferences:\fR
+.br
+https://laravel.com/docs/5.6/upgrade#upgrade\-5.6.30
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-15133
+.SS CVE\-2018\-1000861
+Jenkins Jenkins Stapler Web Framework, added 2022\-02\-10.
+.PP
+Jenkins Stapler Web Framework Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A code execution vulnerability exists in the Stapler web framework used by Jenkins
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-08\-10.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-1000861
+.SS CVE\-2019\-0344
+SAP Commerce Cloud, added 2024\-09\-30.
+.PP
+SAP Commerce Cloud Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SAP Commerce Cloud (formerly known as Hybris) contains a deserialization of untrusted data vulnerability within the mediaconversion and virtualjdbc extension that allows for code injection.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-10\-21.
+.PP
+\fIReferences:\fR
+.br
+https://web.archive.org/web/20191214053020/https://wiki.scn.sap.com/wiki/pages/viewpage.action?pageId=523998017
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-0344
+.SS CVE\-2019\-6340
+Drupal Core, added 2022\-03\-25.
+.PP
+Drupal Core Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+In Drupal Core, some field types do not properly sanitize data from non\-form sources. This can lead to arbitrary PHP code execution in some cases.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-6340
+.SS CVE\-2019\-9874
+Sitecore CMS and Experience Platform (XP), added 2025\-03\-26.
+.PP
+Sitecore CMS and Experience Platform (XP) Deserialization Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Sitecore CMS and Experience Platform (XP) contain a deserialization vulnerability in the Sitecore.Security.AntiCSRF module that allows an unauthenticated attacker to execute arbitrary code by sending a serialized .NET object in the HTTP POST parameter __CSRFTOKEN.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-04\-16.
+.PP
+\fIReferences:\fR
+.br
+https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB0334035
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-9874
+.SS CVE\-2019\-9875
+Sitecore CMS and Experience Platform (XP), added 2025\-03\-26.
+.PP
+Sitecore CMS and Experience Platform (XP) Deserialization Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Sitecore CMS and Experience Platform (XP) contain a deserialization vulnerability in the Sitecore.Security.AntiCSRF module that allows an authenticated attacker to execute arbitrary code by sending a serialized .NET object in the HTTP POST parameter __CSRFTOKEN.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-04\-16.
+.PP
+\fIReferences:\fR
+.br
+https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB0038556
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-9875
+.SS CVE\-2019\-10068
+Kentico Xperience, added 2022\-03\-25.
+.PP
+Kentico Xperience Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Kentico contains a failure to validate security headers. This deserialization can led to unauthenticated remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-10068
+.SS CVE\-2019\-15271
+Cisco RV Series Routers, added 2022\-06\-08.
+.PP
+Cisco RV Series Routers Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A deserialization of untrusted data vulnerability in the web\-based management interface of certain Cisco Small Business RV Series Routers could allow an attacker to execute code with root privileges.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-22.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-15271
+.SS CVE\-2019\-18935
+Progress Telerik UI for ASP.NET AJAX, added 2021\-11\-03, ransomware: Known.
+.PP
+Progress Telerik UI for ASP.NET AJAX Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Progress Telerik UI for ASP.NET AJAX contains a deserialization of untrusted data vulnerability through RadAsyncUpload which leads to code execution on the server in the context of the w3wp.exe process.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-18935
+.SS CVE\-2020\-0618
+Microsoft SQL Server, added 2024\-09\-18, ransomware: Known.
+.PP
+Microsoft SQL Server Reporting Services Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft SQL Server Reporting Services contains a deserialization vulnerability when handling page requests incorrectly. An authenticated attacker can exploit this vulnerability to execute code in the context of the Report Server service account.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-10\-09.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/advisory/CVE\-2020\-0618
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-0618
+.SS CVE\-2020\-2555
+Oracle Multiple Products, added 2021\-11\-03.
+.PP
+Oracle Multiple Products Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Multiple Oracle products contain a remote code execution vulnerability that allows an unauthenticated attacker with network access via T3 or HTTP to takeover the affected system. Impacted Oracle products: Oracle Coherence in Fusion Middleware, Oracle Utilities Framework, Oracle Retail Assortment Planning, Oracle Commerce, Oracle Communications Diameter Signaling Router (DSR).
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-2555
+.SS CVE\-2020\-5741
+Plex Media Server, added 2023\-03\-10.
+.PP
+Plex Media Server Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Plex Media Server contains a remote code execution vulnerability that allows an attacker with access to the server administrator's Plex account to upload a malicious file via the Camera Upload feature and have the media server execute it.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-03\-31.
+.PP
+\fIReferences:\fR
+.br
+https://forums.plex.tv/t/security\-regarding\-cve\-2020\-5741/586819
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-5741
+.SS CVE\-2020\-7961
+Liferay Liferay Portal, added 2021\-11\-03.
+.PP
+Liferay Portal Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Liferay Portal contains a deserialization of untrusted data vulnerability that allows remote attackers to execute code via JSON web services.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-7961
+.SS CVE\-2020\-10189
+Zoho ManageEngine, added 2021\-11\-03.
+.PP
+Zoho ManageEngine Desktop Central File Upload Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Zoho ManageEngine Desktop Central contains a file upload vulnerability that allows for unauthenticated remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-10189
+.SS CVE\-2020\-17144
+Microsoft Exchange Server, added 2021\-11\-03.
+.PP
+Microsoft Exchange Server Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Exchange Server improperly validates cmdlet arguments which allow an attacker to perform remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-17144
+.SS CVE\-2021\-23758
+Ajax.NET Professional Ajax.NET Professional, added 2026\-08\-26.
+.PP
+Ajax.NET Professional Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ajax.NET Professional (AjaxPro) contains a deserialization of untrusted data vulnerability that could allow for remote code execution via arbitrary .NET classes. The impacted product(s) could be end\-of\-life (EoL) and/or end\-of\-service (EoS). Users are advised to discontinue use and/or transition to a supported version.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-09.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/michaelschwarz/Ajax.NET\-Professional/commit/b0e63be5f0bb20dfce507cb8a1a9568f6e73de57
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-23758
+.SS CVE\-2021\-26857
+Microsoft Exchange Server, added 2021\-11\-03, ransomware: Known.
+.PP
+Microsoft Exchange Server Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Exchange Server contains an unspecified vulnerability that allows for remote code execution. This vulnerability is part of the ProxyLogon exploit chain.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://www.cisa.gov/news\-events/directives/ed\-21\-02\-mitigate\-microsoft\-exchange\-premises\-product\-vulnerabilities
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-26857
+.SS CVE\-2021\-27852
+Checkbox Checkbox Survey, added 2022\-04\-11.
+.PP
+Checkbox Survey Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Deserialization of Untrusted Data vulnerability in CheckboxWeb.dll of Checkbox Survey allows an unauthenticated remote attacker to execute arbitrary code.
+.PP
+\fIRemediation:\fR
+Versions 6 and earlier for this product are end\-of\-life and must be removed from agency networks. Versions 7 and later are not considered vulnerable.
+ Due 2022\-05\-02.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-27852
+.SS CVE\-2021\-31010
+Apple iOS, macOS, watchOS, added 2022\-08\-25.
+.PP
+Apple iOS, macOS, watchOS Sandbox Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+In affected versions of Apple iOS, macOS, and watchOS, a sandboxed process may be able to circumvent sandbox restrictions.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-09\-15.
+.PP
+\fIReferences:\fR
+.br
+https://support.apple.com/en\-us/HT212804
+.br
+https://support.apple.com/en\-us/HT212805
+.br
+https://support.apple.com/en\-us/HT212806
+.br
+https://support.apple.com/en\-us/HT212807
+.br
+https://support.apple.com/en\-us/HT212824
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-31010
+.SS CVE\-2021\-35464
+ForgeRock Access Management (AM), added 2021\-11\-03, ransomware: Known.
+.PP
+ForgeRock Access Management (AM) Core Server Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+ForgeRock Access Management (AM) Core Server allows an attacker who sends a specially crafted HTTP request to one of three endpoints (/ccversion/Version, /ccversion/Masthead, or /ccversion/ButtonFrame) to execute code in the context of the current user (unless ForgeRock AM is running as root user, which the vendor does not recommend).
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-35464
+.SS CVE\-2021\-35587
+Oracle Fusion Middleware, added 2022\-11\-28.
+.PP
+Oracle Fusion Middleware Unspecified Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Oracle Fusion Middleware Access Manager allows an unauthenticated attacker with network access via HTTP to takeover the Access Manager product.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-12\-19.
+.PP
+\fIReferences:\fR
+.br
+https://www.oracle.com/security\-alerts/cpujan2022.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-35587
+.SS CVE\-2021\-39144
+XStream XStream, added 2023\-03\-10.
+.PP
+XStream Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+XStream contains a remote code execution vulnerability that allows an attacker to manipulate the processed input stream and replace or inject objects that result in the execution of a local command on the server. This vulnerability can affect multiple products, including but not limited to VMware Cloud Foundation.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-03\-31.
+.PP
+\fIReferences:\fR
+.br
+https://www.vmware.com/security/advisories/VMSA\-2022\-0027.html
+.br
+https://x\-stream.github.io/CVE\-2021\-39144.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-39144
+.SS CVE\-2021\-42237
+Sitecore XP, added 2022\-03\-25, ransomware: Known.
+.PP
+Sitecore XP Remote Command Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Sitcore XP contains an insecure deserialization vulnerability which can allow for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-42237
+.SS CVE\-2021\-42321
+Microsoft Exchange, added 2021\-11\-17, ransomware: Known.
+.PP
+Microsoft Exchange Server Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+An authenticated attacker could leverage improper validation in cmdlet arguments within Microsoft Exchange and perform remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-12\-01.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-42321
+.SS CVE\-2021\-44228
+Apache Log4j2, added 2021\-12\-10, ransomware: Known.
+.PP
+Apache Log4j2 Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apache Log4j2 contains a vulnerability where JNDI features do not protect against attacker\-controlled JNDI\-related endpoints, allowing for remote code execution.
+.PP
+\fIRemediation:\fR
+For all affected software assets for which updates exist, the only acceptable remediation actions are: 1) Apply updates; OR 2) remove affected assets from agency networks. Temporary mitigations using one of the measures provided at https://www.cisa.gov/uscert/ed\-22\-02\-apache\-log4j\-recommended\-mitigation\-measures are only acceptable until updates are available.
+ Due 2021\-12\-24.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-44228
+.SS CVE\-2022\-21445
+Oracle ADF Faces, added 2024\-09\-18.
+.PP
+Oracle ADF Faces Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Oracle ADF Faces library, included with Oracle JDeveloper Distribution, contains a deserialization of untrusted data vulnerability leading to unauthenticated remote code execution.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-10\-09.
+.PP
+\fIReferences:\fR
+.br
+https://www.oracle.com/security\-alerts/cpuapr2022.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-21445
+.SS CVE\-2022\-31199
+Netwrix Auditor, added 2023\-07\-11, ransomware: Known.
+.PP
+Netwrix Auditor Insecure Object Deserialization Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Netwrix Auditor User Activity Video Recording component contains an insecure objection deserialization vulnerability that allows an unauthenticated, remote attacker to execute code as the NT AUTHORITY\eSYSTEM user. Successful exploitation requires that the attacker is able to reach port 9004/TCP, which is commonly blocked by standard enterprise firewalling.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-08\-01.
+.PP
+\fIReferences:\fR
+.br
+https://security.netwrix.com/Account/SignIn?ReturnUrl=%2FAdvisories%2FADV\-2022\-003
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-31199
+.SS CVE\-2022\-35405
+Zoho ManageEngine, added 2022\-09\-22.
+.PP
+Zoho ManageEngine Multiple Products Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Zoho ManageEngine PAM360, Password Manager Pro, and Access Manager Plus contain an unspecified vulnerability that allows for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-10\-13.
+.PP
+\fIReferences:\fR
+.br
+https://www.manageengine.com/products/passwordmanagerpro/advisory/cve\-2022\-35405.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-35405
+.SS CVE\-2022\-41082
+Microsoft Exchange Server, added 2022\-09\-30, ransomware: Known.
+.PP
+Microsoft Exchange Server Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Exchange Server contains an unspecified vulnerability that allows for authenticated remote code execution. Dubbed "ProxyNotShell," this vulnerability is chainable with CVE\-2022\-41040 which allows for the remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-10\-21.
+.PP
+\fIReferences:\fR
+.br
+https://msrc\-blog.microsoft.com/2022/09/29/customer\-guidance\-for\-reported\-zero\-day\-vulnerabilities\-in\-microsoft\-exchange\-server/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-41082
+.SS CVE\-2022\-47986
+IBM Aspera Faspex, added 2023\-02\-21, ransomware: Known.
+.PP
+IBM Aspera Faspex Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+IBM Aspera Faspex could allow a remote attacker to execute code on the system, caused by a YAML deserialization flaw.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-03\-14.
+.PP
+\fIReferences:\fR
+.br
+https://exchange.xforce.ibmcloud.com/vulnerabilities/243512?_ga=2.189195179.1800390251.1676559338\-700333034.1676325890
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-47986
+.SS CVE\-2023\-0669
+Fortra GoAnywhere MFT, added 2023\-02\-10, ransomware: Known.
+.PP
+Fortra GoAnywhere MFT Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Fortra (formerly, HelpSystems) GoAnywhere MFT contains a pre\-authentication remote code execution vulnerability in the License Response Servlet due to deserializing an attacker\-controlled object.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-03\-03.
+.PP
+\fIReferences:\fR
+.br
+https://www.cisa.gov/news\-events/cybersecurity\-advisories/aa23\-158a
+.br
+https://my.goanywhere.com/webclient/DownloadProductFiles.xhtml
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-0669
+.SS CVE\-2023\-21529
+Microsoft Exchange Server, added 2026\-04\-13, ransomware: Known.
+.PP
+Microsoft Exchange Server Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Exchange Server contains a deserialization of untrusted data that allows an authenticated attacker to achieve remote code execution.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-04\-27.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2023\-21529
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-21529
+.SS CVE\-2023\-26359
+Adobe ColdFusion, added 2023\-08\-21.
+.PP
+Adobe ColdFusion Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Adobe ColdFusion contains a deserialization of untrusted data vulnerability that could result in code execution in the context of the current user.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-09\-11.
+.PP
+\fIReferences:\fR
+.br
+https://helpx.adobe.com/security/products/coldfusion/apsb23\-25.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-26359
+.SS CVE\-2023\-29300
+Adobe ColdFusion, added 2024\-01\-08, ransomware: Known.
+.PP
+Adobe ColdFusion Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Adobe ColdFusion contains a deserialization of untrusted data vulnerability that allows for code execution.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-01\-29.
+.PP
+\fIReferences:\fR
+.br
+https://helpx.adobe.com/security/products/coldfusion/apsb23\-40.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-29300
+.SS CVE\-2023\-38203
+Adobe ColdFusion, added 2024\-01\-08, ransomware: Known.
+.PP
+Adobe ColdFusion Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Adobe ColdFusion contains a deserialization of untrusted data vulnerability that allows for code execution.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-01\-29.
+.PP
+\fIReferences:\fR
+.br
+https://helpx.adobe.com/security/products/coldfusion/apsb23\-41.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-38203
+.SS CVE\-2023\-40044
+Progress WS_FTP Server, added 2023\-10\-05, ransomware: Known.
+.PP
+Progress WS_FTP Server Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Progress WS_FTP Server contains a deserialization of untrusted data vulnerability in the Ad Hoc Transfer module that allows an authenticated attacker to execute remote commands on the underlying operating system.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-10\-26.
+.PP
+\fIReferences:\fR
+.br
+https://community.progress.com/s/article/WS\-FTP\-Server\-Critical\-Vulnerability\-September\-2023
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-40044
+.SS CVE\-2023\-43208
+NextGen Healthcare Mirth Connect, added 2024\-05\-20, ransomware: Known.
+.PP
+NextGen Healthcare Mirth Connect Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+NextGen Healthcare Mirth Connect contains a deserialization of untrusted data vulnerability that allows for unauthenticated remote code execution via a specially crafted request.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-06\-10.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/nextgenhealthcare/connect/wiki/4.4.1\-\-\-What%27s\-New
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-43208
+.SS CVE\-2023\-46604
+Apache ActiveMQ, added 2023\-11\-02, ransomware: Known.
+.PP
+Apache ActiveMQ Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apache ActiveMQ contains a deserialization of untrusted data vulnerability that may allow a remote attacker with network access to a broker to run shell commands by manipulating serialized class types in the OpenWire protocol to cause the broker to instantiate any class on the classpath.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-11\-23.
+.PP
+\fIReferences:\fR
+.br
+https://activemq.apache.org/security\-advisories.data/CVE\-2023\-46604\-announcement.txt
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-46604
+.SS CVE\-2024\-8069
+Citrix Session Recording, added 2025\-08\-25.
+.PP
+Citrix Session Recording Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Citrix Session Recording contains a deserialization of untrusted data vulnerability that allows limited remote code execution with privilege of a NetworkService Account access. Attacker must be an authenticated user on the same intranet as the session recording server.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-09\-15.
+.PP
+\fIReferences:\fR
+.br
+https://support.citrix.com/external/article/691941/citrix\-session\-recording\-security\-bullet.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-8069
+.SS CVE\-2024\-20953
+Oracle Agile Product Lifecycle Management (PLM), added 2025\-02\-24.
+.PP
+Oracle Agile Product Lifecycle Management (PLM) Deserialization Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Oracle Agile Product Lifecycle Management (PLM) contains a deserialization vulnerability that allows a low\-privileged attacker with network access via HTTP to compromise the system.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-03\-17.
+.PP
+\fIReferences:\fR
+.br
+https://www.oracle.com/security\-alerts/cpujan2024.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-20953
+.SS CVE\-2024\-28986
+SolarWinds Web Help Desk, added 2024\-08\-15.
+.PP
+SolarWinds Web Help Desk Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SolarWinds Web Help Desk contains a deserialization of untrusted data vulnerability that could allow for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-09\-05.
+.PP
+\fIReferences:\fR
+.br
+https://www.solarwinds.com/trust\-center/security\-advisories/cve\-2024\-28986
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-28986
+.SS CVE\-2024\-38094
+Microsoft SharePoint, added 2024\-10\-22, ransomware: Known.
+.PP
+Microsoft SharePoint Deserialization Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft SharePoint contains a deserialization vulnerability that allows for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-11\-12.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2024\-38094
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-38094
+.SS CVE\-2024\-40711
+Veeam Backup & Replication, added 2024\-10\-17, ransomware: Known.
+.PP
+Veeam Backup and Replication Deserialization Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Veeam Backup and Replication contains a deserialization vulnerability allowing an unauthenticated user to perform remote code execution.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-11\-07.
+.PP
+\fIReferences:\fR
+.br
+https://www.veeam.com/kb4649
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-40711
+.SS CVE\-2025\-0994
+Trimble Cityworks, added 2025\-02\-07.
+.PP
+Trimble Cityworks Deserialization Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Trimble Cityworks contains a deserialization vulnerability. This could allow an authenticated user to perform a remote code execution attack against a customer's Microsoft Internet Information Services (IIS) web server.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-02\-28.
+.PP
+\fIReferences:\fR
+.br
+https://learn.assetlifecycle.trimble.com/i/1532182\-cityworks\-customer\-communication\-2025\-02\-05\-docx/0?
+.br
+https://www.cisa.gov/news\-events/ics\-advisories/icsa\-25\-037\-04
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-0994
+.SS CVE\-2025\-5086
+Dassault Systèmes DELMIA Apriso, added 2025\-09\-11.
+.PP
+Dassault Systèmes DELMIA Apriso Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Dassault Systèmes DELMIA Apriso contains a deserialization of untrusted data vulnerability that could lead to a remote code execution.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-10\-02.
+.PP
+\fIReferences:\fR
+.br
+https://www.3ds.com/trust\-center/security/security\-advisories/cve\-2025\-5086
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-5086
+.SS CVE\-2025\-10035
+Fortra GoAnywhere MFT, added 2025\-09\-29, ransomware: Known.
+.PP
+Fortra GoAnywhere MFT Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Fortra GoAnywhere MFT contains a deserialization of untrusted data vulnerability allows an actor with a validly forged license response signature to deserialize an arbitrary actor\-controlled object, possibly leading to command injection.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-10\-20.
+.PP
+\fIReferences:\fR
+.br
+https://www.fortra.com/security/advisories/product\-security/fi\-2025\-012
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-10035
+.SS CVE\-2025\-23006
+SonicWall SMA1000 Appliances, added 2025\-01\-24, ransomware: Known.
+.PP
+SonicWall SMA1000 Appliances Deserialization Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SonicWall SMA1000 Appliance Management Console (AMC) and Central Management Console (CMC) contain a deserialization of untrusted data vulnerability, which can enable a remote, unauthenticated attacker to execute arbitrary OS commands.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-02\-14.
+.PP
+\fIReferences:\fR
+.br
+https://psirt.global.sonicwall.com/vuln\-detail/SNWLID\-2025\-0002
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-23006
+.SS CVE\-2025\-24016
+Wazuh Wazuh Server, added 2025\-06\-10.
+.PP
+Wazuh Server Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Wazuh contains a deserialization of untrusted data vulnerability that allows for remote code execution on Wazuh servers.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-07\-01.
+.PP
+\fIReferences:\fR
+.br
+https://wazuh.com/blog/addressing\-the\-cve\-2025\-24016\-vulnerability/
+.br
+https://github.com/wazuh/wazuh/security/advisories/GHSA\-hcrc\-79hj\-m3qh
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-24016
+.SS CVE\-2025\-24813
+Apache Tomcat, added 2025\-04\-01.
+.PP
+Apache Tomcat Path Equivalence Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apache Tomcat contains a path equivalence vulnerability that allows a remote attacker to execute code, disclose information, or inject malicious content via a partial PUT request. This vulnerability can be chained with CVE‑2026‑34486.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-04\-22.
+.PP
+\fIReferences:\fR
+.br
+https://lists.apache.org/thread/j5fkjv2k477os90nczf2v9l61fb0kkgq
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-24813
+.SS CVE\-2025\-26399
+SolarWinds Web Help Desk, added 2026\-03\-09, ransomware: Known.
+.PP
+SolarWinds Web Help Desk Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SolarWinds Web Help Desk contain a deserialization of untrusted data vulnerability in AjaxProxy that could allow an attacker to run commands on the host machine.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-03\-12.
+.PP
+\fIReferences:\fR
+.br
+https://www.solarwinds.com/trust\-center/security\-advisories/cve\-2025\-26399
+.br
+https://documentation.solarwinds.com/en/success_center/whd/content/release_notes/whd_12\-8\-7\-hotfix\-1_release_notes.htm
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-26399
+.SS CVE\-2025\-40551
+SolarWinds Web Help Desk, added 2026\-02\-03.
+.PP
+SolarWinds Web Help Desk Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SolarWinds Web Help Desk contains a deserialization of untrusted data vulnerability that could lead to remote code execution, which would allow an attacker to run commands on the host machine. This could be exploited without authentication.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-02\-06.
+.PP
+\fIReferences:\fR
+.br
+https://www.solarwinds.com/trust\-center/security\-advisories/cve\-2025\-40551
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-40551
+.SS CVE\-2025\-42999
+SAP NetWeaver, added 2025\-05\-15, ransomware: Known.
+.PP
+SAP NetWeaver Deserialization Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SAP NetWeaver Visual Composer Metadata Uploader contains a deserialization vulnerability that allows a privileged attacker to compromise the confidentiality, integrity, and availability of the host system by deserializing untrusted or malicious content.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-06\-05.
+.PP
+\fIReferences:\fR
+.br
+https://me.sap.com/notes/3604119
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-42999
+.SS CVE\-2025\-49113
+Roundcube Webmail, added 2026\-02\-20.
+.PP
+RoundCube Webmail Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+RoundCube Webmail contains a deserialization of untrusted data vulnerability that allows remote code execution by authenticated users because the _from parameter in a URL is not validated in program/actions/settings/upload.php.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-03\-13.
+.PP
+\fIReferences:\fR
+.br
+https://roundcube.net/news/2025/06/01/security\-updates\-1.6.11\-and\-1.5.10
+.br
+https://github.com/roundcube/roundcubemail/releases/tag/1.5.10
+.br
+https://github.com/roundcube/roundcubemail/releases/tag/1.6.11
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-49113
+.SS CVE\-2025\-53690
+Sitecore Multiple Products, added 2025\-09\-04.
+.PP
+Sitecore Multiple Products Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Sitecore Experience Manager (XM), Experience Platform (XP), Experience Commerce (XC), and Managed Cloud contain a deserialization of untrusted data vulnerability involving the use of default machine keys. This flaw allows attackers to exploit exposed ASP.NET machine keys to achieve remote code execution.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-09\-25.
+.PP
+\fIReferences:\fR
+.br
+https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB1003865
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-53690
+.SS CVE\-2025\-53770
+Microsoft SharePoint, added 2025\-07\-20, ransomware: Known.
+.PP
+Microsoft SharePoint Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft SharePoint Server on\-premises contains a deserialization of untrusted data vulnerability that could allow an unauthorized attacker to execute code over a network. This vulnerability could be chained with CVE\-2025\-53771. CVE\-2025\-53770 is a patch bypass for CVE\-2025\-49704, and the updates for CVE\-2025\-53770 include more robust protection than those for CVE\-2025\-49704.
+.PP
+\fIRemediation:\fR
+Disconnect public\-facing versions of SharePoint Server that have reached their end\-of\-life (EOL) or end\-of\-service (EOS) to include SharePoint Server 2013 and earlier versions. For supported versions, please follow the mitigations according to CISA (URL listed below in Notes) and vendor instructions (URL listed below in Notes). Adhere to the applicable BOD 22\-01 guidance for cloud services or discontinue use of the product if mitigations are not available.
+ Due 2025\-07\-21.
+.PP
+\fIReferences:\fR
+.br
+https://www.cisa.gov/news\-events/alerts/2025/07/20/microsoft\-releases\-guidance\-exploitation\-sharepoint\-vulnerability\-cve\-2025\-53770
+.br
+https://www.microsoft.com/en\-us/security/blog/2025/07/22/disrupting\-active\-exploitation\-of\-on\-premises\-sharepoint\-vulnerabilities/
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2025\-53770
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-53770
+.SS CVE\-2025\-59287
+Microsoft Windows, added 2025\-10\-24.
+.PP
+Microsoft Windows Server Update Service (WSUS) Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Server Update Service (WSUS) contains a deserialization of untrusted data vulnerability that allows for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-11\-14.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2025\-59287
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-59287
+.SS CVE\-2026\-12569
+PTC Windchill and FlexPLM, added 2026\-06\-25, ransomware: Known.
+.PP
+PTC Windchill and FlexPLM Improper Input Validation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+PTC Windchill and FlexPLM contains an improper input validation vulnerability allowing an unauthenticated, remote attacker to execute arbitrary code by sending a malicious request to the network.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-06\-28.
+.PP
+\fIReferences:\fR
+.br
+https://www.ptc.com/en/support/article/CS473270
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-12569
+.SS CVE\-2026\-20131
+Cisco Secure Firewall Management Center (FMC), added 2026\-03\-19, ransomware: Known.
+.PP
+Cisco Secure Firewall Management Center (FMC) Software and Cisco Security Cloud Control (SCC) Firewall Management Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Cisco Secure Firewall Management Center (FMC) Software and Cisco Security Cloud Control (SCC) Firewall Management contain a deserialization of untrusted data vulnerability in the web\-based management interface that could allow an unauthenticated, remote attacker to execute arbitrary Java code as root on an affected device.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-03\-22.
+.PP
+\fIReferences:\fR
+.br
+https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco\-sa\-fmc\-rce\-NKhnULJh
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-20131
+.SS CVE\-2026\-20963
+Microsoft SharePoint, added 2026\-03\-18.
+.PP
+Microsoft SharePoint Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft SharePoint contains a deserialization of untrusted data vulnerability that allows an unauthorized attacker to execute code over a network.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-03\-21.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2026\-20963
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-20963
+.SS CVE\-2026\-45247
+Mirasvit Mirasvit Full Page Cache Warmer, added 2026\-06\-03.
+.PP
+Mirasvit Full Page Cache Warmer Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Mirasvit Full Page Cache Warmer contains a deserialization of untrusted data vulnerability that could allow unauthenticated attackers to achieve remote code execution by supplying a crafted serialized PHP object in the CacheWarmer cookie.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-06\-06.
+.PP
+\fIReferences:\fR
+.br
+https://mirasvit.com/package/changelog/?package=mirasvit/module\-cache\-warmer
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-45247
+.SS CVE\-2026\-45659
+Microsoft SharePoint Server, added 2026\-07\-01, ransomware: Known.
+.PP
+Microsoft SharePoint Server Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft SharePoint Server contains a deserialization of untrusted data vulnerability which allows an authorized attacker to execute code over a network.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-07\-04.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2026\-45659
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-45659
+.SS CVE\-2026\-50522
+Microsoft SharePoint, added 2026\-07\-22.
+.PP
+Microsoft SharePoint Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft SharePoint contains a deserialization of untrusted data vulnerability which could allow an unauthorized attacker to execute code over a network.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-07\-25.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2026\-50522
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-50522
+.SS CVE\-2026\-58644
+Microsoft SharePoint, added 2026\-07\-16.
+.PP
+Microsoft SharePoint Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft SharePoint contains a deserialization of untrusted data vulnerability that allows an unauthorized attacker to execute code over a network.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-07\-19.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2026\-58644
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-58644
+.SS CVE\-2026\-63077
+JetBrains TeamCity, added 2026\-08\-05, ransomware: Known.
+.PP
+JetBrains TeamCity Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+JetBrains TeamCity contains a deserialization of untrusted data vulnerability that could allow unauthenticated remote code execution via the agent polling protocol.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-08\-08.
+.PP
+\fIReferences:\fR
+.br
+https://blog.jetbrains.com/teamcity/2026/07/cve\-2026\-63077/
+.br
+https://www.jetbrains.com/privacy\-security/issues\-fixed/
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-63077
 .SH EXAMPLES
 One vulnerable\->fixed pair per ecosystem (Node.js, Python, Java, PHP).
 .SS Node.js
@@ -83,4 +1304,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/502.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

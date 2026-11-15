@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-473 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-473 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-473 \- PHP External Variable Modification
 .SH RANK
@@ -9,9 +9,41 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 A PHP application does not properly protect against the modification of variables from external sources, such as query parameters or cookies. This can expose the application to numerous weaknesses that would not exist otherwise.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB2\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB2\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2023\-36844
+Juniper Junos OS, added 2023\-11\-13.
 .PP
-CVE\-2023\-36844, CVE\-2023\-36845.
+Juniper Junos OS EX Series PHP External Variable Modification Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Juniper Junos OS on EX Series contains a PHP external variable modification vulnerability that allows an unauthenticated, network\-based attacker to control certain, important environment variables. Using a crafted request an attacker is able to modify certain PHP environment variables, leading to partial loss of integrity, which may allow chaining to other vulnerabilities.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://supportportal.juniper.net/s/article/2023\-08\-Out\-of\-Cycle\-Security\-Bulletin\-Junos\-OS\-SRX\-Series\-and\-EX\-Series\-Multiple\-vulnerabilities\-in\-J\-Web\-can\-be\-combined\-to\-allow\-a\-preAuth\-Remote\-Code\-Execution?language=en_US
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-36844
+.SS CVE\-2023\-36845
+Juniper Junos OS, added 2023\-11\-13.
+.PP
+Juniper Junos OS EX Series and SRX Series PHP External Variable Modification Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Juniper Junos OS on EX Series and SRX Series contains a PHP external variable modification vulnerability that allows an unauthenticated, network\-based attacker to control an important environment variable. Using a crafted request, which sets the variable PHPRC, an attacker is able to modify the PHP execution environment allowing the injection und execution of code.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://supportportal.juniper.net/s/article/2023\-08\-Out\-of\-Cycle\-Security\-Bulletin\-Junos\-OS\-SRX\-Series\-and\-EX\-Series\-Multiple\-vulnerabilities\-in\-J\-Web\-can\-be\-combined\-to\-allow\-a\-preAuth\-Remote\-Code\-Execution?language=en_US
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-36845
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +53,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/473.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-693 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-693 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-693 \- Protection Mechanism Failure
 .SH RANK
@@ -9,9 +9,200 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product does not use or incorrectly uses a protection mechanism that provides sufficient defense against directed attacks against the product. This weakness covers three distinct situations. A missing protection mechanism occurs when the application does not define any mechanism against a certain class of attack. An insufficient protection mechanism might provide some defenses \- for example, against the most common attacks \- but it does not protect against everything that is intended. Finally, an ignored mechanism occurs when a mechanism is available and in active use within the product, but the developer has not applied it in some code path.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB11\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB11\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2024\-21412
+Microsoft Windows, added 2024\-02\-13, ransomware: Known.
 .PP
-CVE\-2024\-21412, CVE\-2024\-29988, CVE\-2024\-38213, CVE\-2024\-38217, CVE\-2024\-38226, CVE\-2025\-0411, CVE\-2025\-40536, CVE\-2026\-21510, CVE\-2026\-21513, CVE\-2026\-32202, CVE\-2026\-58704.
+Microsoft Windows Internet Shortcut Files Security Feature Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Internet Shortcut Files contains an unspecified vulnerability that allows for a security feature bypass.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-03\-05.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2024\-21412
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-21412
+.SS CVE\-2024\-29988
+Microsoft SmartScreen Prompt, added 2024\-04\-30.
+.PP
+Microsoft SmartScreen Prompt Security Feature Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft SmartScreen Prompt contains a security feature bypass vulnerability that allows an attacker to bypass the Mark of the Web (MotW) feature. This vulnerability can be chained with CVE\-2023\-38831 and CVE\-2024\-21412 to execute a malicious file.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-05\-21.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2024\-29988
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-29988
+.SS CVE\-2024\-38213
+Microsoft Windows, added 2024\-08\-13.
+.PP
+Microsoft Windows SmartScreen Security Feature Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows SmartScreen contains a security feature bypass vulnerability that allows an attacker to bypass the SmartScreen user experience via a malicious file.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-09\-03.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2024\-38213
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-38213
+.SS CVE\-2024\-38217
+Microsoft Windows, added 2024\-09\-10.
+.PP
+Microsoft Windows Mark of the Web (MOTW) Protection Mechanism Failure Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Mark of the Web (MOTW) contains a protection mechanism failure vulnerability that allows an attacker to bypass MOTW\-based defenses. This can result in a limited loss of integrity and availability of security features such as Protected View in Microsoft Office, which rely on MOTW tagging.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-10\-01.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2024\-38217
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-38217
+.SS CVE\-2024\-38226
+Microsoft Publisher, added 2024\-09\-10.
+.PP
+Microsoft Publisher Protection Mechanism Failure Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Publisher contains a protection mechanism failure vulnerability that allows attacker to bypass Office macro policies used to block untrusted or malicious files.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-10\-01.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2024\-38226
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-38226
+.SS CVE\-2025\-0411
+7\-Zip 7\-Zip, added 2025\-02\-06.
+.PP
+7\-Zip Mark of the Web Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+7\-Zip contains a protection mechanism failure vulnerability that allows remote attackers to bypass the Mark\-of\-the\-Web security feature to execute arbitrary code in the context of the current user.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-02\-27.
+.PP
+\fIReferences:\fR
+.br
+https://www.7\-zip.org/history.txt
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-0411
+.SS CVE\-2025\-40536
+SolarWinds Web Help Desk, added 2026\-02\-12.
+.PP
+SolarWinds Web Help Desk Security Control Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SolarWinds Web Help Desk contains a security control bypass vulnerability that could allow an unauthenticated attacker to gain access to certain restricted functionality.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-02\-15.
+.PP
+\fIReferences:\fR
+.br
+https://documentation.solarwinds.com/en/success_center/whd/content/release_notes/whd_2026\-1_release_notes.htm
+.br
+https://www.solarwinds.com/trust\-center/security\-advisories/CVE\-2025\-40536
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-40536
+.SS CVE\-2026\-21510
+Microsoft Windows, added 2026\-02\-10.
+.PP
+Microsoft Windows Shell Protection Mechanism Failure Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Shell contains a protection mechanism failure vulnerability that could allow an unauthorized attacker to bypass a security feature over a network.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-03\-03.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2026\-21510
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-21510
+.SS CVE\-2026\-21513
+Microsoft Windows, added 2026\-02\-10.
+.PP
+Microsoft MSHTML Framework Protection Mechanism Failure Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft MSHTML Framework contains a protection mechanism failure vulnerability that could allow an unauthorized attacker to bypass a security feature over a network.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-03\-03.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/advisory/CVE\-2026\-21513
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-21513
+.SS CVE\-2026\-32202
+Microsoft Windows, added 2026\-04\-28.
+.PP
+Microsoft Windows Protection Mechanism Failure Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Shell contains a protection mechanism failure vulnerability that allows an unauthorized attacker to perform spoofing over a network.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-05\-12.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2026\-32202
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-32202
+.SS CVE\-2026\-58704
+Google Pixel, added 2026\-09\-16.
+.PP
+Google Pixel Improper Authorization Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Pixel devices contain an improper authorization vulnerability in the cellular modem. A logic error may allow an attacker to bypass permission checks and escalate privileges.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-19.
+.PP
+\fIReferences:\fR
+.br
+https://source.android.com/docs/security/bulletin/pixel/2026/2026\-09\-01
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-58704
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +212,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/693.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

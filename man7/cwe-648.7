@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-648 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-648 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-648 \- Incorrect Use of Privileged APIs
 .SH RANK
@@ -9,9 +9,49 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product does not conform to the API requirements for a function call that requires extra privileges. This could allow attackers to gain privileges by causing the function to be called incorrectly. When a product contains certain functions that perform operations requiring an elevated level of privilege, the caller of a privileged API must be careful to: ensure that assumptions made by the APIs are valid, such as validity of arguments account for known weaknesses in the design/implementation of the API call the API from a safe context If the caller of the API does not follow these requirements, then it may allow a malicious user or process to elevate their privilege, hijack the process, or steal sensitive data. For instance, it is important to know if privileged APIs do not shed their privileges before returning to the caller or if the privileged function might make certain assumptions about the data, context or state information passed to it by the caller. It is important to always know when and how privileged APIs can be called in order to ensure that their elevated level of privilege cannot be exploited.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB2\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB2\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2026\-20122
+Cisco Catalyst SD\-WAN Manger, added 2026\-04\-20.
 .PP
-CVE\-2026\-20122, CVE\-2026\-76460.
+Cisco Catalyst SD\-WAN Manager Incorrect Use of Privileged APIs Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Cisco Catalyst SD\-WAN Manager contains an incorrect use of privileged APIs vulnerability due to improper file handling on the API interface of an affected system. An attacker could exploit this vulnerability by uploading a malicious file on the local file system. A successful exploit could allow the attacker to overwrite arbitrary files on the affected system and gain vmanage user privileges.
+.PP
+\fIRemediation:\fR
+Please adhere to CISA’s guidelines to assess exposure and mitigate risks associated with Cisco SD\-WAN devices as outlines in CISA’s Emergency Directive 26\-03 (URL listed below in Notes) and CISA’s “Hunt & Hardening Guidance for Cisco SD\-WAN Devices (URL listed below in Notes). Adhere to the applicable BOD 22\-01 guidance for cloud services or discontinue use of the product if mitigations are not available.
+ Due 2026\-04\-23.
+.PP
+\fIReferences:\fR
+.br
+https://www.cisa.gov/news\-events/directives/ed\-26\-03\-mitigate\-vulnerabilities\-cisco\-sd\-wan\-systems
+.br
+https://www.cisa.gov/news\-events/directives/supplemental\-direction\-ed\-26\-03\-hunt\-and\-hardening\-guidance\-cisco\-sd\-wan\-systems
+.br
+https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco\-sa\-sdwan\-authbp\-qwCX8D4v
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-20122
+.SS CVE\-2026\-76460
+Cisco Identity Services Engine, added 2026\-09\-16.
+.PP
+Cisco Identity Services Engine Incorrect Use of Privileged APIs Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Cisco Identity Services Engine (ISE) and Cisco ISE Passive Identity Connector (ISE\-PIC) contain an incorrect use of privileged APIs vulnerability that could allow an unauthenticated, remote attacker to gain unauthorized access to the affected device by bypassing the web\-based management interface.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-19.
+.PP
+\fIReferences:\fR
+.br
+https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco\-sa\-ISE\-ABP\-VNSW7Tn5
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-76460
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +61,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/648.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

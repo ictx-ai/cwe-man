@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-401 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-401 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-401 \- Missing Release of Memory after Effective Lifetime
 .SH RANK
@@ -9,9 +9,24 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product does not sufficiently track and release allocated memory after it has been used, which slowly consumes remaining memory. This is often triggered by improper handling of malformed data or unexpectedly interrupted sessions. In some languages, developers are responsible for tracking memory allocation and releasing the memory. If there are no more pointers or references to the memory, then it can no longer be tracked and identified for release.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB1\fR exploited CVE mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB1\fR exploited CVE mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2023\-26083
+Arm Mali Graphics Processing Unit (GPU), added 2023\-04\-07.
 .PP
-CVE\-2023\-26083.
+Arm Mali GPU Kernel Driver Information Disclosure Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Arm Mali GPU Kernel Driver contains an information disclosure vulnerability that allows a non\-privileged user to make valid GPU processing operations that expose sensitive kernel metadata.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-04\-28.
+.PP
+\fIReferences:\fR
+.br
+https://developer.arm.com/Arm%20Security%20Center/Mali%20GPU%20Driver%20Vulnerabilities
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-26083
 .SH EXAMPLES
 One vulnerable\->fixed pair per ecosystem (C).
 .SS C
@@ -37,4 +52,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/401.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

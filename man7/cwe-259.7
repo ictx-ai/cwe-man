@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-259 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-259 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-259 \- Use of Hard\-coded Password
 .SH RANK
@@ -9,9 +9,45 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product contains a hard\-coded password, which it uses for its own inbound authentication or for outbound communication to external components. A hard\-coded password typically leads to a significant authentication failure that can be difficult for the system administrator to detect. Once detected, it can be difficult to fix, so the administrator may be forced into disabling the product entirely. There are two main variations: Inbound: the product contains an authentication mechanism that checks for a hard\-coded password. Outbound: the product connects to another system or component, and it contains hard\-coded password for connecting to that component. In the Inbound variant, a default administration account is created, and a simple password is hard\-coded into the product and associated with that account. This hard\-coded password is the same for each installation of the product, and it usually cannot be changed or disabled by system administrators without manually modifying the program, or otherwise patching the product. If the password is ever discovered or published (a common occurrence on the Internet), then anybody with knowledge of this password can access the product. Finally, since all installations of the product will have the same password, even across different organizations, this enables massive attacks such as worms to take place. The Outbound variant applies to front\-end systems that authenticate with a back\-end service. The back\-end service may require a fixed password which can be easily discovered. The programmer may simply hard\-code those back\-end credentials into the front\-end product. Any user of that program may be able to extract the password. Client\-side systems with hard\-coded passwords pose even more of a threat, since the extraction of a password from a binary is usually very simple.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB2\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB2\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2022\-28810
+Zoho ManageEngine, added 2023\-03\-07.
 .PP
-CVE\-2022\-28810, CVE\-2026\-20316.
+Zoho ManageEngine ADSelfService Plus Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Zoho ManageEngine ADSelfService Plus contains an unspecified vulnerability allowing for remote code execution when performing a password change or reset.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-03\-28.
+.PP
+\fIReferences:\fR
+.br
+https://www.manageengine.com/products/self\-service\-password/advisory/CVE\-2022\-28810.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-28810
+.SS CVE\-2026\-20316
+Cisco Secure Firewall Management Center (FMC), added 2026\-07\-29, ransomware: Known.
+.PP
+Cisco Secure Firewall Management Center Use of Hard\-coded Password Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Cisco Secure Firewall Management Center (FMC) formerly known as Firepower Management Center contains a use of hard\-coded password vulnerability that could allow an unauthenticated, remote attacker to log in to an affected device using a low\-privileged account to access sensitive data within the impacted systems.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-08\-01.
+.PP
+\fIReferences:\fR
+.br
+https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco\-sa\-fmc\-static\-cred\-BET3Cjh
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-20316
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +57,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/259.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

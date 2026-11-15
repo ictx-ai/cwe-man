@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-436 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-436 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-436 \- Interpretation Conflict
 .SH RANK
@@ -9,9 +9,53 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 Product A handles inputs or steps differently than Product B, which causes A to perform incorrect actions based on its perception of B's state. This is generally found in proxies, firewalls, anti\-virus software, and other intermediary devices that monitor, allow, deny, or modify traffic based on how the client or server is expected to behave.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB2\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB2\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2025\-48384
+Git Git, added 2025\-08\-25.
 .PP
-CVE\-2025\-48384, CVE\-2026\-63030.
+Git Link Following Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Git contains a link following vulnerability that stems from Git’s inconsistent handling of carriage return characters in configuration files.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-09\-15.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/git/git/security/advisories/GHSA\-vwqx\-4fm8\-6qc9
+.br
+https://access.redhat.com/errata/RHSA\-2025:13933
+.br
+https://alas.aws.amazon.com/AL2/ALAS2\-2025\-2941.html
+.br
+https://linux.oracle.com/errata/ELSA\-2025\-11534.html
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2025\-48384
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-48384
+.SS CVE\-2026\-63030
+WordPress Core, added 2026\-07\-21.
+.PP
+WordPress Core Interpretation Conflict Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+WordPress Core contains an interpretation conflict vulnerability that could allow an attacker to perform SQL Injection and achieve Remote Code Execution. This vulnerability can be chained with CVE\-2026\-60137.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-07\-24.
+.PP
+\fIReferences:\fR
+.br
+https://wordpress.org/news/2026/07/wordpress\-7\-0\-2\-release/
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-63030
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +65,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/436.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-506 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-506 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-506 \- Embedded Malicious Code
 .SH RANK
@@ -9,9 +9,151 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product contains code that appears to be malicious in nature. Malicious flaws have acquired colorful names, including Trojan horse, trapdoor, timebomb, and logic\-bomb. A developer might insert malicious code with the intent to subvert the security of a product or its host system at some time in the future. It generally refers to a program that performs a useful service but exploits rights of the program's user in a way the user does not intend.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB8\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB8\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2024\-4978
+Justice AV Solutions Viewer, added 2024\-05\-29.
 .PP
-CVE\-2024\-4978, CVE\-2025\-30066, CVE\-2025\-30154, CVE\-2025\-54313, CVE\-2025\-59374, CVE\-2026\-8398, CVE\-2026\-33634, CVE\-2026\-48027.
+Justice AV Solutions (JAVS) Viewer Installer Embedded Malicious Code Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Justice AV Solutions (JAVS) Viewer installer contains a malicious version of ffmpeg.exe, named fffmpeg.exe (SHA256: 421a4ad2615941b177b6ec4ab5e239c14e62af2ab07c6df1741e2a62223223c4). When run, this creates a backdoor connection to a malicious C2 server.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-06\-19.
+.PP
+\fIReferences:\fR
+.br
+https://www.rapid7.com/blog/post/2024/05/23/cve\-2024\-4978\-backdoored\-justice\-av\-solutions\-viewer\-software\-used\-in\-apparent\-supply\-chain\-attack#remediation
+.br
+https://www.javs.com/downloads
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-4978
+.SS CVE\-2025\-30066
+tj\-actions changed\-files GitHub Action, added 2025\-03\-18.
+.PP
+tj\-actions/changed\-files GitHub Action Embedded Malicious Code Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+tj\-actions/changed\-files GitHub Action contains an embedded malicious code vulnerability that allows a remote attacker to discover secrets by reading Github Actions Workflow Logs. These secrets may include, but are not limited to, valid AWS access keys, GitHub personal access tokens (PATs), npm tokens, and private RSA keys.
+.PP
+\fIRemediation:\fR
+Apply mitigations as set forth in the CISA instructions linked below. Apply mitigations per vendor instructions, follow applicable BOD 22\-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.
+ Due 2025\-04\-08.
+.PP
+\fIReferences:\fR
+.br
+https://www.cisa.gov/news\-events/alerts/2025/03/18/supply\-chain\-compromise\-third\-party\-tj\-actionschanged\-files\-cve\-2025\-30066\-and\-reviewdogaction
+.br
+https://github.com/tj\-actions/changed\-files/blob/45fb12d7a8bedb4da42342e52fe054c6c2c3fd73/README.md?plain=1#L20\-L28
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-30066
+.SS CVE\-2025\-30154
+reviewdog action\-setup GitHub Action, added 2025\-03\-24.
+.PP
+reviewdog/action\-setup GitHub Action Embedded Malicious Code Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+reviewdog action\-setup GitHub Action contains an embedded malicious code vulnerability that dumps exposed secrets to Github Actions Workflow Logs.
+.PP
+\fIRemediation:\fR
+Apply mitigations as set forth in the CISA instructions linked below. Apply mitigations per vendor instructions, follow applicable BOD 22\-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.
+ Due 2025\-04\-14.
+.PP
+\fIReferences:\fR
+.br
+https://www.cisa.gov/news\-events/alerts/2025/03/18/supply\-chain\-compromise\-third\-party\-tj\-actionschanged\-files\-cve\-2025\-30066\-and\-reviewdogaction
+.br
+https://github.com/reviewdog/reviewdog/security/advisories/GHSA\-qmg3\-hpqr\-gqvc
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-30154
+.SS CVE\-2025\-54313
+Prettier eslint\-config\-prettier, added 2026\-01\-22.
+.PP
+Prettier eslint\-config\-prettier Embedded Malicious Code Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Prettier eslint\-config\-prettier contains an embedded malicious code vulnerability. Installing an affected package executes an install.js file that launches the node\-gyp.dll malware on Windows.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-02\-12.
+.PP
+\fIReferences:\fR
+.br
+https://www.npmjs.com/package/eslint\-config\-prettier?activeTab=versions
+.br
+https://github.com/prettier/eslint\-config\-prettier/issues/339#issuecomment\-3090304490
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-54313
+.SS CVE\-2025\-59374
+ASUS Live Update, added 2025\-12\-17.
+.PP
+ASUS Live Update Embedded Malicious Code Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+ASUS Live Update contains an embedded malicious code vulnerability client were distributed with unauthorized modifications introduced through a supply chain compromise. The modified builds could cause devices meeting specific targeting conditions to perform unintended actions. The impacted product could be end\-of\-life (EoL) and/or end\-of\-service (EoS). Users should discontinue product utilization.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-01\-07.
+.PP
+\fIReferences:\fR
+.br
+https://www.asus.com/support/faq/1018727/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-59374
+.SS CVE\-2026\-8398
+Daemon Daemon Tools Lite, added 2026\-05\-27.
+.PP
+Daemon Tools Lite Embedded Malicious Code Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Daemon Tools contains an unspecified vulnerability that has a high impact on confidentiality, integrity, and availability.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-05\-30.
+.PP
+\fIReferences:\fR
+.br
+https://blog.daemon\-tools.cc/post/security\-incident
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-8398
+.SS CVE\-2026\-33634
+Aquasecurity Trivy, added 2026\-03\-26.
+.PP
+Aquasecurity Trivy Embedded Malicious Code Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Aquasecurity Trivy contains an embedded malicious code vulnerability that could allow an attacker to gain access to everything in the CI/CD environment, including all tokens, SSH keys, cloud credentials, database passwords, and any sensitive configuration in memory.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-04\-09.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/advisories/GHSA\-69fq\-xp46\-6x23
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-33634
+.SS CVE\-2026\-48027
+Nx Nx Console, added 2026\-05\-27, ransomware: Known.
+.PP
+Nx Console Embedded Malicious Code Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Nx Console contains an embedded malicious code vulnerability that allowed a malicious version of Nx Console to be published. The compromised extension fetched an obfuscated payload that could harvested credentials from multiple sources on disk and in memory.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-06\-10.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/nrwl/nx\-console/security/advisories/GHSA\-c9j4\-9m59\-847w
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-48027
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +163,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/506.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

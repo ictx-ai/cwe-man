@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-424 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-424 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-424 \- Improper Protection of Alternate Path
 .SH RANK
@@ -9,9 +9,24 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product does not sufficiently protect all possible paths that a user can take to access restricted functionality or resources.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB1\fR exploited CVE mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB1\fR exploited CVE mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2024\-58136
+Yiiframework Yii, added 2025\-05\-02.
 .PP
-CVE\-2024\-58136.
+Yiiframework Yii Improper Protection of Alternate Path Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Yii Framework contains an improper protection of alternate path vulnerability that may allow a remote attacker to execute arbitrary code. This vulnerability could affect other products that implement Yii, including—but not limited to—Craft CMS, as represented by CVE\-2025\-32432.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-05\-23.
+.PP
+\fIReferences:\fR
+.br
+https://www.yiiframework.com/news/709/please\-upgrade\-to\-yii\-2\-0\-52
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-58136
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +36,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/424.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

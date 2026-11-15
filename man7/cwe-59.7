@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-59 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-59 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-59 \- Improper Link Resolution Before File Access ('Link Following')
 .SH RANK
@@ -9,9 +9,294 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product attempts to access a file based on the filename, but it does not properly prevent that filename from identifying a link or shortcut that resolves to an unintended resource.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB17\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB17\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2019\-0841
+Microsoft Windows, added 2022\-03\-15, ransomware: Known.
 .PP
-CVE\-2019\-0841, CVE\-2019\-1064, CVE\-2019\-1069, CVE\-2019\-1129, CVE\-2019\-1130, CVE\-2019\-1253, CVE\-2019\-1315, CVE\-2019\-1385, CVE\-2020\-0787, CVE\-2020\-36193, CVE\-2022\-30333, CVE\-2023\-36874, CVE\-2025\-21391, CVE\-2025\-48384, CVE\-2025\-60710, CVE\-2026\-41091, CVE\-2026\-81963.
+Microsoft Windows AppX Deployment Service (AppXSVC) Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A privilege escalation vulnerability exists when Windows AppXSVC improperly handles hard links. An attacker who successfully exploited this vulnerability could run processes in an elevated context.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-05.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-0841
+.SS CVE\-2019\-1064
+Microsoft Windows, added 2022\-03\-15, ransomware: Known.
+.PP
+Microsoft Windows AppX Deployment Service (AppXSVC) Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A privilege escalation vulnerability exists when Windows AppXSVC improperly handles hard links. An attacker who successfully exploited this vulnerability could run processes in an elevated context.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-05.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-1064
+.SS CVE\-2019\-1069
+Microsoft Task Scheduler, added 2022\-03\-15, ransomware: Known.
+.PP
+Microsoft Task Scheduler Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A privilege escalation vulnerability exists in the way the Task Scheduler Service validates certain file operations.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-05.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-1069
+.SS CVE\-2019\-1129
+Microsoft Windows, added 2022\-03\-15, ransomware: Known.
+.PP
+Microsoft Windows AppX Deployment Service (AppXSVC) Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A privilege escalation vulnerability exists when Windows AppXSVC improperly handles hard links. An attacker who successfully exploited this vulnerability could run processes in an elevated context.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-05.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-1129
+.SS CVE\-2019\-1130
+Microsoft Windows, added 2022\-05\-23, ransomware: Known.
+.PP
+Microsoft Windows AppX Deployment Service Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A privilege escalation vulnerability exists when Windows AppX Deployment Service (AppXSVC) improperly handles hard links.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-13.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-1130
+.SS CVE\-2019\-1253
+Microsoft Windows, added 2022\-03\-15, ransomware: Known.
+.PP
+Microsoft Windows AppX Deployment Server Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A privilege escalation vulnerability exists when the Windows AppX Deployment Server improperly handles junctions.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-05.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-1253
+.SS CVE\-2019\-1315
+Microsoft Windows, added 2022\-03\-15, ransomware: Known.
+.PP
+Microsoft Windows Error Reporting Manager Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A privilege escalation vulnerability exists when Windows Error Reporting manager improperly handles hard links. An attacker who successfully exploited this vulnerability could overwrite a targeted file leading to an elevated status.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-05.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-1315
+.SS CVE\-2019\-1385
+Microsoft Windows, added 2022\-05\-23, ransomware: Known.
+.PP
+Microsoft Windows AppX Deployment Extensions Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A privilege escalation vulnerability exists when the Windows AppX Deployment Extensions improperly performs privilege management, resulting in access to system files.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-13.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-1385
+.SS CVE\-2020\-0787
+Microsoft Windows, added 2022\-01\-28, ransomware: Known.
+.PP
+Microsoft Windows Background Intelligent Transfer Service (BITS) Improper Privilege Management Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows BITS is vulnerable to to a privilege elevation vulnerability if it improperly handles symbolic links. An actor can exploit this vulnerability to execute arbitrary code with system\-level privileges.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-07\-28.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-0787
+.SS CVE\-2020\-36193
+PEAR Archive_Tar, added 2022\-08\-25.
+.PP
+PEAR Archive_Tar Improper Link Resolution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+PEAR Archive_Tar Tar.php allows write operations with directory traversal due to inadequate checking of symbolic links. PEAR stands for PHP Extension and Application Repository and it is an open\-source framework and distribution system for reusable PHP components with known usage in third\-party products such as Drupal Core and Red Hat Linux.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-09\-15.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/pear/Archive_Tar/commit/cde460582ff389404b5b3ccb59374e9b389de916
+.br
+https://www.drupal.org/sa\-core\-2021\-001
+.br
+https://access.redhat.com/security/cve/cve\-2020\-36193
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-36193
+.SS CVE\-2022\-30333
+RARLAB UnRAR, added 2022\-08\-09, ransomware: Known.
+.PP
+RARLAB UnRAR Directory Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+RARLAB UnRAR on Linux and UNIX contains a directory traversal vulnerability, allowing an attacker to write to files during an extract (unpack) operation.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-08\-30.
+.PP
+\fIReferences:\fR
+.br
+https://www.rarlab.com/rar/rarlinux\-x32\-612.tar.gz
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-30333
+.SS CVE\-2023\-36874
+Microsoft Windows, added 2023\-07\-11.
+.PP
+Microsoft Windows Error Reporting Service Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Error Reporting Service contains an unspecified vulnerability that allows for privilege escalation.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-08\-01.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2023\-36874
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-36874
+.SS CVE\-2025\-21391
+Microsoft Windows, added 2025\-02\-11.
+.PP
+Microsoft Windows Storage Link Following Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Storage contains a link following vulnerability that could allow for privilege escalation. This vulnerability could allow an attacker to delete data including data that results in the service being unavailable.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-03\-04.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2025\-21391
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-21391
+.SS CVE\-2025\-48384
+Git Git, added 2025\-08\-25.
+.PP
+Git Link Following Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Git contains a link following vulnerability that stems from Git’s inconsistent handling of carriage return characters in configuration files.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-09\-15.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/git/git/security/advisories/GHSA\-vwqx\-4fm8\-6qc9
+.br
+https://access.redhat.com/errata/RHSA\-2025:13933
+.br
+https://alas.aws.amazon.com/AL2/ALAS2\-2025\-2941.html
+.br
+https://linux.oracle.com/errata/ELSA\-2025\-11534.html
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2025\-48384
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-48384
+.SS CVE\-2025\-60710
+Microsoft Windows, added 2026\-04\-13, ransomware: Known.
+.PP
+Microsoft Windows Link Following Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows contains a link following vulnerability that allows for privilege escalation
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-04\-27.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2025\-60710
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-60710
+.SS CVE\-2026\-41091
+Microsoft Defender, added 2026\-05\-20.
+.PP
+Microsoft Defender Link Following Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Defender contains a link following vulnerability that allows an authorized attacker to elevate privileges locally.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-06\-03.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2026\-41091
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-41091
+.SS CVE\-2026\-81963
+Microsoft Windows, added 2026\-09\-08.
+.PP
+Microsoft Windows Link Following Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Update Stack contains a link following vulnerability that allows a local attacker to escalate privileges locally up to SYSTEM.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-22.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2026\-81963
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-81963
 .SH EXAMPLES
 One vulnerable\->fixed pair per ecosystem (Python).
 .SS Python
@@ -35,4 +320,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/59.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

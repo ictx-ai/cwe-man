@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-88 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-88 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-88 \- Improper Neutralization of Argument Delimiters in a Command ('Argument Injection')
 .SH RANK
@@ -9,9 +9,102 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product constructs a string for a command to be executed by a separate component in another control sphere, but it does not properly delimit the intended arguments, options, or switches within that command string. When creating commands using interpolation into a string, developers may assume that only the arguments/options that they specify will be processed. This assumption may be even stronger when the programmer has encoded the command in a way that prevents separate commands from being provided maliciously, e.g. in the case of shell metacharacters. When constructing the command, the developer may use whitespace or other delimiters that are required to separate arguments when the command. However, if an attacker can provide an untrusted input that contains argument\-separating delimiters, then the resulting command will have more arguments than intended by the developer. The attacker may then be able to change the behavior of the command. Depending on the functionality supported by the extraneous arguments, this may have security\-relevant consequences.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB5\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB5\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2016\-10033
+PHP PHPMailer, added 2025\-07\-07.
 .PP
-CVE\-2016\-10033, CVE\-2022\-36804, CVE\-2024\-41710, CVE\-2026\-24061, CVE\-2026\-86060.
+PHPMailer Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+PHPMailer contains a command injection vulnerability because it fails to sanitize user\-supplied input. Specifically, this issue affects the 'mail()' function of 'class.phpmailer.php' script. An attacker can exploit this issue to execute arbitrary code within the context of the application. Failed exploit attempts will result in a denial\-of\-service condition.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-07\-28.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/PHPMailer/PHPMailer/releases/tag/v5.2.18
+.br
+https://github.com/advisories/GHSA\-5f37\-gxvh\-23v6
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2016\-10033
+.SS CVE\-2022\-36804
+Atlassian Bitbucket Server and Data Center, added 2022\-09\-30.
+.PP
+Atlassian Bitbucket Server and Data Center Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Multiple API endpoints of Atlassian Bitbucket Server and Data Center contain a command injection vulnerability where an attacker with access to a public Bitbucket repository, or with read permissions to a private one, can execute code by sending a malicious HTTP request.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-10\-21.
+.PP
+\fIReferences:\fR
+.br
+https://jira.atlassian.com/browse/BSERV\-13438
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-36804
+.SS CVE\-2024\-41710
+Mitel SIP Phones, added 2025\-02\-12.
+.PP
+Mitel SIP Phones Argument Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Mitel 6800 Series, 6900 Series, and 6900w Series SIP Phones, including the 6970 Conference Unit, contain an argument injection vulnerability due to insufficient parameter sanitization during the boot process. Successful exploitation may allow an attacker to execute arbitrary commands within the context of the system.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-03\-05.
+.PP
+\fIReferences:\fR
+.br
+https://www.mitel.com/\-/media/mitel/file/pdf/support/security\-advisories/security\-bulletin_24\-0019\-001\-v2.pdf
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-41710
+.SS CVE\-2026\-24061
+GNU InetUtils, added 2026\-01\-26.
+.PP
+GNU InetUtils Argument Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+GNU InetUtils contains an argument injection vulnerability in telnetd that could allow for remote authentication bypass via a "\-f root" value for the USER environment variable.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-02\-16.
+.PP
+\fIReferences:\fR
+.br
+https://cgit.git.savannah.gnu.org/cgit/inetutils.git
+.br
+https://codeberg.org/inetutils/inetutils/commit/ccba9f748aa8d50a38d7748e2e60362edd6a32cc
+.br
+https://codeberg.org/inetutils/inetutils/commit/fd702c02497b2f398e739e3119bed0b23dd7aa7b
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-24061
+.SS CVE\-2026\-86060
+MikroTik RouterOS, added 2026\-09\-10.
+.PP
+MikroTik RouterOS Improper Neutralization of Argument Delimiters in a Command Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+MikroTik RouterOS contains an improper neutralization of argument delimiters in a command vulnerability which allows an attacker to change the trusted RouterOS policy mask, leading to privilege escalation.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-13.
+.PP
+\fIReferences:\fR
+.br
+https://mikrotik.com/supportsec/september\-2026\-vulnerability
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-86060
 .SH EXAMPLES
 One vulnerable\->fixed pair per ecosystem (Python).
 .SS Python
@@ -34,4 +127,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/88.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

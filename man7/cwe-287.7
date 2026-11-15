@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-287 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-287 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-287 \- Improper Authentication
 .SH RANK
@@ -9,9 +9,921 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 When an actor claims to have a given identity, the product does not prove or insufficiently proves that the claim is correct.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB50\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB50\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2015\-1187
+D\-Link and TRENDnet Multiple Devices, added 2022\-03\-25.
 .PP
-CVE\-2015\-1187, CVE\-2015\-7755, CVE\-2016\-7836, CVE\-2017\-7921, CVE\-2018\-10561, CVE\-2019\-0543, CVE\-2019\-19006, CVE\-2020\-0688, CVE\-2020\-5849, CVE\-2020\-12812, CVE\-2021\-22893, CVE\-2021\-27876, CVE\-2021\-27877, CVE\-2021\-27878, CVE\-2021\-32030, CVE\-2021\-32648, CVE\-2021\-33044, CVE\-2021\-33045, CVE\-2021\-33766, CVE\-2021\-34523, CVE\-2021\-39226, CVE\-2022\-0492, CVE\-2023\-20867, CVE\-2023\-27351, CVE\-2023\-35078, CVE\-2023\-35082, CVE\-2023\-46805, CVE\-2023\-49105, CVE\-2024\-7593, CVE\-2024\-8956, CVE\-2024\-11680, CVE\-2024\-21410, CVE\-2024\-27834, CVE\-2024\-49039, CVE\-2024\-53704, CVE\-2025\-3935, CVE\-2025\-32975, CVE\-2025\-49706, CVE\-2026\-16232, CVE\-2026\-20127, CVE\-2026\-20182, CVE\-2026\-42018, CVE\-2026\-46817, CVE\-2026\-49869, CVE\-2026\-50751, CVE\-2026\-59822, CVE\-2026\-65400, CVE\-2026\-82329, CVE\-2026\-102895, CVE\-2026\-105133.
+D\-Link and TRENDnet Multiple Devices Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The ping tool in multiple D\-Link and TRENDnet devices allow remote attackers to perform remote code execution.
+.PP
+\fIRemediation:\fR
+The impacted product is end\-of\-life and should be disconnected if still in use.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2015\-1187
+.SS CVE\-2015\-7755
+Juniper ScreenOS, added 2025\-10\-02.
+.PP
+Juniper ScreenOS Improper Authentication Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Juniper ScreenOS contains an improper authentication vulnerability that could allow unauthorized remote administrative access to the device.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-10\-23.
+.PP
+\fIReferences:\fR
+.br
+https://supportportal.juniper.net/s/article/2015\-12\-Out\-of\-Cycle\-Security\-Bulletin\-ScreenOS\-Multiple\-Security\-issues\-with\-ScreenOS\-CVE\-2015\-7755\-CVE\-2015\-7756
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2015\-7755
+.SS CVE\-2016\-7836
+SKYSEA Client View, added 2025\-10\-14.
+.PP
+SKYSEA Client View Improper Authentication Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SKYSEA Client View contains an improper authentication vulnerability that allows remote code execution via a flaw in processing authentication on the TCP connection with the management console program.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-11\-04.
+.PP
+\fIReferences:\fR
+.br
+https://www.skyseaclientview.net/news/161221/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2016\-7836
+.SS CVE\-2017\-7921
+Hikvision Multiple Products, added 2026\-03\-05.
+.PP
+Hikvision Multiple Products Improper Authentication Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Multiple Hikvision products contain an improper authentication vulnerability that could allow a malicious user to escalate privileges on the system and gain access to sensitive information.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-03\-26.
+.PP
+\fIReferences:\fR
+.br
+https://www.hikvision.com/us\-en/support/document\-center/special\-notices/privilege\-escalating\-vulnerability\-in\-certain\-hikvision\-ip\-cameras/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-7921
+.SS CVE\-2018\-10561
+Dasan Gigabit Passive Optical Network (GPON) Routers, added 2022\-03\-31.
+.PP
+Dasan GPON Routers Authentication Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Dasan GPON Routers contain an authentication bypass vulnerability. When combined with CVE\-2018\-10562, exploitation can allow an attacker to perform remote code execution.
+.PP
+\fIRemediation:\fR
+The impacted product is end\-of\-life and should be disconnected if still in use.
+ Due 2022\-04\-21.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-10561
+.SS CVE\-2019\-0543
+Microsoft Windows, added 2022\-03\-15, ransomware: Known.
+.PP
+Microsoft Windows Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A privilege escalation vulnerability exists when Windows improperly handles authentication requests. An attacker who successfully exploited this vulnerability could run processes in an elevated context.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-05.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-0543
+.SS CVE\-2019\-19006
+Sangoma FreePBX, added 2026\-02\-03.
+.PP
+Sangoma FreePBX Improper Authentication Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Sangoma FreePBX contains an improper authentication vulnerability that potentially allows unauthorized users to bypass password authentication and access services provided by the FreePBX admin.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-02\-24.
+.PP
+\fIReferences:\fR
+.br
+https://wiki.freepbx.org/display/FOP/2019\-11\-20%2BRemote%2BAdmin%2BAuthentication%2BBypass
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-19006
+.SS CVE\-2020\-0688
+Microsoft Exchange Server, added 2021\-11\-03, ransomware: Known.
+.PP
+Microsoft Exchange Server Validation Key Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Exchange Server Validation Key fails to properly create unique keys at install time, allowing for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-0688
+.SS CVE\-2020\-5849
+Unraid Unraid, added 2021\-11\-03.
+.PP
+Unraid Authentication Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Unraid contains an authentication bypass vulnerability that allows attackers to gain access to the administrative interface. This CVE is chainable with CVE\-2020\-5847 for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-5849
+.SS CVE\-2020\-12812
+Fortinet FortiOS, added 2021\-11\-03, ransomware: Known.
+.PP
+Fortinet FortiOS SSL VPN Improper Authentication Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Fortinet FortiOS SSL VPN contains an improper authentication vulnerability that may allow a user to login successfully without being prompted for the second factor of authentication (FortiToken) if they change the case in their username.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-12812
+.SS CVE\-2021\-22893
+Ivanti Pulse Connect Secure, added 2021\-11\-03, ransomware: Known.
+.PP
+Ivanti Pulse Connect Secure Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ivanti Pulse Connect Secure contains a use\-after\-free vulnerability that allow a remote, unauthenticated attacker to execute code via license services.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://www.cisa.gov/news\-events/directives/ed\-21\-03\-mitigate\-pulse\-connect\-secure\-product\-vulnerabilities
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-22893
+.SS CVE\-2021\-27876
+Veritas Backup Exec Agent, added 2023\-04\-07, ransomware: Known.
+.PP
+Veritas Backup Exec Agent File Access Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Veritas Backup Exec (BE) Agent contains a file access vulnerability that could allow an attacker to specially craft input parameters on a data management protocol command to access files on the BE Agent machine.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-04\-28.
+.PP
+\fIReferences:\fR
+.br
+https://www.veritas.com/support/en_US/security/VTS21\-001
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-27876
+.SS CVE\-2021\-27877
+Veritas Backup Exec Agent, added 2023\-04\-07, ransomware: Known.
+.PP
+Veritas Backup Exec Agent Improper Authentication Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Veritas Backup Exec (BE) Agent contains an improper authentication vulnerability that could allow an attacker unauthorized access to the BE Agent via SHA authentication scheme.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-04\-28.
+.PP
+\fIReferences:\fR
+.br
+https://www.veritas.com/support/en_US/security/VTS21\-001
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-27877
+.SS CVE\-2021\-27878
+Veritas Backup Exec Agent, added 2023\-04\-07, ransomware: Known.
+.PP
+Veritas Backup Exec Agent Command Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Veritas Backup Exec (BE) Agent contains a command execution vulnerability that could allow an attacker to use a data management protocol command to execute a command on the BE Agent machine.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-04\-28.
+.PP
+\fIReferences:\fR
+.br
+https://www.veritas.com/support/en_US/security/VTS21\-001
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-27878
+.SS CVE\-2021\-32030
+ASUS Routers, added 2025\-06\-02.
+.PP
+ASUS Routers Improper Authentication Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+ASUS Lyra Mini and ASUS GT\-AC2900 devices contain an improper authentication vulnerability that allows an attacker to gain unauthorized access to the administrative interface. The impacted products could be end\-of\-life (EoL) and/or end\-of\-service (EoS). Users should discontinue product utilization.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-06\-23.
+.PP
+\fIReferences:\fR
+.br
+https://www.asus.com/us/supportonly/lyra%20mini/helpdesk_bios/
+.br
+https://www.asus.com/us/supportonly/rog%20rapture%20gt\-ac2900/helpdesk_bios/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-32030
+.SS CVE\-2021\-32648
+October CMS October CMS, added 2022\-01\-18.
+.PP
+October CMS Improper Authentication.
+.PP
+\fIHow it is exploited (CISA):\fR
+In affected versions of the october/system package an attacker can request an account password reset and then gain access to the account using a specially crafted request.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-02\-01.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-32648
+.SS CVE\-2021\-33044
+Dahua IP Camera Firmware, added 2024\-08\-21.
+.PP
+Dahua IP Camera Authentication Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Dahua IP cameras and related products contain an authentication bypass vulnerability when the NetKeyboard type argument is specified by the client during authentication.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-09\-11.
+.PP
+\fIReferences:\fR
+.br
+https://www.dahuasecurity.com/aboutUs/trustedCenter/details/582
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-33044
+.SS CVE\-2021\-33045
+Dahua IP Camera Firmware, added 2024\-08\-21.
+.PP
+Dahua IP Camera Authentication Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Dahua IP cameras and related products contain an authentication bypass vulnerability when the loopback device is specified by the client during authentication.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-09\-11.
+.PP
+\fIReferences:\fR
+.br
+https://www.dahuasecurity.com/aboutUs/trustedCenter/details/582
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-33045
+.SS CVE\-2021\-33766
+Microsoft Exchange Server, added 2022\-01\-18.
+.PP
+Microsoft Exchange Server Information Disclosure.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Exchange Server contains an information disclosure vulnerability which can allow an unauthenticated attacker to steal email traffic from target.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-02\-01.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-33766
+.SS CVE\-2021\-34523
+Microsoft Exchange Server, added 2021\-11\-03, ransomware: Known.
+.PP
+Microsoft Exchange Server Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Exchange Server contains an unspecified vulnerability that allows for privilege escalation.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-34523
+.SS CVE\-2021\-39226
+Grafana Labs Grafana, added 2022\-08\-25.
+.PP
+Grafana Authentication Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Grafana contains an authentication bypass vulnerability that allows authenticated and unauthenticated users to view and delete all snapshot data, potentially resulting in complete snapshot data loss.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-09\-15.
+.PP
+\fIReferences:\fR
+.br
+https://grafana.com/blog/2021/10/05/grafana\-7.5.11\-and\-8.1.6\-released\-with\-critical\-security\-fix/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-39226
+.SS CVE\-2022\-0492
+Linux Kernel, added 2026\-06\-02.
+.PP
+Linux Kernel Improper Authentication Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Linux Kernel contains an improper authentication vulnerability which could allow for privilege escalation via the cgroups v1 release_agent feature.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-06\-05.
+.PP
+\fIReferences:\fR
+.br
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=24f6008564183aa120d07c03d9289519c2fe02af
+.br
+https://www.kernel.org/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-0492
+.SS CVE\-2023\-20867
+VMware Tools, added 2023\-06\-23.
+.PP
+VMware Tools Authentication Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+VMware Tools contains an authentication bypass vulnerability in the vgauth module. A fully compromised ESXi host can force VMware Tools to fail to authenticate host\-to\-guest operations, impacting the confidentiality and integrity of the guest virtual machine. An attacker must have root access over ESXi to exploit this vulnerability.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-07\-14.
+.PP
+\fIReferences:\fR
+.br
+https://www.vmware.com/security/advisories/VMSA\-2023\-0013.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-20867
+.SS CVE\-2023\-27351
+PaperCut NG/MF, added 2026\-04\-20, ransomware: Known.
+.PP
+PaperCut NG/MF Improper Authentication Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+PaperCut NG/MF contains an improper authentication vulnerability that could allow remote attackers to bypass authentication on affected installations via the SecurityRequestFilter class.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-05\-04.
+.PP
+\fIReferences:\fR
+.br
+https://www.papercut.com/kb/Main/PO\-1216\-and\-PO\-1219
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-27351
+.SS CVE\-2023\-35078
+Ivanti Endpoint Manager Mobile (EPMM), added 2023\-07\-25, ransomware: Known.
+.PP
+Ivanti Endpoint Manager Mobile Authentication Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ivanti Endpoint Manager Mobile (EPMM, previously branded MobileIron Core) contains an authentication bypass vulnerability that allows unauthenticated access to specific API paths. An attacker with access to these API paths can access personally identifiable information (PII) such as names, phone numbers, and other mobile device details for users on a vulnerable system. An attacker can also make other configuration changes including installing software and modifying security profiles on registered devices.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-08\-15.
+.PP
+\fIReferences:\fR
+.br
+https://forums.ivanti.com/s/article/CVE\-2023\-35078\-Remote\-unauthenticated\-API\-access\-vulnerability?language=en_US
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-35078
+.SS CVE\-2023\-35082
+Ivanti Endpoint Manager Mobile (EPMM) and MobileIron Core, added 2024\-01\-18, ransomware: Known.
+.PP
+Ivanti Endpoint Manager Mobile (EPMM) and MobileIron Core Authentication Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ivanti Endpoint Manager Mobile (EPMM) and MobileIron Core contain an authentication bypass vulnerability that allows unauthorized users to access restricted functionality or resources of the application.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-02\-08.
+.PP
+\fIReferences:\fR
+.br
+https://forums.ivanti.com/s/article/CVE\-2023\-35082\-Remote\-Unauthenticated\-API\-Access\-Vulnerability\-in\-MobileIron\-Core\-11\-2\-and\-older
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-35082
+.SS CVE\-2023\-46805
+Ivanti Connect Secure and Policy Secure, added 2024\-01\-10, ransomware: Known.
+.PP
+Ivanti Connect Secure and Policy Secure Authentication Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ivanti Connect Secure (ICS, formerly known as Pulse Connect Secure) and Ivanti Policy Secure gateways contain an authentication bypass vulnerability in the web component that allows an attacker to access restricted resources by bypassing control checks. This vulnerability can be leveraged in conjunction with CVE\-2024\-21887, a command injection vulnerability.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-01\-22.
+.PP
+\fIReferences:\fR
+.br
+https://forums.ivanti.com/s/article/KB\-CVE\-2023\-46805\-Authentication\-Bypass\-CVE\-2024\-21887\-Command\-Injection\-for\-Ivanti\-Connect\-Secure\-and\-Ivanti\-Policy\-Secure\-Gateways?language=en_US
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-46805
+.SS CVE\-2023\-49105
+ownCloud ownCloud, added 2026\-08\-27.
+.PP
+ownCloud Improper Authentication Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+ownCloud contains an improper authentication vulnerability that allows an attacker to access, modify, or delete any file without authentication if the username of a victim is known, and the victim has no signing\-key configured.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-08\-30.
+.PP
+\fIReferences:\fR
+.br
+https://owncloud.org/security
+.br
+https://owncloud.com/security\-advisories/webdav\-api\-authentication\-bypass\-using\-pre\-signed\-urls/
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-49105
+.SS CVE\-2024\-7593
+Ivanti Virtual Traffic Manager, added 2024\-09\-24.
+.PP
+Ivanti Virtual Traffic Manager Authentication Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ivanti Virtual Traffic Manager contains an authentication bypass vulnerability that allows a remote, unauthenticated attacker to create a chosen administrator account.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-10\-15.
+.PP
+\fIReferences:\fR
+.br
+https://forums.ivanti.com/s/article/Security\-Advisory\-Ivanti\-Virtual\-Traffic\-Manager\-vTM\-CVE\-2024\-7593
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-7593
+.SS CVE\-2024\-8956
+PTZOptics PT30X\-SDI/NDI Cameras, added 2024\-11\-04.
+.PP
+PTZOptics PT30X\-SDI/NDI Cameras Authentication Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+PTZOptics PT30X\-SDI/NDI cameras contain an insecure direct object reference (IDOR) vulnerability that allows a remote, attacker to bypass authentication for the /cgi\-bin/param.cgi CGI script. If combined with CVE\-2024\-8957, this can lead to remote code execution as root.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-11\-25.
+.PP
+\fIReferences:\fR
+.br
+https://ptzoptics.com/firmware\-changelog/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-8956
+.SS CVE\-2024\-11680
+ProjectSend ProjectSend, added 2024\-12\-03.
+.PP
+ProjectSend Improper Authentication Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+ProjectSend contains an improper authentication vulnerability that allows a remote, unauthenticated attacker to enable unauthorized modification of the application's configuration via crafted HTTP requests to options.php. Successful exploitation allows attackers to create accounts, upload webshells, and embed malicious JavaScript.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-12\-24.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/projectsend/projectsend/commit/193367d937b1a59ed5b68dd4e60bd53317473744
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-11680
+.SS CVE\-2024\-21410
+Microsoft Exchange Server, added 2024\-02\-15.
+.PP
+Microsoft Exchange Server Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Exchange Server contains an unspecified vulnerability that allows for privilege escalation.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-03\-07.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2024\-21410
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-21410
+.SS CVE\-2024\-27834
+Apple Multiple Products, added 2026\-11\-04.
+.PP
+Apple Multiple Products Improper Authentication Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apple iOS, iPadOS, macOS, Safari, tvOS and watchOS 10.5 contain an improper authentication vulnerability which could allow an attacker with arbitrary read and write capability to bypass pointer authentication.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-11\-18.
+.PP
+\fIReferences:\fR
+.br
+https://support.apple.com/en\-us/120896
+.br
+https://support.apple.com/en\-us/120898
+.br
+https://support.apple.com/en\-us/120901
+.br
+https://support.apple.com/en\-us/120902
+.br
+https://support.apple.com/en\-us/120903
+.br
+https://support.apple.com/en\-us/120905
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-27834
+.SS CVE\-2024\-49039
+Microsoft Windows, added 2024\-11\-12, ransomware: Known.
+.PP
+Microsoft Windows Task Scheduler Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Task Scheduler contains a privilege escalation vulnerability that can allow an attacker\-provided, local application to escalate privileges outside of its AppContainer, and access privileged RPC functions.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-12\-03.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2024\-49039
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-49039
+.SS CVE\-2024\-53704
+SonicWall SonicOS, added 2025\-02\-18, ransomware: Known.
+.PP
+SonicWall SonicOS SSLVPN Improper Authentication Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SonicWall SonicOS contains an improper authentication vulnerability in the SSLVPN authentication mechanism that allows a remote attacker to bypass authentication.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-03\-11.
+.PP
+\fIReferences:\fR
+.br
+https://psirt.global.sonicwall.com/vuln\-detail/SNWLID\-2025\-0003
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-53704
+.SS CVE\-2025\-3935
+ConnectWise ScreenConnect, added 2025\-06\-02.
+.PP
+ConnectWise ScreenConnect Improper Authentication Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+ConnectWise ScreenConnect contains an improper authentication vulnerability. This vulnerability could allow a ViewState code injection attack, which could allow remote code execution if machine keys are compromised.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-06\-23.
+.PP
+\fIReferences:\fR
+.br
+https://www.connectwise.com/company/trust/security\-bulletins/screenconnect\-security\-patch\-2025.4
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-3935
+.SS CVE\-2025\-32975
+Quest KACE Systems Management Appliance (SMA), added 2026\-04\-20.
+.PP
+Quest KACE Systems Management Appliance (SMA) Improper Authentication Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Quest KACE Systems Management Appliance (SMA) contains an improper authentication vulnerability that could allow attackers to impersonate legitimate users without valid credentials.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-05\-04.
+.PP
+\fIReferences:\fR
+.br
+https://support.quest.com/kb/4379499/quest\-response\-to\-kace\-sma\-vulnerabilities\-cve\-2025\-32975\-cve\-2025\-32976\-cve\-2025\-32977\-cve\-2025\-32978
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-32975
+.SS CVE\-2025\-49706
+Microsoft SharePoint, added 2025\-07\-22, ransomware: Known.
+.PP
+Microsoft SharePoint Improper Authentication Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft SharePoint contains an improper authentication vulnerability that allows an authorized attacker to perform spoofing over a network. Successfully exploitation could allow an attacker to view sensitive information and make some changes to disclosed information. This vulnerability could be chained with CVE\-2025\-49704. CVE\-2025\-53771 is a patch bypass for CVE\-2025\-49706, and the updates for CVE\-2025\-53771 include more robust protection than those for CVE\-2025\-49706.
+.PP
+\fIRemediation:\fR
+Disconnect public\-facing versions of SharePoint Server that have reached their end\-of\-life (EOL) or end\-of\-service (EOS) to include SharePoint Server 2013 and earlier versions. For supported versions, please follow the mitigations according to CISA (URL listed below in Notes) and vendor instructions (URL listed below in Notes). Adhere to the applicable BOD 22\-01 guidance for cloud services or discontinue use of the product if mitigations are not available.
+ Due 2025\-07\-23.
+.PP
+\fIReferences:\fR
+.br
+https://www.cisa.gov/news\-events/alerts/2025/07/20/microsoft\-releases\-guidance\-exploitation\-sharepoint\-vulnerability\-cve\-2025\-53770
+.br
+https://www.microsoft.com/en\-us/security/blog/2025/07/22/disrupting\-active\-exploitation\-of\-on\-premises\-sharepoint\-vulnerabilities/
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2025\-49706
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-49706
+.SS CVE\-2026\-16232
+Check Point SmartConsole, added 2026\-07\-22.
+.PP
+Check Point SmartConsole Improper Authentication Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Check Point SmartConsole contains an improper authentication vulnerability which could allow an unauthenticated remote attacker to obtain an application login token and use it to authenticate with full administrative privileges.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-07\-25.
+.PP
+\fIReferences:\fR
+.br
+https://support.checkpoint.com/results/sk/sk185169/
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-16232
+.SS CVE\-2026\-20127
+Cisco Catalyst SD\-WAN Controller and Manager, added 2026\-02\-25.
+.PP
+Cisco Catalyst SD\-WAN Controller and Manager Authentication Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Cisco Catalyst SD\-WAN Controller, formerly SD\-WAN vSmart, and Cisco Catalyst SD\-WAN Manager, formerly SD\-WAN vManage, contain an authentication bypass vulnerability could allow an unauthenticated, remote attacker to bypass authentication and obtain administrative privileges on an affected system. This vulnerability exists because the peering authentication mechanism in an affected system is not working properly. An attacker could exploit this vulnerability by sending crafted requests to an affected system. A successful exploit could allow the attacker to log in to an affected Cisco Catalyst SD\-WAN Controller as an internal, high\-privileged, non\-root user account. Using this account, the attacker could access NETCONF, which would then allow the attacker to manipulate network configuration for the SD\-WAN fabric.
+.PP
+\fIRemediation:\fR
+Please adhere to CISA’s guidelines to assess exposure and mitigate risks associated with Cisco SD\-WAN devices as outlines in CISA’s Emergency Directive 26\-03 (URL listed below in Notes) and CISA’s “Hunt & Hardening Guidance for Cisco SD\-WAN Devices (URL listed below in Notes). Adhere to the applicable BOD 22\-01 guidance for cloud services or discontinue use of the product if mitigations are not available.
+ Due 2026\-02\-27.
+.PP
+\fIReferences:\fR
+.br
+https://www.cisa.gov/news\-events/directives/ed\-26\-03\-mitigate\-vulnerabilities\-cisco\-sd\-wan\-systems
+.br
+https://www.cisa.gov/news\-events/directives/supplemental\-direction\-ed\-26\-03\-hunt\-and\-hardening\-guidance\-cisco\-sd\-wan\-systems
+.br
+https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco\-sa\-sdwan\-rpa\-EHchtZk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-20127
+.SS CVE\-2026\-20182
+Cisco Catalyst SD\-WAN, added 2026\-05\-14.
+.PP
+Cisco Catalyst SD\-WAN Controller Authentication Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Cisco Catalyst SD\-WAN Controller & Manager contain an authentication bypass vulnerability that allows an unauthenticated, remote attacker to bypass authentication and obtain administrative privileges on an affected system.
+.PP
+\fIRemediation:\fR
+Please adhere to CISA’s guidelines to assess exposure and mitigate risks associated with Cisco SD\-WAN devices as outlined in CISA’s Emergency Directive 26\-03 (URL listed below in Notes) and CISA’s Hunt & Hardening Guidance for Cisco SD\-WAN Devices (URL listed below in Notes). Adhere to the applicable BOD 22\-01 guidance for cloud services or discontinue use of the product if mitigations are not available.
+ Due 2026\-05\-17.
+.PP
+\fIReferences:\fR
+.br
+https://www.cisa.gov/news\-events/directives/ed\-26\-03\-mitigate\-vulnerabilities\-cisco\-sd\-wan\-systems
+.br
+https://www.cisa.gov/news\-events/directives/supplemental\-direction\-ed\-26\-03\-hunt\-and\-hardening\-guidance\-cisco\-sd\-wan\-systems
+.br
+https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco\-sa\-sdwan\-rpa2\-v69WY2SW
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-20182
+.SS CVE\-2026\-42018
+JFrog Artifactory, added 2026\-09\-11.
+.PP
+JFrog Artifactory Improper Authentication Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+JFrog Artifactory contains an improper authentication vulnerability that could return an internal anonymous\-user token to an unauthenticated caller when anonymous access is disabled, potentially exposing sensitive resources.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-25.
+.PP
+\fIReferences:\fR
+.br
+https://docs.jfrog.com/releases/docs/jfrog\-security\-advisories
+.br
+https://docs.jfrog.com/releases/docs/artifactory\-self\-managed\-releases
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-42018
+.SS CVE\-2026\-46817
+Oracle E\-Business Suite, added 2026\-07\-15.
+.PP
+Oracle E\-Business Suite Improper Privilege Management Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Oracle E\-Business Suite contains an improper privilege management vulnerability that allows an unauthenticated attacker with network access via HTTP to compromise Oracle Payments. Successful attacks of this vulnerability can result in takeover of Oracle Payments.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-07\-18.
+.PP
+\fIReferences:\fR
+.br
+https://www.oracle.com/security\-alerts/cspumay2026.html
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-46817
+.SS CVE\-2026\-49869
+Kestra Kestra OSS, added 2026\-09\-02.
+.PP
+Kestra OSS OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Kestra OSS contains an OS command injection vulnerability that could allow an unauthenticated remote attacker to create and execute arbitrary workflows without credentials.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-05.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/kestra\-io/kestra/security/advisories/GHSA\-5vc5\-wxxq\-3fjx
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-49869
+.SS CVE\-2026\-50751
+Check Point Security Gateway, added 2026\-06\-08, ransomware: Known.
+.PP
+Check Point Security Gateway Improper Authentication Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Check Point Security Gateway contains an improper authentication vulnerability in IKEv1 key exchange that could allow an unauthenticated remote attacker to bypass user authentication and establish a remote access VPN connection without a valid user password.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-06\-11.
+.PP
+\fIReferences:\fR
+.br
+https://blog.checkpoint.com/security/check\-point\-releases\-important\-hotfix\-for\-vulnerabilities\-in\-deprecated\-ikev1\-vpn\-protocol/
+.br
+https://support.checkpoint.com/results/sk/sk185033?_gl=1*1wqeqhc*_gcl_au*MTI1MzE5MjI2LjE3ODA5MzQ1NTM
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-50751
+.SS CVE\-2026\-59822
+BerriAI LiteLLM, added 2026\-09\-02.
+.PP
+BerriAI LiteLLM Improper Authentication Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+BerriAI LiteLLM contains an improper authentication vulnerability in the MCP Streamable HTTP endpoint that could allow an unauthenticated attacker to establish an authenticated MCP session using an arbitrary Bearer token.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-16.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/BerriAI/litellm/security/advisories/GHSA\-7488\-6r32\-c95q
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-59822
+.SS CVE\-2026\-65400
+Apple macOS, added 2026\-08\-18.
+.PP
+Apple macOS Improper Authentication Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apple macOS contains an improper authentication vulnerability that could allow an attacker on the network to authenticate to Screen Sharing without valid credentials.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-08\-21.
+.PP
+\fIReferences:\fR
+.br
+https://support.apple.com/en\-us/148170
+.br
+https://support.apple.com/en\-us/148171
+.br
+https://support.apple.com/en\-us/148172
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-65400
+.SS CVE\-2026\-82329
+JFrog Artifactory, added 2026\-09\-02.
+.PP
+JFrog Artifactory Improper Authentication Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+JFrog Artifactory contains an improper authentication vulnerability that under default configuration can allow an unauthenticated attacker with network access to obtain administrative privileges.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-05.
+.PP
+\fIReferences:\fR
+.br
+https://docs.jfrog.com/releases/docs/jfrog\-security\-advisories
+.br
+https://docs.jfrog.com/releases/docs/artifactory\-self\-managed\-releases
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-82329
+.SS CVE\-2026\-102895
+GPUStack GPUStack, added 2026\-11\-09.
+.PP
+GPUStack Improper Authentication Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+GPUStack contains an improper authentication vulnerability which could allow unauthenticated administrative access, including user and model changes, persistent administrator API\-key creation, disclosure of worker and cloud\-provider secrets, and code execution through POST /v2/inference\-backends/from\-yaml.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-11\-12.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/gpustack/gpustack/security/advisories/GHSA\-gj9m\-f8ph\-pmhr
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-102895
+.SS CVE\-2026\-105133
+Ahsay AhsayCBS, added 2026\-10\-14.
+.PP
+Ahsay AhsayCBS Improper Authentication Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ahsay AhsayCBS contains an improper authentication vulnerability that could allow a remote attacker to bypass authentication via manipulation of the random parameter in the API component’s checkSysPwd function. This vulnerability can be chained with CVE\-2026\-105134.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-10\-17.
+.PP
+\fIReferences:\fR
+.br
+https://www.ahsay.com/en/company/announcements/patch\-cve\-105133\-105134\-update
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-105133
 .SH EXAMPLES
 One vulnerable\->fixed pair per ecosystem (Node.js).
 .SS Node.js
@@ -37,4 +949,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/287.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

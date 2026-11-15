@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-552 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-552 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-552 \- Files or Directories Accessible to External Parties
 .SH RANK
@@ -9,9 +9,77 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product makes files or directories accessible to unauthorized actors, even though they should not be. Web servers, FTP servers, and similar servers may store a set of files underneath a root directory that is accessible to the server's users. Applications may store sensitive files underneath this root without also using access control to limit which users may request those files, if any. Alternately, an application might package multiple files or directories into an archive file (e.g., ZIP or tar), but the application might not exclude sensitive files that are underneath those directories. In cloud technologies and containers, this weakness might present itself in the form of misconfigured storage accounts that can be read or written by a public or anonymous user.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB4\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB4\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2017\-16651
+Roundcube Roundcube Webmail, added 2021\-11\-03.
 .PP
-CVE\-2017\-16651, CVE\-2020\-17519, CVE\-2025\-11371, CVE\-2026\-21589.
+Roundcube Webmail File Disclosure Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Roundcube Webmail contains a file disclosure vulnerability caused by insufficient input validation in conjunction with file\-based attachment plugins, which are used by default.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-16651
+.SS CVE\-2020\-17519
+Apache Flink, added 2024\-05\-23.
+.PP
+Apache Flink Improper Access Control Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apache Flink contains an improper access control vulnerability that allows an attacker to read any file on the local filesystem of the JobManager through its REST interface.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-06\-13.
+.PP
+\fIReferences:\fR
+.br
+https://lists.apache.org/thread/typ0h03zyfrzjqlnb7plh64df1g2383d
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-17519
+.SS CVE\-2025\-11371
+Gladinet CentreStack and Triofox, added 2025\-11\-04.
+.PP
+Gladinet CentreStack and Triofox Files or Directories Accessible to External Parties Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Gladinet CentreStack and Triofox contains a files or directories accessible to external parties vulnerability that allows unintended disclosure of system files.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-11\-25.
+.PP
+\fIReferences:\fR
+.br
+https://www.centrestack.com/p/gce_latest_release.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-11371
+.SS CVE\-2026\-21589
+Atlassian Multiple Products, added 2026\-10\-15.
+.PP
+Atlassian Multiple Products Files or Directories Accessible to External Parties Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Multiple Atlassian products (Bitbucket Data Center ,Confluence Data Center, Jira Service Management Data Center, Jira Software Data Center, Bamboo Data Center, Crowd Data Center, Crucible and Fisheye) contain a files or directories accessible to external parties vulnerability which could allow an unauthenticated attacker to access specific files within the web application root directory in affected versions.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-10\-18.
+.PP
+\fIReferences:\fR
+.br
+https://confluence.atlassian.com/security/cve\-2026\-21589\-arbitrary\-file\-access\-vulnerability\-impacts\-multiple\-products\-1870495748.html?ref=labs.watchtowr.com
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-21589
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +89,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/552.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

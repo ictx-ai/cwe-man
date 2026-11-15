@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-772 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-772 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-772 \- Missing Release of Resource after Effective Lifetime
 .SH RANK
@@ -9,9 +9,24 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product does not release a resource after its effective lifetime has ended, i.e., after the resource is no longer needed. When a resource is not released after use, it can allow attackers to cause a denial of service by causing the allocation of resources without triggering their release. Frequently\-affected resources include memory, CPU, disk space, power or battery, etc.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB1\fR exploited CVE mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB1\fR exploited CVE mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2024\-20481
+Cisco Adaptive Security Appliance (ASA) and Firepower Threat Defense (FTD), added 2024\-10\-24.
 .PP
-CVE\-2024\-20481.
+Cisco ASA and FTD Denial\-of\-Service Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Cisco Adaptive Security Appliance (ASA) and Firepower Threat Defense (FTD) contain a missing release of resource after effective lifetime vulnerability that could allow an unauthenticated, remote attacker to cause a denial\-of\-service (DoS) of the RAVPN service.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-11\-14.
+.PP
+\fIReferences:\fR
+.br
+https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco\-sa\-asaftd\-bf\-dos\-vDZhLqrW
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-20481
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +36,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/772.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

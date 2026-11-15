@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-807 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-807 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-807 \- Reliance on Untrusted Inputs in a Security Decision
 .SH RANK
@@ -9,9 +9,60 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product uses a protection mechanism that relies on the existence or values of an input, but the input can be modified by an untrusted actor in a way that bypasses the protection mechanism. Developers may assume that inputs such as cookies, environment variables, and hidden form fields cannot be modified. However, an attacker could change these inputs using customized clients or other attacks. This change might not be detected. When security decisions such as authentication and authorization are made based on the values of these inputs, attackers can bypass the security of the software. Without sufficient encryption, integrity checking, or other mechanism, any input that originates from an outsider cannot be trusted.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB3\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB3\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2019\-9621
+Synacor Zimbra Collaboration Suite (ZCS), added 2025\-07\-07.
 .PP
-CVE\-2019\-9621, CVE\-2026\-21509, CVE\-2026\-21514.
+Synacor Zimbra Collaboration Suite (ZCS) Server\-Side Request Forgery (SSRF) Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Synacor Zimbra Collaboration Suite (ZCS) contains a server\-side request forgery (SSRF) vulnerability via the ProxyServlet component.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-07\-28.
+.PP
+\fIReferences:\fR
+.br
+https://wiki.zimbra.com/wiki/Zimbra_Security_Advisories
+.br
+https://wiki.zimbra.com/wiki/Security_Center
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-9621
+.SS CVE\-2026\-21509
+Microsoft Office, added 2026\-01\-26.
+.PP
+Microsoft Office Security Feature Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Office contains a security feature bypass vulnerability in which reliance on untrusted inputs in a security decision in Microsoft Office could allow an unauthorized attacker to bypass a security feature locally. Some of the impacted product(s) could be end\-of\-life (EoL) and/or end\-of\-service (EoS). Users are advised to discontinue use and/or transition to a supported version.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-02\-16.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2026\-21509
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-21509
+.SS CVE\-2026\-21514
+Microsoft Office, added 2026\-02\-10.
+.PP
+Microsoft Office Word Reliance on Untrusted Inputs in a Security Decision Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Office Word contains a reliance on untrusted inputs in a security decision vulnerability that could allow an authorized attacker to elevate privileges locally.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-03\-03.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2026\-21514
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-21514
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +72,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/807.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

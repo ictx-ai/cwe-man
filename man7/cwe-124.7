@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-124 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-124 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-124 \- Buffer Underwrite ('Buffer Underflow')
 .SH RANK
@@ -9,9 +9,24 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product writes to a buffer using an index or pointer that references a memory location prior to the beginning of the buffer. This typically occurs when a pointer or its index is decremented to a position before the buffer, when pointer arithmetic results in a position before the beginning of the valid memory location, or when a negative index is used.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB1\fR exploited CVE mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB1\fR exploited CVE mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2025\-32756
+Fortinet Multiple Products, added 2025\-05\-14.
 .PP
-CVE\-2025\-32756.
+Fortinet Multiple Products Stack\-Based Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Fortinet FortiFone, FortiVoice, FortiNDR and FortiMail contain a stack\-based overflow vulnerability that may allow a remote unauthenticated attacker to execute arbitrary code or commands via crafted HTTP requests.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-06\-04.
+.PP
+\fIReferences:\fR
+.br
+https://fortiguard.fortinet.com/psirt/FG\-IR\-25\-254
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-32756
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +36,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/124.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

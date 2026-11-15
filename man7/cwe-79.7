@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-79 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-79 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-79 \- Improper Neutralization of Input During Web Page Generation (Cross\-site Scripting)
 .SH RANK
@@ -13,9 +13,570 @@ Forms: stored (payload persisted server\-side), reflected (echoed from the reque
 .SH MITIGATION
 Contextually encode untrusted data on output (HTML, attribute, JS contexts). Prefer an auto\-escaping template engine, set a strict Content\-Security\-Policy, and never build HTML by raw string concatenation.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB33\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB33\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2012\-0767
+Adobe Flash Player, added 2022\-06\-08.
 .PP
-CVE\-2012\-0767, CVE\-2013\-5223, CVE\-2014\-2120, CVE\-2018\-6882, CVE\-2018\-19943, CVE\-2018\-19953, CVE\-2019\-3929, CVE\-2019\-9978, CVE\-2019\-18426, CVE\-2020\-3580, CVE\-2020\-11023, CVE\-2020\-35730, CVE\-2021\-1879, CVE\-2021\-26829, CVE\-2022\-24682, CVE\-2022\-27926, CVE\-2022\-39197, CVE\-2022\-42948, CVE\-2023\-5631, CVE\-2023\-34192, CVE\-2023\-37580, CVE\-2023\-43770, CVE\-2024\-11182, CVE\-2024\-27443, CVE\-2024\-37383, CVE\-2024\-42009, CVE\-2024\-43573, CVE\-2024\-44309, CVE\-2025\-27915, CVE\-2025\-48700, CVE\-2025\-66376, CVE\-2025\-68461, CVE\-2026\-42897.
+Adobe Flash Player Cross\-Site Scripting (XSS) Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Adobe Flash Player contains a XSS vulnerability that allows remote attackers to inject web script or HTML.
+.PP
+\fIRemediation:\fR
+The impacted product is end\-of\-life and should be disconnected if still in use.
+ Due 2022\-06\-22.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2012\-0767
+.SS CVE\-2013\-5223
+D\-Link DSL\-2760U, added 2022\-03\-25.
+.PP
+D\-Link DSL\-2760U Gateway Cross\-Site Scripting Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A cross\-site scripting (XSS) vulnerability exists in the D\-Link DSL\-2760U gateway, allowing remote authenticated users to inject arbitrary web script or HTML.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2013\-5223
+.SS CVE\-2014\-2120
+Cisco Adaptive Security Appliance (ASA), added 2024\-11\-12.
+.PP
+Cisco Adaptive Security Appliance (ASA) Cross\-Site Scripting (XSS) Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Cisco Adaptive Security Appliance (ASA) contains a cross\-site scripting (XSS) vulnerability in the WebVPN login page. This vulnerability allows remote attackers to inject arbitrary web script or HTML via an unspecified parameter.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-12\-03.
+.PP
+\fIReferences:\fR
+.br
+https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco\-sa\-CVE\-2014\-2120
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2014\-2120
+.SS CVE\-2018\-6882
+Synacor Zimbra Collaboration Suite (ZCS), added 2022\-04\-19, ransomware: Known.
+.PP
+Synacor Zimbra Collaboration Suite (ZCS) Cross\-Site Scripting (XSS) Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Synacor Zimbra Collaboration Suite (ZCS) contains a cross\-site scripting vulnerability that might allow remote attackers to inject arbitrary web script or HTML.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-10.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-6882
+.SS CVE\-2018\-19943
+QNAP Network Attached Storage (NAS), added 2022\-05\-24, ransomware: Known.
+.PP
+QNAP NAS File Station Cross\-Site Scripting Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A cross\-site scripting vulnerability affecting QNAP NAS File Station could allow remote attackers to inject malicious code.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-14.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-19943
+.SS CVE\-2018\-19953
+QNAP Network Attached Storage (NAS), added 2022\-05\-24, ransomware: Known.
+.PP
+QNAP NAS File Station Cross\-Site Scripting Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A cross\-site scripting vulnerability affecting QNAP NAS File Station could allow remote attackers to inject malicious code.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-14.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-19953
+.SS CVE\-2019\-3929
+Crestron Multiple Products, added 2022\-04\-15.
+.PP
+Crestron Multiple Products Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Multiple Crestron products are vulnerable to command injection via the file_transfer.cgi HTTP endpoint. A remote, unauthenticated attacker can use this vulnerability to execute operating system commands as root.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-06.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-3929
+.SS CVE\-2019\-9978
+WordPress Social Warfare Plugin, added 2021\-11\-03.
+.PP
+WordPress Social Warfare Plugin Cross\-Site Scripting (XSS) Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+WordPress Social Warfare plugin contains a cross\-site scripting (XSS) vulnerability that allows for remote code execution. This vulnerability affects Social Warfare and Social Warfare Pro.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-9978
+.SS CVE\-2019\-18426
+Meta Platforms WhatsApp, added 2022\-05\-23.
+.PP
+WhatsApp Cross\-Site Scripting Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A vulnerability in WhatsApp Desktop when paired with WhatsApp for iPhone allows cross\-site scripting and local file reading.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-13.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-18426
+.SS CVE\-2020\-3580
+Cisco Adaptive Security Appliance (ASA) and Firepower Threat Defense (FTD), added 2021\-11\-03, ransomware: Known.
+.PP
+Cisco ASA and FTD Cross\-Site Scripting (XSS) Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Cisco Adaptive Security Appliance (ASA) and Firepower Threat Defense (FTD) contain an insufficient input validation vulnerability for user\-supplied input by the web services interface.  Successful exploitation could allow an attacker to perform cross\-site scripting (XSS) in the context of the interface or access sensitive browser\-based information.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-3580
+.SS CVE\-2020\-11023
+JQuery JQuery, added 2025\-01\-23.
+.PP
+JQuery Cross\-Site Scripting (XSS) Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+JQuery contains a persistent cross\-site scripting (XSS) vulnerability. When passing maliciously formed, untrusted input enclosed in HTML tags, JQuery's DOM manipulators can execute untrusted code in the context of the user's browser.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-02\-13.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/jquery/jquery/security/advisories/GHSA\-jpcq\-cgw6\-v4j6
+.br
+https://blog.jquery.com/2020/04/10/jquery\-3\-5\-0\-released/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-11023
+.SS CVE\-2020\-35730
+Roundcube Roundcube Webmail, added 2023\-06\-22.
+.PP
+Roundcube Webmail Cross\-Site Scripting (XSS) Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Roundcube Webmail contains a cross\-site scripting (XSS) vulnerability that allows an attacker to send a plain text e\-mail message with Javascript in a link reference element that is mishandled by linkref_addinindex in rcube_string_replacer.php.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-07\-13.
+.PP
+\fIReferences:\fR
+.br
+https://roundcube.net/news/2020/12/27/security\-updates\-1.4.10\-1.3.16\-and\-1.2.13
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-35730
+.SS CVE\-2021\-1879
+Apple iOS, iPadOS, and watchOS, added 2021\-11\-03.
+.PP
+Apple iOS, iPadOS, and watchOS WebKit Cross\-Site Scripting (XSS) Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apple iOS, iPadOS, and watchOS WebKit contain an unspecified vulnerability that allows for universal cross\-site scripting (XSS) when processing maliciously crafted web content. This vulnerability could impact HTML parsers that use WebKit, including but not limited to Apple Safari and non\-Apple products which rely on WebKit for HTML processing.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-1879
+.SS CVE\-2021\-26829
+OpenPLC ScadaBR, added 2025\-11\-28.
+.PP
+OpenPLC ScadaBR Cross\-site Scripting Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+OpenPLC ScadaBR contains a cross\-site scripting vulnerability via system_settings.shtm.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-12\-19.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/SCADA\-LTS/Scada\-LTS/pull/3211
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-26829
+.SS CVE\-2022\-24682
+Synacor Zimbra Collaborate Suite (ZCS), added 2022\-02\-25, ransomware: Known.
+.PP
+Synacor Zimbra Collaborate Suite (ZCS) Cross\-Site Scripting Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Synacor Zimbra Collaboration Suite (ZCS) contains a cross\-site scripting (XSS) vulnerability in the Calendar feature that allows an attacker to execute arbitrary code.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-03\-11.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-24682
+.SS CVE\-2022\-27926
+Synacor Zimbra Collaboration Suite (ZCS), added 2023\-04\-03.
+.PP
+Synacor Zimbra Collaboration Suite (ZCS) Cross\-Site Scripting (XSS) Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Synacor Zimbra Collaboration Suite (ZCS) contains a cross\-site scripting vulnerability by allowing an endpoint URL to accept parameters without sanitizing.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-04\-24.
+.PP
+\fIReferences:\fR
+.br
+https://wiki.zimbra.com/wiki/Security_Center
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-27926
+.SS CVE\-2022\-39197
+Fortra Cobalt Strike, added 2023\-03\-30.
+.PP
+Fortra Cobalt Strike Teamserver Cross\-Site Scripting (XSS) Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Fortra Cobalt Strike contains a cross\-site scripting (XSS) vulnerability in Teamserver that would allow an attacker to set a malformed username in the Beacon configuration, allowing them to execute code remotely.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-04\-20.
+.PP
+\fIReferences:\fR
+.br
+https://www.cobaltstrike.com/blog/out\-of\-band\-update\-cobalt\-strike\-4\-7\-1/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-39197
+.SS CVE\-2022\-42948
+Fortra Cobalt Strike, added 2023\-03\-30.
+.PP
+Fortra Cobalt Strike User Interface Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Fortra Cobalt Strike User Interface contains an unspecified vulnerability rooted in Java Swing that may allow remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-04\-20.
+.PP
+\fIReferences:\fR
+.br
+https://www.cobaltstrike.com/blog/out\-of\-band\-update\-cobalt\-strike\-4\-7\-2/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-42948
+.SS CVE\-2023\-5631
+Roundcube Webmail, added 2023\-10\-26.
+.PP
+Roundcube Webmail Persistent Cross\-Site Scripting (XSS) Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Roundcube Webmail contains a persistent cross\-site scripting (XSS) vulnerability that allows a remote attacker to run malicious JavaScript code.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-11\-16.
+.PP
+\fIReferences:\fR
+.br
+https://roundcube.net/news/2023/10/16/security\-update\-1.6.4\-released
+.br
+https://roundcube.net/news/2023/10/16/security\-updates\-1.5.5\-and\-1.4.15
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-5631
+.SS CVE\-2023\-34192
+Synacor Zimbra Collaboration Suite (ZCS), added 2025\-02\-25.
+.PP
+Synacor Zimbra Collaboration Suite (ZCS) Cross\-Site Scripting (XSS) Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Synacor Zimbra Collaboration Suite (ZCS) contains a cross\-site scripting (XSS) vulnerability that allows a remote authenticated attacker to execute arbitrary code via a crafted script to the /h/autoSaveDraft function.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-03\-18.
+.PP
+\fIReferences:\fR
+.br
+https://wiki.zimbra.com/wiki/Zimbra_Security_Advisories
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-34192
+.SS CVE\-2023\-37580
+Synacor Zimbra Collaboration Suite (ZCS), added 2023\-07\-27.
+.PP
+Synacor Zimbra Collaboration Suite (ZCS) Cross\-Site Scripting (XSS) Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Synacor Zimbra Collaboration Suite (ZCS) contains a cross\-site scripting vulnerability impacting the confidentiality and integrity of data.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-08\-17.
+.PP
+\fIReferences:\fR
+.br
+https://wiki.zimbra.com/wiki/Security_Center
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-37580
+.SS CVE\-2023\-43770
+Roundcube Webmail, added 2024\-02\-12.
+.PP
+Roundcube Webmail Persistent Cross\-Site Scripting (XSS) Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Roundcube Webmail contains a persistent cross\-site scripting (XSS) vulnerability that can lead to information disclosure via malicious link references in plain/text messages.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-03\-04.
+.PP
+\fIReferences:\fR
+.br
+https://roundcube.net/news/2023/09/15/security\-update\-1.6.3\-released
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-43770
+.SS CVE\-2024\-11182
+MDaemon Email Server, added 2025\-05\-19.
+.PP
+MDaemon Email Server Cross\-Site Scripting (XSS) Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+MDaemon Email Server contains a cross\-site scripting (XSS) vulnerability that allows a remote attacker to load arbitrary JavaScript code via an HTML e\-mail message.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-06\-09.
+.PP
+\fIReferences:\fR
+.br
+https://files.mdaemon.com/mdaemon/beta/RelNotes_en.html
+.br
+https://mdaemon.com/pages/downloads\-critical\-updates
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-11182
+.SS CVE\-2024\-27443
+Synacor Zimbra Collaboration Suite (ZCS), added 2025\-05\-19.
+.PP
+Synacor Zimbra Collaboration Suite (ZCS) Cross\-Site Scripting (XSS) Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Zimbra Collaboration contains a cross\-site scripting (XSS) vulnerability in the CalendarInvite feature of the Zimbra webmail classic user interface. An attacker can exploit this vulnerability via an email message containing a crafted calendar header, leading to the execution of arbitrary JavaScript code.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-06\-09.
+.PP
+\fIReferences:\fR
+.br
+https://wiki.zimbra.com/wiki/Zimbra_Releases/8.8.15/P46#Security_Fixes
+.br
+https://wiki.zimbra.com/wiki/Zimbra_Releases/9.0.0/P39#Security_Fixes
+.br
+https://wiki.zimbra.com/wiki/Zimbra_Releases/10.0.7#Security_Fixes
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-27443
+.SS CVE\-2024\-37383
+Roundcube Webmail, added 2024\-10\-24.
+.PP
+RoundCube Webmail Cross\-Site Scripting (XSS) Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+RoundCube Webmail contains a cross\-site scripting (XSS) vulnerability in the handling of SVG animate attributes that allows a remote attacker to run malicious JavaScript code.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-11\-14.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/roundcube/roundcubemail/releases/tag/1.5.7
+.br
+https://github.com/roundcube/roundcubemail/releases/tag/1.6.7
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-37383
+.SS CVE\-2024\-42009
+Roundcube Webmail, added 2025\-06\-09.
+.PP
+RoundCube Webmail Cross\-Site Scripting Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+RoundCube Webmail contains a cross\-site scripting vulnerability. This vulnerability could allow a remote attacker to steal and send emails of a victim via a crafted e\-mail message that abuses a Desanitization issue in message_body() in program/actions/mail/show.php.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-06\-30.
+.PP
+\fIReferences:\fR
+.br
+https://roundcube.net/news/2024/08/04/security\-updates\-1.6.8\-and\-1.5.8
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-42009
+.SS CVE\-2024\-43573
+Microsoft Windows, added 2024\-10\-08.
+.PP
+Microsoft Windows MSHTML Platform Spoofing Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows MSHTML Platform contains an unspecified spoofing vulnerability which can lead to a loss of confidentiality.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-10\-29.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2024\-43573
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-43573
+.SS CVE\-2024\-44309
+Apple Multiple Products, added 2024\-11\-21.
+.PP
+Apple Multiple Products Cross\-Site Scripting (XSS) Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apple iOS, macOS, and other Apple products contain an unspecified vulnerability when processing maliciously crafted web content that may lead to a cross\-site scripting (XSS) attack.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-12\-12.
+.PP
+\fIReferences:\fR
+.br
+https://support.apple.com/en\-us/121752
+.br
+https://support.apple.com/en\-us/121753
+.br
+https://support.apple.com/en\-us/121754
+.br
+https://support.apple.com/en\-us/121755
+.br
+https://support.apple.com/en\-us/121756
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-44309
+.SS CVE\-2025\-27915
+Synacor Zimbra Collaboration Suite (ZCS), added 2025\-10\-07.
+.PP
+Synacor Zimbra Collaboration Suite (ZCS) Cross\-site Scripting Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Synacor Zimbra Collaboration Suite (ZCS) contains a cross\-site scripting vulnerability that exists in the Classic Web Client due to insufficient sanitization of HTML content in ICS files. When a user views an e\-mail message containing a malicious ICS entry, its embedded JavaScript executes via an ontoggle event inside a tag. This allows an attacker to run arbitrary JavaScript within the victim's session, potentially leading to unauthorized actions such as setting e\-mail filters to redirect messages to an attacker\-controlled address. As a result, an attacker can perform unauthorized actions on the victim's account, including e\-mail redirection and data exfiltration.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-10\-28.
+.PP
+\fIReferences:\fR
+.br
+https://wiki.zimbra.com/wiki/Security_Center
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-27915
+.SS CVE\-2025\-48700
+Synacor Zimbra Collaboration Suite (ZCS), added 2026\-04\-20.
+.PP
+Synacor Zimbra Collaboration Suite (ZCS) Cross\-site Scripting Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Synacor Zimbra Collaboration Suite (ZCS) contains a cross\-site scripting vulnerability that could allow attackers to execute arbitrary JavaScript within the user's session, potentially leading to unauthorized access to sensitive information.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-04\-23.
+.PP
+\fIReferences:\fR
+.br
+https://wiki.zimbra.com/wiki/Zimbra_Security_Advisories
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-48700
+.SS CVE\-2025\-66376
+Synacor Zimbra Collaboration Suite (ZCS), added 2026\-03\-18.
+.PP
+Synacor Zimbra Collaboration Suite (ZCS) Cross\-Site Scripting Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Synacor Zimbra Collaboration Suite (ZCS) contains a cross\-site scripting vulnerability in the Classic UI where attackers could abuse Cascading Style Sheets (CSS) @import directives in email HTML.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-04\-01.
+.PP
+\fIReferences:\fR
+.br
+https://wiki.zimbra.com/wiki/Zimbra_Security_Advisories
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-66376
+.SS CVE\-2025\-68461
+Roundcube Webmail, added 2026\-02\-20.
+.PP
+RoundCube Webmail Cross\-site Scripting Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+RoundCube Webmail contains a cross\-site scripting vulnerability via the animate tag in an SVG document.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-03\-13.
+.PP
+\fIReferences:\fR
+.br
+https://roundcube.net/news/2025/12/13/security\-updates\-1.6.12\-and\-1.5.12
+.br
+https://github.com/roundcube/roundcubemail/commit/bfa032631c36b900e7444dfa278340b33cbf7cdb
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-68461
+.SS CVE\-2026\-42897
+Microsoft Microsoft, added 2026\-05\-15.
+.PP
+Microsoft Exchange Server Cross\-Site Scripting Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Exchange Server contains a cross\-site scripting vulnerability during web page generation in Outlook Web Access and when certain interaction conditions are met, arbitrary JavaScript can be executed in the browser context.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-05\-29.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2026\-42897
+.br
+https://learn.microsoft.com/en\-us/exchange/plan\-and\-deploy/post\-installation\-tasks/security\-best\-practices/exchange\-emergency\-mitigation\-service
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-42897
 .SH EXAMPLES
 One vulnerable\->fixed pair per ecosystem (Node.js, Python, Java, Go, PHP).
 .SS Node.js
@@ -110,4 +671,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/79.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-122 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-122 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-122 \- Heap\-based Buffer Overflow
 .SH RANK
@@ -11,9 +11,558 @@ An overflow of a heap\-allocated buffer. Overrunning it corrupts adjacent heap o
 .SH MITIGATION
 Allocate based on the actual required size and bound every copy by it. Validate length fields and use checked arithmetic for size calculations to avoid integer overflow. In C++ prefer std::vector. Test with AddressSanitizer.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB33\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB33\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2019\-3568
+Meta Platforms WhatsApp, added 2022\-04\-19.
 .PP
-CVE\-2019\-3568, CVE\-2021\-1647, CVE\-2021\-3156, CVE\-2021\-21017, CVE\-2021\-21148, CVE\-2021\-21166, CVE\-2021\-21220, CVE\-2021\-30551, CVE\-2021\-30563, CVE\-2021\-30632, CVE\-2021\-35395, CVE\-2021\-38003, CVE\-2022\-2294, CVE\-2022\-3723, CVE\-2022\-4262, CVE\-2022\-26318, CVE\-2022\-31199, CVE\-2023\-4911, CVE\-2023\-23376, CVE\-2023\-27997, CVE\-2023\-28252, CVE\-2023\-36036, CVE\-2024\-30051, CVE\-2024\-38812, CVE\-2024\-49138, CVE\-2025\-21333, CVE\-2025\-21418, CVE\-2025\-24985, CVE\-2025\-24993, CVE\-2025\-25249, CVE\-2025\-32706, CVE\-2026\-85880, CVE\-2026\-94127.
+WhatsApp VOIP Stack Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A buffer overflow vulnerability in WhatsApp VOIP stack allowed remote code execution via specially crafted series of RTCP packets sent to a target phone number.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-10.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-3568
+.SS CVE\-2021\-1647
+Microsoft Defender, added 2021\-11\-03.
+.PP
+Microsoft Defender Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Defender contains an unspecified vulnerability that allows for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-1647
+.SS CVE\-2021\-3156
+Sudo Sudo, added 2022\-04\-06.
+.PP
+Sudo Heap\-Based Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Sudo contains an off\-by\-one error that can result in a heap\-based buffer overflow, which allows for privilege escalation.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-27.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-3156
+.SS CVE\-2021\-21017
+Adobe Acrobat and Reader, added 2021\-11\-03.
+.PP
+Adobe Acrobat and Reader Heap\-based Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Acrobat Acrobat and Reader contain a heap\-based buffer overflow vulnerability that could allow an unauthenticated attacker to achieve code execution in the context of the current user.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-21017
+.SS CVE\-2021\-21148
+Google Chromium V8, added 2021\-11\-03.
+.PP
+Google Chromium V8 Heap Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium V8 Engine contains a heap buffer overflow vulnerability that allows a remote attacker to potentially exploit heap corruption via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-21148
+.SS CVE\-2021\-21166
+Google Chromium, added 2021\-11\-03.
+.PP
+Google Chromium Race Condition Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium contains a race condition vulnerability that allows a remote attacker to potentially exploit heap corruption via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-21166
+.SS CVE\-2021\-21220
+Google Chromium V8, added 2021\-11\-03.
+.PP
+Google Chromium V8 Improper Input Validation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium V8 Engine contains an improper input validation vulnerability that allows a remote attacker to potentially exploit heap corruption via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-21220
+.SS CVE\-2021\-30551
+Google Chromium V8, added 2021\-11\-03.
+.PP
+Google Chromium V8 Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium V8 Engine contains a type confusion vulnerability that allows a remote attacker to potentially exploit heap corruption via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-30551
+.SS CVE\-2021\-30563
+Google Chromium V8, added 2021\-11\-03.
+.PP
+Google Chromium V8 Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium V8 Engine contains a type confusion vulnerability that allows a remote attacker to potentially exploit heap corruption via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-30563
+.SS CVE\-2021\-30632
+Google Chromium V8, added 2021\-11\-03.
+.PP
+Google Chromium V8 Out\-of\-Bounds Write Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium V8 Engine contains an out\-of\-bounds write vulnerability that allows a remote attacker to potentially exploit heap corruption via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-30632
+.SS CVE\-2021\-35395
+Realtek AP\-Router SDK, added 2021\-11\-03.
+.PP
+Realtek AP\-Router SDK Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Realtek AP\-Router SDK HTTP web server boa contains a buffer overflow vulnerability due to unsafe copies of some overly long parameters submitted in the form that lead to denial\-of\-service (DoS).
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-35395
+.SS CVE\-2021\-38003
+Google Chromium V8, added 2021\-11\-03.
+.PP
+Google Chromium V8 Memory Corruption Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium V8 Engine has a bug in JSON.stringify, where the internal TheHole value can leak to script code, causing memory corruption. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-38003
+.SS CVE\-2022\-2294
+WebRTC WebRTC, added 2022\-08\-25, ransomware: Known.
+.PP
+WebRTC Heap Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+WebRTC, an open\-source project providing web browsers with real\-time communication, contains a heap buffer overflow vulnerability that allows an attacker to perform shellcode execution. This vulnerability impacts web browsers using WebRTC including but not limited to Google Chrome.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-09\-15.
+.PP
+\fIReferences:\fR
+.br
+https://groups.google.com/g/discuss\-webrtc/c/5KBtZx2gvcQ
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-2294
+.SS CVE\-2022\-3723
+Google Chromium V8, added 2022\-10\-28.
+.PP
+Google Chromium V8 Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium V8 Engine contains a type confusion vulnerability that allows a remote attacker to potentially exploit heap corruption via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-11\-18.
+.PP
+\fIReferences:\fR
+.br
+https://chromereleases.googleblog.com/2022/10/stable\-channel\-update\-for\-desktop_27.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-3723
+.SS CVE\-2022\-4262
+Google Chromium V8, added 2022\-12\-05.
+.PP
+Google Chromium V8 Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium V8 Engine contains a type confusion vulnerability that allows a remote attacker to potentially exploit heap corruption via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-12\-26.
+.PP
+\fIReferences:\fR
+.br
+https://chromereleases.googleblog.com/2022/12/stable\-channel\-update\-for\-desktop.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-4262
+.SS CVE\-2022\-26318
+WatchGuard Firebox and XTM Appliances, added 2022\-03\-25.
+.PP
+WatchGuard Firebox and XTM Appliances Arbitrary Code Execution.
+.PP
+\fIHow it is exploited (CISA):\fR
+On WatchGuard Firebox and XTM appliances, an unauthenticated user can execute arbitrary code.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-26318
+.SS CVE\-2022\-31199
+Netwrix Auditor, added 2023\-07\-11, ransomware: Known.
+.PP
+Netwrix Auditor Insecure Object Deserialization Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Netwrix Auditor User Activity Video Recording component contains an insecure objection deserialization vulnerability that allows an unauthenticated, remote attacker to execute code as the NT AUTHORITY\eSYSTEM user. Successful exploitation requires that the attacker is able to reach port 9004/TCP, which is commonly blocked by standard enterprise firewalling.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-08\-01.
+.PP
+\fIReferences:\fR
+.br
+https://security.netwrix.com/Account/SignIn?ReturnUrl=%2FAdvisories%2FADV\-2022\-003
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-31199
+.SS CVE\-2023\-4911
+GNU GNU C Library, added 2023\-11\-21.
+.PP
+GNU C Library Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+GNU C Library's dynamic loader ld.so contains a buffer overflow vulnerability when processing the GLIBC_TUNABLES environment variable, allowing a local attacker to execute code with elevated privileges.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-12\-12.
+.PP
+\fIReferences:\fR
+.br
+https://sourceware.org/git/?p=glibc.git
+.br
+https://access.redhat.com/security/cve/cve\-2023\-4911
+.br
+https://www.debian.org/security/2023/dsa\-5514
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-4911
+.SS CVE\-2023\-23376
+Microsoft Windows, added 2023\-02\-14, ransomware: Known.
+.PP
+Microsoft Windows Common Log File System (CLFS) Driver Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Common Log File System (CLFS) driver contains an unspecified vulnerability that allows for privilege escalation.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-03\-07.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2023\-23376
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-23376
+.SS CVE\-2023\-27997
+Fortinet FortiOS and FortiProxy SSL\-VPN, added 2023\-06\-13, ransomware: Known.
+.PP
+Fortinet FortiOS and FortiProxy SSL\-VPN Heap\-Based Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Fortinet FortiOS and FortiProxy SSL\-VPN contain a heap\-based buffer overflow vulnerability which can allow an unauthenticated, remote attacker to execute code or commands via specifically crafted requests.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-07\-04.
+.PP
+\fIReferences:\fR
+.br
+https://www.fortiguard.com/psirt/FG\-IR\-23\-097
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-27997
+.SS CVE\-2023\-28252
+Microsoft Windows, added 2023\-04\-11, ransomware: Known.
+.PP
+Microsoft Windows Common Log File System (CLFS) Driver Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Common Log File System (CLFS) driver contains an unspecified vulnerability that allows for privilege escalation.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-05\-02.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2023\-28252
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-28252
+.SS CVE\-2023\-36036
+Microsoft Windows, added 2023\-11\-14.
+.PP
+Microsoft Windows Cloud Files Mini Filter Driver Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Cloud Files Mini Filter Driver contains a privilege escalation vulnerability that could allow an attacker to gain SYSTEM privileges.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-12\-05.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2023\-36036
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-36036
+.SS CVE\-2024\-30051
+Microsoft DWM Core Library, added 2024\-05\-14, ransomware: Known.
+.PP
+Microsoft DWM Core Library Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft DWM Core Library contains a privilege escalation vulnerability that allows an attacker to gain SYSTEM privileges.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-06\-04.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2024\-30051
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-30051
+.SS CVE\-2024\-38812
+VMware vCenter Server, added 2024\-11\-20.
+.PP
+VMware vCenter Server Heap\-Based Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+VMware vCenter Server contains a heap\-based buffer overflow vulnerability in the implementation of the DCERPC protocol. This vulnerability could allow an attacker with network access to the vCenter Server to execute remote code by sending a specially crafted packet.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-12\-11.
+.PP
+\fIReferences:\fR
+.br
+https://support.broadcom.com/web/ecx/support\-content\-notification/\-/external/content/SecurityAdvisories/0/24968
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-38812
+.SS CVE\-2024\-49138
+Microsoft Windows, added 2024\-12\-10.
+.PP
+Microsoft Windows Common Log File System (CLFS) Driver Heap\-Based Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Common Log File System (CLFS) driver contains a heap\-based buffer overflow vulnerability that allows a local attacker to escalate privileges.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-12\-31.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2024\-49138
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-49138
+.SS CVE\-2025\-21333
+Microsoft Windows, added 2025\-01\-14.
+.PP
+Microsoft Windows Hyper\-V NT Kernel Integration VSP Heap\-based Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Hyper\-V NT Kernel Integration VSP contains a heap\-based buffer overflow vulnerability that allows a local attacker to gain SYSTEM privileges.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-02\-04.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2025\-21333
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-21333
+.SS CVE\-2025\-21418
+Microsoft Windows, added 2025\-02\-11.
+.PP
+Microsoft Windows Ancillary Function Driver for WinSock Heap\-Based Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Ancillary Function Driver for WinSock contains a heap\-based buffer overflow vulnerability that allows for privilege escalation, enabling a local attacker to gain SYSTEM privileges.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-03\-04.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2025\-21418
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-21418
+.SS CVE\-2025\-24985
+Microsoft Windows, added 2025\-03\-11.
+.PP
+Microsoft Windows Fast FAT File System Driver Integer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Fast FAT File System Driver contains an integer overflow or wraparound vulnerability that allows an unauthorized attacker to execute code locally.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-04\-01.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2025\-24985
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-24985
+.SS CVE\-2025\-24993
+Microsoft Windows, added 2025\-03\-11.
+.PP
+Microsoft Windows NTFS Heap\-Based Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows New Technology File System (NTFS) contains a heap\-based buffer overflow vulnerability that allows an unauthorized attacker to execute code locally.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-04\-01.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2025\-24993
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-24993
+.SS CVE\-2025\-25249
+Fortinet Multiple Products, added 2026\-09\-09.
+.PP
+Fortinet Multiple Products Heap\-based Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Fortinet FortiOS, FortiSwitchManager, and FortiSASE contain a heap\-based buffer overflow vulnerability that allows an attacker to execute unauthorized code or commands via specially crafted packets.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-12.
+.PP
+\fIReferences:\fR
+.br
+https://fortiguard.fortinet.com/psirt/FG\-IR\-25\-084
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-25249
+.SS CVE\-2025\-32706
+Microsoft Windows, added 2025\-05\-13.
+.PP
+Microsoft Windows Common Log File System (CLFS) Driver Heap\-Based Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Common Log File System (CLFS) Driver contains a heap\-based buffer overflow vulnerability that allows an authorized attacker to elevate privileges locally.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-06\-03.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2025\-32706
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-32706
+.SS CVE\-2026\-85880
+Microsoft Windows, added 2026\-09\-08.
+.PP
+Microsoft Windows Heap\-Based Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Advanced Local Procedure Call contains a heap\-based buffer overflow vulnerability that allows an attacker to elevate privileges locally.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-22.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2026\-85880
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-85880
+.SS CVE\-2026\-94127
+F5 BIG\-IP APM, added 2026\-09\-22.
+.PP
+F5 BIG\-IP APM Heap\-based Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+F5 BIG\-IP APM contains a heap\-based buffer overflow vulnerability when access policy and an OAuth profile are configured on a virtual server. This vulnerability could allow an unauthenticated attacker to perform remote code execution.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-25.
+.PP
+\fIReferences:\fR
+.br
+https://my.f5.com/manage/s/article/K000162605
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-94127
 .SH EXAMPLES
 One vulnerable\->fixed pair per ecosystem (C, C++).
 .SS C
@@ -54,4 +603,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/122.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-444 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-444 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-444 \- Inconsistent Interpretation of HTTP Requests ('HTTP Request/Response Smuggling')
 .SH RANK
@@ -9,9 +9,79 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product acts as an intermediary HTTP agent (such as a proxy or firewall) in the data flow between two entities such as a client and server, but it does not interpret malformed HTTP requests or responses in ways that are consistent with how the messages will be processed by those entities that are at the ultimate destination. HTTP requests or responses (messages) can be malformed or unexpected in ways that cause web servers or clients to interpret the messages in different ways than intermediary HTTP agents such as load balancers, reverse proxies, web caching proxies, application firewalls, etc. For example, an adversary may be able to add duplicate or different header fields that a client or server might interpret as one set of messages, whereas the intermediary might interpret the same sequence of bytes as a different set of messages. For example, discrepancies can arise in how to handle duplicate headers like two Transfer\-encoding (TE) or two Content\-length (CL), or the malicious HTTP message will have different headers for TE and CL. The inconsistent parsing and interpretation of messages can allow the adversary to smuggle a message to the client/server without the intermediary being aware of it. This weakness is usually the result of the usage of outdated or incompatible HTTP protocol versions in the HTTP agents.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB4\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB4\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2022\-22536
+SAP Multiple Products, added 2022\-08\-18.
 .PP
-CVE\-2022\-22536, CVE\-2023\-41265, CVE\-2023\-48365, CVE\-2026\-48710.
+SAP Multiple Products HTTP Request Smuggling Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SAP NetWeaver Application Server ABAP, SAP NetWeaver Application Server Java, ABAP Platform, SAP Content Server and SAP Web Dispatcher allow HTTP request smuggling. An unauthenticated attacker can prepend a victim's request with arbitrary data, allowing for function execution impersonating the victim or poisoning intermediary Web caches.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-09\-08.
+.PP
+\fIReferences:\fR
+.br
+https://accounts.sap.com/saml2/idp/sso
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-22536
+.SS CVE\-2023\-41265
+Qlik Sense, added 2023\-12\-07, ransomware: Known.
+.PP
+Qlik Sense HTTP Tunneling Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Qlik Sense contains an HTTP tunneling vulnerability that allows an attacker to escalate privileges and execute HTTP requests on the backend server hosting the software.
+.PP
+\fIRemediation:\fR
+Apply remediations or mitigations per vendor instructions or discontinue use of the product if remediation or mitigations are unavailable.
+ Due 2023\-12\-28.
+.PP
+\fIReferences:\fR
+.br
+https://community.qlik.com/t5/Official\-Support\-Articles/Critical\-Security\-fixes\-for\-Qlik\-Sense\-Enterprise\-for\-Windows/ta\-p/2110801
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-41265
+.SS CVE\-2023\-48365
+Qlik Sense, added 2025\-01\-13, ransomware: Known.
+.PP
+Qlik Sense HTTP Tunneling Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Qlik Sense contains an HTTP tunneling vulnerability that allows an attacker to escalate privileges and execute HTTP requests on the backend server hosting the software.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-02\-03.
+.PP
+\fIReferences:\fR
+.br
+https://community.qlik.com/t5/Official\-Support\-Articles/Critical\-Security\-fixes\-for\-Qlik\-Sense\-Enterprise\-for\-Windows/tac\-p/2120510
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-48365
+.SS CVE\-2026\-48710
+Kludex Starlette, added 2026\-09\-02.
+.PP
+Kludex Starlette HTTP Request/Response Smuggling Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Kludex Starlette contains a HTTP request/response smuggling vulnerability that could allow attackers to inject paths into the host part, prepending the actual path leading to issues such as authentication bypass when the authentication depends on the reconstructed URL’s path. This vulnerability could be chaned with CVE\-2026\-42271.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-16.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/Kludex/starlette/security/advisories/GHSA\-86qp\-5c8j\-p5mr
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-48710
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +91,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/444.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

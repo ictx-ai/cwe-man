@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-400 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-400 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-400 \- Uncontrolled Resource Consumption
 .SH RANK
@@ -9,9 +9,90 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product does not properly control the allocation and maintenance of a limited resource, thereby enabling an actor to influence the amount of resources consumed, eventually leading to the exhaustion of available resources. Limited resources include memory, file system storage, database connection pool entries, and CPU. If an attacker can trigger the allocation of these limited resources, but the number or size of the resources is not controlled, then the attacker could cause a denial of service that consumes all available resources. This would prevent valid users from accessing the product, and it could potentially have an impact on the surrounding environment. For example, a memory exhaustion attack against an application could slow down the application as well as its host operating system. There are at least three distinct scenarios which can commonly lead to resource exhaustion: Lack of throttling for the number of allocated resources Losing all references to a resource before reaching the shutdown stage Not closing/returning a resource after processing Resource exhaustion problems are often result due to an incorrect implementation of the following situations: Error conditions and other exceptional circumstances. Confusion over which part of the program is responsible for releasing the resource.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB5\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB5\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2020\-3566
+Cisco IOS XR, added 2021\-11\-03.
 .PP
-CVE\-2020\-3566, CVE\-2020\-3569, CVE\-2021\-44228, CVE\-2023\-44487, CVE\-2026\-28318.
+Cisco IOS XR Software DVMRP Memory Exhaustion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Cisco IOS XR Distance Vector Multicast Routing Protocol (DVMRP) incorrectly handles Internet Group Management Protocol (IGMP) packets. Exploitation could allow an unauthenticated, remote attacker to immediately crash the IGMP process or make it consume available memory and eventually crash.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-3566
+.SS CVE\-2020\-3569
+Cisco IOS XR, added 2021\-11\-03.
+.PP
+Cisco IOS XR Software DVMRP Memory Exhaustion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Cisco IOS XR Distance Vector Multicast Routing Protocol (DVMRP) incorrectly handles Internet Group Management Protocol (IGMP) packets. Exploitation could allow an unauthenticated, remote attacker to immediately crash the IGMP process or make it consume available memory and eventually crash.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-3569
+.SS CVE\-2021\-44228
+Apache Log4j2, added 2021\-12\-10, ransomware: Known.
+.PP
+Apache Log4j2 Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apache Log4j2 contains a vulnerability where JNDI features do not protect against attacker\-controlled JNDI\-related endpoints, allowing for remote code execution.
+.PP
+\fIRemediation:\fR
+For all affected software assets for which updates exist, the only acceptable remediation actions are: 1) Apply updates; OR 2) remove affected assets from agency networks. Temporary mitigations using one of the measures provided at https://www.cisa.gov/uscert/ed\-22\-02\-apache\-log4j\-recommended\-mitigation\-measures are only acceptable until updates are available.
+ Due 2021\-12\-24.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-44228
+.SS CVE\-2023\-44487
+IETF HTTP/2, added 2023\-10\-10.
+.PP
+HTTP/2 Rapid Reset Attack Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+HTTP/2 contains a rapid reset vulnerability that allows for a distributed denial\-of\-service attack (DDoS).
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-10\-31.
+.PP
+\fIReferences:\fR
+.br
+https://www.cisa.gov/news\-events/alerts/2023/10/10/http2\-rapid\-reset\-vulnerability\-cve\-2023\-44487
+.br
+https://blog.cloudflare.com/technical\-breakdown\-http2\-rapid\-reset\-ddos\-attack/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-44487
+.SS CVE\-2026\-28318
+SolarWinds Serv\-U, added 2026\-06\-05.
+.PP
+SolarWinds Serv\-U Uncontrolled Resource Consumption Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SolarWinds Serv\-U contains an uncontrolled resource consumption vulnerability that allows specially crafted POST requests using the Content\-Encoding: deflate header to crash the Serv\-U service without authentication.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-06\-19.
+.PP
+\fIReferences:\fR
+.br
+https://www.solarwinds.com/trust\-center/security\-advisories/cve\-2026\-28318
+.br
+https://documentation.solarwinds.com/en/success_center/servu/content/release_notes/servu_15\-5\-4\-hotfix\-1_release_notes.htm#link7
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-28318
 .SH EXAMPLES
 One vulnerable\->fixed pair per ecosystem (Node.js).
 .SS Node.js
@@ -34,4 +115,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/400.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

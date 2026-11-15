@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-367 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-367 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-367 \- Time\-of\-check Time\-of\-use (TOCTOU) Race Condition
 .SH RANK
@@ -9,9 +9,123 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product checks the state of a resource before using that resource, but the resource's state can change between the check and the use in a way that invalidates the results of the check. This can cause the product to perform invalid actions when the resource is in an unexpected state. This weakness can be security\-relevant when an attacker can influence the state of the resource between check and use. This can happen with shared resources such as files, memory, or even variables in multithreaded programs.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB6\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB6\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2022\-48618
+Apple Multiple Products, added 2024\-01\-31.
 .PP
-CVE\-2022\-48618, CVE\-2023\-35311, CVE\-2024\-30088, CVE\-2025\-22224, CVE\-2025\-38352, CVE\-2026\-119977.
+Apple Multiple Products Memory Corruption Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apple iOS, iPadOS, macOS, tvOS, and watchOS contain a time\-of\-check/time\-of\-use (TOCTOU) memory corruption vulnerability that allows an attacker with read and write capabilities to bypass Pointer Authentication.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-02\-21.
+.PP
+\fIReferences:\fR
+.br
+https://support.apple.com/en\-us/HT213530
+.br
+https://support.apple.com/en\-us/HT213532
+.br
+https://support.apple.com/en\-us/HT213535
+.br
+https://support.apple.com/en\-us/HT213536
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-48618
+.SS CVE\-2023\-35311
+Microsoft Outlook, added 2023\-07\-11.
+.PP
+Microsoft Outlook Security Feature Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Outlook contains a security feature bypass vulnerability that allows an attacker to bypass the Microsoft Outlook Security Notice prompt.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-08\-01.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2023\-35311
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-35311
+.SS CVE\-2024\-30088
+Microsoft Windows, added 2024\-10\-15, ransomware: Known.
+.PP
+Microsoft Windows Kernel TOCTOU Race Condition Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Kernel contains a time\-of\-check to time\-of\-use (TOCTOU) race condition vulnerability that could allow for privilege escalation.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-11\-05.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2024\-30088
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-30088
+.SS CVE\-2025\-22224
+VMware ESXi and Workstation, added 2025\-03\-04.
+.PP
+VMware ESXi and Workstation TOCTOU Race Condition Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+VMware ESXi and Workstation contain a time\-of\-check time\-of\-use (TOCTOU) race condition vulnerability that leads to an out\-of\-bounds write. Successful exploitation enables an attacker with local administrative privileges on a virtual machine to execute code as the virtual machine's VMX process running on the host.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-03\-25.
+.PP
+\fIReferences:\fR
+.br
+https://support.broadcom.com/web/ecx/support\-content\-notification/\-/external/content/SecurityAdvisories/0/25390
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-22224
+.SS CVE\-2025\-38352
+Linux Kernel, added 2025\-09\-04.
+.PP
+Linux Kernel Time\-of\-Check Time\-of\-Use (TOCTOU) Race Condition Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Linux kernel contains a time\-of\-check time\-of\-use (TOCTOU) race condition vulnerability that has a high impact on confidentiality, integrity, and availability.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-09\-25.
+.PP
+\fIReferences:\fR
+.br
+https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?id=2c72fe18cc5f9f1750f5bc148cf1c94c29e106ff
+.br
+https://source.android.com/docs/security/bulletin/2025\-09\-01
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-38352
+.SS CVE\-2026\-119977
+WordPress WordPress Core, added 2026\-11\-03.
+.PP
+WordPress WordPress Core Time\-of\-check Time\-of\-use (TOCTOU) Race Condition Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+WordPress WordPress Core contains a time\-of\-check time\-of\-use (TOCTOU) race condition vulnerability that could allow unauthenticated attackers to execute code on the server during the upgrade window. This is due to predictable, web\-accessible staging paths used during full\-package core upgrades.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-11\-06.
+.PP
+\fIReferences:\fR
+.br
+https://wordpress.org/news/2026/10/wordpress\-7\-1\-4
+.br
+https://www.wordfence.com/threat\-intel/vulnerabilities/wordpress\-core/wordpress\-core\-470\-713\-unauthenticated\-upgrade\-window\-staged\-installer\-remote\-code\-execution
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-119977
 .SH EXAMPLES
 One vulnerable\->fixed pair per ecosystem (Python).
 .SS Python
@@ -37,4 +151,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/367.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

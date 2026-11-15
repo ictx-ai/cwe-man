@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-290 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-290 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-290 \- Authentication Bypass by Spoofing
 .SH RANK
@@ -9,9 +9,149 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 This attack\-focused weakness is caused by incorrectly implemented authentication schemes that are subject to spoofing attacks.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB8\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB8\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2022\-23131
+Zabbix Frontend, added 2022\-02\-22.
 .PP
-CVE\-2022\-23131, CVE\-2022\-24112, CVE\-2023\-50224, CVE\-2024\-4358, CVE\-2024\-54085, CVE\-2026\-102764, CVE\-2026\-102895, CVE\-2026\-104935.
+Zabbix Frontend Authentication Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Unsafe client\-side session storage leading to authentication bypass/instance takeover via Zabbix Frontend with configured SAML.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-03\-08.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-23131
+.SS CVE\-2022\-24112
+Apache APISIX, added 2022\-08\-25.
+.PP
+Apache APISIX Authentication Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apache APISIX contains an authentication bypass vulnerability that allows for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-09\-15.
+.PP
+\fIReferences:\fR
+.br
+https://lists.apache.org/thread/lcdqywz8zy94mdysk7p3gfdgn51jmt94
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-24112
+.SS CVE\-2023\-50224
+TP\-Link TL\-WR841N, added 2025\-09\-03.
+.PP
+TP\-Link TL\-WR841N Authentication Bypass by Spoofing Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+TP\-Link TL\-WR841N contains an authentication bypass by spoofing vulnerability within the httpd service, which listens on TCP port 80 by default, leading to the disclose of stored credentials. The impacted products could be end\-of\-life (EoL) and/or end\-of\-service (EoS). Users should discontinue product utilization.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-09\-24.
+.PP
+\fIReferences:\fR
+.br
+https://www.tp\-link.com/us/support/faq/4308/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-50224
+.SS CVE\-2024\-4358
+Progress Telerik Report Server, added 2024\-06\-13.
+.PP
+Progress Telerik Report Server Authentication Bypass by Spoofing Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Progress Telerik Report Server contains an authorization bypass by spoofing vulnerability that allows an attacker to obtain unauthorized access.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-07\-04.
+.PP
+\fIReferences:\fR
+.br
+https://docs.telerik.com/report\-server/knowledge\-base/registration\-auth\-bypass\-cve\-2024\-4358
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-4358
+.SS CVE\-2024\-54085
+AMI MegaRAC SPx, added 2025\-06\-25.
+.PP
+AMI MegaRAC SPx Authentication Bypass by Spoofing Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+AMI MegaRAC SPx contains an authentication bypass by spoofing vulnerability in the Redfish Host Interface. A successful exploitation of this vulnerability may lead to a loss of confidentiality, integrity, and/or availability.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-07\-16.
+.PP
+\fIReferences:\fR
+.br
+https://go.ami.com/hubfs/Security%20Advisories/2025/AMI\-SA\-2025003.pdf
+.br
+https://security.netapp.com/advisory/ntap\-20250328\-0003/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-54085
+.SS CVE\-2026\-102764
+BeyondTrust Remote Support, added 2026\-10\-16.
+.PP
+BeyondTrust Remote Support Authentication Bypass by Spoofing Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+BeyondTrust Remote Support contains an authentication bypass by spoofing vulnerability that could allow a remote attacker to perform file operations on the appliance.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-10\-19.
+.PP
+\fIReferences:\fR
+.br
+https://www.beyondtrust.com/trust\-center/security\-advisories/bt26\-05
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-102764
+.SS CVE\-2026\-102895
+GPUStack GPUStack, added 2026\-11\-09.
+.PP
+GPUStack Improper Authentication Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+GPUStack contains an improper authentication vulnerability which could allow unauthenticated administrative access, including user and model changes, persistent administrator API\-key creation, disclosure of worker and cloud\-provider secrets, and code execution through POST /v2/inference\-backends/from\-yaml.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-11\-12.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/gpustack/gpustack/security/advisories/GHSA\-gj9m\-f8ph\-pmhr
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-102895
+.SS CVE\-2026\-104935
+Ivanti Connect Secure, added 2026\-10\-13.
+.PP
+Ivanti Connect Secure Authentication Bypass by Spoofing Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ivanti Connect Secure contains an authentication bypass by spoofing vulnerability that allows a remote unauthenticated attacker to execute arbitrary commands.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-10\-16.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-104935
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +161,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/290.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

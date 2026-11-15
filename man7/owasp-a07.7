@@ -1,0 +1,136 @@
+.\" OWASP Top 10 overlay. Generated, not hand-edited.
+.TH OWASP-A07 7 "2026-11-15" "OWASP Top 10:2025" "Software Weakness Reference"
+.SH NAME
+owasp\-a07 \- Authentication Failures (OWASP Top 10:2025 A07)
+.SH RANK
+OWASP Top 10:2025 rank \fB#7\fR (A07:2021 Identification and Authentication Failures).
+.SH DESCRIPTION
+Login, session, and credential handling fail: hard\-coded passwords, broken certificate checks, missing authentication on a critical function, session fixation.
+.PP
+This page is an overlay. Vulnerable\->fixed code lives on the \fBcwe\-*\fR(7) pages listed below, not here.
+.SH MAPPED CWES
+Official mapping: \fB36\fR CWEs (OWASP count 36). \fBman\fR after a CWE id if that page exists in this set.
+.PP
+.TS
+l l r lx.
+PAGE	CWE	KEV	NAME
+_
+\(em	CWE\-258	0	T{
+Empty Password in Configuration File
+T}
+cwe\-259(7)	CWE\-259	2	T{
+Use of Hard\-coded Password
+T}
+cwe\-287(7)	CWE\-287	50	T{
+Improper Authentication
+T}
+cwe\-288(7)	CWE\-288	22	T{
+Authentication Bypass Using an Alternate Path or Channel
+T}
+\(em	CWE\-289	0	T{
+Authentication Bypass by Alternate Name
+T}
+cwe\-290(7)	CWE\-290	8	T{
+Authentication Bypass by Spoofing
+T}
+\(em	CWE\-291	0	T{
+Reliance on IP Address for Authentication
+T}
+\(em	CWE\-293	0	T{
+Using Referer Field for Authentication
+T}
+cwe\-294(7)	CWE\-294	1	T{
+Authentication Bypass by Capture\-replay
+T}
+cwe\-295(7)	CWE\-295	5	T{
+Improper Certificate Validation
+T}
+\(em	CWE\-297	0	T{
+Improper Validation of Certificate with Host Mismatch
+T}
+\(em	CWE\-298	0	T{
+Improper Validation of Certificate Expiration
+T}
+\(em	CWE\-299	0	T{
+Improper Check for Certificate Revocation
+T}
+\(em	CWE\-300	0	T{
+Channel Accessible by Non\-Endpoint
+T}
+\(em	CWE\-302	0	T{
+Authentication Bypass by Assumed\-Immutable Data
+T}
+cwe\-303(7)	CWE\-303	2	T{
+Incorrect Implementation of Authentication Algorithm
+T}
+\(em	CWE\-304	0	T{
+Missing Critical Step in Authentication
+T}
+cwe\-305(7)	CWE\-305	2	T{
+Authentication Bypass by Primary Weakness
+T}
+cwe\-306(7)	CWE\-306	43	T{
+Missing Authentication for Critical Function
+T}
+\(em	CWE\-307	0	T{
+Improper Restriction of Excessive Authentication Attempts
+T}
+cwe\-308(7)	CWE\-308	1	T{
+Use of Single\-factor Authentication
+T}
+\(em	CWE\-309	0	T{
+Use of Password System for Primary Authentication
+T}
+cwe\-346(7)	CWE\-346	2	T{
+Origin Validation Error
+T}
+\(em	CWE\-350	0	T{
+Reliance on Reverse DNS Resolution for a Security\-Critical Action
+T}
+cwe\-384(7)	CWE\-384	1	T{
+Session Fixation
+T}
+cwe\-521(7)	CWE\-521	1	T{
+Weak Password Requirements
+T}
+\(em	CWE\-613	0	T{
+Insufficient Session Expiration
+T}
+\(em	CWE\-620	0	T{
+Unverified Password Change
+T}
+\(em	CWE\-640	0	T{
+Weak Password Recovery Mechanism for Forgotten Password
+T}
+cwe\-798(7)	CWE\-798	8	T{
+Use of Hard\-coded Credentials
+T}
+cwe\-940(7)	CWE\-940	2	T{
+Improper Verification of Source of a Communication Channel
+T}
+\(em	CWE\-941	0	T{
+Incorrectly Specified Destination in a Communication Channel
+T}
+cwe\-1390(7)	CWE\-1390	3	T{
+Weak Authentication
+T}
+\(em	CWE\-1391	0	T{
+Use of Weak Credentials
+T}
+\(em	CWE\-1392	0	T{
+Use of Default Credentials
+T}
+cwe\-1393(7)	CWE\-1393	1	T{
+Use of Default Password
+T}
+.TE
+.PP
+PAGE \(em means there is no local \fBcwe\-*\fR(7) for that id (not Top 25 and not in KEV). MITRE still defines it.
+.SH SEE ALSO
+\fBowasp\fR(7), \fBcwe\-259\fR(7), \fBcwe\-287\fR(7), \fBcwe\-288\fR(7), \fBcwe\-290\fR(7), \fBcwe\-294\fR(7), \fBcwe\-295\fR(7), \fBcwe\-303\fR(7), \fBcwe\-305\fR(7), \fBcwe\-306\fR(7), \fBcwe\-308\fR(7), \fBcwe\-346\fR(7), \fBcwe\-384\fR(7), \fBcwe\-521\fR(7), \fBcwe\-798\fR(7), \fBcwe\-940\fR(7), \fBcwe\-1390\fR(7), \fBcwe\-1393\fR(7).
+.PP
+https://owasp.org/Top10/2025/A07_2025-Authentication_Failures/
+.SH NOTES
+OWASP categories group many CWEs. They are not a replacement for the CWE or KEV pages.
+.PP
+Generated 2026\-11\-15 from OWASP Top 10:2025.

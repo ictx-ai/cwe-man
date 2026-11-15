@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-346 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-346 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-346 \- Origin Validation Error
 .SH RANK
@@ -9,9 +9,49 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product does not properly verify that the source of data or communication is valid.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB2\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB2\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2025\-34291
+Langflow Langflow, added 2026\-05\-21.
 .PP
-CVE\-2025\-34291, CVE\-2026\-102895.
+Langflow Origin Validation Error Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Langflow contains an origin validation error vulnerability in which an overly permissive CORS configuration combined with a refresh token cookie configured as SameSite=None allows a malicious webpage to perform cross\-origin requests that include credentials and successfully call the refresh endpoint. This could allow the attacker to execute arbitrary code and achieve full system compromise via obtained tokens that permit access to authenticated endpoints.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-06\-04.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/langflow\-ai/langflow
+.br
+https://github.com/langflow\-ai/langflow/releases/tag/v1.9.3
+.br
+https://github.com/langflow\-ai/langflow/issues/11465#event\-25774545848
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-34291
+.SS CVE\-2026\-102895
+GPUStack GPUStack, added 2026\-11\-09.
+.PP
+GPUStack Improper Authentication Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+GPUStack contains an improper authentication vulnerability which could allow unauthenticated administrative access, including user and model changes, persistent administrator API\-key creation, disclosure of worker and cloud\-provider secrets, and code execution through POST /v2/inference\-backends/from\-yaml.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-11\-12.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/gpustack/gpustack/security/advisories/GHSA\-gj9m\-f8ph\-pmhr
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-102895
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +61,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/346.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

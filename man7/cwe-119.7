@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-119 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-119 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-119 \- Improper Restriction of Operations within the Bounds of a Memory Buffer
 .SH RANK
@@ -9,9 +9,1415 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product performs operations on a memory buffer, but it can read from or write to a memory location that is outside of the intended boundary of the buffer. Certain languages allow direct addressing of memory locations and do not automatically ensure that these locations are valid for the memory buffer that is being referenced. This can cause read or write operations to be performed on memory locations that may be associated with other variables, data structures, or internal program data. As a result, an attacker may be able to execute arbitrary code, alter the intended control flow, read sensitive information, or cause the system to crash.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB88\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB88\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2007\-5659
+Adobe Acrobat and Reader, added 2022\-06\-08.
 .PP
-CVE\-2007\-5659, CVE\-2008\-2992, CVE\-2009\-0563, CVE\-2009\-3459, CVE\-2009\-3953, CVE\-2010\-2572, CVE\-2010\-2883, CVE\-2010\-3333, CVE\-2010\-4344, CVE\-2010\-4398, CVE\-2011\-1889, CVE\-2012\-1889, CVE\-2012\-2034, CVE\-2013\-1331, CVE\-2013\-1675, CVE\-2013\-1690, CVE\-2013\-2597, CVE\-2013\-3346, CVE\-2013\-3660, CVE\-2014\-1761, CVE\-2014\-3931, CVE\-2014\-4404, CVE\-2014\-6332, CVE\-2014\-8439, CVE\-2015\-1642, CVE\-2015\-2360, CVE\-2015\-2419, CVE\-2015\-2424, CVE\-2015\-2425, CVE\-2015\-2426, CVE\-2015\-2502, CVE\-2015\-2546, CVE\-2015\-3113, CVE\-2015\-5119, CVE\-2016\-0189, CVE\-2016\-1646, CVE\-2016\-4523, CVE\-2016\-4657, CVE\-2016\-6366, CVE\-2016\-7193, CVE\-2016\-7200, CVE\-2016\-7201, CVE\-2016\-10174, CVE\-2017\-0005, CVE\-2017\-0101, CVE\-2017\-0149, CVE\-2017\-0222, CVE\-2017\-6736, CVE\-2017\-6737, CVE\-2017\-6738, CVE\-2017\-6739, CVE\-2017\-6740, CVE\-2017\-6742, CVE\-2017\-6743, CVE\-2017\-6744, CVE\-2017\-6862, CVE\-2017\-7269, CVE\-2017\-8540, CVE\-2017\-11774, CVE\-2017\-11826, CVE\-2017\-11882, CVE\-2017\-1000253, CVE\-2018\-0151, CVE\-2018\-0167, CVE\-2018\-0175, CVE\-2018\-4344, CVE\-2018\-6789, CVE\-2018\-7445, CVE\-2019\-8720, CVE\-2020\-0796, CVE\-2020\-29557, CVE\-2021\-22991, CVE\-2021\-30666, CVE\-2021\-30983, CVE\-2021\-31979, CVE\-2021\-33771, CVE\-2022\-22706, CVE\-2023\-4966, CVE\-2023\-6549, CVE\-2025\-6543, CVE\-2025\-7775, CVE\-2025\-31277, CVE\-2026\-3910, CVE\-2026\-8452, CVE\-2026\-20700, CVE\-2026\-88771, CVE\-2026\-88772, CVE\-2026\-88779.
+Adobe Acrobat and Reader Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Adobe Acrobat and Reader contain a buffer overflow vulnerability that allows remote attackers to execute code via a PDF file with long arguments to unspecified JavaScript methods.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-22.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2007\-5659
+.SS CVE\-2008\-2992
+Adobe Acrobat and Reader, added 2022\-03\-03, ransomware: Known.
+.PP
+Adobe Reader and Acrobat Input Validation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Adobe Acrobat and Reader contain an input validation issue in a JavaScript method that could potentially lead to remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-03\-24.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2008\-2992
+.SS CVE\-2009\-0563
+Microsoft Office, added 2022\-06\-08.
+.PP
+Microsoft Office Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Office contains a buffer overflow vulnerability that allows remote attackers to execute code via a Word document with a crafted tag containing an invalid length field.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-22.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2009\-0563
+.SS CVE\-2009\-3459
+Adobe Acrobat and Reader, added 2026\-05\-20.
+.PP
+Adobe Acrobat and Reader Heap\-Based Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Adobe Acrobat and Reader contain a heap\-based buffer overflow vulnerability which could allow remote attackers to execute arbitrary code via a crafted PDF file that triggers memory corruption.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-06\-03.
+.PP
+\fIReferences:\fR
+.br
+https://www.cisa.gov/news\-events/alerts/2009/10/13/adobe\-reader\-and\-acrobat\-vulnerabilities
+.br
+https://web.archive.org/web/20120324170253/http://www.adobe.com/support/security/bulletins/apsb09\-15.html#:~:text=CVE%2D2009%2D3459).\-,NOTE%3A,\-There%20are%20reports
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2009\-3459
+.SS CVE\-2009\-3953
+Adobe Acrobat and Reader, added 2022\-06\-08.
+.PP
+Adobe Acrobat and Reader Universal 3D Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Adobe Acrobat and Reader contains an array boundary issue in Universal 3D (U3D) support that could lead to remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-22.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2009\-3953
+.SS CVE\-2010\-2572
+Microsoft PowerPoint, added 2022\-06\-08.
+.PP
+Microsoft PowerPoint Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft PowerPoint contains a buffer overflow vulnerability that alllows for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-22.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2010\-2572
+.SS CVE\-2010\-2883
+Adobe Acrobat and Reader, added 2022\-06\-08.
+.PP
+Adobe Acrobat and Reader Stack\-Based Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Adobe Acrobat and Reader contain a stack\-based buffer overflow vulnerability that allows remote attackers to execute code or cause denial\-of\-service (DoS).
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-22.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2010\-2883
+.SS CVE\-2010\-3333
+Microsoft Office, added 2022\-03\-03.
+.PP
+Microsoft Office Stack\-based Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A stack\-based buffer overflow vulnerability exists in the parsing of RTF data in Microsoft Office and earlier allows an attacker to perform remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-03\-24.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2010\-3333
+.SS CVE\-2010\-4344
+Exim Exim, added 2022\-03\-25.
+.PP
+Exim Heap\-Based Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Heap\-based buffer overflow in the string_vformat function in string.c in Exim before 4.70 allows remote attackers to execute arbitrary code via an SMTP session.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2010\-4344
+.SS CVE\-2010\-4398
+Microsoft Windows, added 2022\-03\-28.
+.PP
+Microsoft Windows Kernel Stack\-Based Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Stack\-based buffer overflow in the RtlQueryRegistryValues function in win32k.sys in Microsoft Windows allows local users to gain privileges, and bypass the User Account Control (UAC) feature.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-21.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2010\-4398
+.SS CVE\-2011\-1889
+Microsoft Forefront Threat Management Gateway (TMG), added 2022\-03\-03.
+.PP
+Microsoft Forefront TMG Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A remote code execution vulnerability exists in the Forefront Threat Management Gateway (TMG) Firewall Client Winsock provider that could allow code execution in the security context of the client application.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-03\-24.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2011\-1889
+.SS CVE\-2012\-1889
+Microsoft XML Core Services, added 2022\-06\-08.
+.PP
+Microsoft XML Core Services Memory Corruption Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft XML Core Services contains a memory corruption vulnerability which could allow for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-22.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2012\-1889
+.SS CVE\-2012\-2034
+Adobe Flash Player, added 2022\-03\-28.
+.PP
+Adobe Flash Player Memory Corruption Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Adobe Flash Player contains a memory corruption vulnerability that allows for remote code execution or denial\-of\-service (DoS).
+.PP
+\fIRemediation:\fR
+The impacted product is end\-of\-life and should be disconnected if still in use.
+ Due 2022\-04\-18.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2012\-2034
+.SS CVE\-2013\-1331
+Microsoft Office, added 2022\-06\-08.
+.PP
+Microsoft Office Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Office contains a buffer overflow vulnerability that allows remote attackers to execute code via crafted PNG data in an Office document.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-22.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2013\-1331
+.SS CVE\-2013\-1675
+Mozilla Firefox, added 2022\-03\-03.
+.PP
+Mozilla Firefox Information Disclosure Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Mozilla Firefox does not properly initialize data structures for the nsDOMSVGZoomEvent::mPreviousScale and nsDOMSVGZoomEvent::mNewScale functions, which allows remote attackers to obtain sensitive information from process memory via a crafted web site.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-03\-24.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2013\-1675
+.SS CVE\-2013\-1690
+Mozilla Firefox and Thunderbird, added 2022\-03\-28.
+.PP
+Mozilla Firefox and Thunderbird Denial\-of\-Service Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Mozilla Firefox and Thunderbird do not properly handle onreadystatechange events in conjunction with page reloading, which allows remote attackers to cause a denial\-of\-service (DoS) or possibly execute malicious code via a crafted web site.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-18.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2013\-1690
+.SS CVE\-2013\-2597
+Code Aurora ACDB Audio Driver, added 2022\-09\-15.
+.PP
+Code Aurora ACDB Audio Driver Stack\-based Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The Code Aurora audio calibration database (acdb) audio driver contains a stack\-based buffer overflow vulnerability that allows for privilege escalation. Code Aurora is used in third\-party products such as Qualcomm and Android.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-10\-06.
+.PP
+\fIReferences:\fR
+.br
+https://web.archive.org/web/20161226013354/https:/www.codeaurora.org/news/security\-advisories/stack\-based\-buffer\-overflow\-acdb\-audio\-driver\-cve\-2013\-2597
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2013\-2597
+.SS CVE\-2013\-3346
+Adobe Reader and Acrobat, added 2022\-03\-03.
+.PP
+Adobe Reader and Acrobat Memory Corruption Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Adobe Reader and Acrobat contain a memory corruption vulnerability which can allow attackers to execute arbitrary code or cause a denial of service.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-03\-24.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2013\-3346
+.SS CVE\-2013\-3660
+Microsoft Win32k, added 2022\-03\-28.
+.PP
+Microsoft Win32k Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The EPATHOBJ::pprFlattenRec function in win32k.sys in the kernel\-mode drivers in Microsoft does not properly initialize a pointer for the next object in a certain list, which allows local users to gain privileges.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-18.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2013\-3660
+.SS CVE\-2014\-1761
+Microsoft Word, added 2022\-02\-15.
+.PP
+Microsoft Word Memory Corruption Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Word contains a memory corruption vulnerability which when exploited could allow for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-08\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2014\-1761
+.SS CVE\-2014\-3931
+Looking Glass Multi\-Router Looking Glass (MRLG), added 2025\-07\-07.
+.PP
+Multi\-Router Looking Glass (MRLG) Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Multi\-Router Looking Glass (MRLG) contains a buffer overflow vulnerability that could allow remote attackers to cause an arbitrary memory write and memory corruption.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-07\-28.
+.PP
+\fIReferences:\fR
+.br
+https://mrlg.op\-sec.us/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2014\-3931
+.SS CVE\-2014\-4404
+Apple OS X, added 2022\-02\-10.
+.PP
+Apple OS X Heap\-Based Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Heap\-based buffer overflow in IOHIDFamily in Apple OS X, which affects, iOS before 8 and Apple TV before 7, allows attackers to execute arbitrary code in a privileged context.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-08\-10.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2014\-4404
+.SS CVE\-2014\-6332
+Microsoft Windows, added 2022\-03\-25.
+.PP
+Microsoft Windows Object Linking & Embedding (OLE) Automation Array Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+OleAut32.dll in OLE in Microsoft Windows allows remote attackers to remotely execute code via a crafted web site.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2014\-6332
+.SS CVE\-2014\-8439
+Adobe Flash Player, added 2022\-05\-25.
+.PP
+Adobe Flash Player Dereferenced Pointer Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Adobe Flash Player has a vulnerability in the way it handles a dereferenced memory pointer which could lead to code execution.
+.PP
+\fIRemediation:\fR
+The impacted product is end\-of\-life and should be disconnected if still in use.
+ Due 2022\-06\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2014\-8439
+.SS CVE\-2015\-1642
+Microsoft Office, added 2022\-03\-03.
+.PP
+Microsoft Office Memory Corruption Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Office contains a memory corruption vulnerability that allows remote attackers to execute arbitrary code via a crafted document.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-03\-24.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2015\-1642
+.SS CVE\-2015\-2360
+Microsoft Win32k, added 2022\-05\-25.
+.PP
+Microsoft Win32k Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Win32k.sys in the kernel\-mode drivers in Microsoft Windows allows local users to gain privileges or cause denial\-of\-service (DoS).
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2015\-2360
+.SS CVE\-2015\-2419
+Microsoft Internet Explorer, added 2022\-03\-28.
+.PP
+Microsoft Internet Explorer Memory Corruption Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+JScript in Microsoft Internet Explorer allows remote attackers to execute remote code or cause a denial of service (memory corruption) via a crafted web site.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-18.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2015\-2419
+.SS CVE\-2015\-2424
+Microsoft PowerPoint, added 2022\-03\-03.
+.PP
+Microsoft PowerPoint Memory Corruption Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft PowerPoint allows remote attackers to execute arbitrary code or cause a denial of service (memory corruption) via a crafted Office document.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-03\-24.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2015\-2424
+.SS CVE\-2015\-2425
+Microsoft Internet Explorer, added 2022\-05\-25.
+.PP
+Microsoft Internet Explorer Memory Corruption Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Internet Explorer contains a memory corruption vulnerability that allows remote attackers to execute code or cause denial\-of\-service (DoS).
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2015\-2425
+.SS CVE\-2015\-2426
+Microsoft Windows, added 2022\-03\-28.
+.PP
+Microsoft Windows Adobe Type Manager Library Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A remote code execution vulnerability exists in Microsoft Windows when the Windows Adobe Type Manager Library improperly handles specially crafted OpenType fonts.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-18.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2015\-2426
+.SS CVE\-2015\-2502
+Microsoft Internet Explorer, added 2022\-04\-13.
+.PP
+Microsoft Internet Explorer Memory Corruption Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Internet Explorer contains a memory corruption vulnerability that allows an attacker to execute code or cause a denial\-of\-service (DoS).
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-04.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2015\-2502
+.SS CVE\-2015\-2546
+Microsoft Win32k, added 2022\-03\-15, ransomware: Known.
+.PP
+Microsoft Win32k Memory Corruption Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The kernel\-mode driver in Microsoft Windows OS and Server allows local users to gain privileges via a crafted application.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-05.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2015\-2546
+.SS CVE\-2015\-3113
+Adobe Flash Player, added 2022\-04\-13.
+.PP
+Adobe Flash Player Heap\-Based Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Heap\-based buffer overflow vulnerability in Adobe Flash Player allows remote attackers to execute code.
+.PP
+\fIRemediation:\fR
+The impacted product is end\-of\-life and should be disconnected if still in use.
+ Due 2022\-05\-04.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2015\-3113
+.SS CVE\-2015\-5119
+Adobe Flash Player, added 2022\-03\-03.
+.PP
+Adobe Flash Player Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A use\-after\-free vulnerability exists within the ActionScript 3 ByteArray class in Adobe Flash Player that allows an attacker to perform remote code execution.
+.PP
+\fIRemediation:\fR
+The impacted product is end\-of\-life and should be disconnected if still in use.
+ Due 2022\-03\-24.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2015\-5119
+.SS CVE\-2016\-0189
+Microsoft Internet Explorer, added 2022\-03\-28, ransomware: Known.
+.PP
+Microsoft Internet Explorer Memory Corruption Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The Microsoft JScript nd VBScript engines, as used in Internet Explorer and other products, allow attackers to execute remote code or cause a denial of service (memory corruption) via a crafted web site.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-18.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2016\-0189
+.SS CVE\-2016\-1646
+Google Chromium V8, added 2022\-06\-08.
+.PP
+Google Chromium V8 Out\-of\-Bounds Read Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium V8 Engine contains an out\-of\-bounds read vulnerability that allows a remote attacker to cause a denial of service or possibly have another unspecified impact via crafted JavaScript code. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-22.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2016\-1646
+.SS CVE\-2016\-4523
+Trihedral VTScada (formerly VTS), added 2022\-04\-15.
+.PP
+Trihedral VTScada (formerly VTS) Denial\-of\-Service Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The WAP interface in Trihedral VTScada (formerly VTS) allows remote attackers to cause a denial\-of\-service (DoS).
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-06.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2016\-4523
+.SS CVE\-2016\-4657
+Apple iOS, added 2022\-05\-24.
+.PP
+Apple iOS Webkit Memory Corruption Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apple iOS WebKit contains a memory corruption vulnerability that allows attackers to execute remote code or cause a denial\-of\-service (DoS) via a crafted web site. This vulnerability could impact HTML parsers that use WebKit, including but not limited to Apple Safari and non\-Apple products which rely on WebKit for HTML processing.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-14.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2016\-4657
+.SS CVE\-2016\-6366
+Cisco Adaptive Security Appliance (ASA), added 2022\-05\-24.
+.PP
+Cisco Adaptive Security Appliance (ASA) SNMP Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A buffer overflow vulnerability in the Simple Network Management Protocol (SNMP) code of Cisco ASA software could allow an attacker to cause a reload of the affected system or to remotely execute code.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-14.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2016\-6366
+.SS CVE\-2016\-7193
+Microsoft Office, added 2022\-03\-03.
+.PP
+Microsoft Office Memory Corruption Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Office contains a memory corruption vulnerability which can allow for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-03\-24.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2016\-7193
+.SS CVE\-2016\-7200
+Microsoft Edge, added 2022\-03\-28.
+.PP
+Microsoft Edge Memory Corruption Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The Chakra JavaScript scripting engine in Microsoft Edge allows remote attackers to execute remote code or cause a denial of service (memory corruption) via a crafted web site.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-18.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2016\-7200
+.SS CVE\-2016\-7201
+Microsoft Edge, added 2022\-03\-28.
+.PP
+Microsoft Edge Memory Corruption Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The Chakra JavaScript scripting engine in Microsoft Edge allows remote attackers to execute remote code or cause a denial of service (memory corruption) via a crafted web site.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-18.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2016\-7201
+.SS CVE\-2016\-10174
+NETGEAR WNR2000v5 Router, added 2022\-03\-25.
+.PP
+NETGEAR WNR2000v5 Router Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The NETGEAR WNR2000v5 router contains a buffer overflow which can be exploited to achieve remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2016\-10174
+.SS CVE\-2017\-0005
+Microsoft Windows, added 2022\-05\-24.
+.PP
+Microsoft Windows Graphics Device Interface (GDI) Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The Graphics Device Interface (GDI) in Microsoft Windows allows local users to gain privileges via a crafted application.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-14.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-0005
+.SS CVE\-2017\-0101
+Microsoft Windows, added 2022\-03\-15, ransomware: Known.
+.PP
+Microsoft Windows Transaction Manager Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A privilege escalation vulnerability exists when the Windows Transaction Manager improperly handles objects in memory.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-05.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-0101
+.SS CVE\-2017\-0149
+Microsoft Internet Explorer, added 2022\-05\-24.
+.PP
+Microsoft Internet Explorer Memory Corruption Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Internet Explorer contains a memory corruption vulnerability that allows remote attackers to execute code or cause a denial\-of\-service (DoS) via a crafted website.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-14.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-0149
+.SS CVE\-2017\-0222
+Microsoft Internet Explorer, added 2022\-02\-25.
+.PP
+Microsoft Internet Explorer Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A remote code execution vulnerability exists when Internet Explorer improperly accesses objects in memory.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-08\-25.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-0222
+.SS CVE\-2017\-6736
+Cisco IOS and IOS XE Software, added 2022\-03\-03.
+.PP
+Cisco IOS and IOS XE Software SNMP Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The Simple Network Management Protocol (SNMP) subsystem of Cisco IOS and IOS XE contains a vulnerability that could allow an authenticated, remote attacker to remotely execute code.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-03\-24.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-6736
+.SS CVE\-2017\-6737
+Cisco IOS and IOS XE Software, added 2022\-03\-03.
+.PP
+Cisco IOS and IOS XE Software SNMP Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The Simple Network Management Protocol (SNMP) subsystem of Cisco IOS and IOS XE contains a vulnerability that could allow an authenticated, remote attacker to remotely execute code.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-03\-24.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-6737
+.SS CVE\-2017\-6738
+Cisco IOS and IOS XE Software, added 2022\-03\-03.
+.PP
+Cisco IOS and IOS XE Software SNMP Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The Simple Network Management Protocol (SNMP) subsystem of Cisco IOS and IOS XE contains a vulnerability that could allow an authenticated, remote attacker to remotely execute code.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-03\-24.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-6738
+.SS CVE\-2017\-6739
+Cisco IOS and IOS XE Software, added 2022\-03\-03.
+.PP
+Cisco IOS and IOS XE Software SNMP Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The Simple Network Management Protocol (SNMP) subsystem of Cisco IOS and IOS XE contains a vulnerability that could allow an authenticated, remote attacker to remotely execute code on an affected system or cause an affected system to reload.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-03\-24.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-6739
+.SS CVE\-2017\-6740
+Cisco IOS and IOS XE Software, added 2022\-03\-03.
+.PP
+Cisco IOS and IOS XE Software SNMP Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The Simple Network Management Protocol (SNMP) subsystem of Cisco IOS and IOS XE contains a vulnerability that could allow an authenticated, remote attacker to remotely execute code on an affected system or cause an affected system to reload.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-03\-24.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-6740
+.SS CVE\-2017\-6742
+Cisco IOS and IOS XE Software, added 2023\-04\-19.
+.PP
+Cisco IOS and IOS XE Software SNMP Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The Simple Network Management Protocol (SNMP) subsystem of Cisco IOS and IOS XE contains a vulnerability that could allow an authenticated, remote attacker to remotely execute code on an affected system or cause an affected system to reload.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-05\-10.
+.PP
+\fIReferences:\fR
+.br
+https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco\-sa\-20170629\-snmp
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-6742
+.SS CVE\-2017\-6743
+Cisco IOS and IOS XE Software, added 2022\-03\-03.
+.PP
+Cisco IOS and IOS XE Software SNMP Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The Simple Network Management Protocol (SNMP) subsystem of Cisco IOS and IOS XE contains a vulnerability that could allow an authenticated, remote attacker to remotely execute code.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-03\-24.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-6743
+.SS CVE\-2017\-6744
+Cisco IOS software, added 2022\-03\-03.
+.PP
+Cisco IOS Software SNMP Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The Simple Network Management Protocol (SNMP) subsystem of Cisco IOS 1 contains a vulnerability that could allow an authenticated, remote attacker to remotely execute code on an affected system or cause an affected system to reload. An attacker could exploit these vulnerabilities by sending a crafted SNMP packet to an affected system via IPv4 or IPv6.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-03\-24.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-6744
+.SS CVE\-2017\-6862
+NETGEAR Multiple Devices, added 2022\-06\-08.
+.PP
+NETGEAR Multiple Devices Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Multiple NETGEAR devices contain a buffer overflow vulnerability that allows for authentication bypass and remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-22.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-6862
+.SS CVE\-2017\-7269
+Microsoft Internet Information Services (IIS), added 2021\-11\-03.
+.PP
+Microsoft Windows Server Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Server 2003 R2 contains a buffer overflow vulnerability in Internet Information Services (IIS) 6.0 which allows remote attackers to execute code via a long header beginning with "If: <http://" in a PROPFIND request.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-7269
+.SS CVE\-2017\-8540
+Microsoft Malware Protection Engine, added 2022\-03\-03.
+.PP
+Microsoft Malware Protection Engine Improper Restriction of Operations Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The Microsoft Malware Protection Engine running on Microsoft Forefront and Microsoft Defender on Microsoft Windows Server 2008 SP2 and R2 SP1, Windows 7 SP1, Windows 8.1, Windows Server 2012 Gold and R2, Windows RT 8.1, Windows 10 Gold, 1511, 1607, and 1703, and Windows Server 2016, Microsoft Exchange Server 2013 and 2016, does not properly scan a specially crafted file leading to memory corruption. aka "Microsoft Malware Protection Engine Remote Code Execution Vulnerability".
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-03\-24.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-8540
+.SS CVE\-2017\-11774
+Microsoft Office, added 2021\-11\-03.
+.PP
+Microsoft Office Outlook Security Feature Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Office Outlook contains a security feature bypass vulnerability due to improperly handling objects in memory. Successful exploitation allows an attacker to execute commands.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-11774
+.SS CVE\-2017\-11826
+Microsoft Office, added 2022\-03\-03.
+.PP
+Microsoft Office Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A remote code execution vulnerability exists in Microsoft Office software when the software fails to properly handle objects in memory. An attacker who successfully exploited the vulnerability could run arbitrary code in the context of the current user.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-03\-24.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-11826
+.SS CVE\-2017\-11882
+Microsoft Office, added 2021\-11\-03, ransomware: Known.
+.PP
+Microsoft Office Memory Corruption Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Office contains a memory corruption vulnerability that allows remote code execution in the context of the current user.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-11882
+.SS CVE\-2017\-1000253
+Linux Kernel, added 2024\-09\-09, ransomware: Known.
+.PP
+Linux Kernel PIE Stack Buffer Corruption Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Linux kernel contains a position\-independent executable (PIE) stack buffer corruption vulnerability in load_elf_ binary() that allows a local attacker to escalate privileges.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-09\-30.
+.PP
+\fIReferences:\fR
+.br
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a87938b2e246b81b4fb713edb371a9fa3c5c3c86
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-1000253
+.SS CVE\-2018\-0151
+Cisco IOS and IOS XE Software, added 2022\-03\-03.
+.PP
+Cisco IOS Software and Cisco IOS XE Software Quality of Service Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A vulnerability in the quality of service (QoS) subsystem of Cisco IOS Software and Cisco IOS XE Software could allow an unauthenticated, remote attacker to cause a denial of service (DoS) condition or execute arbitrary code with elevated privileges.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-03\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-0151
+.SS CVE\-2018\-0167
+Cisco IOS, XR, and XE Software, added 2022\-03\-03.
+.PP
+Cisco IOS, XR, and XE Software Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+There is a buffer overflow vulnerability in the Link Layer Discovery Protocol (LLDP) subsystem of Cisco IOS Software, Cisco IOS XE Software, and Cisco IOS XR Software which could allow an unauthenticated, adjacent attacker to cause a denial of service (DoS) condition or execute arbitrary code.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-03\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-0167
+.SS CVE\-2018\-0175
+Cisco IOS, XR, and XE Software, added 2022\-03\-03.
+.PP
+Cisco IOS, XR, and XE Software Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Format string vulnerability in the Link Layer Discovery Protocol (LLDP) subsystem of Cisco IOS Software, Cisco IOS XE Software, and Cisco IOS XR Software could allow an unauthenticated, adjacent attacker to cause a denial of service (DoS) condition or execute arbitrary code with elevated privileges on an affected device.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-03\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-0175
+.SS CVE\-2018\-4344
+Apple Multiple Products, added 2022\-06\-27.
+.PP
+Apple Multiple Products Memory Corruption Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apple iOS, macOS, tvOS, and watchOS contain a memory corruption vulnerability which can allow for code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-07\-18.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-4344
+.SS CVE\-2018\-6789
+Exim Exim, added 2021\-11\-03, ransomware: Known.
+.PP
+Exim Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Exim contains a buffer overflow vulnerability in the base64d function part of the SMTP listener that may allow for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-6789
+.SS CVE\-2018\-7445
+MikroTik RouterOS, added 2022\-09\-08.
+.PP
+MikroTik RouterOS Stack\-Based Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+In MikroTik RouterOS, a stack\-based buffer overflow occurs when processing NetBIOS session request messages. Remote attackers with access to the service can exploit this vulnerability and gain code execution on the system.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-09\-29.
+.PP
+\fIReferences:\fR
+.br
+https://www.coresecurity.com/core\-labs/advisories/mikrotik\-routeros\-smb\-buffer\-overflow#vendor_update
+.br
+https://mikrotik.com/download
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-7445
+.SS CVE\-2019\-8720
+WebKitGTK WebKitGTK, added 2022\-05\-23.
+.PP
+WebKitGTK Memory Corruption Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+WebKitGTK contains a memory corruption vulnerability which can allow an attacker to perform remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-13.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-8720
+.SS CVE\-2020\-0796
+Microsoft SMBv3, added 2022\-02\-10, ransomware: Known.
+.PP
+Microsoft SMBv3 Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A remote code execution vulnerability exists in the way that the Microsoft Server Message Block 3.1.1 (SMBv3) protocol handles certain requests. An attacker who successfully exploited the vulnerability could gain the ability to execute code on the target server or client.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-08\-10.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-0796
+.SS CVE\-2020\-29557
+D\-Link DIR\-825 R1 Devices, added 2021\-11\-03.
+.PP
+D\-Link DIR\-825 R1 Devices Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+D\-Link DIR\-825 R1 devices contain a buffer overflow vulnerability in the web interface that may allow for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-29557
+.SS CVE\-2021\-22991
+F5 BIG\-IP Traffic Management Microkernel, added 2022\-01\-18.
+.PP
+F5 BIG\-IP Traffic Management Microkernel Buffer Overflow.
+.PP
+\fIHow it is exploited (CISA):\fR
+The Traffic Management Microkernel of BIG\-IP ASM Risk Engine has a buffer overflow vulnerability, leading to a bypassing of URL\-based access controls.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-02\-01.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-22991
+.SS CVE\-2021\-30666
+Apple iOS, added 2021\-11\-03.
+.PP
+Apple iOS WebKit Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apple iOS WebKit contains a buffer\-overflow vulnerability that leads to code execution when processing maliciously crafted web content. This vulnerability could impact HTML parsers that use WebKit, including but not limited to Apple Safari and non\-Apple products which rely on WebKit for HTML processing.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-30666
+.SS CVE\-2021\-30983
+Apple iOS and iPadOS, added 2022\-06\-27.
+.PP
+Apple iOS and iPadOS Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apple iOS and iPadOS contain a buffer overflow vulnerability that could allow an application to execute code with kernel privileges.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-07\-18.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-30983
+.SS CVE\-2021\-31979
+Microsoft Windows, added 2021\-11\-03.
+.PP
+Microsoft Windows Kernel Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows kernel contains an unspecified vulnerability that allows for privilege escalation.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-31979
+.SS CVE\-2021\-33771
+Microsoft Windows, added 2021\-11\-03.
+.PP
+Microsoft Windows Kernel Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows kernel contains an unspecified vulnerability that allows for privilege escalation.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-33771
+.SS CVE\-2022\-22706
+Arm Mali Graphics Processing Unit (GPU), added 2023\-03\-30.
+.PP
+Arm Mali GPU Kernel Driver Unspecified Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Arm Mali GPU Kernel Driver contains an unspecified vulnerability that allows a non\-privileged user to achieve write access to read\-only memory pages.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-04\-20.
+.PP
+\fIReferences:\fR
+.br
+https://developer.arm.com/Arm%20Security%20Center/Mali%20GPU%20Driver%20Vulnerabilities
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-22706
+.SS CVE\-2023\-4966
+Citrix NetScaler ADC and NetScaler Gateway, added 2023\-10\-18, ransomware: Known.
+.PP
+Citrix NetScaler ADC and NetScaler Gateway Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Citrix NetScaler ADC and NetScaler Gateway contain a buffer overflow vulnerability that allows for sensitive information disclosure when configured as a Gateway (VPN virtual server, ICA Proxy, CVPN, RDP Proxy) or AAA virtual server.
+.PP
+\fIRemediation:\fR
+Apply mitigations and kill all active and persistent sessions per vendor instructions [https://www.netscaler.com/blog/news/cve\-2023\-4966\-critical\-security\-update\-now\-available\-for\-netscaler\-adc\-and\-netscaler\-gateway/] OR discontinue use of the product if mitigations are unavailable.
+ Due 2023\-11\-08.
+.PP
+\fIReferences:\fR
+.br
+https://www.netscaler.com/blog/news/cve\-2023\-4966\-critical\-security\-update\-now\-available\-for\-netscaler\-adc\-and\-netscaler\-gateway/
+.br
+https://support.citrix.com/article/CTX579459/netscaler\-adc\-and\-netscaler\-gateway\-security\-bulletin\-for\-cve20234966\-and\-cve20234967
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-4966
+.SS CVE\-2023\-6549
+Citrix NetScaler ADC and NetScaler Gateway, added 2024\-01\-17.
+.PP
+Citrix NetScaler ADC and NetScaler Gateway Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Citrix NetScaler ADC and NetScaler Gateway contain a buffer overflow vulnerability that allows for a denial\-of\-service when configured as a Gateway (VPN virtual server, ICA Proxy, CVPN, RDP Proxy) or AAA virtual server.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-02\-07.
+.PP
+\fIReferences:\fR
+.br
+https://support.citrix.com/article/CTX584986/netscaler\-adc\-and\-netscaler\-gateway\-security\-bulletin\-for\-cve20236548\-and\-cve20236549
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-6549
+.SS CVE\-2025\-6543
+Citrix NetScaler ADC and Gateway, added 2025\-06\-30.
+.PP
+Citrix NetScaler ADC and Gateway Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Citrix NetScaler ADC and Gateway contain a buffer overflow vulnerability leading to unintended control flow and Denial of Service. NetScaler must be configured as Gateway (VPN virtual server, ICA Proxy, CVPN, RDP Proxy) OR AAA virtual server.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-07\-21.
+.PP
+\fIReferences:\fR
+.br
+https://support.citrix.com/support\-home/kbsearch/article?articleNumber=CTX694788
+.br
+https://www.netscaler.com/blog/news/netscaler\-critical\-security\-updates\-for\-cve\-2025\-6543\-and\-cve\-2025\-5777/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-6543
+.SS CVE\-2025\-7775
+Citrix NetScaler, added 2025\-08\-26.
+.PP
+Citrix NetScaler Memory Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Citrix NetScaler ADC and NetScaler Gateway contain a memory overflow vulnerability that could allow for remote code execution and/or denial of service.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-08\-28.
+.PP
+\fIReferences:\fR
+.br
+https://support.citrix.com/support\-home/kbsearch/article?articleNumber=CTX694938
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-7775
+.SS CVE\-2025\-31277
+Apple Multiple Products, added 2026\-03\-20.
+.PP
+Apple Multiple Products Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apple Safari, iOS, watchOS, visionOS, iPadOS, macOS, and tvOS contain a buffer overflow vulnerability that could allow the processing of maliciously crafted web content which may lead to memory corruption.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-04\-03.
+.PP
+\fIReferences:\fR
+.br
+https://support.apple.com/en\-us/124147
+.br
+https://support.apple.com/en\-us/124149
+.br
+https://support.apple.com/en\-us/124152
+.br
+https://support.apple.com/en\-us/124153
+.br
+https://support.apple.com/en\-us/124155
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-31277
+.SS CVE\-2026\-3910
+Google Chromium V8, added 2026\-03\-13.
+.PP
+Google Chromium V8 Improper Restriction of Operations Within the Bounds of a Memory Buffer Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium V8 contains an improper restriction of operations within the bounds of a memory buffer vulnerability that could allow a remote attacker to execute arbitrary code inside a sandbox via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-03\-27.
+.PP
+\fIReferences:\fR
+.br
+https://chromereleases.googleblog.com/2026/03/stable\-channel\-update\-for\-desktop_12.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-3910
+.SS CVE\-2026\-8452
+Citrix NetScaler ADC and NetScaler Gateway, added 2026\-08\-26.
+.PP
+Citrix NetScaler ADC and NetScaler Gateway Improper Restriction of Operations within the Bounds of a Memory Buffer Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Citrix NetScaler ADC and NetScaler Gateway contain an improper restriction of operations within the bounds of a memory buffer vulnerability which could lead to denial of service.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-08\-29.
+.PP
+\fIReferences:\fR
+.br
+https://support.citrix.com/support\-home/kbsearch/article?articleNumber=CTX696604
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-8452
+.SS CVE\-2026\-20700
+Apple Multiple Products, added 2026\-02\-12.
+.PP
+Apple Multiple Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apple iOS, macOS, tvOS, watchOS, and visionOS contain an improper restriction of operations within the bounds of a memory buffer vulnerability that could allow an attacker with memory write the capability to execute arbitrary code.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-03\-05.
+.PP
+\fIReferences:\fR
+.br
+https://support.apple.com/en\-us/126346
+.br
+https://support.apple.com/en\-us/126348
+.br
+https://support.apple.com/en\-us/126351
+.br
+https://support.apple.com/en\-us/126352
+.br
+https://support.apple.com/en\-us/126353
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-20700
+.SS CVE\-2026\-88771
+Citrix NetScaler, added 2026\-09\-27.
+.PP
+Citrix NetScaler Improper Input Validation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Citrix NetScaler ADC and NetScaler Gateway contain an improper input validation vulnerability that could allow an unauthenticated attacker to execute arbitrary commands.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-30.
+.PP
+\fIReferences:\fR
+.br
+https://community.citrix.com/techzone\-blogs/110_security\-updates/netscaler\-adc\-and\-netscaler\-gateway\-security\-bulletin\-for\-cve\-2026\-88771\-through\-cve\-2026\-88778
+.br
+https://support.citrix.com/support\-home/kbsearch/article?articleNumber=CTX697096
+.br
+https://support.citrix.com/external/article/CTX694799/steps\-to\-take\-if\-netscaler\-adc\-is\-suspec.html
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-88772
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-88771
+.SS CVE\-2026\-88772
+Citrix NetScaler, added 2026\-09\-27.
+.PP
+Citrix NetScaler Improper Restriction of Operations within the Bounds of a Memory Buffer Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Citrix NetScaler ADC and NetScaler Gateway contain an improper restriction of operations within the bounds of a memory buffer vulnerability that could allow for remote code execution or denial of service
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-30.
+.PP
+\fIReferences:\fR
+.br
+https://community.citrix.com/techzone\-blogs/110_security\-updates/netscaler\-adc\-and\-netscaler\-gateway\-security\-bulletin\-for\-cve\-2026\-88771\-through\-cve\-2026\-88778
+.br
+https://support.citrix.com/support\-home/kbsearch/article?articleNumber=CTX697096
+.br
+https://support.citrix.com/external/article/CTX694799/steps\-to\-take\-if\-netscaler\-adc\-is\-suspec.html
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-88772
+.SS CVE\-2026\-88779
+Citrix NetScaler, added 2026\-10\-04.
+.PP
+Citrix NetScaler Improper Restriction of Operations within the Bounds of a Memory Buffer Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Citrix NetScaler ADC (formerly Citrix ADC) and Citrix NetScaler Gateway (formerly Citrix Gateway) contain an improper restriction of operations within the bounds of a memory buffer vulnerability that could allow for a denial of service.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-10\-07.
+.PP
+\fIReferences:\fR
+.br
+https://support.citrix.com/support\-home/kbsearch/article?articleNumber=CTX697174
+.br
+https://community.citrix.com/techzone\-blogs/110_security\-updates/understanding\-and\-addressing\-cve\-2026\-88779\-in\-citrix\-netscaler\-adc\-and\-citrix\-netscaler\-gateway/
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-88779
 .SH EXAMPLES
 One vulnerable\->fixed pair per ecosystem (C).
 .SS C
@@ -36,4 +1442,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/119.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

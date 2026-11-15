@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-912 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-912 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-912 \- Hidden Functionality
 .SH RANK
@@ -9,9 +9,56 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product contains functionality that is not documented, not part of the specification, and not accessible through an interface or command sequence that is obvious to the product's users or administrators. Hidden functionality can take many forms, such as intentionally malicious code, Easter Eggs that contain extraneous functionality such as games, developer\-friendly shortcuts that reduce maintenance or support costs such as hard\-coded accounts, etc. From a security perspective, even when the functionality is not intentionally malicious or damaging, it can increase the product's attack surface and expose additional weaknesses beyond what is already exposed by the intended functionality. Even if it is not easily accessible, the hidden functionality could be useful for attacks that modify the control flow of the application.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB3\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB3\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2021\-25371
+Samsung Mobile Devices, added 2023\-06\-29.
 .PP
-CVE\-2021\-25371, CVE\-2024\-20439, CVE\-2025\-47729.
+Samsung Mobile Devices Unspecified Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Samsung mobile devices contain an unspecified vulnerability within DSP driver that allows attackers to load ELF libraries inside DSP.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-07\-20.
+.PP
+\fIReferences:\fR
+.br
+https://security.samsungmobile.com/securityUpdate.smsb?year=2021&month=3
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-25371
+.SS CVE\-2024\-20439
+Cisco Smart Licensing Utility, added 2025\-03\-31.
+.PP
+Cisco Smart Licensing Utility Static Credential Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Cisco Smart Licensing Utility contains a static credential vulnerability that allows an unauthenticated, remote attacker to log in to an affected system and gain administrative credentials.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-04\-21.
+.PP
+\fIReferences:\fR
+.br
+https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco\-sa\-cslu\-7gHMzWmw
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-20439
+.SS CVE\-2025\-47729
+TeleMessage TM SGNL, added 2025\-05\-12.
+.PP
+TeleMessage TM SGNL Hidden Functionality Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+TeleMessage TM SGNL contains a hidden functionality vulnerability in which the archiving backend holds cleartext copies of messages from TM SGNL application users.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-06\-02.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-47729
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +68,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/912.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

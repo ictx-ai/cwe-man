@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-749 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-749 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-749 \- Exposed Dangerous Method or Function
 .SH RANK
@@ -9,9 +9,60 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product provides an Applications Programming Interface (API) or similar interface for interaction with external actors, but the interface includes a dangerous method or function that is not properly restricted. This weakness can lead to a wide variety of resultant weaknesses, depending on the behavior of the exposed method. It can apply to any number of technologies and approaches, such as ActiveX controls, Java functions, IOCTLs, and so on. The exposure can occur in a few different ways: The function/method was never intended to be exposed to outside actors. The function/method was only intended to be accessible to a limited set of actors, such as Internet\-based access from a single web site.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB3\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB3\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2018\-19322
+GIGABYTE Multiple Products, added 2022\-10\-24, ransomware: Known.
 .PP
-CVE\-2018\-19322, CVE\-2021\-36942, CVE\-2026\-116779.
+GIGABYTE Multiple Products Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The GPCIDrv and GDrv low\-level drivers in GIGABYTE App Center, AORUS Graphics Engine, XTREME Gaming Engine, and OC GURU II expose functionality to read/write data from/to IO ports. This could be leveraged in a number of ways to ultimately run code with elevated privileges.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-11\-14.
+.PP
+\fIReferences:\fR
+.br
+https://www.gigabyte.com/Support/Security/1801
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-19322
+.SS CVE\-2021\-36942
+Microsoft Windows, added 2021\-11\-03, ransomware: Known.
+.PP
+Microsoft Windows Local Security Authority (LSA) Spoofing Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Local Security Authority (LSA) contains a spoofing vulnerability allowing an unauthenticated attacker to call a method on the LSARPC interface and coerce the domain controller to authenticate against another server using NTLM.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-36942
+.SS CVE\-2026\-116779
+SignalWire FreeSwitch, added 2026\-11\-09.
+.PP
+SignalWire FreeSwitch Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SignalWire FreeSwitch contains a code injection vulnerability that permits configuration and credential disclosure, arbitrary call control, and command execution.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-11\-12.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/signalwire/freeswitch/security/advisories/GHSA\-mg63\-h38w\-8p9p
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-116779
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +72,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/749.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

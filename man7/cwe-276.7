@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-276 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-276 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-276 \- Incorrect Default Permissions
 .SH RANK
@@ -9,9 +9,96 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 During installation, installed file permissions are set to allow anyone to modify those files.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB5\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB5\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2022\-22948
+VMware vCenter Server, added 2024\-07\-17.
 .PP
-CVE\-2022\-22948, CVE\-2024\-51378, CVE\-2024\-51567, CVE\-2024\-55956, CVE\-2026\-87886.
+VMware vCenter Server Incorrect Default File Permissions Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+VMware vCenter Server contains an incorrect default file permissions vulnerability that allows a remote, privileged attacker to gain access to sensitive information.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-08\-07.
+.PP
+\fIReferences:\fR
+.br
+https://www.vmware.com/security/advisories/VMSA\-2022\-0009.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-22948
+.SS CVE\-2024\-51378
+CyberPersons CyberPanel, added 2024\-12\-04, ransomware: Known.
+.PP
+CyberPanel Incorrect Default Permissions Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+CyberPanel contains an incorrect default permissions vulnerability that allows for authentication bypass and the execution of arbitrary commands using shell metacharacters in the statusfile property.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-12\-25.
+.PP
+\fIReferences:\fR
+.br
+https://cyberpanel.net/KnowledgeBase/home/change\-logs/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-51378
+.SS CVE\-2024\-51567
+CyberPersons CyberPanel, added 2024\-11\-07, ransomware: Known.
+.PP
+CyberPanel Incorrect Default Permissions Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+CyberPanel contains an incorrect default permissions vulnerability that allows a remote, unauthenticated attacker to execute commands as root.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-11\-28.
+.PP
+\fIReferences:\fR
+.br
+https://cyberpanel.net/blog/detials\-and\-fix\-of\-recent\-security\-issue\-and\-patch\-of\-cyberpanel
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-51567
+.SS CVE\-2024\-55956
+Cleo Multiple Products, added 2024\-12\-17, ransomware: Known.
+.PP
+Cleo Multiple Products Unauthenticated File Upload Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Cleo Harmony, VLTrader, and LexiCom, which are managed file transfer products, contain an unrestricted file upload vulnerability that could allow an unauthenticated user to import and execute arbitrary bash or PowerShell commands on the host system by leveraging the default settings of the Autorun directory.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-01\-07.
+.PP
+\fIReferences:\fR
+.br
+https://support.cleo.com/hc/en\-us/articles/28408134019735\-Cleo\-Product\-Security\-Update\-CVE\-2024\-55956
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-55956
+.SS CVE\-2026\-87886
+Acronis Backup, added 2026\-09\-16.
+.PP
+Acronis Backup Incorrect Default Permissions Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Acronis Backup plugin for cPanel & WHM and extension for Plesk contains an incorrect default permissions vulnerability that could allow for privilege escalation.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-19.
+.PP
+\fIReferences:\fR
+.br
+https://security\-advisory.acronis.com/advisories/SEC\-10986
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-87886
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +108,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/276.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

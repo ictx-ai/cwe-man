@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-522 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-522 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-522 \- Insufficiently Protected Credentials
 .SH RANK
@@ -9,9 +9,71 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product transmits or stores authentication credentials, but it uses an insecure method that is susceptible to unauthorized interception and/or retrieval.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB4\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB4\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2017\-9248
+Progress ASP.NET AJAX and Sitefinity, added 2021\-11\-03.
 .PP
-CVE\-2017\-9248, CVE\-2020\-29583, CVE\-2021\-22681, CVE\-2021\-30116.
+Progress Telerik UI for ASP.NET AJAX and Sitefinity Cryptographic Weakness Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Progress Telerik UI for ASP.NET AJAX and Sitefinity have a cryptographic weakness in Telerik.Web.UI.dll that can be exploited to disclose encryption keys (Telerik.Web.UI.DialogParametersEncryptionKey and/or the MachineKey), perform cross\-site\-scripting (XSS) attacks, compromise the ASP.NET ViewState, and/or upload and download files.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-9248
+.SS CVE\-2020\-29583
+Zyxel Multiple Products, added 2021\-11\-03.
+.PP
+Zyxel Multiple Products Use of Hard\-Coded Credentials Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Zyxel firewalls (ATP, USG, VM) and AP Controllers (NXC2500 and NXC5500) contain a use of hard\-coded credentials vulnerability in an undocumented account ("zyfwp") with an unchangeable password.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-29583
+.SS CVE\-2021\-22681
+Rockwell Multiple Products, added 2026\-03\-05.
+.PP
+Rockwell Multiple Products Insufficient Protected Credentials Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Multiple Rockwell products contain an insufficient protected credentials vulnerability. Studio 5000 Logix Designer software may allow a key to be discovered. This key is used to verify Logix controllers are communicating with Rockwell Automation design software. If successfully exploited, this vulnerability could allow an unauthorized application to connect with Logix controllers. To leverage this vulnerability, an unauthorized user would require network access to the controller.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-03\-26.
+.PP
+\fIReferences:\fR
+.br
+https://support.rockwellautomation.com/app/answers/answer_view/a_id/1130301/~/cve\-2021\-22681%3A\-authentication\-bypass\-vulnerability\-found\-in\-logix\-controllers\-
+.br
+https://www.cisa.gov/news\-events/ics\-advisories/icsa\-21\-056\-03
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-22681
+.SS CVE\-2021\-30116
+Kaseya Virtual System/Server Administrator (VSA), added 2021\-11\-03, ransomware: Known.
+.PP
+Kaseya Virtual System/Server Administrator (VSA) Information Disclosure Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Kaseya Virtual System/Server Administrator (VSA) contains an information disclosure vulnerability allowing an attacker to obtain the sessionId that can be used to execute further attacks against the system.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-30116
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +83,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/522.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

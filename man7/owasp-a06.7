@@ -1,0 +1,145 @@
+.\" OWASP Top 10 overlay. Generated, not hand-edited.
+.TH OWASP-A06 7 "2026-11-15" "OWASP Top 10:2025" "Software Weakness Reference"
+.SH NAME
+owasp\-a06 \- Insecure Design (OWASP Top 10:2025 A06)
+.SH RANK
+OWASP Top 10:2025 rank \fB#6\fR (A04:2021).
+.SH DESCRIPTION
+Missing or ineffective control design, not a single implementation bug. Threat modeling and secure patterns were never applied. Distinct from insecure implementation of a sound design.
+.PP
+This page is an overlay. Vulnerable\->fixed code lives on the \fBcwe\-*\fR(7) pages listed below, not here.
+.SH MAPPED CWES
+Official mapping: \fB39\fR CWEs (OWASP count 39). \fBman\fR after a CWE id if that page exists in this set.
+.PP
+.TS
+l l r lx.
+PAGE	CWE	KEV	NAME
+_
+cwe\-73(7)	CWE\-73	6	T{
+External Control of File Name or Path
+T}
+\(em	CWE\-183	0	T{
+Permissive List of Allowed Inputs
+T}
+\(em	CWE\-256	0	T{
+Plaintext Storage of a Password
+T}
+cwe\-266(7)	CWE\-266	1	T{
+Incorrect Privilege Assignment
+T}
+cwe\-269(7)	CWE\-269	19	T{
+Improper Privilege Management
+T}
+\(em	CWE\-286	0	T{
+Incorrect User Management
+T}
+cwe\-311(7)	CWE\-311	1	T{
+Missing Encryption of Sensitive Data
+T}
+cwe\-312(7)	CWE\-312	1	T{
+Cleartext Storage of Sensitive Information
+T}
+\(em	CWE\-313	0	T{
+Cleartext Storage in a File or on Disk
+T}
+\(em	CWE\-316	0	T{
+Cleartext Storage of Sensitive Information in Memory
+T}
+cwe\-362(7)	CWE\-362	12	T{
+Concurrent Execution using Shared Resource with Improper Synchronization ('Race Condition')
+T}
+\(em	CWE\-382	0	T{
+J2EE Bad Practices: Use of System.exit()
+T}
+\(em	CWE\-419	0	T{
+Unprotected Primary Channel
+T}
+cwe\-434(7)	CWE\-434	24	T{
+Unrestricted Upload of File with Dangerous Type
+T}
+cwe\-436(7)	CWE\-436	2	T{
+Interpretation Conflict
+T}
+cwe\-444(7)	CWE\-444	4	T{
+Inconsistent Interpretation of HTTP Requests ('HTTP Request/Response Smuggling')
+T}
+cwe\-451(7)	CWE\-451	2	T{
+User Interface (UI) Misrepresentation of Critical Information
+T}
+\(em	CWE\-454	0	T{
+External Initialization of Trusted Variables or Data Stores
+T}
+cwe\-472(7)	CWE\-472	1	T{
+External Control of Assumed\-Immutable Web Parameter
+T}
+\(em	CWE\-501	0	T{
+Trust Boundary Violation
+T}
+cwe\-522(7)	CWE\-522	4	T{
+Insufficiently Protected Credentials
+T}
+\(em	CWE\-525	0	T{
+Use of Web Browser Cache Containing Sensitive Information
+T}
+\(em	CWE\-539	0	T{
+Use of Persistent Cookies Containing Sensitive Information
+T}
+\(em	CWE\-598	0	T{
+Use of GET Request Method With Sensitive Query Strings
+T}
+\(em	CWE\-602	0	T{
+Client\-Side Enforcement of Server\-Side Security
+T}
+\(em	CWE\-628	0	T{
+Function Call with Incorrectly Specified Arguments
+T}
+\(em	CWE\-642	0	T{
+External Control of Critical State Data
+T}
+\(em	CWE\-646	0	T{
+Reliance on File Name or Extension of Externally\-Supplied File
+T}
+cwe\-653(7)	CWE\-653	1	T{
+Improper Isolation or Compartmentalization
+T}
+\(em	CWE\-656	0	T{
+Reliance on Security Through Obscurity
+T}
+\(em	CWE\-657	0	T{
+Violation of Secure Design Principles
+T}
+\(em	CWE\-676	0	T{
+Use of Potentially Dangerous Function
+T}
+cwe\-693(7)	CWE\-693	11	T{
+Protection Mechanism Failure
+T}
+\(em	CWE\-799	0	T{
+Improper Control of Interaction Frequency
+T}
+cwe\-807(7)	CWE\-807	3	T{
+Reliance on Untrusted Inputs in a Security Decision
+T}
+cwe\-841(7)	CWE\-841	1	T{
+Improper Enforcement of Behavioral Workflow
+T}
+\(em	CWE\-1021	0	T{
+Improper Restriction of Rendered UI Layers or Frames
+T}
+\(em	CWE\-1022	0	T{
+Use of Web Link to Untrusted Target with window.opener Access
+T}
+\(em	CWE\-1125	0	T{
+Excessive Attack Surface
+T}
+.TE
+.PP
+PAGE \(em means there is no local \fBcwe\-*\fR(7) for that id (not Top 25 and not in KEV). MITRE still defines it.
+.SH SEE ALSO
+\fBowasp\fR(7), \fBcwe\-73\fR(7), \fBcwe\-266\fR(7), \fBcwe\-269\fR(7), \fBcwe\-311\fR(7), \fBcwe\-312\fR(7), \fBcwe\-362\fR(7), \fBcwe\-434\fR(7), \fBcwe\-436\fR(7), \fBcwe\-444\fR(7), \fBcwe\-451\fR(7), \fBcwe\-472\fR(7), \fBcwe\-522\fR(7), \fBcwe\-653\fR(7), \fBcwe\-693\fR(7), \fBcwe\-807\fR(7), \fBcwe\-841\fR(7).
+.PP
+https://owasp.org/Top10/2025/A06_2025-Insecure_Design/
+.SH NOTES
+OWASP categories group many CWEs. They are not a replacement for the CWE or KEV pages.
+.PP
+Generated 2026\-11\-15 from OWASP Top 10:2025.

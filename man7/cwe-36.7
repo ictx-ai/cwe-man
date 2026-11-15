@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-36 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-36 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-36 \- Absolute Path Traversal
 .SH RANK
@@ -9,9 +9,90 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize absolute path sequences such as /abs/path that can resolve to a location that is outside of that directory. This allows attackers to traverse the file system to access files or directories that are outside of the restricted directory.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB5\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB5\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2018\-20250
+RARLAB WinRAR, added 2022\-02\-15, ransomware: Known.
 .PP
-CVE\-2018\-20250, CVE\-2024\-13159, CVE\-2024\-13160, CVE\-2024\-13161, CVE\-2024\-48248.
+WinRAR Absolute Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+WinRAR Absolute Path Traversal vulnerability leads to Remote Code Execution
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-08\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-20250
+.SS CVE\-2024\-13159
+Ivanti Endpoint Manager (EPM), added 2025\-03\-10.
+.PP
+Ivanti Endpoint Manager (EPM) Absolute Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ivanti Endpoint Manager (EPM) contains an absolute path traversal vulnerability that allows a remote unauthenticated attacker to leak sensitive information.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-03\-31.
+.PP
+\fIReferences:\fR
+.br
+https://forums.ivanti.com/s/article/Security\-Advisory\-EPM\-January\-2025\-for\-EPM\-2024\-and\-EPM\-2022\-SU6?language=en_US
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-13159
+.SS CVE\-2024\-13160
+Ivanti Endpoint Manager (EPM), added 2025\-03\-10.
+.PP
+Ivanti Endpoint Manager (EPM) Absolute Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ivanti Endpoint Manager (EPM) contains an absolute path traversal vulnerability that allows a remote unauthenticated attacker to leak sensitive information.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-03\-31.
+.PP
+\fIReferences:\fR
+.br
+https://forums.ivanti.com/s/article/Security\-Advisory\-EPM\-January\-2025\-for\-EPM\-2024\-and\-EPM\-2022\-SU6?language=en_US
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-13160
+.SS CVE\-2024\-13161
+Ivanti Endpoint Manager (EPM), added 2025\-03\-10.
+.PP
+Ivanti Endpoint Manager (EPM) Absolute Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ivanti Endpoint Manager (EPM) contains an absolute path traversal vulnerability that allows a remote unauthenticated attacker to leak sensitive information.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-03\-31.
+.PP
+\fIReferences:\fR
+.br
+https://forums.ivanti.com/s/article/Security\-Advisory\-EPM\-January\-2025\-for\-EPM\-2024\-and\-EPM\-2022\-SU6?language=en_US
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-13161
+.SS CVE\-2024\-48248
+NAKIVO Backup and Replication, added 2025\-03\-19.
+.PP
+NAKIVO Backup and Replication Absolute Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+NAKIVO Backup and Replication contains an absolute path traversal vulnerability that enables an attacker to read arbitrary files.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-04\-09.
+.PP
+\fIReferences:\fR
+.br
+https://helpcenter.nakivo.com/Release\-Notes/Content/Release\-Notes.htm
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-48248
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +102,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/36.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

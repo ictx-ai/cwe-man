@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-158 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-158 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-158 \- Improper Neutralization of Null Byte or NUL Character
 .SH RANK
@@ -9,9 +9,77 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes NUL characters or null bytes when they are sent to a downstream component. As data is parsed, an injected NUL character or null byte may cause the product to believe the input is terminated earlier than it actually is, or otherwise cause the input to be misinterpreted. This could then be used to inject potentially dangerous input that occurs after the null byte or otherwise bypass validation routines and other protection mechanisms.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB4\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB4\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2022\-1040
+Sophos Firewall, added 2022\-03\-31.
 .PP
-CVE\-2022\-1040, CVE\-2022\-36804, CVE\-2025\-47812, CVE\-2026\-104286.
+Sophos Firewall Authentication Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+An authentication bypass vulnerability in User Portal and Webadmin of Sophos Firewall allows for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-21.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-1040
+.SS CVE\-2022\-36804
+Atlassian Bitbucket Server and Data Center, added 2022\-09\-30.
+.PP
+Atlassian Bitbucket Server and Data Center Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Multiple API endpoints of Atlassian Bitbucket Server and Data Center contain a command injection vulnerability where an attacker with access to a public Bitbucket repository, or with read permissions to a private one, can execute code by sending a malicious HTTP request.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-10\-21.
+.PP
+\fIReferences:\fR
+.br
+https://jira.atlassian.com/browse/BSERV\-13438
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-36804
+.SS CVE\-2025\-47812
+Wing FTP Server Wing FTP Server, added 2025\-07\-14.
+.PP
+Wing FTP Server Improper Neutralization of Null Byte or NUL Character Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Wing FTP Server contains an improper neutralization of null byte or NUL character vulnerability that can allow injection of arbitrary Lua code into user session files. This can be used to execute arbitrary system commands with the privileges of the FTP service (root or SYSTEM by default).
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-08\-04.
+.PP
+\fIReferences:\fR
+.br
+https://www.wftpserver.com/serverhistory.htm
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-47812
+.SS CVE\-2026\-104286
+Fortinet FortiMail, added 2026\-10\-01.
+.PP
+Fortinet FortiMail Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Fortinet FortiMail contains a path traversal and an improper neutralization of NULL byte or NULL character vulnerability that may allow an unauthenticated attacker to write arbitrary files on the underlying system via crafted HTTP or HTTPS requests.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-10\-04.
+.PP
+\fIReferences:\fR
+.br
+https://fortiguard.fortinet.com/psirt/FG\-IR\-26\-175
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-104286
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +89,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/158.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

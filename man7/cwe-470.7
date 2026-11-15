@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-470 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-470 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-470 \- Use of Externally\-Controlled Input to Select Classes or Code (Unsafe Reflection)
 .SH RANK
@@ -13,9 +13,43 @@ Externally\-controlled input chooses which class is loaded or which method/code 
 .SH MITIGATION
 Never let untrusted input name a class, method, or module directly. Map a small set of allowed identifiers to known types/handlers with an allow\-list, and reject anything else.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB2\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB2\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2021\-21985
+VMware vCenter Server, added 2021\-11\-03, ransomware: Known.
 .PP
-CVE\-2021\-21985, CVE\-2026\-82078.
+VMware vCenter Server Improper Input Validation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+VMware vSphere Client contains an improper input validation vulnerability in the Virtual SAN Health Check plug\-in, which is enabled by default in vCenter Server, which allows for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-21985
+.SS CVE\-2026\-82078
+PaperCut NG/MF, added 2026\-08\-31.
+.PP
+PaperCut NG/MF Unsafe Reflection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+PaperCut NG/MF contains an unsafe reflection vulnerability that allows an attacker to manipulate system configuration parameters and execute arbitrary Java bytecode residing on the application classpath under the security context of the PaperCut server process. This vulnerability can be chained with CVE\-2026\-81578.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-14.
+.PP
+\fIReferences:\fR
+.br
+https://www.papercut.com/kb/Main/security\-bulletin\-27\-aug\-2026\-urgent\-security\-advisory/?lid=2oneu2wt0ct4
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-82078
 .SH EXAMPLES
 One vulnerable\->fixed pair per ecosystem (Java, C#/.NET, Python, Node.js).
 .SS Java
@@ -97,4 +131,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/470.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

@@ -1,0 +1,100 @@
+.\" OWASP Top 10 overlay. Generated, not hand-edited.
+.TH OWASP-A10 7 "2026-11-15" "OWASP Top 10:2025" "Software Weakness Reference"
+.SH NAME
+owasp\-a10 \- Mishandling of Exceptional Conditions (OWASP Top 10:2025 A10)
+.SH RANK
+OWASP Top 10:2025 rank \fB#10\fR (new in 2025).
+.SH DESCRIPTION
+Unusual conditions are not prevented, not detected, or handled by failing open: sensitive error messages, NULL dereference, missing parameter, insufficient privileges ignored.
+.PP
+This page is an overlay. Vulnerable\->fixed code lives on the \fBcwe\-*\fR(7) pages listed below, not here.
+.SH MAPPED CWES
+Official mapping: \fB24\fR CWEs (OWASP count 24). \fBman\fR after a CWE id if that page exists in this set.
+.PP
+.TS
+l l r lx.
+PAGE	CWE	KEV	NAME
+_
+cwe\-209(7)	CWE\-209	2	T{
+Generation of Error Message Containing Sensitive Information
+T}
+\(em	CWE\-215	0	T{
+Insertion of Sensitive Information Into Debugging Code
+T}
+\(em	CWE\-234	0	T{
+Failure to Handle Missing Parameter
+T}
+\(em	CWE\-235	0	T{
+Improper Handling of Extra Parameters
+T}
+\(em	CWE\-248	0	T{
+Uncaught Exception
+T}
+cwe\-252(7)	CWE\-252	1	T{
+Unchecked Return Value
+T}
+cwe\-274(7)	CWE\-274	1	T{
+Improper Handling of Insufficient Privileges
+T}
+cwe\-280(7)	CWE\-280	1	T{
+Improper Handling of Insufficient Permissions or Privileges
+T}
+\(em	CWE\-369	0	T{
+Divide By Zero
+T}
+cwe\-390(7)	CWE\-390	1	T{
+Detection of Error Condition Without Action
+T}
+\(em	CWE\-391	0	T{
+Unchecked Error Condition
+T}
+cwe\-394(7)	CWE\-394	1	T{
+Unexpected Status Code or Return Value
+T}
+\(em	CWE\-396	0	T{
+Declaration of Catch for Generic Exception
+T}
+\(em	CWE\-397	0	T{
+Declaration of Throws for Generic Exception
+T}
+\(em	CWE\-460	0	T{
+Improper Cleanup on Thrown Exception
+T}
+cwe\-476(7)	CWE\-476	1	T{
+NULL Pointer Dereference
+T}
+\(em	CWE\-478	0	T{
+Missing Default Case in Multiple Condition Expression
+T}
+\(em	CWE\-484	0	T{
+Omitted Break Statement in Switch
+T}
+\(em	CWE\-550	0	T{
+Server\-generated Error Message Containing Sensitive Information
+T}
+\(em	CWE\-636	0	T{
+Not Failing Securely ('Failing Open')
+T}
+cwe\-703(7)	CWE\-703	1	T{
+Improper Check or Handling of Exceptional Conditions
+T}
+cwe\-754(7)	CWE\-754	4	T{
+Improper Check for Unusual or Exceptional Conditions
+T}
+cwe\-755(7)	CWE\-755	5	T{
+Improper Handling of Exceptional Conditions
+T}
+\(em	CWE\-756	0	T{
+Missing Custom Error Page
+T}
+.TE
+.PP
+PAGE \(em means there is no local \fBcwe\-*\fR(7) for that id (not Top 25 and not in KEV). MITRE still defines it.
+.SH SEE ALSO
+\fBowasp\fR(7), \fBcwe\-209\fR(7), \fBcwe\-252\fR(7), \fBcwe\-274\fR(7), \fBcwe\-280\fR(7), \fBcwe\-390\fR(7), \fBcwe\-394\fR(7), \fBcwe\-476\fR(7), \fBcwe\-703\fR(7), \fBcwe\-754\fR(7), \fBcwe\-755\fR(7).
+.PP
+https://owasp.org/Top10/2025/A10_2025-Mishandling_of_Exceptional_Conditions/
+.SH NOTES
+OWASP categories group many CWEs. They are not a replacement for the CWE or KEV pages.
+.PP
+Generated 2026\-11\-15 from OWASP Top 10:2025.

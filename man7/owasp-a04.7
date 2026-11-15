@@ -1,0 +1,124 @@
+.\" OWASP Top 10 overlay. Generated, not hand-edited.
+.TH OWASP-A04 7 "2026-11-15" "OWASP Top 10:2025" "Software Weakness Reference"
+.SH NAME
+owasp\-a04 \- Cryptographic Failures (OWASP Top 10:2025 A04)
+.SH RANK
+OWASP Top 10:2025 rank \fB#4\fR (A02:2021).
+.SH DESCRIPTION
+Secrets in transit or at rest are weakly protected: old ciphers, hard\-coded keys, missing TLS, homemade crypto. Often leads to data exposure or full compromise.
+.PP
+This page is an overlay. Vulnerable\->fixed code lives on the \fBcwe\-*\fR(7) pages listed below, not here.
+.SH MAPPED CWES
+Official mapping: \fB32\fR CWEs (OWASP count 32). \fBman\fR after a CWE id if that page exists in this set.
+.PP
+.TS
+l l r lx.
+PAGE	CWE	KEV	NAME
+_
+\(em	CWE\-261	0	T{
+Weak Encoding for Password
+T}
+\(em	CWE\-296	0	T{
+Improper Following of a Certificate's Chain of Trust
+T}
+\(em	CWE\-319	0	T{
+Cleartext Transmission of Sensitive Information
+T}
+\(em	CWE\-320	0	T{
+Key Management Errors
+T}
+cwe\-321(7)	CWE\-321	1	T{
+Use of Hard\-coded Cryptographic Key
+T}
+\(em	CWE\-322	0	T{
+Key Exchange without Entity Authentication
+T}
+\(em	CWE\-323	0	T{
+Reusing a Nonce, Key Pair in Encryption
+T}
+cwe\-324(7)	CWE\-324	1	T{
+Use of a Key Past its Expiration Date
+T}
+\(em	CWE\-325	0	T{
+Missing Cryptographic Step
+T}
+cwe\-326(7)	CWE\-326	4	T{
+Inadequate Encryption Strength
+T}
+\(em	CWE\-327	0	T{
+Use of a Broken or Risky Cryptographic Algorithm
+T}
+\(em	CWE\-328	0	T{
+Use of Weak Hash
+T}
+\(em	CWE\-329	0	T{
+Generation of Predictable IV with CBC Mode
+T}
+cwe\-330(7)	CWE\-330	1	T{
+Use of Insufficiently Random Values
+T}
+\(em	CWE\-331	0	T{
+Insufficient Entropy
+T}
+\(em	CWE\-332	0	T{
+Insufficient Entropy in PRNG
+T}
+\(em	CWE\-334	0	T{
+Small Space of Random Values
+T}
+\(em	CWE\-335	0	T{
+Incorrect Usage of Seeds in Pseudo\-Random Number Generator (PRNG)
+T}
+\(em	CWE\-336	0	T{
+Same Seed in Pseudo\-Random Number Generator (PRNG)
+T}
+\(em	CWE\-337	0	T{
+Predictable Seed in Pseudo\-Random Number Generator (PRNG)
+T}
+\(em	CWE\-338	0	T{
+Use of Cryptographically Weak Pseudo\-Random Number Generator (PRNG)
+T}
+cwe\-340(7)	CWE\-340	1	T{
+Generation of Predictable Numbers or Identifiers
+T}
+\(em	CWE\-342	0	T{
+Predictable Exact Value from Previous Values
+T}
+cwe\-347(7)	CWE\-347	6	T{
+Improper Verification of Cryptographic Signature
+T}
+\(em	CWE\-523	0	T{
+Unprotected Transport of Credentials
+T}
+\(em	CWE\-757	0	T{
+Selection of Less\-Secure Algorithm During Negotiation ('Algorithm Downgrade')
+T}
+\(em	CWE\-759	0	T{
+Use of a One\-Way Hash without a Salt
+T}
+\(em	CWE\-760	0	T{
+Use of a One\-Way Hash with a Predictable Salt
+T}
+\(em	CWE\-780	0	T{
+Use of RSA Algorithm without OAEP
+T}
+\(em	CWE\-916	0	T{
+Use of Password Hash With Insufficient Computational Effort
+T}
+\(em	CWE\-1240	0	T{
+Use of a Cryptographic Primitive with a Risky Implementation
+T}
+\(em	CWE\-1241	0	T{
+Use of Predictable Algorithm in Random Number Generator
+T}
+.TE
+.PP
+PAGE \(em means there is no local \fBcwe\-*\fR(7) for that id (not Top 25 and not in KEV). MITRE still defines it.
+.SH SEE ALSO
+\fBowasp\fR(7), \fBcwe\-321\fR(7), \fBcwe\-324\fR(7), \fBcwe\-326\fR(7), \fBcwe\-330\fR(7), \fBcwe\-340\fR(7), \fBcwe\-347\fR(7).
+.PP
+https://owasp.org/Top10/2025/A04_2025-Cryptographic_Failures/
+.SH NOTES
+OWASP categories group many CWEs. They are not a replacement for the CWE or KEV pages.
+.PP
+Generated 2026\-11\-15 from OWASP Top 10:2025.

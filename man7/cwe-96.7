@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-96 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-96 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-96 \- Improper Neutralization of Directives in Statically Saved Code ('Static Code Injection')
 .SH RANK
@@ -9,9 +9,45 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes code syntax before inserting the input into an executable resource, such as a library, configuration file, or template.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB2\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB2\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2021\-40870
+Aviatrix Aviatrix Controller, added 2022\-01\-18.
 .PP
-CVE\-2021\-40870, CVE\-2026\-86218.
+Aviatrix Controller Unrestricted Upload of File.
+.PP
+\fIHow it is exploited (CISA):\fR
+Unrestricted upload of a file with a dangerous type is possible, which allows an unauthenticated user to execute arbitrary code via directory traversal.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-02\-01.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-40870
+.SS CVE\-2026\-86218
+N\-able N\-central, added 2026\-09\-08.
+.PP
+N\-able N\-central Static Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+N\-able N\-central contains a static code injection vulnerability that could allow for pre\-authentication remote code execution.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-11.
+.PP
+\fIReferences:\fR
+.br
+https://status.n\-able.com/2026/09/06/n\-central\-2026\-3\-hotfix\-4\-cve\-2026\-86218/
+.br
+https://me.n\-able.com/s/security\-advisory/aArVy0000002Ld3KAE/cve202686218\-preauthentication\-remote\-code\-execution
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-86218
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +57,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/96.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

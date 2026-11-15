@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-306 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-306 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-306 \- Missing Authentication for Critical Function
 .SH RANK
@@ -11,9 +11,768 @@ A critical function is reachable without authentication: admin panels, debug int
 .SH MITIGATION
 Require authentication for every sensitive function and verify it server\-side; do not rely on an endpoint being hidden. Combine with authorization and an extra factor for the most dangerous operations.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB43\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB43\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2019\-5591
+Fortinet FortiOS, added 2021\-11\-03, ransomware: Known.
 .PP
-CVE\-2019\-5591, CVE\-2019\-9082, CVE\-2020\-3952, CVE\-2020\-6207, CVE\-2020\-6287, CVE\-2020\-13927, CVE\-2020\-24363, CVE\-2021\-20021, CVE\-2021\-37415, CVE\-2021\-44077, CVE\-2022\-1388, CVE\-2022\-21587, CVE\-2022\-23227, CVE\-2022\-24990, CVE\-2022\-26143, CVE\-2022\-26501, CVE\-2022\-26925, CVE\-2023\-27532, CVE\-2023\-28461, CVE\-2023\-36846, CVE\-2023\-36847, CVE\-2023\-36851, CVE\-2024\-0012, CVE\-2024\-5910, CVE\-2024\-47575, CVE\-2025\-0108, CVE\-2025\-3248, CVE\-2025\-4008, CVE\-2025\-32433, CVE\-2025\-61757, CVE\-2026\-20253, CVE\-2026\-24423, CVE\-2026\-33017, CVE\-2026\-35273, CVE\-2026\-39987, CVE\-2026\-41940, CVE\-2026\-46817, CVE\-2026\-56164, CVE\-2026\-59822, CVE\-2026\-67277, CVE\-2026\-72529, CVE\-2026\-81578, CVE\-2026\-111357.
+Fortinet FortiOS Default Configuration Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Fortinet FortiOS contains a default configuration vulnerability that may allow an unauthenticated attacker on the same subnet to intercept sensitive information by impersonating the Lightweight Directory Access Protocol (LDAP) server.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-5591
+.SS CVE\-2019\-9082
+ThinkPHP ThinkPHP, added 2021\-11\-03.
+.PP
+ThinkPHP Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+ThinkPHP contains an unspecified vulnerability that allows for remote code execution via public//?s=index/\ethink\eapp/invokefunction&function=call_user_func_array&vars[0]=system&vars[1][]= followed by the command.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-9082
+.SS CVE\-2020\-3952
+VMware vCenter Server, added 2021\-11\-03.
+.PP
+VMware vCenter Server Information Disclosure Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+VMware vCenter Server contains an information disclosure vulnerability in the VMware Directory Service (vmdir) when the Platform Services Controller (PSC) does not correctly implement access controls. Successful exploitation allows an attacker with network access to port 389 to extract sensitive information.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-3952
+.SS CVE\-2020\-6207
+SAP Solution Manager, added 2021\-11\-03.
+.PP
+SAP Solution Manager Missing Authentication for Critical Function Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SAP Solution Manager User Experience Monitoring contains a missing authentication for critical function vulnerability which results in complete compromise of all SMDAgents connected to the Solution Manager.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-6207
+.SS CVE\-2020\-6287
+SAP NetWeaver, added 2021\-11\-03.
+.PP
+SAP NetWeaver Missing Authentication for Critical Function Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SAP NetWeaver Application Server Java Platforms contains a missing authentication for critical function vulnerability allowing unauthenticated access to execute configuration tasks and create administrative users.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-6287
+.SS CVE\-2020\-13927
+Apache Airflow's Experimental API, added 2022\-01\-18.
+.PP
+Apache Airflow's Experimental API Authentication Bypass.
+.PP
+\fIHow it is exploited (CISA):\fR
+The previous default setting for Airflow's Experimental API was to allow all API requests without authentication.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-07\-18.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-13927
+.SS CVE\-2020\-24363
+TP\-Link TL\-WA855RE, added 2025\-09\-02.
+.PP
+TP\-link TL\-WA855RE Missing Authentication for Critical Function Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+TP\-link TL\-WA855RE contains a missing authentication for critical function vulnerability. This vulnerability could allow an unauthenticated attacker (on the same network) to submit a TDDP_RESET POST request for a factory reset and reboot. The attacker can then obtain incorrect access control by setting a new administrative password. The impacted products could be end\-of\-life (EoL) and/or end\-of\-service (EoS). Users should discontinue product utilization.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-09\-23.
+.PP
+\fIReferences:\fR
+.br
+https://www.tp\-link.com/us/home\-networking/range\-extender/tl\-wa855re/#overview
+.br
+https://www.tp\-link.com/us/support/download/tl\-wa855re/#FAQs
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-24363
+.SS CVE\-2021\-20021
+SonicWall SonicWall Email Security, added 2021\-11\-03, ransomware: Known.
+.PP
+SonicWall Email Security Improper Privilege Management Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SonicWall Email Security contains an improper privilege management vulnerability that allows an attacker to create an administrative account by sending a crafted HTTP request to the remote host. This vulnerability has known usage in a SonicWall Email Security exploit chain along with CVE\-2021\-20022 and CVE\-2021\-20023 to achieve privilege escalation.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-20021
+.SS CVE\-2021\-37415
+Zoho ManageEngine ServiceDesk Plus (SDP), added 2021\-12\-01.
+.PP
+Zoho ManageEngine ServiceDesk Authentication Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Zoho ManageEngine ServiceDesk Plus before 11302 is vulnerable to authentication bypass that allows a few REST\-API URLs without authentication
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-12\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-37415
+.SS CVE\-2021\-44077
+Zoho ManageEngine ServiceDesk Plus (SDP) / SupportCenter Plus, added 2021\-12\-01.
+.PP
+Zoho ManageEngine ServiceDesk Plus Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Zoho ManageEngine ServiceDesk Plus before 11306, ServiceDesk Plus MSP before 10530, and SupportCenter Plus before 11014 are vulnerable to unauthenticated remote code execution
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-12\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-44077
+.SS CVE\-2022\-1388
+F5 BIG\-IP, added 2022\-05\-10, ransomware: Known.
+.PP
+F5 BIG\-IP Missing Authentication Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+F5 BIG\-IP contains a missing authentication in critical function vulnerability which can allow for remote code execution, creation or deletion of files, or disabling services.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-31.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-1388
+.SS CVE\-2022\-21587
+Oracle E\-Business Suite, added 2023\-02\-02, ransomware: Known.
+.PP
+Oracle E\-Business Suite Unspecified Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Oracle E\-Business Suite contains an unspecified vulnerability that allows an unauthenticated attacker with network access via HTTP to compromise Oracle Web Applications Desktop Integrator.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-02\-23.
+.PP
+\fIReferences:\fR
+.br
+https://www.oracle.com/security\-alerts/cpuoct2022.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-21587
+.SS CVE\-2022\-23227
+NUUO NVRmini2 Devices, added 2024\-12\-18.
+.PP
+NUUO NVRmini2 Devices Missing Authentication Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+NUUO NVRmini2 devices contain a missing authentication vulnerability that allows an unauthenticated attacker to upload an encrypted TAR archive, which can be abused to add arbitrary users.
+.PP
+\fIRemediation:\fR
+The impacted product is end\-of\-life (EoL) and/or end\-of\-service (EoS). Users should discontinue utilization of the product.
+ Due 2025\-01\-08.
+.PP
+\fIReferences:\fR
+.br
+https://nuuo.com/wp\-content/uploads/2023/03/NUUO\-EOL\-letter＿NVRmini\-2\-and\-NVRsolo\-series.pdf
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-23227
+.SS CVE\-2022\-24990
+TerraMaster TerraMaster OS, added 2023\-02\-10, ransomware: Known.
+.PP
+TerraMaster OS Remote Command Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+TerraMaster OS contains a remote command execution vulnerability that allows an unauthenticated user to execute commands on the target endpoint.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-03\-03.
+.PP
+\fIReferences:\fR
+.br
+https://forum.terra\-master.com/en/viewtopic.php?t=3030
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-24990
+.SS CVE\-2022\-26143
+Mitel MiCollab, MiVoice Business Express, added 2022\-03\-25.
+.PP
+MiCollab, MiVoice Business Express Access Control Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A vulnerability has been identified in MiCollab and MiVoice Business Express that may allow a malicious actor to gain unauthorized access to sensitive information and services, cause performance degradations or a denial of service condition on the affected system.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-26143
+.SS CVE\-2022\-26501
+Veeam Backup & Replication, added 2022\-12\-13, ransomware: Known.
+.PP
+Veeam Backup & Replication Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The Veeam Distribution Service in the Backup & Replication application allows unauthenticated users to access internal API functions. A remote attacker can send input to the internal API which may lead to uploading and executing of malicious code.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-01\-03.
+.PP
+\fIReferences:\fR
+.br
+https://www.veeam.com/kb4288
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-26501
+.SS CVE\-2022\-26925
+Microsoft Windows, added 2022\-07\-01.
+.PP
+Microsoft Windows LSA Spoofing Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Local Security Authority (LSA) contains a spoofing vulnerability where an attacker can coerce the domain controller to authenticate to the attacker using NTLM.
+.PP
+\fIRemediation:\fR
+Apply remediation actions outlined in CISA guidance [https://www.cisa.gov/guidance\-applying\-june\-microsoft\-patch].
+ Due 2022\-07\-22.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-26925
+.SS CVE\-2023\-27532
+Veeam Backup & Replication, added 2023\-08\-22, ransomware: Known.
+.PP
+Veeam Backup & Replication Cloud Connect Missing Authentication for Critical Function Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Veeam Backup & Replication Cloud Connect component contains a missing authentication for critical function vulnerability that allows an unauthenticated user operating within the backup infrastructure network perimeter to obtain encrypted credentials stored in the configuration database. This may lead to an attacker gaining access to the backup infrastructure hosts.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-09\-12.
+.PP
+\fIReferences:\fR
+.br
+https://www.veeam.com/kb4424
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-27532
+.SS CVE\-2023\-28461
+Array Networks AG/vxAG ArrayOS, added 2024\-11\-25, ransomware: Known.
+.PP
+Array Networks AG and vxAG ArrayOS Missing Authentication for Critical Function Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Array Networks AG and vxAG ArrayOS contain a missing authentication for critical function vulnerability that allows an attacker to read local files and execute code on the SSL VPN gateway.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-12\-16.
+.PP
+\fIReferences:\fR
+.br
+https://support.arraynetworks.net/prx/001/http/supportportal.arraynetworks.net/documentation/FieldNotice/Array_Networks_Security_Advisory_for_Remote_Code_Execution_Vulnerability_AG.pdf
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-28461
+.SS CVE\-2023\-36846
+Juniper Junos OS, added 2023\-11\-13.
+.PP
+Juniper Junos OS SRX Series Missing Authentication for Critical Function Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Juniper Junos OS on SRX Series contains a missing authentication for critical function vulnerability that allows an unauthenticated, network\-based attacker to cause limited impact to the file system integrity. With a specific request to user.php that doesn't require authentication, an attacker is able to upload arbitrary files via J\-Web, leading to a loss of integrity for a certain part of the file system, which may allow chaining to other vulnerabilities.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://supportportal.juniper.net/s/article/2023\-08\-Out\-of\-Cycle\-Security\-Bulletin\-Junos\-OS\-SRX\-Series\-and\-EX\-Series\-Multiple\-vulnerabilities\-in\-J\-Web\-can\-be\-combined\-to\-allow\-a\-preAuth\-Remote\-Code\-Execution?language=en_US
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-36846
+.SS CVE\-2023\-36847
+Juniper Junos OS, added 2023\-11\-13.
+.PP
+Juniper Junos OS EX Series Missing Authentication for Critical Function Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Juniper Junos OS on EX Series contains a missing authentication for critical function vulnerability that allows an unauthenticated, network\-based attacker to cause limited impact to the file system integrity. With a specific request to installAppPackage.php that doesn't require authentication, an attacker is able to upload arbitrary files via J\-Web, leading to a loss of integrity for a certain part of the file system, which may allow chaining to other vulnerabilities.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://supportportal.juniper.net/s/article/2023\-08\-Out\-of\-Cycle\-Security\-Bulletin\-Junos\-OS\-SRX\-Series\-and\-EX\-Series\-Multiple\-vulnerabilities\-in\-J\-Web\-can\-be\-combined\-to\-allow\-a\-preAuth\-Remote\-Code\-Execution?language=en_US
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-36847
+.SS CVE\-2023\-36851
+Juniper Junos OS, added 2023\-11\-13.
+.PP
+Juniper Junos OS SRX Series Missing Authentication for Critical Function Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Juniper Junos OS on SRX Series contains a missing authentication for critical function vulnerability that allows an unauthenticated, network\-based attacker to cause limited impact to the file system integrity. With a specific request to webauth_operation.php that doesn't require authentication, an attacker is able to upload arbitrary files via J\-Web, leading to a loss of integrity for a certain part of the file system, which may allow chaining to other vulnerabilities.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://supportportal.juniper.net/s/article/2023\-08\-Out\-of\-Cycle\-Security\-Bulletin\-Junos\-OS\-SRX\-Series\-and\-EX\-Series\-Multiple\-vulnerabilities\-in\-J\-Web\-can\-be\-combined\-to\-allow\-a\-preAuth\-Remote\-Code\-Execution?language=en_US
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-36851
+.SS CVE\-2024\-0012
+Palo Alto Networks PAN\-OS, added 2024\-11\-18, ransomware: Known.
+.PP
+Palo Alto Networks PAN\-OS Management Interface Authentication Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Palo Alto Networks PAN\-OS contains an authentication bypass vulnerability in the web\-based management interface for several PAN\-OS products, including firewalls and VPN concentrators.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-12\-09.
+.PP
+\fIReferences:\fR
+.br
+https://security.paloaltonetworks.com/CVE\-2024\-0012
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-0012
+.SS CVE\-2024\-5910
+Palo Alto Networks Expedition, added 2024\-11\-07.
+.PP
+Palo Alto Networks Expedition Missing Authentication Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Palo Alto Networks Expedition contains a missing authentication vulnerability that allows an attacker with network access to takeover an Expedition admin account and potentially access configuration secrets, credentials, and other data.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-11\-28.
+.PP
+\fIReferences:\fR
+.br
+https://security.paloaltonetworks.com/CVE\-2024\-5910
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-5910
+.SS CVE\-2024\-47575
+Fortinet FortiManager, added 2024\-10\-23.
+.PP
+Fortinet FortiManager Missing Authentication Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Fortinet FortiManager contains a missing authentication vulnerability in the fgfmd daemon that allows a remote, unauthenticated attacker to execute arbitrary code or commands via specially crafted requests.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-11\-13.
+.PP
+\fIReferences:\fR
+.br
+https://fortiguard.fortinet.com/psirt/FG\-IR\-24\-423
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-47575
+.SS CVE\-2025\-0108
+Palo Alto Networks PAN\-OS, added 2025\-02\-18.
+.PP
+Palo Alto Networks PAN\-OS Authentication Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Palo Alto Networks PAN\-OS contains an authentication bypass vulnerability in its management web interface. This vulnerability allows an unauthenticated attacker with network access to the management web interface to bypass the authentication normally required and invoke certain PHP scripts.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-03\-11.
+.PP
+\fIReferences:\fR
+.br
+https://security.paloaltonetworks.com/CVE\-2025\-0108
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-0108
+.SS CVE\-2025\-3248
+Langflow Langflow, added 2025\-05\-05, ransomware: Known.
+.PP
+Langflow Missing Authentication Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Langflow contains a missing authentication vulnerability in the /api/v1/validate/code endpoint that allows a remote, unauthenticated attacker to execute arbitrary code via crafted HTTP requests.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-05\-26.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/advisories/GHSA\-c995\-4fw3\-j39m
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-3248
+.SS CVE\-2025\-4008
+Smartbedded Meteobridge, added 2025\-10\-02.
+.PP
+Smartbedded Meteobridge Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Smartbedded Meteobridge contains a command injection vulnerability that could allow remote unauthenticated attackers to gain arbitrary command execution with elevated privileges (root) on affected devices.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-10\-23.
+.PP
+\fIReferences:\fR
+.br
+https://forum.meteohub.de/viewtopic.php?t=18687
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-4008
+.SS CVE\-2025\-32433
+Erlang Erlang/OTP, added 2025\-06\-09.
+.PP
+Erlang Erlang/OTP SSH Server Missing Authentication for Critical Function Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Erlang Erlang/OTP SSH server contains a missing authentication for critical function vulnerability. This could allow an attacker to execute arbitrary commands without valid credentials, potentially leading to unauthenticated remote code execution (RCE). By exploiting a flaw in how SSH protocol messages are handled, a malicious actor could gain unauthorized access to affected systems. This vulnerability could affect various products that implement Erlang/OTP SSH server, including—but not limited to—Cisco, NetApp, and SUSE.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-06\-30.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/erlang/otp/security/advisories/GHSA\-37cp\-fgq5\-7wc2
+.br
+https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco\-sa\-erlang\-otp\-ssh\-xyZZy
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-32433
+.SS CVE\-2025\-61757
+Oracle Fusion Middleware, added 2025\-11\-21.
+.PP
+Oracle Fusion Middleware Missing Authentication for Critical Function Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Oracle Fusion Middleware contains a missing authentication for critical function vulnerability, allowing unauthenticated remote attackers to take over Identity Manager.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-12\-12.
+.PP
+\fIReferences:\fR
+.br
+https://www.oracle.com/security\-alerts/cpuoct2025.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-61757
+.SS CVE\-2026\-20253
+Splunk Enterprise, added 2026\-06\-18.
+.PP
+Splunk Enterprise Missing Authentication for Critical Function Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Splunk Enterprise contains a missing authentication for critical function vulnerability which could allow an unauthenticated user to create or truncate arbitrary files through a PostgreSQL sidecar service endpoint.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-06\-21.
+.PP
+\fIReferences:\fR
+.br
+https://advisory.splunk.com/advisories/SVD\-2026\-0603
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-20253
+.SS CVE\-2026\-24423
+SmarterTools SmarterMail, added 2026\-02\-05, ransomware: Known.
+.PP
+SmarterTools SmarterMail Missing Authentication for Critical Function Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SmarterTools SmarterMail contains a missing authentication for critical function vulnerability in the ConnectToHub API method. This could allow the attacker to point the SmarterMail instance to a malicious HTTP server which serves the malicious OS command and could lead to command execution.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-02\-26.
+.PP
+\fIReferences:\fR
+.br
+https://www.smartertools.com/smartermail/release\-notes/current
+.br
+https://www.cve.org/CVERecord?id=CVE\-2026\-24423
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-24423
+.SS CVE\-2026\-33017
+Langflow Langflow, added 2026\-03\-25.
+.PP
+Langflow Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Langflow contains a code injection vulnerability that could allow building public flows without requiring authentication.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-04\-08.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/langflow\-ai/langflow/security/advisories/GHSA\-vwmf\-pq79\-vjvx
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-33017
+.SS CVE\-2026\-35273
+Oracle PeopleSoft Enterprise PeopleTools, added 2026\-06\-12, ransomware: Known.
+.PP
+Oracle PeopleSoft Enterprise PeopleTools Missing Authentication for Critical Function Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Oracle PeopleSoft Enterprise PeopleTools contains a missing authentication for critical function vulnerability which could allow an unauthenticated attacker to obtain takeover of PeopleSoft Enterprise PeopleTools.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-06\-15.
+.PP
+\fIReferences:\fR
+.br
+https://www.oracle.com/security\-alerts/alert\-cve\-2026\-35273.html
+.br
+https://support.oracle.com/signin/
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-35273
+.SS CVE\-2026\-39987
+Marimo Marimo, added 2026\-04\-23.
+.PP
+Marimo Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Marimo contains an pre\-authorization remote code execution vulnerability, allowing an unauthenticated attacked to shell access and execute arbitrary system commands.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-05\-07.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/marimo\-team/marimo/security/advisories/GHSA\-2679\-6mx9\-h9xc
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-39987
+.SS CVE\-2026\-41940
+WebPros cPanel & WHM and WP2 (WordPress Squared), added 2026\-04\-30, ransomware: Known.
+.PP
+WebPros cPanel & WHM and WP2 (WordPress Squared) Missing Authentication for Critical Function Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+WebPros cPanel & WHM (WebHost Manager) and WP2 (WordPress Squared) contain an authentication bypass vulnerability in the login flow that allows unauthenticated remote attackers to gain unauthorized access to the control panel.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://support.cpanel.net/hc/en\-us/articles/40073787579671\-cPanel\-WHM\-Security\-Update\-04\-28\-2026
+.br
+https://docs.cpanel.net/release\-notes/release\-notes/
+.br
+https://docs.wpsquared.com/changelogs/versions/changelog/#13617
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-41940"
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-41940
+.SS CVE\-2026\-46817
+Oracle E\-Business Suite, added 2026\-07\-15.
+.PP
+Oracle E\-Business Suite Improper Privilege Management Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Oracle E\-Business Suite contains an improper privilege management vulnerability that allows an unauthenticated attacker with network access via HTTP to compromise Oracle Payments. Successful attacks of this vulnerability can result in takeover of Oracle Payments.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-07\-18.
+.PP
+\fIReferences:\fR
+.br
+https://www.oracle.com/security\-alerts/cspumay2026.html
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-46817
+.SS CVE\-2026\-56164
+Microsoft SharePoint Server, added 2026\-07\-14.
+.PP
+Microsoft SharePoint Server Missing Authentication for Critical Function Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft SharePoint contains a missing authentication for critical function vulnerability that allows an unauthorized attacker to elevate privileges over a network.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-07\-17.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2026\-56164
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-56164
+.SS CVE\-2026\-59822
+BerriAI LiteLLM, added 2026\-09\-02.
+.PP
+BerriAI LiteLLM Improper Authentication Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+BerriAI LiteLLM contains an improper authentication vulnerability in the MCP Streamable HTTP endpoint that could allow an unauthenticated attacker to establish an authenticated MCP session using an arbitrary Bearer token.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-16.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/BerriAI/litellm/security/advisories/GHSA\-7488\-6r32\-c95q
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-59822
+.SS CVE\-2026\-67277
+MikroTik RouterOS, added 2026\-09\-10.
+.PP
+MikroTik RouterOS Missing Authentication for Critical Function Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+MikroTik RouterOS contains a missing authentication for critical function vulnerability which allows kernel memory disclosure and denial of service in the btest service.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-13.
+.PP
+\fIReferences:\fR
+.br
+https://mikrotik.com/supportsec/september\-2026\-vulnerability/
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-67277
+.SS CVE\-2026\-72529
+TrueConf Server, added 2026\-08\-20.
+.PP
+TrueConf Server Missing Authentication for Critical Function Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+TrueConf Server contains a missing authentication for critical function vulnerability which could allow a remote unauthorized attacker with network access via port 4307/TCP to execute an arbitrary script.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-08\-23.
+.PP
+\fIReferences:\fR
+.br
+https://trueconf.com/blog/news/security\-fixes\-updates\-and\-advisories
+.br
+https://ics\-cert.kaspersky.com/advisories/2026/08/11/trueconf\-server\-missing\-authentication\-for\-critical\-function/
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-72529
+.SS CVE\-2026\-81578
+PaperCut NG/MF, added 2026\-08\-31.
+.PP
+PaperCut NG/MF Missing Authentication for Critical Function Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+PaperCut NG/MF contains a missing authentication for critical function vulnerability which allows an unauthenticated remote attacker to modify certain system configurations. This vulnerability can be chained with CVE\-2026\-82078.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-14.
+.PP
+\fIReferences:\fR
+.br
+https://www.papercut.com/kb/Main/security\-bulletin\-27\-aug\-2026\-urgent\-security\-advisory/
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-81578
+.SS CVE\-2026\-111357
+Ivanti Connect Secure, added 2026\-10\-30.
+.PP
+Ivanti Connect Secure Missing Authentication for Critical Function Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ivanti Connect Secure contains a missing authentication for critical function vulnerability that could allow a local authenticated attacker to escalate their privileges. This vulnerability can be chained with CVE\-2026\-104935 and CVE\-2026\-118527.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-11\-02.
+.PP
+\fIReferences:\fR
+.br
+https://hub.ivanti.com/s/article/Security\-Advisory\-Ivanti\-Connect\-Secure\-CVE\-2026\-104935?language=en_US
+.br
+https://www.cisa.gov/news\-events/alerts/2026/10/13/cisa\-urges\-patching\-newly\-exploited\-vulnerability\-ivanti\-connect\-secure
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-111357
 .SH EXAMPLES
 One vulnerable\->fixed pair per ecosystem (Node.js, Python, Java, Go, PHP).
 .SS Node.js
@@ -114,4 +873,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/306.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

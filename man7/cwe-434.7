@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-434 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-434 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-434 \- Unrestricted Upload of File with Dangerous Type
 .SH RANK
@@ -11,9 +11,421 @@ Uploads are accepted without adequately restricting the type or how the file is 
 .SH MITIGATION
 Validate by content (not just extension); allow\-list permitted types; generate a server\-side random filename; store uploads outside the web root or where scripts never execute; serve with a safe Content\-Type/Content\-Disposition.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB24\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB24\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2017\-12615
+Apache Tomcat, added 2022\-03\-25, ransomware: Known.
 .PP
-CVE\-2017\-12615, CVE\-2017\-12617, CVE\-2018\-4063, CVE\-2018\-15961, CVE\-2019\-8394, CVE\-2020\-8260, CVE\-2020\-13671, CVE\-2020\-25213, CVE\-2021\-20022, CVE\-2021\-26828, CVE\-2021\-27860, CVE\-2021\-31207, CVE\-2024\-7399, CVE\-2024\-7694, CVE\-2024\-39717, CVE\-2024\-50623, CVE\-2024\-57968, CVE\-2025\-2749, CVE\-2025\-31324, CVE\-2025\-52691, CVE\-2026\-48356, CVE\-2026\-48908, CVE\-2026\-48939, CVE\-2026\-56291.
+Apache Tomcat on Windows Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+When running Apache Tomcat on Windows with HTTP PUTs enabled, it is possible to upload a JSP file to the server via a specially crafted request. This JSP could then be requested and any code it contained would be executed by the server.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-12615
+.SS CVE\-2017\-12617
+Apache Tomcat, added 2022\-03\-25.
+.PP
+Apache Tomcat Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+When running Apache Tomcat, it is possible to upload a JSP file to the server via a specially crafted request. This JSP could then be requested and any code it contained would be executed by the server.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-12617
+.SS CVE\-2018\-4063
+Sierra Wireless AirLink ALEOS, added 2025\-12\-12.
+.PP
+Sierra Wireless AirLink ALEOS Unrestricted Upload of File with Dangerous Type Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Sierra Wireless AirLink ALEOS contains an unrestricted upload of file with dangerous type vulnerability. A specially crafted HTTP request can upload a file, resulting in executable code being uploaded, and routable, to the webserver. An attacker can make an authenticated HTTP request to trigger this vulnerability. The impacted product could be end\-of\-life (EoL) and/or end\-of\-service (EoS). Users should discontinue product utilization.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-01\-02.
+.PP
+\fIReferences:\fR
+.br
+https://www.cisa.gov/news\-events/ics\-advisories/icsa\-19\-122\-03
+.br
+https://source.sierrawireless.com/resources/airlink/software_reference_docs/technical\-bulletin/sierra\-wireless\-technical\-bulletin\-\-\-swi\-psa\-2019\-003
+.br
+https://source.sierrawireless.com/resources/airlink/hardware_reference_docs/airlink_es450_eol
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-4063
+.SS CVE\-2018\-15961
+Adobe ColdFusion, added 2021\-11\-03.
+.PP
+Adobe ColdFusion Unrestricted File Upload Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Adobe ColdFusion contains an unrestricted file upload vulnerability that could allow for code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-15961
+.SS CVE\-2019\-8394
+Zoho ManageEngine, added 2021\-11\-03.
+.PP
+Zoho ManageEngine ServiceDesk Plus (SDP) File Upload Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Zoho ManageEngine ServiceDesk Plus (SDP) contains an unspecified vulnerability that allows remote users to upload files via login page customization.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-8394
+.SS CVE\-2020\-8260
+Ivanti Pulse Connect Secure, added 2021\-11\-03.
+.PP
+Ivanti Pulse Connect Secure Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Pulse Connect Secure contains an unspecified vulnerability that allows an authenticated attacker to perform code execution using uncontrolled gzip extraction.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://www.cisa.gov/news\-events/directives/ed\-21\-03\-mitigate\-pulse\-connect\-secure\-product\-vulnerabilities
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-8260
+.SS CVE\-2020\-13671
+Drupal Drupal core, added 2022\-01\-18.
+.PP
+Drupal core Un\-restricted Upload of File.
+.PP
+\fIHow it is exploited (CISA):\fR
+Improper sanitization in the extension file names is present in Drupal core.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-07\-18.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-13671
+.SS CVE\-2020\-25213
+WordPress File Manager Plugin, added 2021\-11\-03.
+.PP
+WordPress File Manager Plugin Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+WordPress File Manager plugin contains a remote code execution vulnerability that allows unauthenticated users to execute PHP code and upload malicious files on a target site.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-25213
+.SS CVE\-2021\-20022
+SonicWall SonicWall Email Security, added 2021\-11\-03, ransomware: Known.
+.PP
+SonicWall Email Security Unrestricted Upload of File Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SonicWall Email Security contains an unrestricted upload of file with dangerous type vulnerability that allows a post\-authenticated attacker to upload a file to the remote host. This vulnerability has known usage in a SonicWall Email Security exploit chain along with CVE\-2021\-20021 and CVE\-2021\-20023 to achieve privilege escalation.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-20022
+.SS CVE\-2021\-26828
+OpenPLC ScadaBR, added 2025\-12\-03.
+.PP
+OpenPLC ScadaBR Unrestricted Upload of File with Dangerous Type Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+OpenPLC ScadaBR contains an unrestricted upload of file with dangerous type vulnerability that allows remote authenticated users to upload and execute arbitrary JSP files via view_edit.shtm.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-12\-24.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/SCADA\-LTS/Scada\-LTS/pull/2174
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-26828
+.SS CVE\-2021\-27860
+FatPipe WARP, IPVPN, and MPVPN software, added 2022\-01\-10.
+.PP
+FatPipe WARP, IPVPN, and MPVPN Configuration Upload exploit.
+.PP
+\fIHow it is exploited (CISA):\fR
+A vulnerability in the web management interface of FatPipe WARP, IPVPN, and MPVPN software allows a remote, unauthenticated attacker to upload a file to any location on the filesystem.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-01\-24.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-27860
+.SS CVE\-2021\-31207
+Microsoft Exchange Server, added 2021\-11\-03, ransomware: Known.
+.PP
+Microsoft Exchange Server Security Feature Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Exchange Server contains an unspecified vulnerability that allows for security feature bypass.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-31207
+.SS CVE\-2024\-7399
+Samsung MagicINFO 9 Server, added 2026\-04\-24.
+.PP
+Samsung MagicINFO 9 Server Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Samsung MagicINFO 9 Server contains a path traversal vulnerability that could allow an attacker to write arbitrary files as system authority.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-05\-08.
+.PP
+\fIReferences:\fR
+.br
+https://security.samsungtv.com/securityUpdates
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-7399
+.SS CVE\-2024\-7694
+TeamT5 ThreatSonar Anti\-Ransomware, added 2026\-02\-17.
+.PP
+TeamT5 ThreatSonar Anti\-Ransomware Unrestricted Upload of File with Dangerous Type Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+TeamT5 ThreatSonar Anti\-Ransomware contains an unrestricted upload of file with dangerous type vulnerability. ThreatSonar Anti\-Ransomware does not properly validate the content of uploaded files. Remote attackers with administrator privileges on the product platform can upload malicious files, which can be used to execute arbitrary system commands on the server.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-03\-10.
+.PP
+\fIReferences:\fR
+.br
+https://teamt5.org/en/posts/vulnerability\-notice\-threat\-sonar\-anti\-ransomware\-20240715/
+.br
+https://www.twcert.org.tw/en/cp\-139\-8000\-e5a5c\-2.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-7694
+.SS CVE\-2024\-39717
+Versa Director, added 2024\-08\-23.
+.PP
+Versa Director Dangerous File Type Upload Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The Versa Director GUI contains an unrestricted upload of file with dangerous type vulnerability that allows administrators with Provider\-Data\-Center\-Admin or Provider\-Data\-Center\-System\-Admin privileges to customize the user interface. The “Change Favicon” (Favorite Icon) enables the upload of a .png file, which can be exploited to upload a malicious file with a .png extension disguised as an image.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-09\-13.
+.PP
+\fIReferences:\fR
+.br
+https://versa\-networks.com/blog/versa\-security\-bulletin\-update\-on\-cve\-2024\-39717\-versa\-director\-dangerous\-file\-type\-upload\-vulnerability/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-39717
+.SS CVE\-2024\-50623
+Cleo Multiple Products, added 2024\-12\-13, ransomware: Known.
+.PP
+Cleo Multiple Products Unrestricted File Upload Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Cleo Harmony, VLTrader, and LexiCom, which are managed file transfer products, contain an unrestricted file upload and download vulnerability that can lead to remote code execution with elevated privileges.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-01\-03.
+.PP
+\fIReferences:\fR
+.br
+https://support.cleo.com/hc/en\-us/articles/28408134019735\-Cleo\-Product\-Security\-Update
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-50623
+.SS CVE\-2024\-57968
+Advantive VeraCore, added 2025\-03\-10.
+.PP
+Advantive VeraCore Unrestricted File Upload Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Advantive VeraCore contains an unrestricted file upload vulnerability that allows a remote unauthenticated attacker to upload files to unintended folders via upload.apsx.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-03\-31.
+.PP
+\fIReferences:\fR
+.br
+https://advantive.my.site.com/support/s/article/VeraCore\-Release\-Notes\-2024\-4\-2\-1
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-57968
+.SS CVE\-2025\-2749
+Kentico Kentico Xperience, added 2026\-04\-20.
+.PP
+Kentico Xperience Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Kentico Xperience contains a path traversal vulnerability that could allow an authenticated user's Staging Sync Server to upload arbitrary data to path relative locations.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-05\-04.
+.PP
+\fIReferences:\fR
+.br
+https://devnet.kentico.com/download/hotfixes
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-2749
+.SS CVE\-2025\-31324
+SAP NetWeaver, added 2025\-04\-29, ransomware: Known.
+.PP
+SAP NetWeaver Unrestricted File Upload Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SAP NetWeaver Visual Composer Metadata Uploader contains an unrestricted file upload vulnerability that allows an unauthenticated agent to upload potentially malicious executable binaries.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-05\-20.
+.PP
+\fIReferences:\fR
+.br
+https://me.sap.com/notes/3594142
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-31324
+.SS CVE\-2025\-52691
+SmarterTools SmarterMail, added 2026\-01\-26, ransomware: Known.
+.PP
+SmarterTools SmarterMail Unrestricted Upload of File with Dangerous Type Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SmarterTools SmarterMail contains an unrestricted upload of file with dangerous type vulnerability that could allow an unauthenticated attacker to upload arbitrary files to any location on the mail server, potentially enabling remote code execution.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-02\-16.
+.PP
+\fIReferences:\fR
+.br
+https://www.smartertools.com/smartermail/release\-notes/current
+.br
+https://www.csa.gov.sg/alerts\-and\-advisories/alerts/al\-2025\-124/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-52691
+.SS CVE\-2026\-48356
+Adobe Commerce and Magento, added 2026\-10\-27.
+.PP
+Adobe Commerce and Magento Unrestricted Upload of File with Dangerous Type Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Adobe Commerce and Magento contain an unrestricted upload of file with dangerous type vulnerability that could result in arbitrary code execution in the context of the current user, potentially gaining elevated access or control over the victim's account or session.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-11\-10.
+.PP
+\fIReferences:\fR
+.br
+https://www.adobe.com/trust/security/products/commerce/apsb26\-73.html
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-48356
+.SS CVE\-2026\-48908
+JoomShaper SP Page Builder, added 2026\-07\-07.
+.PP
+JoomShaper SP Page Builder Unrestricted Upload of File with Dangerous Type Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+JoomShaper SP Page Builder contains an unrestricted upload of file with dangerous type vulnerability that allows unauthenticated users to upload arbitrary files, ultimately resulting in the upload and execution of PHP code.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-07\-10.
+.PP
+\fIReferences:\fR
+.br
+https://extensions.joomla.org/extension/sp\-page\-builder/
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-48908
+.SS CVE\-2026\-48939
+iCagenda iCagenda, added 2026\-07\-10.
+.PP
+iCagenda Unrestricted Upload of File with Dangerous Type Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+iCagenda contains an unrestricted upload of file with dangerous type vulnerability that allows the upload of arbitrary files in the file attachment feature, ultimately resulting in PHP code upload and execution.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-07\-13.
+.PP
+\fIReferences:\fR
+.br
+https://www.icagenda.com/#download
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-48939
+.SS CVE\-2026\-56291
+Balbooa Forms, added 2026\-07\-10.
+.PP
+Balbooa Forms Unrestricted Upload of File with Dangerous Type Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Balbooa Forms contains an unrestricted upload of file with dangerous type vulnerability that allows an unauthenticated arbitrary file upload which could allow uploading of executable files leading to full RCE.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-07\-13.
+.PP
+\fIReferences:\fR
+.br
+https://www.balbooa.com/joomla\-forms
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-56291
 .SH EXAMPLES
 One vulnerable\->fixed pair per ecosystem (Node.js, Python, Java, Go, PHP).
 .SS Node.js
@@ -119,4 +531,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/434.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

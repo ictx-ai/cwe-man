@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-98 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-98 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-98 \- Improper Control of Filename for Include/Require Statement in PHP Program ('PHP Remote File Inclusion')
 .SH RANK
@@ -9,9 +9,45 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The PHP application receives input from an upstream component, but it does not restrict or incorrectly restricts the input before its usage in require, include, or similar functions. In certain versions and configurations of PHP, this can allow an attacker to specify a URL to a remote location from which the product will obtain the code to execute. In other cases in association with path traversal, the attacker can specify a local file that may contain executable statements that can be parsed by PHP.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB2\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB2\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2025\-68645
+Synacor Zimbra Collaboration Suite (ZCS), added 2026\-01\-22.
 .PP
-CVE\-2025\-68645, CVE\-2026\-87902.
+Synacor Zimbra Collaboration Suite (ZCS) PHP Remote File Inclusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Synacor Zimbra Collaboration Suite (ZCS) contains a PHP remote file inclusion vulnerability that could allow for remote attackers to craft requests to the /h/rest endpoint to influence internal request dispatching, allowing inclusion of arbitrary files from the WebRoot directory.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-02\-12.
+.PP
+\fIReferences:\fR
+.br
+https://wiki.zimbra.com/wiki/Security_Center
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-68645
+.SS CVE\-2026\-87902
+WordPress Core, added 2026\-09\-25.
+.PP
+WordPress Core Remote File Inclusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+WordPress Core contains a remote file inclusion vulnerability which could allow an unauthenticated attacker to make page\-template resolution include a chosen readable local `.php` file outside the active theme directories, leading to remote code execution.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-28.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/WordPress/wordpress\-develop/security/advisories/GHSA\-7hp8\-65ch\-5whp
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-87902
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +57,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/98.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

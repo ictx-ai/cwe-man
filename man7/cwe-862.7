@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-862 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-862 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-862 \- Missing Authorization
 .SH RANK
@@ -11,9 +11,263 @@ No authorization check is performed when an actor accesses a resource or perform
 .SH MITIGATION
 Enforce an explicit authorization decision on every sensitive operation, ideally centrally (middleware/filter/annotation) so it cannot be forgotten. Deny by default; check the specific permission for the specific action.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB14\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB14\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2021\-3493
+Linux Kernel, added 2022\-10\-20.
 .PP
-CVE\-2021\-3493, CVE\-2021\-30657, CVE\-2021\-30713, CVE\-2021\-37976, CVE\-2022\-0492, CVE\-2022\-0543, CVE\-2023\-52163, CVE\-2024\-57726, CVE\-2025\-6205, CVE\-2025\-20362, CVE\-2025\-40602, CVE\-2026\-84869, CVE\-2026\-111357, CVE\-2026\-123039.
+Linux Kernel Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The overlayfs stacking file system in Linux kernel does not properly validate the application of file capabilities against user namespaces, which could lead to privilege escalation.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-11\-10.
+.PP
+\fIReferences:\fR
+.br
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7c03e2cda4a584cadc398e8f6641ca9988a39d52
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-3493
+.SS CVE\-2021\-30657
+Apple macOS, added 2021\-11\-03.
+.PP
+Apple macOS Unspecified Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apple macOS contains an unspecified logic issue in System Preferences that may allow a malicious application to bypass Gatekeeper checks.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-30657
+.SS CVE\-2021\-30713
+Apple macOS, added 2021\-11\-03.
+.PP
+Apple macOS Unspecified Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apple macOS Transparency, Consent, and Control (TCC) contains an unspecified permissions issue which may allow a malicious application to bypass privacy preferences.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-30713
+.SS CVE\-2021\-37976
+Google Chromium, added 2021\-11\-03.
+.PP
+Google Chromium Information Disclosure Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium contains an information disclosure vulnerability within the core memory component that allows a remote attacker to obtain potentially sensitive information from process memory via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-37976
+.SS CVE\-2022\-0492
+Linux Kernel, added 2026\-06\-02.
+.PP
+Linux Kernel Improper Authentication Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Linux Kernel contains an improper authentication vulnerability which could allow for privilege escalation via the cgroups v1 release_agent feature.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-06\-05.
+.PP
+\fIReferences:\fR
+.br
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=24f6008564183aa120d07c03d9289519c2fe02af
+.br
+https://www.kernel.org/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-0492
+.SS CVE\-2022\-0543
+Redis Debian\-specific Redis Servers, added 2022\-03\-28.
+.PP
+Debian\-specific Redis Server Lua Sandbox Escape Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Redis is prone to a (Debian\-specific) Lua sandbox escape, which could result in remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-18.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-0543
+.SS CVE\-2023\-52163
+Digiever DS\-2105 Pro, added 2025\-12\-22.
+.PP
+Digiever DS\-2105 Pro Missing Authorization Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Digiever DS\-2105 Pro contains a missing authorization vulnerability which could allow for command injection via time_tzsetup.cgi.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-01\-12.
+.PP
+\fIReferences:\fR
+.br
+https://www.digiever.com/tw/support/faq\-content.php?FAQ=217
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-52163
+.SS CVE\-2024\-57726
+SimpleHelp SimpleHelp, added 2026\-04\-24, ransomware: Known.
+.PP
+SimpleHelp Missing Authorization Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SimpleHelp contains a missing authorization vulnerability that could allow low\-privileged technicians to create API keys with excessive permissions. These API keys can be used to escalate privileges to the server admin role.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-05\-08.
+.PP
+\fIReferences:\fR
+.br
+https://simple\-help.com/kb\-\-\-security\-vulnerabilities\-01\-2025#security\-vulnerabilities\-in\-simplehelp\-5\-5\-7\-and\-earlier
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-57726
+.SS CVE\-2025\-6205
+Dassault Systèmes DELMIA Apriso, added 2025\-10\-28.
+.PP
+Dassault Systèmes DELMIA Apriso Missing Authorization Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Dassault Systèmes DELMIA Apriso contains a missing authorization vulnerability that could allow an attacker to gain privileged access to the application.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-11\-18.
+.PP
+\fIReferences:\fR
+.br
+https://www.3ds.com/trust\-center/security/security\-advisories/cve\-2025\-6205
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-6205
+.SS CVE\-2025\-20362
+Cisco Secure Firewall Adaptive Security Appliance and Secure Firewall Threat Defense, added 2025\-09\-25.
+.PP
+Cisco Secure Firewall Adaptive Security (ASA) Appliance and Secure Firewall Threat Defense (FTD) Missing Authorization Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Cisco Secure Firewall Adaptive Security (ASA) Appliance and Secure Firewall Threat Defense (FTD) Software VPN Web Server contain a missing authorization vulnerability. This vulnerability could be chained with CVE\-2025\-20333.
+.PP
+\fIRemediation:\fR
+The KEV due date refers to the deadline by which FCEB agencies are expected to review and begin implementing the guidance outlined in Emergency Directive (ED) 25\-03 (URL listed below in Notes). Agencies must follow the mitigation steps provided by CISA (URL listed below in Notes) and vendor’s instructions (URL listed below in Notes). Adhere to the applicable BOD 22\-01 guidance for cloud services or discontinue use of the product if mitigations are not available.
+ Due 2025\-09\-26.
+.PP
+\fIReferences:\fR
+.br
+https://www.cisa.gov/news\-events/directives/ed\-25\-03\-identify\-and\-mitigate\-potential\-compromise\-cisco\-devices
+.br
+https://www.cisa.gov/news\-events/directives/supplemental\-direction\-ed\-25\-03\-core\-dump\-and\-hunt\-instructions
+.br
+https://www.cisa.gov/eviction\-strategies\-tool/create\-from\-template
+.br
+https://sec.cloudapps.cisco.com/security/center/resources/asa_ftd_continued_attacks
+.br
+https://sec.cloudapps.cisco.com/security/center/private/resources/asa_ftd_continued_attacks#Details
+.br
+https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco\-sa\-asaftd\-webvpn\-YROOTUW
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-20362
+.SS CVE\-2025\-40602
+SonicWall SMA1000 appliance, added 2025\-12\-17.
+.PP
+SonicWall SMA1000 Missing Authorization Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SonicWall SMA1000 contains a missing authorization vulnerability that could allow for privilege escalation appliance management console (AMC) of affected devices.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-12\-24.
+.PP
+\fIReferences:\fR
+.br
+https://psirt.global.sonicwall.com/vuln\-detail/SNWLID\-2025\-0019
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-40602
+.SS CVE\-2026\-84869
+ConnectWise ScreenConnect, added 2026\-09\-11.
+.PP
+ConnectWise ScreenConnect Improper Privilege Management and Missing Authorization Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+ConnectWise ScreenConnect contains both an improper privilege management and missing authorization vulnerability that may allow an attacker to transfer and execute files through an active remote session without authorization or host confirmation.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-14.
+.PP
+\fIReferences:\fR
+.br
+https://www.connectwise.com/company/trust/security\-bulletins/2026\-09\-08\-screenconnect\-bulletin
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-84869
+.SS CVE\-2026\-111357
+Ivanti Connect Secure, added 2026\-10\-30.
+.PP
+Ivanti Connect Secure Missing Authentication for Critical Function Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ivanti Connect Secure contains a missing authentication for critical function vulnerability that could allow a local authenticated attacker to escalate their privileges. This vulnerability can be chained with CVE\-2026\-104935 and CVE\-2026\-118527.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-11\-02.
+.PP
+\fIReferences:\fR
+.br
+https://hub.ivanti.com/s/article/Security\-Advisory\-Ivanti\-Connect\-Secure\-CVE\-2026\-104935?language=en_US
+.br
+https://www.cisa.gov/news\-events/alerts/2026/10/13/cisa\-urges\-patching\-newly\-exploited\-vulnerability\-ivanti\-connect\-secure
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-111357
+.SS CVE\-2026\-123039
+Check Point Multiple Products, added 2026\-11\-13.
+.PP
+Check Point Multiple Products Incorrect Permission Assignment for Critical Resource Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Check Point Firewall, Multi\-Domain Security Management Server, Scalable Platforms, Security Gateway, and Security Management Server contain an incorrect permissions assignment for critical resources vulnerability when the Gaia OS DynamicCLI daemon runs as root and listens on a world\-writable local socket without authenticating connecting processes. An authenticated local user can send a command to the socket and have it executed as root.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-11\-16.
+.PP
+\fIReferences:\fR
+.br
+https://support.checkpoint.com/results/sk/sk1000362
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-123039
 .SH EXAMPLES
 One vulnerable\->fixed pair per ecosystem (Node.js, Python, Java, Go, PHP).
 .SS Node.js
@@ -123,4 +377,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/862.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

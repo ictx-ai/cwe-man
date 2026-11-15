@@ -34,7 +34,8 @@ if [ "$UNINSTALL" -eq 1 ]; then
 else
     $SUDO mkdir -p "$MANDIR"
     $SUDO cp "$SRCDIR"/*.7 "$MANDIR/"
-    $SUDO chmod 0644 "$MANDIR"/cwe*.7
+    $SUDO chmod 0644 "$MANDIR"/cwe*.7 "$MANDIR"/owasp*.7 2>/dev/null || \
+        $SUDO chmod 0644 "$MANDIR"/cwe*.7
     echo "Installed $(ls "$SRCDIR"/*.7 | wc -l | tr -d ' ') pages to $MANDIR"
 fi
 
@@ -57,6 +58,8 @@ if [ "$UNINSTALL" -eq 0 ]; then
             fi ;;
     esac
     echo
-    echo "Try:  man cwe        # index of all 25"
-    echo "      man cwe-78     # an individual weakness"
+    echo "Try:  man cwe        # CWE / KEV index"
+    echo "      man cwe-78     # one weakness"
+    echo "      man owasp      # OWASP Top 10:2025 overlay"
+    echo "      man owasp-a01  # one OWASP category -> CWE map"
 fi

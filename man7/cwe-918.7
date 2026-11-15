@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-918 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-918 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-918 \- Server\-Side Request Forgery (SSRF)
 .SH RANK
@@ -11,9 +11,435 @@ The server fetches a URL supplied or influenced by the user without validating t
 .SH MITIGATION
 Allow\-list permitted hosts/schemes; resolve the hostname and reject private, loopback and link\-local ranges; disable redirects to disallowed targets; and isolate outbound requests from internal/metadata services.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB24\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB24\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2019\-9621
+Synacor Zimbra Collaboration Suite (ZCS), added 2025\-07\-07.
 .PP
-CVE\-2019\-9621, CVE\-2020\-7796, CVE\-2021\-21311, CVE\-2021\-21973, CVE\-2021\-21975, CVE\-2021\-21985, CVE\-2021\-22054, CVE\-2021\-22175, CVE\-2021\-26855, CVE\-2021\-27103, CVE\-2021\-34473, CVE\-2021\-39935, CVE\-2021\-40438, CVE\-2022\-41040, CVE\-2023\-41763, CVE\-2024\-21893, CVE\-2025\-61884, CVE\-2026\-15409, CVE\-2026\-20230, CVE\-2026\-49869, CVE\-2026\-64849, CVE\-2026\-83548, CVE\-2026\-96652, CVE\-2026\-96655.
+Synacor Zimbra Collaboration Suite (ZCS) Server\-Side Request Forgery (SSRF) Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Synacor Zimbra Collaboration Suite (ZCS) contains a server\-side request forgery (SSRF) vulnerability via the ProxyServlet component.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-07\-28.
+.PP
+\fIReferences:\fR
+.br
+https://wiki.zimbra.com/wiki/Zimbra_Security_Advisories
+.br
+https://wiki.zimbra.com/wiki/Security_Center
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-9621
+.SS CVE\-2020\-7796
+Synacor Zimbra Collaboration Suite, added 2026\-02\-17.
+.PP
+Synacor Zimbra Collaboration Suite (ZCS) Server\-Side Request Forgery Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Synacor Zimbra Collaboration Suite (ZCS) contains a server\-side request forgery vulnerability if WebEx zimlet installed and zimlet JSP is enabled.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-03\-10.
+.PP
+\fIReferences:\fR
+.br
+https://wiki.zimbra.com/wiki/Zimbra_Releases/8.8.15/P7
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-7796
+.SS CVE\-2021\-21311
+Adminer Adminer, added 2025\-09\-29.
+.PP
+Adminer Server\-Side Request Forgery Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Adminer contains a server\-side request forgery vulnerability that, when exploited, allows a remote attacker to obtain potentially sensitive information.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-10\-20.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/vrana/adminer/security/advisories/GHSA\-x5r2\-hj5c\-8jx6
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-21311
+.SS CVE\-2021\-21973
+VMware vCenter Server and Cloud Foundation, added 2022\-03\-07.
+.PP
+VMware vCenter Server and Cloud Foundation Server Side Request Forgery (SSRF) Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+VMware vCenter Server and Cloud Foundation Server contain a SSRF vulnerability due to improper validation of URLs in a vCenter Server plugin. This allows for information disclosure.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-03\-21.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-21973
+.SS CVE\-2021\-21975
+VMware vRealize Operations Manager API, added 2022\-01\-18, ransomware: Known.
+.PP
+VMware Server Side Request Forgery in vRealize Operations Manager API.
+.PP
+\fIHow it is exploited (CISA):\fR
+Server Side Request Forgery (SSRF) in vRealize Operations Manager API prior to 8.4 may allow a malicious actor with network access to the vRealize Operations Manager API to perform a SSRF attack to steal administrative credentials.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-02\-01.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-21975
+.SS CVE\-2021\-21985
+VMware vCenter Server, added 2021\-11\-03, ransomware: Known.
+.PP
+VMware vCenter Server Improper Input Validation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+VMware vSphere Client contains an improper input validation vulnerability in the Virtual SAN Health Check plug\-in, which is enabled by default in vCenter Server, which allows for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-21985
+.SS CVE\-2021\-22054
+Omnissa Workspace One UEM, added 2026\-03\-09.
+.PP
+Omnissa Workspace ONE Server\-Side Request Forgery.
+.PP
+\fIHow it is exploited (CISA):\fR
+Omnissa Workspace One UEM formerly known as VMware Workspace One UEM contains a server\-side request forgery (SSRF) vulnerability that could allow a malicious actor with network access to UEM to send their requests without authentication and to gain access to sensitive information.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-03\-23.
+.PP
+\fIReferences:\fR
+.br
+https://web.archive.org/web/20211222154335/https://www.vmware.com/security/advisories/VMSA\-2021\-0029.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-22054
+.SS CVE\-2021\-22175
+GitLab GitLab, added 2026\-02\-18.
+.PP
+GitLab Server\-Side Request Forgery (SSRF) Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+GitLab contains a server\-side request forgery (SSRF) vulnerability when requests to the internal network for webhooks are enabled.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-03\-11.
+.PP
+\fIReferences:\fR
+.br
+https://gitlab.com/gitlab\-org/cves/\-/blob/master/2021/CVE\-2021\-22175.json
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-22175
+.SS CVE\-2021\-26855
+Microsoft Exchange Server, added 2021\-11\-03, ransomware: Known.
+.PP
+Microsoft Exchange Server Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Exchange Server contains an unspecified vulnerability that allows for remote code execution. This vulnerability is part of the ProxyLogon exploit chain.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://www.cisa.gov/news\-events/directives/ed\-21\-02\-mitigate\-microsoft\-exchange\-premises\-product\-vulnerabilities
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-26855
+.SS CVE\-2021\-27103
+Accellion FTA, added 2021\-11\-03, ransomware: Known.
+.PP
+Accellion FTA Server\-Side Request Forgery (SSRF) Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Accellion FTA contains a server\-side request forgery (SSRF) vulnerability exploited via a crafted POST request to wmProgressstat.html.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-27103
+.SS CVE\-2021\-34473
+Microsoft Exchange Server, added 2021\-11\-03, ransomware: Known.
+.PP
+Microsoft Exchange Server Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Exchange Server contains an unspecified vulnerability that allows for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-34473
+.SS CVE\-2021\-39935
+GitLab Community and Enterprise Editions, added 2026\-02\-03.
+.PP
+GitLab Community and Enterprise Editions Server\-Side Request Forgery (SSRF) Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+GitLab Community and Enterprise Editions contain a server\-side request forgery vulnerability which could allow unauthorized external users to perform Server Side Requests via the CI Lint API.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-02\-24.
+.PP
+\fIReferences:\fR
+.br
+https://about.gitlab.com/releases/2021/12/06/security\-release\-gitlab\-14\-5\-2\-released/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-39935
+.SS CVE\-2021\-40438
+Apache Apache, added 2021\-12\-01, ransomware: Known.
+.PP
+Apache HTTP Server\-Side Request Forgery (SSRF).
+.PP
+\fIHow it is exploited (CISA):\fR
+A crafted request uri\-path can cause mod_proxy to forward the request to an origin server choosen by the remote user. This issue affects Apache HTTP Server 2.4.48 and earlier.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-12\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-40438
+.SS CVE\-2022\-41040
+Microsoft Exchange Server, added 2022\-09\-30, ransomware: Known.
+.PP
+Microsoft Exchange Server Server\-Side Request Forgery Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Exchange Server allows for server\-side request forgery. Dubbed "ProxyNotShell," this vulnerability is chainable with CVE\-2022\-41082 which allows for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-10\-21.
+.PP
+\fIReferences:\fR
+.br
+https://msrc\-blog.microsoft.com/2022/09/29/customer\-guidance\-for\-reported\-zero\-day\-vulnerabilities\-in\-microsoft\-exchange\-server/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-41040
+.SS CVE\-2023\-41763
+Microsoft Skype for Business, added 2023\-10\-10.
+.PP
+Microsoft Skype for Business Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Skype for Business contains an unspecified vulnerability that allows for privilege escalation.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-10\-31.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2023\-41763
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-41763
+.SS CVE\-2024\-21893
+Ivanti Connect Secure, Policy Secure, and Neurons, added 2024\-01\-31, ransomware: Known.
+.PP
+Ivanti Connect Secure, Policy Secure, and Neurons Server\-Side Request Forgery (SSRF) Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ivanti Connect Secure (ICS, formerly known as Pulse Connect Secure), Ivanti Policy Secure, and Ivanti Neurons contain a server\-side request forgery (SSRF) vulnerability in the SAML component that allows an attacker to access certain restricted resources without authentication.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-02\-02.
+.PP
+\fIReferences:\fR
+.br
+https://forums.ivanti.com/s/article/KB\-CVE\-2023\-46805\-Authentication\-Bypass\-CVE\-2024\-21887\-Command\-Injection\-for\-Ivanti\-Connect\-Secure\-and\-Ivanti\-Policy\-Secure\-Gateways?language=en_US
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-21893
+.SS CVE\-2025\-61884
+Oracle E\-Business Suite, added 2025\-10\-20, ransomware: Known.
+.PP
+Oracle E\-Business Suite Server\-Side Request Forgery (SSRF) Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Oracle E\-Business Suite contains a server\-side request forgery (SSRF) vulnerability in the Runtime component of Oracle Configurator. This vulnerability is remotely exploitable without authentication.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-11\-10.
+.PP
+\fIReferences:\fR
+.br
+https://www.oracle.com/security\-alerts/alert\-cve\-2025\-61884.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-61884
+.SS CVE\-2026\-15409
+SonicWall SMA1000 Appliances, added 2026\-07\-14, ransomware: Known.
+.PP
+SonicWall SMA1000 Appliances Server\-Side Request Forgery Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SonicWall SMA1000 Appliances contain a server\-side request forgery vulnerability that could allow a remote unauthenticated attacker to potentially cause the appliance to make requests to unintended location.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-07\-17.
+.PP
+\fIReferences:\fR
+.br
+https://psirt.global.sonicwall.com/vuln\-detail/SNWLID\-2026\-0008
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-15409
+.SS CVE\-2026\-20230
+Cisco Unified Communications Manager, added 2026\-06\-25.
+.PP
+Cisco Unified Communications Manager Server\-Side Request Forgery (SSRF) Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Cisco Unified Communications Manager (Unified CM) and Cisco Unified Communications Manager Session Management Edition (Unified CM SME) contain a server\-side request forgery (SSRF) Vulnerability that could allow an unauthenticated, remote attacker to write files to the underlying operating system that could be used later to elevate to root.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-06\-28.
+.PP
+\fIReferences:\fR
+.br
+https://www.cisco.com/c/en/us/support/docs/csa/cisco\-sa\-cucm\-ssrf\-cXPnHcW.html
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-20230
+.SS CVE\-2026\-49869
+Kestra Kestra OSS, added 2026\-09\-02.
+.PP
+Kestra OSS OS Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Kestra OSS contains an OS command injection vulnerability that could allow an unauthenticated remote attacker to create and execute arbitrary workflows without credentials.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-05.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/kestra\-io/kestra/security/advisories/GHSA\-5vc5\-wxxq\-3fjx
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-49869
+.SS CVE\-2026\-64849
+MLflow MLflow, added 2026\-08\-19.
+.PP
+MLflow Server\-Side Request Forgery Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+MLflow contains a server\-side request forgery vulnerability that can allow attackers to reach internal or cloud metadata services and receive response_status and response_body.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-02.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/mlflow/mlflow/pull/24258
+.br
+https://github.com/mlflow/mlflow/issues/24179
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-64849
+.SS CVE\-2026\-83548
+SonicWall SMA1000 Appliances, added 2026\-09\-02.
+.PP
+SonicWall SMA1000 Appliances Server\-Side Request Forgery Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SonicWall SMA1000 Appliances contains a server\-side request forgery vulnerability that could allow a remote unauthenticated attacker to gain unauthorized access to sensitive functionality and perform unauthorized operations.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-05.
+.PP
+\fIReferences:\fR
+.br
+https://psirt.global.sonicwall.com/vuln\-detail/SNWLID\-2026\-0016
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-83548
+.SS CVE\-2026\-96652
+Plex Media Server, added 2026\-10\-20.
+.PP
+Plex Media Server Server\-Side Request Forgery (SSRF) Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Plex Media Server contains a server\-side request forgery (SSRF) vulnerability which could allow an attacker using any X\-Plex\-Token value to include a full URL in the 'protocol' parameter and force the Plex server to POST to the attacker's chosen destination. This vulnerability can be chained with CVE\-2026\-96654, CVE\-2026\-96655, and CVE\-2026\-96656.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-11\-03.
+.PP
+\fIReferences:\fR
+.br
+https://forums.plex.tv/t/important\-security\-update\-for\-plex\-media\-server\-v1\-43\-2\-and\-earlier/942319
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-96652
+.SS CVE\-2026\-96655
+Plex Media Server, added 2026\-10\-20.
+.PP
+Plex Media Server Server\-Side Request Forgery (SSRF) Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Plex Media Server contains a server\-side request forgery (SSRF) vulnerability that could allow an authenticated user to request arbitrary internal or external addresses via the '/video/:/transcode/universal' path parameter. This vulnerability can be chained with CVE\-2026\-96652, CVE\-2026\-96654, and CVE\-2026\-96656.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-11\-03.
+.PP
+\fIReferences:\fR
+.br
+https://forums.plex.tv/t/important\-security\-update\-for\-plex\-media\-server\-v1\-43\-2\-and\-earlier/942319
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-96655
 .SH EXAMPLES
 One vulnerable\->fixed pair per ecosystem (Node.js, Python, Java, Go, PHP).
 .SS Node.js
@@ -128,4 +554,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/918.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

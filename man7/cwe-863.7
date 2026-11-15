@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-863 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-863 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-863 \- Incorrect Authorization
 .SH RANK
@@ -11,9 +11,338 @@ An authorization check exists but is logically flawed, so it permits actions it 
 .SH MITIGATION
 Check the specific permission for the specific object the actor touches, not merely that they are authenticated. Fail closed on any error. Centralise the policy so the same correct check is reused.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB19\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB19\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2019\-7192
+QNAP Photo Station, added 2022\-06\-08, ransomware: Known.
 .PP
-CVE\-2019\-7192, CVE\-2021\-3560, CVE\-2021\-22986, CVE\-2021\-30533, CVE\-2021\-40655, CVE\-2022\-41091, CVE\-2023\-21715, CVE\-2023\-22518, CVE\-2023\-24880, CVE\-2023\-38035, CVE\-2024\-21287, CVE\-2024\-38856, CVE\-2025\-21479, CVE\-2025\-21480, CVE\-2025\-24200, CVE\-2025\-55177, CVE\-2026\-42016, CVE\-2026\-71362, CVE\-2026\-123218.
+QNAP Photo Station Improper Access Control Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+QNAP NAS devices running Photo Station contain an improper access control vulnerability allowing remote attackers to gain unauthorized access to the system.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-22.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-7192
+.SS CVE\-2021\-3560
+Red Hat Polkit, added 2023\-05\-12.
+.PP
+Red Hat Polkit Incorrect Authorization Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Red Hat Polkit contains an incorrect authorization vulnerability through the bypassing of credential checks for D\-Bus requests, allowing for privilege escalation.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-06\-02.
+.PP
+\fIReferences:\fR
+.br
+https://bugzilla.redhat.com/show_bug.cgi?id=1961710
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-3560
+.SS CVE\-2021\-22986
+F5 BIG\-IP and BIG\-IQ Centralized Management, added 2021\-11\-03, ransomware: Known.
+.PP
+F5 BIG\-IP and BIG\-IQ Centralized Management iControl REST Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+F5 BIG\-IP and BIG\-IQ Centralized Management contain a remote code execution vulnerability in the iControl REST interface that allows unauthenticated attackers with network access to execute system commands, create or delete files, and disable services.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-22986
+.SS CVE\-2021\-30533
+Google Chromium PopupBlocker, added 2022\-06\-27.
+.PP
+Google Chromium PopupBlocker Security Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium PopupBlocker contains an insufficient policy enforcement vulnerability that allows a remote attacker to bypass navigation restrictions via a crafted iframe. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-07\-18.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-30533
+.SS CVE\-2021\-40655
+D\-Link DIR\-605 Router, added 2024\-05\-16.
+.PP
+D\-Link DIR\-605 Router Information Disclosure Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+D\-Link DIR\-605 routers contain an information disclosure vulnerability that allows attackers to obtain a username and password by forging a post request to the /getcfg.php page.
+.PP
+\fIRemediation:\fR
+This vulnerability affects legacy D\-Link products. All associated hardware revisions have reached their end\-of\-life (EOL) or end\-of\-service (EOS) life cycle and should be retired and replaced per vendor instructions.
+ Due 2024\-06\-06.
+.PP
+\fIReferences:\fR
+.br
+https://legacy.us.dlink.com/pages/product.aspx?id=2b09e95d90ff4cb38830ecc04c89cee5
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-40655
+.SS CVE\-2022\-41091
+Microsoft Windows, added 2022\-11\-08, ransomware: Known.
+.PP
+Microsoft Windows Mark of the Web (MOTW) Security Feature Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Mark of the Web (MOTW) contains a security feature bypass vulnerability resulting in a limited loss of integrity and availability of security features.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-12\-09.
+.PP
+\fIReferences:\fR
+.br
+https://portal.msrc.microsoft.com/en\-US/security\-guidance/advisory/CVE\-2022\-41091
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-41091
+.SS CVE\-2023\-21715
+Microsoft Office, added 2023\-02\-14.
+.PP
+Microsoft Office Publisher Security Feature Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Office Publisher contains a security feature bypass vulnerability that allows for a local, authenticated attack on a targeted system.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-03\-07.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2023\-21715
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-21715
+.SS CVE\-2023\-22518
+Atlassian Confluence Data Center and Server, added 2023\-11\-07, ransomware: Known.
+.PP
+Atlassian Confluence Data Center and Server Improper Authorization Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Atlassian Confluence Data Center and Server contain an improper authorization vulnerability that can result in significant data loss when exploited by an unauthenticated attacker. There is no impact on confidentiality since the attacker cannot exfiltrate any data.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-11\-28.
+.PP
+\fIReferences:\fR
+.br
+https://confluence.atlassian.com/security/cve\-2023\-22518\-improper\-authorization\-vulnerability\-in\-confluence\-data\-center\-and\-server\-1311473907.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-22518
+.SS CVE\-2023\-24880
+Microsoft Windows, added 2023\-03\-14, ransomware: Known.
+.PP
+Microsoft Windows SmartScreen Security Feature Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows SmartScreen contains a security feature bypass vulnerability that could allow an attacker to evade Mark of the Web (MOTW) defenses via a specially crafted malicious file.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-04\-04.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2023\-24880
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-24880
+.SS CVE\-2023\-38035
+Ivanti Sentry, added 2023\-08\-22, ransomware: Known.
+.PP
+Ivanti Sentry Authentication Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ivanti Sentry, formerly known as MobileIron Sentry, contains an authentication bypass vulnerability that may allow an attacker to bypass authentication controls on the administrative interface due to an insufficiently restrictive Apache HTTPD configuration.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-09\-12.
+.PP
+\fIReferences:\fR
+.br
+https://forums.ivanti.com/s/article/CVE\-2023\-38035\-API\-Authentication\-Bypass\-on\-Sentry\-Administrator\-Interface?language=en_US
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-38035
+.SS CVE\-2024\-21287
+Oracle Agile Product Lifecycle Management (PLM), added 2024\-11\-21.
+.PP
+Oracle Agile Product Lifecycle Management (PLM) Incorrect Authorization Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Oracle Agile Product Lifecycle Management (PLM) contains an incorrect authorization vulnerability in the Process Extension component of the Software Development Kit. Successful exploitation of this vulnerability may result in unauthenticated file disclosure.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-12\-12.
+.PP
+\fIReferences:\fR
+.br
+https://www.oracle.com/security\-alerts/alert\-cve\-2024\-21287.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-21287
+.SS CVE\-2024\-38856
+Apache OFBiz, added 2024\-08\-27.
+.PP
+Apache OFBiz Incorrect Authorization Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apache OFBiz contains an incorrect authorization vulnerability that could allow remote code execution via a Groovy payload in the context of the OFBiz user process by an unauthenticated attacker.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-09\-17.
+.PP
+\fIReferences:\fR
+.br
+https://lists.apache.org/thread/olxxjk6b13sl3wh9cmp0k2dscvp24l7w
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-38856
+.SS CVE\-2025\-21479
+Qualcomm Multiple Chipsets, added 2025\-06\-03.
+.PP
+Qualcomm Multiple Chipsets Incorrect Authorization Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Multiple Qualcomm chipsets contain an incorrect authorization vulnerability. This vulnerability allows for memory corruption due to unauthorized command execution in GPU micronode while executing specific sequence of commands.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-06\-24.
+.PP
+\fIReferences:\fR
+.br
+https://docs.qualcomm.com/product/publicresources/securitybulletin/june\-2025\-bulletin.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-21479
+.SS CVE\-2025\-21480
+Qualcomm Multiple Chipsets, added 2025\-06\-03.
+.PP
+Qualcomm Multiple Chipsets Incorrect Authorization Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Multiple Qualcomm chipsets contain an incorrect authorization vulnerability. This vulnerability allows for memory corruption due to unauthorized command execution in GPU micronode while executing specific sequence of commands.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-06\-24.
+.PP
+\fIReferences:\fR
+.br
+https://docs.qualcomm.com/product/publicresources/securitybulletin/june\-2025\-bulletin.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-21480
+.SS CVE\-2025\-24200
+Apple iOS and iPadOS, added 2025\-02\-12.
+.PP
+Apple iOS and iPadOS Incorrect Authorization Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apple iOS and iPadOS contains an incorrect authorization vulnerability that allows a physical attacker to disable USB Restricted Mode on a locked device.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-03\-05.
+.PP
+\fIReferences:\fR
+.br
+https://support.apple.com/en\-us/122173
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-24200
+.SS CVE\-2025\-55177
+Meta Platforms WhatsApp, added 2025\-09\-02.
+.PP
+Meta Platforms WhatsApp Incorrect Authorization Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Meta Platforms WhatsApp contains an incorrect authorization vulnerability due to an incomplete authorization of linked device synchronization messages. This vulnerability could allow an unrelated user to trigger processing of content from an arbitrary URL on a target’s device.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-09\-23.
+.PP
+\fIReferences:\fR
+.br
+https://www.whatsapp.com/security/advisories/2025/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-55177
+.SS CVE\-2026\-42016
+JFrog Artifactory, added 2026\-09\-11.
+.PP
+JFrog Artifactory Incorrect Authorization Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+JFrog Artifactory contains an incorrect authorization vulnerability that leads to a privilege escalation attack due to a validation check of the token signature/issuer and not the token’s scope.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-25.
+.PP
+\fIReferences:\fR
+.br
+https://docs.jfrog.com/releases/docs/jfrog\-security\-advisories
+.br
+https://docs.jfrog.com/releases/docs/artifactory\-self\-managed\-releases
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-42016
+.SS CVE\-2026\-71362
+Adobe Commerce and Magento, added 2026\-09\-24.
+.PP
+Adobe Commerce and Magento Incorrect Authorization Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Adobe Commerce and Magento contains an incorrect authorization vulnerability that could allow an attacker to leverage this vulnerability to gain elevated access to sensitive resources without any user interaction.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-27.
+.PP
+\fIReferences:\fR
+.br
+https://helpx.adobe.com/security/products/magento/apsb26\-92.html
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-71362
+.SS CVE\-2026\-123218
+IBM Aspera Faspex, added 2026\-11\-09.
+.PP
+IBM Aspera Faspex Incorrect Authorization Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+IBM Aspera Faspex contains an incorrect authorization vulnerability that could allow an authenticated user to craft a specific message to bypass authorization, causing privilege escalations.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-11\-12.
+.PP
+\fIReferences:\fR
+.br
+https://www.ibm.com/support/pages/node/7295921
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-123218
 .SH EXAMPLES
 One vulnerable\->fixed pair per ecosystem (Node.js, Python, Java, Go, PHP).
 .SS Node.js
@@ -134,4 +463,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/863.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

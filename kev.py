@@ -31,11 +31,57 @@ def _cve_sort_key(cve):
     return (int(m.group(1)), int(m.group(2))) if m else (0, 0)
 
 
-def load_kev(path=None):
-    """Return {cwe_int: [sorted, de-duplicated CVE IDs]} from the KEV CSV.
+_URL_RE = re.compile(r"https?://[^\s;]+")
 
-    Missing file -> empty dict (so an offline `regen` still works on the
-    pages that carry their own examples).
+
+def kev_urls(notes):
+    """Vendor and NVD links from the KEV notes column."""
+    seen = []
+    for m in _URL_RE.finditer(notes or ""):
+        u = m.group(0).rstrip(".,)")
+        if u not in seen:
+            seen.append(u)
+    return seen
+
+
+def short_action(text):
+    """Collapse repeated CISA BOD boilerplate into one line; keep vendor-specific text."""
+    t = (text or "").strip()
+    if not t:
+        return "Apply vendor mitigations. See references."
+    if "BOD 26-04" in t or t.startswith("Apply mitigations in accordance with vendor"):
+        return ("Apply vendor mitigations; follow CISA BOD 26-04 (risk-based "
+                "patching) and forensics triage. Discontinue use if no "
+                "mitigation exists.")
+    if t.startswith("Apply updates per vendor instructions"):
+        return "Apply updates per vendor instructions."
+    if t.startswith("Apply mitigations per vendor instructions"):
+        return "Apply mitigations per vendor instructions, or discontinue use."
+    return t
+
+
+def _record(row):
+    cve = (row.get("cveID") or "").strip()
+    return {
+        "cveID": cve,
+        "vendor": (row.get("vendorProject") or "").strip(),
+        "product": (row.get("product") or "").strip(),
+        "name": (row.get("vulnerabilityName") or "").strip(),
+        "dateAdded": (row.get("dateAdded") or "").strip(),
+        "description": (row.get("shortDescription") or "").strip(),
+        "action": short_action(row.get("requiredAction") or ""),
+        "dueDate": (row.get("dueDate") or "").strip(),
+        "ransomware": (row.get("knownRansomwareCampaignUse") or "").strip(),
+        "urls": kev_urls(row.get("notes") or ""),
+    }
+
+
+def load_kev(path=None):
+    """Return {cwe_int: [KEV records]} from the CISA CSV.
+
+    Each record has cveID, vendor, product, name, dateAdded, description
+    (catalog write-up of how it is exploited), action (remediation), urls.
+    Missing file -> empty dict.
     """
     path = path or KEV_CSV
     by_cwe = {}
@@ -46,15 +92,29 @@ def load_kev(path=None):
         if not reader.fieldnames or "cwes" not in reader.fieldnames:
             return by_cwe
         for row in reader:
-            cve = (row.get("cveID") or "").strip()
-            cwes = (row.get("cwes") or "").strip()
-            if not cve or not cwes:
+            rec = _record(row)
+            if not rec["cveID"]:
                 continue
+            cwes = (row.get("cwes") or "").strip()
             for part in re.split(r"[,;]\s*", cwes):
                 m = _CWE_RE.search(part)
                 if m:
-                    by_cwe.setdefault(int(m.group(1)), set()).add(cve)
-    return {k: sorted(v, key=_cve_sort_key) for k, v in by_cwe.items()}
+                    by_cwe.setdefault(int(m.group(1)), {})[rec["cveID"]] = rec
+    return {
+        k: sorted(v.values(), key=lambda r: _cve_sort_key(r["cveID"]))
+        for k, v in by_cwe.items()
+    }
+
+
+def kev_ids(records):
+    """CVE ID list from a load_kev() value (or a bare list of IDs)."""
+    out = []
+    for r in records or []:
+        if isinstance(r, dict):
+            out.append(r["cveID"])
+        else:
+            out.append(r)
+    return out
 
 
 def kev_date(path=None):
@@ -174,5 +234,5 @@ if __name__ == "__main__":
     print("MITRE catalog entries:", len(cat))
     if kev:
         top = sorted(kev.items(), key=lambda kv: -len(kv[1]))[:5]
-        for cid, cves in top:
-            print("  CWE-%d: %d CVEs" % (cid, len(cves)))
+        for cid, recs in top:
+            print("  CWE-%d: %d CVEs" % (cid, len(recs)))

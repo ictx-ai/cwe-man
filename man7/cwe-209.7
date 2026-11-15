@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-209 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-209 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-209 \- Generation of Error Message Containing Sensitive Information
 .SH RANK
@@ -9,9 +9,41 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product generates an error message that includes sensitive information about its environment, users, or associated data. The sensitive information may be valuable information on its own (such as a password), or it may be useful for launching other, more serious attacks. The error message may be created in different ways: self\-generated: the source code explicitly constructs the error message and delivers it externally\-generated: the external environment, such as a language interpreter, handles the error and constructs its own message, whose contents are not under direct control by the programmer An attacker may use the contents of error messages to help launch another, more focused attack. For example, an attempt to exploit a path traversal weakness (CWE\-22) might yield the full pathname of the installed application. In turn, this could be used to select the proper number of .. sequences to navigate to the targeted file. An attack using SQL injection (CWE\-89) might not initially succeed, but an error message could reveal the malformed query, which would expose query logic and possibly even passwords or other sensitive information used within the query.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB2\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB2\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2024\-29059
+Microsoft .NET Framework, added 2025\-02\-04.
 .PP
-CVE\-2024\-29059, CVE\-2025\-47813.
+Microsoft .NET Framework Information Disclosure Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft .NET Framework contains an information disclosure vulnerability that exposes the ObjRef URI to an attacker, ultimately enabling remote code execution.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-02\-25.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2024\-29059
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-29059
+.SS CVE\-2025\-47813
+Wing FTP Server Wing FTP Server, added 2026\-03\-16.
+.PP
+Wing FTP Server Information Disclosure Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Wing FTP Server contains a generation of error message containing sensitive information vulnerability when using a long value in the UID cookie.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-03\-30.
+.PP
+\fIReferences:\fR
+.br
+https://www.wftpserver.com/serverhistory.htm
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-47813
 .SH EXAMPLES
 One vulnerable\->fixed pair per ecosystem (Python).
 .SS Python
@@ -37,4 +69,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/209.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

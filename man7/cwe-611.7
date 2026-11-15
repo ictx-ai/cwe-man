@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-611 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-611 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-611 \- Improper Restriction of XML External Entity Reference
 .SH RANK
@@ -9,9 +9,160 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product processes an XML document that can contain XML entities with URIs that resolve to documents outside of the intended sphere of control, causing the product to embed incorrect documents into its output. XML documents optionally contain a Document Type Definition (DTD), which, among other features, enables the definition of XML entities. It is possible to define an entity by providing a substitution string in the form of a URI. The XML parser can access the contents of this URI and embed these contents back into the XML document for further processing. By submitting an XML file that defines an external entity with a file:// URI, an attacker can cause the processing application to read the contents of a local file. For example, a URI such as file:///c:/winnt/win.ini designates (in Windows) the file C:Winntwin.ini, or file:///etc/passwd designates the password file in Unix\-based systems. Using URIs with other schemes such as http://, the attacker can force the application to make outgoing requests to servers that the attacker cannot reach directly, which can be used to bypass firewall restrictions or hide the source of attacks such as port scanning. Once the content of the URI is read, it is fed back into the application that is processing the XML. This application may echo back the data (e.g. in an error message), thereby exposing the file contents.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB9\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB9\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2016\-9563
+SAP NetWeaver, added 2021\-11\-03.
 .PP
-CVE\-2016\-9563, CVE\-2019\-9670, CVE\-2019\-13608, CVE\-2023\-45727, CVE\-2024\-34102, CVE\-2025\-2775, CVE\-2025\-2776, CVE\-2025\-58360, CVE\-2026\-20320.
+SAP NetWeaver XML External Entity (XXE) Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SAP NetWeaver Application Server Java Platforms contains an unspecified vulnerability in BC\-BMT\-BPM\-DSK which allows remote, authenticated users to conduct XML External Entity (XXE) attacks.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2016\-9563
+.SS CVE\-2019\-9670
+Synacor Zimbra Collaboration Suite (ZCS), added 2022\-01\-10.
+.PP
+Synacor Zimbra Collaboration Suite (ZCS) Improper Restriction of XML External Entity Reference.
+.PP
+\fIHow it is exploited (CISA):\fR
+Synacor Zimbra Collaboration Suite (ZCS) contains an improper restriction of XML external entity (XXE) vulnerability in the mailboxd component.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-07\-10.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-9670
+.SS CVE\-2019\-13608
+Citrix StoreFront Server, added 2021\-11\-03, ransomware: Known.
+.PP
+Citrix StoreFront Server XML External Entity (XXE) Processing Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Citrix StoreFront Server contains an XML External Entity (XXE) processing vulnerability that may allow an unauthenticated attacker to retrieve potentially sensitive information.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-13608
+.SS CVE\-2023\-45727
+North Grid Proself, added 2024\-12\-03.
+.PP
+North Grid Proself Improper Restriction of XML External Entity (XXE) Reference Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+North Grid Proself Enterprise/Standard, Gateway, and Mail Sanitize contain an improper restriction of XML External Entity (XXE) reference vulnerability, which could allow a remote, unauthenticated attacker to conduct an XXE attack.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-12\-24.
+.PP
+\fIReferences:\fR
+.br
+https://www.proself.jp/information/153/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-45727
+.SS CVE\-2024\-34102
+Adobe Commerce and Magento Open Source, added 2024\-07\-17.
+.PP
+Adobe Commerce and Magento Open Source Improper Restriction of XML External Entity Reference (XXE) Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Adobe Commerce and Magento Open Source contain an improper restriction of XML external entity reference (XXE) vulnerability that allows for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-08\-07.
+.PP
+\fIReferences:\fR
+.br
+https://helpx.adobe.com/security/products/magento/apsb24\-40.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-34102
+.SS CVE\-2025\-2775
+SysAid SysAid On\-Prem, added 2025\-07\-22.
+.PP
+SysAid On\-Prem Improper Restriction of XML External Entity Reference Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SysAid On\-Prem contains an improper restriction of XML external entity reference vulnerability in the Checkin processing functionality, allowing for administrator account takeover and file read primitives.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-08\-12.
+.PP
+\fIReferences:\fR
+.br
+https://documentation.sysaid.com/docs/24\-40\-60
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-2775
+.SS CVE\-2025\-2776
+SysAid SysAid On\-Prem, added 2025\-07\-22.
+.PP
+SysAid On\-Prem Improper Restriction of XML External Entity Reference Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SysAid On\-Prem contains an improper restriction of XML external entity reference vulnerability in the Server URL processing functionality, allowing for administrator account takeover and file read primitives.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-08\-12.
+.PP
+\fIReferences:\fR
+.br
+https://documentation.sysaid.com/docs/24\-40\-60
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-2776
+.SS CVE\-2025\-58360
+OSGeo GeoServer, added 2025\-12\-11.
+.PP
+OSGeo GeoServer Improper Restriction of XML External Entity Reference Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+OSGeo GeoServer contains an improper restriction of XML external entity reference vulnerability that occurs when the application accepts XML input through a specific endpoint /geoserver/wms operation GetMap and could allow an attacker to define external entities within the XML request.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-01\-01.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/geoserver/geoserver/security/advisories/GHSA\-fjf5\-xgmq\-5525
+.br
+https://osgeo\-org.atlassian.net/browse/GEOS\-11922
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-58360
+.SS CVE\-2026\-20320
+Cisco BroadWorks, added 2026\-11\-10.
+.PP
+Cisco BroadWorks Improper Restriction of XML External Entity Reference Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Cisco BroadWorks contains an improper restriction of XML external entity reference vulnerability that could allow an unauthenticated, remote attacker to read sensitive configuration information on an affected system.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-11\-24.
+.PP
+\fIReferences:\fR
+.br
+https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco\-sa\-bworks\-xxe\-uwUd7CEt
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-20320
 .SH EXAMPLES
 One vulnerable\->fixed pair per ecosystem (Java).
 .SS Java
@@ -37,4 +188,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/611.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-647 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-647 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-647 \- Use of Non\-Canonical URL Paths for Authorization Decisions
 .SH RANK
@@ -9,9 +9,24 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product defines policy namespaces and makes authorization decisions based on the assumption that a URL is canonical. This can allow a non\-canonical URL to bypass the authorization. If an application defines policy namespaces and makes authorization decisions based on the URL, but it does not require or convert to a canonical URL before making the authorization decision, then it opens the application to attack. For example, if the application only wants to allow access to http://www.example.com/mypage, then the attacker might be able to bypass this restriction using equivalent URLs such as: http://WWW.EXAMPLE.COM/mypage http://www.example.com/%6Dypage (alternate encoding) http://192.168.1.1/mypage (IP address) http://www.example.com/mypage/ (trailing /) http://www.example.com:80/mypage Therefore it is important to specify access control policy that is based on the path information in some canonical form with all alternate encodings rejected (which can be accomplished by a default deny rule).
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB1\fR exploited CVE mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB1\fR exploited CVE mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2022\-43939
+Hitachi Vantara Pentaho Business Analytics (BA) Server, added 2025\-03\-03.
 .PP
-CVE\-2022\-43939.
+Hitachi Vantara Pentaho BA Server Authorization Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Hitachi Vantara Pentaho BA Server contains a use of non\-canonical URL paths for authorization decisions vulnerability that enables an attacker to bypass authorization.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-03\-24.
+.PP
+\fIReferences:\fR
+.br
+https://support.pentaho.com/hc/en\-us/articles/14455394120333\-\-Resolved\-Pentaho\-BA\-Server\-Use\-of\-Non\-Canonical\-URL\-Paths\-for\-Authorization\-Decisions\-Versions\-before\-9\-4\-0\-1\-and\-9\-3\-0\-2\-including\-8\-3\-x\-Impacted\-CVE\-2022\-43939\-
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-43939
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +36,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/647.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

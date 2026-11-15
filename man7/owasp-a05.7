@@ -1,0 +1,139 @@
+.\" OWASP Top 10 overlay. Generated, not hand-edited.
+.TH OWASP-A05 7 "2026-11-15" "OWASP Top 10:2025" "Software Weakness Reference"
+.SH NAME
+owasp\-a05 \- Injection (OWASP Top 10:2025 A05)
+.SH RANK
+OWASP Top 10:2025 rank \fB#5\fR (A03:2021).
+.SH DESCRIPTION
+Untrusted input is interpreted as code or query: XSS, SQL, OS command, LDAP, expression language. Most CVE volume of any 2025 category.
+.PP
+This page is an overlay. Vulnerable\->fixed code lives on the \fBcwe\-*\fR(7) pages listed below, not here.
+.SH MAPPED CWES
+Official mapping: \fB37\fR CWEs (OWASP count 38). \fBman\fR after a CWE id if that page exists in this set.
+.PP
+.TS
+l l r lx.
+PAGE	CWE	KEV	NAME
+_
+cwe\-20(7)	CWE\-20	119	T{
+Improper Input Validation
+T}
+cwe\-74(7)	CWE\-74	12	T{
+Improper Neutralization of Special Elements in Output Used by a Downstream Component ('Injection')
+T}
+\(em	CWE\-76	0	T{
+Improper Neutralization of Equivalent Special Elements
+T}
+cwe\-77(7)	CWE\-77	34	T{
+Improper Neutralization of Special Elements used in a Command ('Command Injection')
+T}
+cwe\-78(7)	CWE\-78	115	T{
+Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')
+T}
+cwe\-79(7)	CWE\-79	33	T{
+Improper Neutralization of Input During Web Page Generation ('Cross\-site Scripting')
+T}
+cwe\-80(7)	CWE\-80	3	T{
+Improper Neutralization of Script\-Related HTML Tags in a Web Page (Basic XSS)
+T}
+\(em	CWE\-83	0	T{
+Improper Neutralization of Script in Attributes in a Web Page
+T}
+\(em	CWE\-86	0	T{
+Improper Neutralization of Invalid Characters in Identifiers in Web Pages
+T}
+cwe\-88(7)	CWE\-88	5	T{
+Improper Neutralization of Argument Delimiters in a Command ('Argument Injection')
+T}
+cwe\-89(7)	CWE\-89	33	T{
+Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')
+T}
+\(em	CWE\-90	0	T{
+Improper Neutralization of Special Elements used in an LDAP Query ('LDAP Injection')
+T}
+cwe\-91(7)	CWE\-91	1	T{
+XML Injection (aka Blind XPath Injection)
+T}
+cwe\-93(7)	CWE\-93	1	T{
+Improper Neutralization of CRLF Sequences ('CRLF Injection')
+T}
+cwe\-94(7)	CWE\-94	72	T{
+Improper Control of Generation of Code ('Code Injection')
+T}
+cwe\-95(7)	CWE\-95	6	T{
+Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')
+T}
+cwe\-96(7)	CWE\-96	2	T{
+Improper Neutralization of Directives in Statically Saved Code ('Static Code Injection')
+T}
+\(em	CWE\-97	0	T{
+Improper Neutralization of Server\-Side Includes (SSI) Within a Web Page
+T}
+cwe\-98(7)	CWE\-98	2	T{
+Improper Control of Filename for Include/Require Statement in PHP Program ('PHP Remote File Inclusion')
+T}
+\(em	CWE\-99	0	T{
+Improper Control of Resource Identifiers ('Resource Injection')
+T}
+\(em	CWE\-103	0	T{
+Struts: Incomplete validate() Method Definition
+T}
+\(em	CWE\-104	0	T{
+Struts: Form Bean Does Not Extend Validation Class
+T}
+\(em	CWE\-112	0	T{
+Missing XML Validation
+T}
+\(em	CWE\-113	0	T{
+Improper Neutralization of CRLF Sequences in HTTP Headers ('HTTP Request/Response Splitting')
+T}
+cwe\-114(7)	CWE\-114	1	T{
+Process Control
+T}
+\(em	CWE\-115	0	T{
+Misinterpretation of Input
+T}
+cwe\-116(7)	CWE\-116	4	T{
+Improper Encoding or Escaping of Output
+T}
+\(em	CWE\-129	0	T{
+Improper Validation of Array Index
+T}
+\(em	CWE\-159	0	T{
+Improper Handling of Invalid Use of Special Elements
+T}
+cwe\-470(7)	CWE\-470	2	T{
+Use of Externally\-Controlled Input to Select Classes or Code ('Unsafe Reflection')
+T}
+\(em	CWE\-493	0	T{
+Critical Public Variable Without Final Modifier
+T}
+\(em	CWE\-500	0	T{
+Public Static Field Not Marked Final
+T}
+\(em	CWE\-564	0	T{
+SQL Injection: Hibernate
+T}
+cwe\-610(7)	CWE\-610	2	T{
+Externally Controlled Reference to a Resource in Another Sphere
+T}
+\(em	CWE\-643	0	T{
+Improper Neutralization of Data within XPath Expressions ('XPath Injection')
+T}
+\(em	CWE\-644	0	T{
+Improper Neutralization of HTTP Headers for Scripting Syntax
+T}
+cwe\-917(7)	CWE\-917	5	T{
+Improper Neutralization of Special Elements used in an Expression Language Statement ('Expression Language Injection')
+T}
+.TE
+.PP
+PAGE \(em means there is no local \fBcwe\-*\fR(7) for that id (not Top 25 and not in KEV). MITRE still defines it.
+.SH SEE ALSO
+\fBowasp\fR(7), \fBcwe\-20\fR(7), \fBcwe\-74\fR(7), \fBcwe\-77\fR(7), \fBcwe\-78\fR(7), \fBcwe\-79\fR(7), \fBcwe\-80\fR(7), \fBcwe\-88\fR(7), \fBcwe\-89\fR(7), \fBcwe\-91\fR(7), \fBcwe\-93\fR(7), \fBcwe\-94\fR(7), \fBcwe\-95\fR(7), \fBcwe\-96\fR(7), \fBcwe\-98\fR(7), \fBcwe\-114\fR(7), \fBcwe\-116\fR(7), \fBcwe\-470\fR(7), \fBcwe\-610\fR(7), \fBcwe\-917\fR(7).
+.PP
+https://owasp.org/Top10/2025/A05_2025-Injection/
+.SH NOTES
+OWASP categories group many CWEs. They are not a replacement for the CWE or KEV pages.
+.PP
+Generated 2026\-11\-15 from OWASP Top 10:2025.

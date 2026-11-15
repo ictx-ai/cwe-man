@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-282 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-282 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-282 \- Improper Ownership Management
 .SH RANK
@@ -9,9 +9,49 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product assigns the wrong ownership, or does not properly verify the ownership, of an object or resource.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB2\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB2\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2022\-20775
+Cisco SD\-WAN, added 2026\-02\-25.
 .PP
-CVE\-2022\-20775, CVE\-2023\-0386.
+Cisco SD\-WAN Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Cisco SD\-WAN CLI contains a path traversal vulnerability that could allow an authenticated local attacker to gain elevated privileges via improper access controls on commands within the application CLI. A successful exploit could allow the attacker to execute arbitrary commands as the root user.
+.PP
+\fIRemediation:\fR
+Please adhere to CISA’s guidelines to assess exposure and mitigate risks associated with Cisco SD\-WAN devices as outlines in CISA’s Emergency Directive 26\-03 (URL listed below in Notes) and CISA’s “Hunt & Hardening Guidance for Cisco SD\-WAN Devices (URL listed below in Notes). Adhere to the applicable BOD 22\-01 guidance for cloud services or discontinue use of the product if mitigations are not available.
+ Due 2026\-02\-27.
+.PP
+\fIReferences:\fR
+.br
+https://www.cisa.gov/news\-events/directives/ed\-26\-03\-mitigate\-vulnerabilities\-cisco\-sd\-wan\-systems
+.br
+https://www.cisa.gov/news\-events/directives/supplemental\-direction\-ed\-26\-03\-hunt\-and\-hardening\-guidance\-cisco\-sd\-wan\-systems
+.br
+https://www.cisco.com/c/en/us/support/docs/csa/cisco\-sa\-sd\-wan\-priv\-E6e8tEdF.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-20775
+.SS CVE\-2023\-0386
+Linux Kernel, added 2025\-06\-17.
+.PP
+Linux Kernel Improper Ownership Management Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Linux Kernel contains an improper ownership management vulnerability, where unauthorized access to the execution of the setuid file with capabilities was found in the Linux kernel’s OverlayFS subsystem in how a user copies a capable file from a nosuid mount into another mount. This uid mapping bug allows a local user to escalate their privileges on the system.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-07\-08.
+.PP
+\fIReferences:\fR
+.br
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4f11ada10d0a
+.br
+https://access.redhat.com/security/cve/cve\-2023\-0386
+.br
+https://security.netapp.com/advisory/ntap\-20230420\-0004/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-0386
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +61,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/282.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

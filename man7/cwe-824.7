@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-824 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-824 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-824 \- Access of Uninitialized Pointer
 .SH RANK
@@ -9,9 +9,70 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product accesses or uses a pointer that has not been initialized. If the pointer contains an uninitialized value, then the value might not point to a valid memory location. This could cause the product to read from or write to unexpected memory locations, leading to a denial of service. If the uninitialized pointer is used as a function call, then arbitrary functions could be invoked. If an attacker can influence the portion of uninitialized memory that is contained in the pointer, this weakness could be leveraged to execute code or perform other attacks. Depending on memory layout, associated memory management behaviors, and product operation, the attacker might be able to influence the contents of the uninitialized pointer, thus gaining more fine\-grained control of the memory location to be accessed.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB3\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB3\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2022\-21971
+Microsoft Windows, added 2022\-08\-18.
 .PP
-CVE\-2022\-21971, CVE\-2026\-109618, CVE\-2026\-109619.
+Microsoft Windows Runtime Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Runtime contains an unspecified vulnerability that allows for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-09\-08.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2022\-21971
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-21971
+.SS CVE\-2026\-109618
+PHP Group PHP, added 2026\-10\-26.
+.PP
+PHP Memory Corruption Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+PHP contains an out\-of\-memory corruption vulnerability that allows for unauthenticated remote code execution.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-10\-29.
+.PP
+\fIReferences:\fR
+.br
+https://www.php.net/
+.br
+https://www.cisa.gov/news\-events/alerts/2026/10/21/critical\-vulnerabilities\-php\-require\-immediate\-patching
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-109618
+.SS CVE\-2026\-109619
+PHP Group PHP, added 2026\-10\-26.
+.PP
+PHP Stale Internal Request\-State Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+PHP contains a stale internal request\-state vulnerability that allows for unauthenticated remote code execution.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-10\-29.
+.PP
+\fIReferences:\fR
+.br
+https://www.php.net/
+.br
+https://www.cisa.gov/news\-events/alerts/2026/10/21/critical\-vulnerabilities\-php\-require\-immediate\-patching
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-109619
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +82,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/824.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

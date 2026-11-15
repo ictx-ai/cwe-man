@@ -1,0 +1,43 @@
+.\" OWASP Top 10 overlay. Generated, not hand-edited.
+.TH OWASP-A09 7 "2026-11-15" "OWASP Top 10:2025" "Software Weakness Reference"
+.SH NAME
+owasp\-a09 \- Security Logging and Alerting Failures (OWASP Top 10:2025 A09)
+.SH RANK
+OWASP Top 10:2025 rank \fB#9\fR (A09:2021 Security Logging and Monitoring Failures).
+.SH DESCRIPTION
+Security\-relevant events are not logged, logs are not protected, or nothing alerts. Logs without alerting are of little use in an incident.
+.PP
+This page is an overlay. Vulnerable\->fixed code lives on the \fBcwe\-*\fR(7) pages listed below, not here.
+.SH MAPPED CWES
+Official mapping: \fB5\fR CWEs (OWASP count 5). \fBman\fR after a CWE id if that page exists in this set.
+.PP
+.TS
+l l r lx.
+PAGE	CWE	KEV	NAME
+_
+\(em	CWE\-117	0	T{
+Improper Output Neutralization for Logs
+T}
+\(em	CWE\-221	0	T{
+Information Loss or Omission
+T}
+\(em	CWE\-223	0	T{
+Omission of Security\-relevant Information
+T}
+cwe\-532(7)	CWE\-532	2	T{
+Insertion of Sensitive Information into Log File
+T}
+cwe\-778(7)	CWE\-778	1	T{
+Insufficient Logging
+T}
+.TE
+.PP
+PAGE \(em means there is no local \fBcwe\-*\fR(7) for that id (not Top 25 and not in KEV). MITRE still defines it.
+.SH SEE ALSO
+\fBowasp\fR(7), \fBcwe\-532\fR(7), \fBcwe\-778\fR(7).
+.PP
+https://owasp.org/Top10/2025/A09_2025-Security_Logging_and_Alerting_Failures/
+.SH NOTES
+OWASP categories group many CWEs. They are not a replacement for the CWE or KEV pages.
+.PP
+Generated 2026\-11\-15 from OWASP Top 10:2025.

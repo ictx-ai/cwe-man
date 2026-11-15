@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-1336 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-1336 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-1336 \- Improper Neutralization of Special Elements Used in a Template Engine
 .SH RANK
@@ -9,9 +9,64 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product uses a template engine to insert or process externally\-influenced input, but it does not neutralize or incorrectly neutralizes special elements or syntax that can be interpreted as template expressions or other code directives when processed by the engine. Many web applications use template engines that allow developers to insert externally\-influenced values into free text or messages in order to generate a full web page, document, message, etc. Such engines include Twig, Jinja2, Pug, Java Server Pages, FreeMarker, Velocity, ColdFusion, Smarty, and many others \- including PHP itself. Some CMS (Content Management Systems) also use templates. Template engines often have their own custom command or expression language. If an attacker can influence input into a template before it is processed, then the attacker can invoke arbitrary expressions, i.e. perform injection attacks. For example, in some template languages, an attacker could inject the expression {{7*7}} and determine if the output returns 49 instead. The syntax varies depending on the language. In some cases, XSS\-style attacks can work, which can obscure the root cause if the developer does not closely investigate the root cause of the error. Template engines can be used on the server or client, so both sides could be affected by injection. The mechanisms of attack or the affected technologies might be different, but the mistake is fundamentally the same.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB3\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB3\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2024\-4040
+CrushFTP CrushFTP, added 2024\-04\-24.
 .PP
-CVE\-2024\-4040, CVE\-2024\-23692, CVE\-2026\-75650.
+CrushFTP VFS Sandbox Escape Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+CrushFTP contains an unspecified sandbox escape vulnerability that allows a remote attacker to escape the CrushFTP virtual file system (VFS).
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-05\-01.
+.PP
+\fIReferences:\fR
+.br
+https://www.crushftp.com/crush11wiki/Wiki.jsp?page=Update&version=34
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-4040
+.SS CVE\-2024\-23692
+Rejetto HTTP File Server, added 2024\-07\-09, ransomware: Known.
+.PP
+Rejetto HTTP File Server Improper Neutralization of Special Elements Used in a Template Engine Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Rejetto HTTP File Server contains an improper neutralization of special elements used in a template engine vulnerability. This allows a remote, unauthenticated attacker to execute commands on the affected system by sending a specially crafted HTTP request.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-07\-30.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/rejetto/hfs?tab=readme\-ov\-file#installation
+.br
+https://www.rejetto.com/hfs/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-23692
+.SS CVE\-2026\-75650
+Adobe Commerce and Magento, added 2026\-09\-08.
+.PP
+Adobe Commerce and Magento Improper Neutralization of Special Elements Used in a Template Engine Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Adobe Commerce and Magento Open Source contain an improper neutralization of special elements used in a template engine vulnerability that could allow an attacker to execute arbitrary code.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-11.
+.PP
+\fIReferences:\fR
+.br
+https://helpx.adobe.com/security/products/magento/apsb26\-146.html
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-75650
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +76,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/1336.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

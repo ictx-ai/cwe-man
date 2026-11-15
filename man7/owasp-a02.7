@@ -1,0 +1,76 @@
+.\" OWASP Top 10 overlay. Generated, not hand-edited.
+.TH OWASP-A02 7 "2026-11-15" "OWASP Top 10:2025" "Software Weakness Reference"
+.SH NAME
+owasp\-a02 \- Security Misconfiguration (OWASP Top 10:2025 A02)
+.SH RANK
+OWASP Top 10:2025 rank \fB#2\fR (A05:2021).
+.SH DESCRIPTION
+The stack is not hardened: default accounts, open cloud shares, extra ports, verbose errors, missing security headers, or XXE left enabled. Moved up in 2025 as more behaviour is driven by configuration.
+.PP
+This page is an overlay. Vulnerable\->fixed code lives on the \fBcwe\-*\fR(7) pages listed below, not here.
+.SH MAPPED CWES
+Official mapping: \fB16\fR CWEs (OWASP count 16). \fBman\fR after a CWE id if that page exists in this set.
+.PP
+.TS
+l l r lx.
+PAGE	CWE	KEV	NAME
+_
+\(em	CWE\-5	0	T{
+J2EE Misconfiguration: Data Transmission Without Encryption
+T}
+\(em	CWE\-11	0	T{
+ASP.NET Misconfiguration: Creating Debug Binary
+T}
+\(em	CWE\-13	0	T{
+ASP.NET Misconfiguration: Password in Configuration File
+T}
+\(em	CWE\-15	0	T{
+External Control of System or Configuration Setting
+T}
+\(em	CWE\-16	0	T{
+Configuration
+T}
+\(em	CWE\-260	0	T{
+Password in Configuration File
+T}
+\(em	CWE\-315	0	T{
+Cleartext Storage of Sensitive Information in a Cookie
+T}
+\(em	CWE\-489	0	T{
+Active Debug Code
+T}
+\(em	CWE\-526	0	T{
+Cleartext Storage of Sensitive Information in an Environment Variable
+T}
+\(em	CWE\-547	0	T{
+Use of Hard\-coded, Security\-relevant Constants
+T}
+cwe\-611(7)	CWE\-611	9	T{
+Improper Restriction of XML External Entity Reference
+T}
+\(em	CWE\-614	0	T{
+Sensitive Cookie in HTTPS Session Without 'Secure' Attribute
+T}
+\(em	CWE\-776	0	T{
+Improper Restriction of Recursive Entity References in DTDs ('XML Entity Expansion')
+T}
+\(em	CWE\-942	0	T{
+Permissive Cross\-domain Policy with Untrusted Domains
+T}
+\(em	CWE\-1004	0	T{
+Sensitive Cookie Without 'HttpOnly' Flag
+T}
+\(em	CWE\-1174	0	T{
+ASP.NET Misconfiguration: Improper Model Validation
+T}
+.TE
+.PP
+PAGE \(em means there is no local \fBcwe\-*\fR(7) for that id (not Top 25 and not in KEV). MITRE still defines it.
+.SH SEE ALSO
+\fBowasp\fR(7), \fBcwe\-611\fR(7).
+.PP
+https://owasp.org/Top10/2025/A02_2025-Security_Misconfiguration/
+.SH NOTES
+OWASP categories group many CWEs. They are not a replacement for the CWE or KEV pages.
+.PP
+Generated 2026\-11\-15 from OWASP Top 10:2025.

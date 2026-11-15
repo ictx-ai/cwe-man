@@ -13,8 +13,10 @@ Each weakness has its own page containing:
 - a **vulnerable** and **fixed** code example *for each ecosystem* — Node.js,
   Python, Java, Go and PHP for the web/logic classes; C and C++ for the
   memory-safety classes (managed runtimes largely prevent those), and
-- a **KNOWN EXPLOITED VULNERABILITIES** section listing every CVE that CISA
-  maps to that weakness, so you can see at a glance which KEVs belong to a CWE.
+- a **KNOWN EXPLOITED VULNERABILITIES** section: every CISA KEV CVE mapped to
+  that weakness, with the catalog write-up of how it was exploited, the
+  required remediation, and vendor/NVD URLs. Language-level **vulnerable** and
+  **fixed** snippets stay under EXAMPLES (not a runnable exploit).
 
 Two tiers of page. The 26 Top-25 (plus appendix) pages are **hand-curated**
 with full descriptions and per-ecosystem examples. The remaining KEV CWEs are
@@ -24,10 +26,13 @@ from MITRE's dictionary (see *Updating the data* below). The index page,
 appendix entry (`cwe-470`, Unsafe Reflection) is *not* part of the official
 Top 25 but is included as a closely related weakness.
 
+`owasp(7)` and `owasp-a01(7)` ... `owasp-a10(7)` are a **thin overlay**: OWASP
+Top 10:2025 categories mapped onto the CWE pages. They do not duplicate
+examples.
+
 These are defensive secure-coding references: each "vulnerable" snippet is a
-pattern to recognize and avoid, paired with the recommended fix — the same
-teaching style used by MITRE's own demonstrative examples and the OWASP cheat
-sheets.
+pattern to recognize and avoid, paired with the recommended fix. The same
+teaching style as MITRE's demonstrative examples.
 
 Install straight from the repo on any machine:
 
@@ -36,6 +41,8 @@ git clone https://github.com/ictx-ai/cwe-man.git
 cd cwe-man
 ./install.sh            # system-wide; or ./install.sh ~/.local for no-root
 man cwe
+man owasp               # OWASP Top 10:2025 overlay
+man owasp-a05           # Injection -> existing cwe-* pages
 ```
 
 ## Installing (Linux + macOS)

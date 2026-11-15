@@ -60,21 +60,62 @@ def rank_str(e):
 
 
 def kev_section(e, kev):
-    """The KNOWN EXPLOITED VULNERABILITIES section for one CWE."""
-    cves = kev.get(cwe_num(e), [])
+    """Each KEV CVE: catalog exploitation write-up + remediation + URLs.
+
+    CISA does not ship exploit source. Language-level vulnerable/fixed
+    pairs stay under EXAMPLES.
+    """
+    recs = kev.get(cwe_num(e), [])
     L = [".SH KNOWN EXPLOITED VULNERABILITIES"]
     asof = kev_date()
     stamp = (" (as of %s)" % asof) if asof else ""
-    if not cves:
+    if not recs:
         L.append("No entries in the current CISA KEV catalog%s reference "
                  "this weakness." % stamp)
         return L
+    n = len(recs)
     L.append("CISA KEV catalog%s: \\fB%d\\fR exploited "
-             "%s mapped to this weakness."
-             % (stamp, len(cves), "CVE" if len(cves) == 1 else "CVEs"))
-    L.append(".PP")
-    # One filled paragraph; groff wraps the comma-separated list.
-    L.append(", ".join(esc(c) for c in cves) + ".")
+             "%s mapped to this weakness. Each entry has the catalog "
+             "write\\-up of how it was used in the wild (not a runnable exploit) "
+             "and the required remediation. Code\\-level vulnerable\\->fixed "
+             "pairs, when curated, are under \\fBEXAMPLES\\fR."
+             % (stamp, n, "CVE" if n == 1 else "CVEs"))
+    for r in recs:
+        L.append(".SS %s" % esc(r["cveID"]))
+        head = " ".join(x for x in (r.get("vendor"), r.get("product")) if x)
+        name = r.get("name") or ""
+        added = r.get("dateAdded") or ""
+        meta = []
+        if head:
+            meta.append(esc(head))
+        if added:
+            meta.append("added " + esc(added))
+        if r.get("ransomware") and r["ransomware"].lower() not in ("", "unknown"):
+            meta.append("ransomware: " + esc(r["ransomware"]))
+        if meta:
+            L.append(", ".join(meta) + ".")
+        if name and name not in head:
+            L.append(".PP")
+            L.append(esc(name) + ".")
+        if r.get("description"):
+            L.append(".PP")
+            L.append("\\fIHow it is exploited (CISA):\\fR")
+            L.append(esc(r["description"]))
+        if r.get("action"):
+            L.append(".PP")
+            L.append("\\fIRemediation:\\fR")
+            L.append(esc(r["action"]))
+            if r.get("dueDate"):
+                L.append(" Due %s." % esc(r["dueDate"]))
+        urls = list(r.get("urls") or [])
+        nvd = "https://nvd.nist.gov/vuln/detail/" + r["cveID"]
+        if nvd not in urls:
+            urls.append(nvd)
+        L.append(".PP")
+        L.append("\\fIReferences:\\fR")
+        for u in urls:
+            L.append(".br")
+            L.append(esc(u))
     return L
 
 
@@ -227,6 +268,9 @@ def index_page(entries, kev):
     pages = ", ".join(e["id"].lower().replace("-", "\\-") + "(7)" for e in ordered)
     L.append(pages + ".")
     L.append(".PP")
+    L.append("OWASP Top 10 overlay: \\fBowasp\\fR(7), \\fBowasp\\-a01\\fR(7) "
+             "through \\fBowasp\\-a10\\fR(7).")
+    L.append(".PP")
     L.append("https://cwe.mitre.org/top25/ and https://www.cisa.gov/known\\-exploited\\-vulnerabilities\\-catalog")
     L.append(".SH GENERATED")
     asof = kev_date()
@@ -235,12 +279,129 @@ def index_page(entries, kev):
     return "\n".join(L) + "\n"
 
 
+def _have_cwe_page(num):
+    return os.path.exists(os.path.join(OUTDIR, "cwe-%d.7" % num))
+
+
+def owasp_category_page(cat, catalog, kev):
+    """Thin OWASP category page: description + CWE map. No extra examples."""
+    from owasp_data import PAGE_URL, SOURCE as OSRC
+    L = []
+    L.append('.\\" OWASP Top 10 overlay. Generated, not hand-edited.')
+    L.append('.TH %s 7 "%s" "%s" "%s"' % (cat["man"], GEN_DATE, OSRC, MANUAL))
+    L.append(".SH NAME")
+    L.append("%s \\- %s (OWASP Top 10:%s %s)"
+             % (cat["file"].replace("-", "\\-"), esc(cat["name"]),
+                EDITION_OWASP(), cat["id"]))
+    L.append(".SH RANK")
+    L.append("OWASP Top 10:%s rank \\fB#%d\\fR (%s)."
+             % (EDITION_OWASP(), cat["rank"], esc(cat["prev"])))
+    L.append(".SH DESCRIPTION")
+    for para in cat["desc"]:
+        L.append(esc(para))
+        L.append(".PP")
+    if L[-1] == ".PP":
+        L.pop()
+    L.append(".PP")
+    L.append("This page is an overlay. Vulnerable\\->fixed code lives on the "
+             "\\fBcwe\\-*\\fR(7) pages listed below, not here.")
+    L.append(".SH MAPPED CWES")
+    L.append("Official mapping: \\fB%d\\fR CWEs (OWASP count %s). "
+             "\\fBman\\fR after a CWE id if that page exists in this set."
+             % (len(cat["cwes"]), cat["n_cwe_official"]))
+    L.append(".PP")
+    L.append(".TS")
+    L.append("l l r lx.")
+    L.append("PAGE\tCWE\tKEV\tNAME")
+    L.append("_")
+    for num in cat["cwes"]:
+        meta = catalog.get(num, {})
+        name = meta.get("name") or ("CWE-%d" % num)
+        nkev = len(kev.get(num, []))
+        page_col = "cwe\\-%d(7)" % num if _have_cwe_page(num) else "\\(em"
+        L.append("%s\tCWE\\-%d\t%d\tT{\n%s\nT}" % (
+            page_col, num, nkev, esc(name)))
+    L.append(".TE")
+    L.append(".PP")
+    L.append("PAGE \\(em means there is no local \\fBcwe\\-*\\fR(7) for that "
+             "id (not Top 25 and not in KEV). MITRE still defines it.")
+    see = ["\\fBowasp\\fR(7)"]
+    see += ["\\fBcwe\\-%d\\fR(7)" % n for n in cat["cwes"] if _have_cwe_page(n)]
+    L.append(".SH SEE ALSO")
+    L.append(", ".join(see) + ".")
+    L.append(".PP")
+    L.append(PAGE_URL % cat["slug"])
+    L.append(".SH NOTES")
+    L.append("OWASP categories group many CWEs. They are not a replacement "
+             "for the CWE or KEV pages.")
+    L.append(".PP")
+    L.append("Generated %s from %s." % (esc(GEN_DATE), esc(OSRC)))
+    return "\n".join(L) + "\n"
+
+
+def EDITION_OWASP():
+    from owasp_data import EDITION
+    return EDITION
+
+
+def owasp_index(catalog, kev):
+    from owasp_data import CATEGORIES, SOURCE as OSRC, URL, EDITION
+    L = []
+    L.append("'\\\" t")
+    L.append('.TH OWASP 7 "%s" "%s" "%s"' % (GEN_DATE, OSRC, MANUAL))
+    L.append(".SH NAME")
+    L.append("owasp \\- OWASP Top 10:%s index (CWE overlay)" % EDITION)
+    L.append(".SH DESCRIPTION")
+    L.append("The OWASP Top 10:%s lists ten web\\-application risk "
+             "\\fBcategories\\fR. Each category is a bundle of CWEs, not a "
+             "single weakness. These pages map each category onto the "
+             "\\fBcwe\\-*\\fR(7) set. They do not duplicate examples."
+             % EDITION)
+    L.append(".PP")
+    L.append("This is not the OWASP API, LLM, or Agentic Top 10.")
+    L.append(".SH THE LIST")
+    L.append(".TS")
+    L.append("l l r lx.")
+    L.append("ID\tPAGE\tCWEs\tNAME")
+    L.append("_")
+    for cat in CATEGORIES:
+        L.append("%s\t%s(7)\t%d\tT{\n%s\nT}" % (
+            cat["id"], cat["file"].replace("-", "\\-"),
+            len(cat["cwes"]), esc(cat["name"])))
+    L.append(".TE")
+    L.append(".SH SEE ALSO")
+    pages = ", ".join(c["file"].replace("-", "\\-") + "(7)" for c in CATEGORIES)
+    L.append("\\fBcwe\\fR(7), " + pages + ".")
+    L.append(".PP")
+    L.append(URL)
+    L.append(".SH GENERATED")
+    L.append("Generated %s from %s. CWE/KEV pages are a separate MITRE/CISA set."
+             % (esc(GEN_DATE), esc(OSRC)))
+    return "\n".join(L) + "\n"
+
+
+def write_owasp(catalog, kev):
+    from owasp_data import CATEGORIES
+    for fn in os.listdir(OUTDIR):
+        if fn.startswith("owasp") and fn.endswith(".7"):
+            os.remove(os.path.join(OUTDIR, fn))
+    for cat in CATEGORIES:
+        path = os.path.join(OUTDIR, cat["file"] + ".7")
+        with open(path, "w") as f:
+            f.write(owasp_category_page(cat, catalog, kev))
+    with open(os.path.join(OUTDIR, "owasp.7"), "w") as f:
+        f.write(owasp_index(catalog, kev))
+    print("  OWASP overlay: owasp.7 + %d category pages" % len(CATEGORIES))
+
+
 if __name__ == "__main__":
     import sys
     curated_only = "--curated-only" in sys.argv
     os.makedirs(OUTDIR, exist_ok=True)
     kev = load_kev()
-    needed = sorted(set(kev) | {cwe_num(e) for e in CURATED})
+    from owasp_data import CATEGORIES as OWASP_CATS
+    owasp_ids = {n for c in OWASP_CATS for n in c["cwes"]}
+    needed = sorted(set(kev) | {cwe_num(e) for e in CURATED} | owasp_ids)
     catalog = load_catalog(ids=needed)
     if not catalog and not curated_only:
         sys.exit(
@@ -264,6 +425,7 @@ if __name__ == "__main__":
             f.write(page(e, kev))
     with open(os.path.join(OUTDIR, "cwe.7"), "w") as f:
         f.write(index_page(entries, kev))
+    write_owasp(catalog, kev)
 
     n_curated = sum(1 for e in entries if not e.get("stub"))
     n_stub = sum(1 for e in entries if e.get("stub"))

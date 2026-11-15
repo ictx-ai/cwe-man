@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-95 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-95 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-95 \- Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')
 .SH RANK
@@ -9,9 +9,109 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes code syntax before using the input in a dynamic evaluation call (e.g. eval). This may allow an attacker to execute arbitrary code, or at least modify what code can be executed.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB6\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB6\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2021\-22204
+Perl Exiftool, added 2021\-11\-17.
 .PP
-CVE\-2021\-22204, CVE\-2021\-22205, CVE\-2023\-7101, CVE\-2024\-36401, CVE\-2025\-24893, CVE\-2026\-33017.
+ExifTool Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Improper neutralization of user data in the DjVu file format in Exiftool versions 7.44 and up allows arbitrary code execution when parsing the malicious image
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-12\-01.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-22204
+.SS CVE\-2021\-22205
+GitLab Community and Enterprise Editions, added 2021\-11\-03, ransomware: Known.
+.PP
+GitLab Community and Enterprise Editions Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+GitHub Community and Enterprise Editions that utilize the ability to upload images through GitLab Workhorse are vulnerable to remote code execution. Workhorse passes image file extensions through ExifTool, which improperly validates the image files.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-22205
+.SS CVE\-2023\-7101
+Spreadsheet::ParseExcel Spreadsheet::ParseExcel, added 2024\-01\-02.
+.PP
+Spreadsheet::ParseExcel Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Spreadsheet::ParseExcel contains a remote code execution vulnerability due to passing unvalidated input from a file into a string\-type “eval”. Specifically, the issue stems from the evaluation of Number format strings within the Excel parsing logic.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-01\-23.
+.PP
+\fIReferences:\fR
+.br
+https://metacpan.org/dist/Spreadsheet\-ParseExcel
+.br
+https://www.barracuda.com/company/legal/esg\-vulnerability
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-7101
+.SS CVE\-2024\-36401
+OSGeo GeoServer, added 2024\-07\-15.
+.PP
+OSGeo GeoServer GeoTools Eval Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+OSGeo GeoServer GeoTools contains an improper neutralization of directives in dynamically evaluated code vulnerability due to unsafely evaluating property names as XPath expressions. This allows unauthenticated attackers to conduct remote code execution via specially crafted input.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-08\-05.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/geoserver/geoserver/security/advisories/GHSA\-6jj6\-gm7p\-fcvv
+.br
+https://github.com/geotools/geotools/pull/4797
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-36401
+.SS CVE\-2025\-24893
+XWiki Platform, added 2025\-10\-30.
+.PP
+XWiki Platform Eval Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+XWiki Platform contains an eval injection vulnerability that could allow any guest to perform arbitrary remote code execution through a request to SolrSearch.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-11\-20.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/xwiki/xwiki\-platform/security/advisories/GHSA\-rr6p\-3pfg\-562j
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-24893
+.SS CVE\-2026\-33017
+Langflow Langflow, added 2026\-03\-25.
+.PP
+Langflow Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Langflow contains a code injection vulnerability that could allow building public flows without requiring authentication.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-04\-08.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/langflow\-ai/langflow/security/advisories/GHSA\-vwmf\-pq79\-vjvx
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-33017
 .SH EXAMPLES
 One vulnerable\->fixed pair per ecosystem (Python).
 .SS Python
@@ -35,4 +135,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/95.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-23 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-23 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-23 \- Relative Path Traversal
 .SH RANK
@@ -9,9 +9,173 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize sequences such as .. that can resolve to a location that is outside of that directory. This allows attackers to traverse the file system to access files or directories that are outside of the restricted directory.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB10\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB10\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2020\-5410
+VMware Tanzu Spring Cloud Configuration (Config) Server, added 2022\-03\-25.
 .PP
-CVE\-2020\-5410, CVE\-2021\-21972, CVE\-2021\-22005, CVE\-2021\-22017, CVE\-2021\-38163, CVE\-2022\-37042, CVE\-2024\-27199, CVE\-2025\-64446, CVE\-2026\-34926, CVE\-2026\-76519.
+VMware Tanzu Spring Cloud Config Directory Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Spring, by VMware Tanzu, Cloud Config contains a path traversal vulnerability that allows applications to serve arbitrary configuration files.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-5410
+.SS CVE\-2021\-21972
+VMware vCenter Server, added 2021\-11\-03, ransomware: Known.
+.PP
+VMware vCenter Server Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+VMware vCenter Server vSphere Client contains a remote code execution vulnerability in a vCenter Server plugin which allows an attacker with network access to port 443 to execute commands with unrestricted privileges on the underlying operating system.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-21972
+.SS CVE\-2021\-22005
+VMware vCenter Server, added 2021\-11\-03, ransomware: Known.
+.PP
+VMware vCenter Server File Upload Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+VMware vCenter Server contains a file upload vulnerability in the Analytics service that allows a user with network access to port 443 to execute code.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-22005
+.SS CVE\-2021\-22017
+VMware vCenter Server, added 2022\-01\-10.
+.PP
+VMware vCenter Server Improper Access Control.
+.PP
+\fIHow it is exploited (CISA):\fR
+Rhttproxy as used in vCenter Server contains a vulnerability due to improper implementation of URI normalization.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-01\-24.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-22017
+.SS CVE\-2021\-38163
+SAP NetWeaver, added 2022\-06\-09.
+.PP
+SAP NetWeaver Unrestricted File Upload Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SAP NetWeaver contains a vulnerability that allows unrestricted file upload.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-30.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-38163
+.SS CVE\-2022\-37042
+Synacor Zimbra Collaboration Suite (ZCS), added 2022\-08\-11, ransomware: Known.
+.PP
+Synacor Zimbra Collaboration Suite (ZCS) Authentication Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Synacor Zimbra Collaboration Suite (ZCS) contains an authentication bypass vulnerability in MailboxImportServlet. This vulnerability was chained with CVE\-2022\-27925 which allows for unauthenticated remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-09\-01.
+.PP
+\fIReferences:\fR
+.br
+https://blog.zimbra.com/2022/08/authentication\-bypass\-in\-mailboximportservlet\-vulnerability/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-37042
+.SS CVE\-2024\-27199
+JetBrains TeamCity, added 2026\-04\-20, ransomware: Known.
+.PP
+JetBrains TeamCity Relative Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+JetBrains TeamCity contains a relative path traversal vulnerability that could allow limited admin actions to be performed.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-05\-04.
+.PP
+\fIReferences:\fR
+.br
+https://www.jetbrains.com/privacy\-security/issues\-fixed/
+.br
+https://blog.jetbrains.com/teamcity/2024/03/additional\-critical\-security\-issues\-affecting\-teamcity\-on\-premises\-cve\-2024\-27198\-and\-cve\-2024\-27199\-update\-to\-2023\-11\-4\-now/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-27199
+.SS CVE\-2025\-64446
+Fortinet FortiWeb, added 2025\-11\-14.
+.PP
+Fortinet FortiWeb Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Fortinet FortiWeb contains a relative path traversal vulnerability that may allow an unauthenticated attacker to execute administrative commands on the system via crafted HTTP or HTTPS requests.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-11\-21.
+.PP
+\fIReferences:\fR
+.br
+https://www.fortiguard.com/psirt/FG\-IR\-25\-910
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-64446
+.SS CVE\-2026\-34926
+Trend Micro Apex One, added 2026\-05\-21.
+.PP
+Trend Micro Apex One (On\-Premise) Directory Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Trend Micro Apex One (on\-premise) contains a directory traversal vulnerability that could allow a pre\-authenticated local attacker to modify a key table on the server to inject malicious code to deploy to agents on affected installations.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-06\-04.
+.PP
+\fIReferences:\fR
+.br
+https://success.trendmicro.com/en\-US/solution/KA\-0023430
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-34926
+.SS CVE\-2026\-76519
+Cisco Secure Email Gateway, added 2026\-10\-14.
+.PP
+Cisco Secure Email Gateway Relative Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Cisco Secure Email Gateway contains a relative path traversal vulnerability that could allow an unauthenticated, remote attacker to write arbitrary files on the underlying operating system.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-10\-17.
+.PP
+\fIReferences:\fR
+.br
+https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco\-sa\-esa\-afw\-zqYJkjxp
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-76519
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +185,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/23.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

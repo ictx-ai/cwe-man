@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-19 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-19 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-19 \- Data Processing Errors
 .SH RANK
@@ -9,9 +9,62 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 Weaknesses in this category are typically found in functionality that processes data. Data processing is the manipulation of input to retrieve or save information.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB3\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB3\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2015\-1671
+Microsoft Windows, added 2022\-05\-25.
 .PP
-CVE\-2015\-1671, CVE\-2015\-1770, CVE\-2015\-5477.
+Microsoft Windows Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A remote code execution vulnerability exists when components of Windows, .NET Framework, Office, Lync, and Silverlight fail to properly handle TrueType fonts.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2015\-1671
+.SS CVE\-2015\-1770
+Microsoft Office, added 2022\-03\-28.
+.PP
+Microsoft Office Uninitialized Memory Use Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Office allows remote attackers to execute arbitrary code via a crafted Office document.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-18.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2015\-1770
+.SS CVE\-2015\-5477
+ISC BIND, added 2026\-10\-08.
+.PP
+ISC BIND Data Processing Errors Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+ISC BIND contains a data processing errors vulnerability that could allow remote attackers to cause a denial of service via TKEY queries.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-10\-11.
+.PP
+\fIReferences:\fR
+.br
+https://web.archive.org/web/20150729014733/https://kb.isc.org/article/AA\-01272
+.br
+https://access.redhat.com/errata/RHSA\-2015:1513.html
+.br
+https://supportportal.juniper.net/s/article/2016\-01\-Security\-Bulletin\-Junos\-Vulnerability\-in\-ISC\-BIND\-named\-CVE\-2015\-5477
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2015\-5477
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +74,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/19.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

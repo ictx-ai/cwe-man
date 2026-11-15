@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-416 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-416 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-416 \- Use After Free
 .SH RANK
@@ -11,9 +11,1601 @@ Memory is referenced after being freed. The freed block may be reallocated for a
 .SH MITIGATION
 Null out pointers after free, establish clear ownership, and avoid multiple aliases to freed memory. Use AddressSanitizer/Valgrind; in C++ use smart pointers; consider Rust where its ownership model prevents the class.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB96\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB96\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2010\-0249
+Microsoft Internet Explorer, added 2026\-05\-20.
 .PP
-CVE\-2010\-0249, CVE\-2012\-4792, CVE\-2013\-2551, CVE\-2014\-0322, CVE\-2014\-1776, CVE\-2015\-0313, CVE\-2015\-5122, CVE\-2015\-5123, CVE\-2016\-0984, CVE\-2016\-7855, CVE\-2016\-7892, CVE\-2016\-9079, CVE\-2017\-0261, CVE\-2017\-0263, CVE\-2018\-4878, CVE\-2018\-15982, CVE\-2019\-0211, CVE\-2019\-0708, CVE\-2019\-1429, CVE\-2019\-2215, CVE\-2019\-5786, CVE\-2019\-8526, CVE\-2019\-8605, CVE\-2019\-13720, CVE\-2020\-0674, CVE\-2020\-3992, CVE\-2020\-6572, CVE\-2020\-6819, CVE\-2020\-9715, CVE\-2020\-16017, CVE\-2021\-0920, CVE\-2021\-1048, CVE\-2021\-1905, CVE\-2021\-4102, CVE\-2021\-21193, CVE\-2021\-21206, CVE\-2021\-25370, CVE\-2021\-25394, CVE\-2021\-26411, CVE\-2021\-28550, CVE\-2021\-28663, CVE\-2021\-29256, CVE\-2021\-30554, CVE\-2021\-30633, CVE\-2021\-30661, CVE\-2021\-30762, CVE\-2021\-30858, CVE\-2021\-31166, CVE\-2021\-34486, CVE\-2021\-37973, CVE\-2021\-37975, CVE\-2021\-40449, CVE\-2022\-0609, CVE\-2022\-2586, CVE\-2022\-3038, CVE\-2022\-22071, CVE\-2022\-22620, CVE\-2022\-26485, CVE\-2022\-26486, CVE\-2022\-38181, CVE\-2023\-0266, CVE\-2023\-4211, CVE\-2023\-21608, CVE\-2023\-21674, CVE\-2023\-28205, CVE\-2023\-29336, CVE\-2023\-32373, CVE\-2023\-33063, CVE\-2023\-36802, CVE\-2023\-41974, CVE\-2023\-43000, CVE\-2024\-1086, CVE\-2024\-4610, CVE\-2024\-4671, CVE\-2024\-9680, CVE\-2024\-36971, CVE\-2024\-38107, CVE\-2024\-38193, CVE\-2024\-43047, CVE\-2025\-21334, CVE\-2025\-21335, CVE\-2025\-24085, CVE\-2025\-24983, CVE\-2025\-27038, CVE\-2025\-29824, CVE\-2025\-30400, CVE\-2025\-32701, CVE\-2025\-32709, CVE\-2025\-43529, CVE\-2025\-62221, CVE\-2026\-2441, CVE\-2026\-5281, CVE\-2026\-68820, CVE\-2026\-109618, CVE\-2026\-109619, CVE\-2026\-125350.
+Microsoft Internet Explorer Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Internet Explorer contains an use\-after\-free vulnerability that could allow remote attackers to execute arbitrary code by accessing a pointer associated with a deleted object. The impacted product could be end\-of\-life (EoL) and/or end\-of\-service (EoS). Users should discontinue product utilization.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-06\-03.
+.PP
+\fIReferences:\fR
+.br
+https://learn.microsoft.com/en\-us/security\-updates/SecurityAdvisories/2010/979352
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2010\-0249
+.SS CVE\-2012\-4792
+Microsoft Internet Explorer, added 2024\-07\-23.
+.PP
+Microsoft Internet Explorer Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Internet Explorer contains a use\-after\-free vulnerability that allows a remote attacker to execute arbitrary code via a crafted web site that triggers access to an object that (1) was not properly allocated or (2) is deleted, as demonstrated by a CDwnBindInfo object.
+.PP
+\fIRemediation:\fR
+The impacted product is end\-of\-life and should be disconnected if still in use.
+ Due 2024\-08\-13.
+.PP
+\fIReferences:\fR
+.br
+https://learn.microsoft.com/en\-us/lifecycle/products/internet\-explorer\-11
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2012\-4792
+.SS CVE\-2013\-2551
+Microsoft Internet Explorer, added 2022\-03\-28, ransomware: Known.
+.PP
+Microsoft Internet Explorer Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Use\-after\-free vulnerability in Microsoft Internet Explorer allows remote attackers to execute remote code via a crafted web site that triggers access to a deleted object.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-18.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2013\-2551
+.SS CVE\-2014\-0322
+Microsoft Internet Explorer, added 2022\-05\-04.
+.PP
+Microsoft Internet Explorer Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Use\-after\-free vulnerability in Microsoft Internet Explorer allows remote attackers to execute code.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-25.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2014\-0322
+.SS CVE\-2014\-1776
+Microsoft Internet Explorer, added 2022\-01\-28.
+.PP
+Microsoft Internet Explorer Memory Corruption Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Internet Explorer contains a memory corruption vulnerability that allows remote attackers to execute code in the context of the current user.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-07\-28.
+.PP
+\fIReferences:\fR
+.br
+https://learn.microsoft.com/en\-us/security\-updates/SecurityBulletins/2014/ms14\-021?redirectedfrom=MSDN
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2014\-1776
+.SS CVE\-2015\-0313
+Adobe Flash Player, added 2022\-04\-13.
+.PP
+Adobe Flash Player Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Use\-after\-free vulnerability in Adobe Flash Player allows remote attackers to execute code.
+.PP
+\fIRemediation:\fR
+The impacted product is end\-of\-life and should be disconnected if still in use.
+ Due 2022\-05\-04.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2015\-0313
+.SS CVE\-2015\-5122
+Adobe Flash Player, added 2022\-04\-13.
+.PP
+Adobe Flash Player Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Use\-after\-free vulnerability in the DisplayObject class in the ActionScript 3 (AS3) implementation in Adobe Flash Player allows remote attackers to execute code or cause a denial\-of\-service (DoS).
+.PP
+\fIRemediation:\fR
+The impacted product is end\-of\-life and should be disconnected if still in use.
+ Due 2022\-05\-04.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2015\-5122
+.SS CVE\-2015\-5123
+Adobe Flash Player, added 2022\-04\-13.
+.PP
+Adobe Flash Player Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Use\-after\-free vulnerability in the BitmapData class in the ActionScript 3 (AS3) implementation in Adobe Flash Player allows remote attackers to execute code or cause a denial\-of\-service (DoS).
+.PP
+\fIRemediation:\fR
+The impacted product is end\-of\-life and should be disconnected if still in use.
+ Due 2022\-05\-04.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2015\-5123
+.SS CVE\-2016\-0984
+Adobe Flash Player and AIR, added 2022\-05\-25.
+.PP
+Adobe Flash Player and AIR Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Use\-after\-free vulnerability in Adobe Flash Player and Adobe AIR allows attackers to execute code.
+.PP
+\fIRemediation:\fR
+The impacted products are end\-of\-life and should be disconnected if still in use.
+ Due 2022\-06\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2016\-0984
+.SS CVE\-2016\-7855
+Adobe Flash Player, added 2022\-03\-03.
+.PP
+Adobe Flash Player Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Use\-after\-free vulnerability in Adobe Flash Player Windows and OS and Linux allows remote attackers to execute arbitrary code.
+.PP
+\fIRemediation:\fR
+The impacted product is end\-of\-life and should be disconnected if still in use.
+ Due 2022\-03\-24.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2016\-7855
+.SS CVE\-2016\-7892
+Adobe Flash Player, added 2022\-03\-25.
+.PP
+Adobe Flash Player Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Adobe Flash Player has an exploitable use\-after\-free vulnerability in the TextField class.
+.PP
+\fIRemediation:\fR
+The impacted product is end\-of\-life and should be disconnected if still in use.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2016\-7892
+.SS CVE\-2016\-9079
+Mozilla Firefox, Firefox ESR, and Thunderbird, added 2023\-06\-22.
+.PP
+Mozilla Firefox, Firefox ESR, and Thunderbird Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Mozilla Firefox, Firefox ESR, and Thunderbird contain a use\-after\-free vulnerability in SVG Animation, targeting Firefox and Tor browser users on Windows.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-07\-13.
+.PP
+\fIReferences:\fR
+.br
+https://www.mozilla.org/en\-US/security/advisories/mfsa2016\-92/#CVE\-2016\-9079
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2016\-9079
+.SS CVE\-2017\-0261
+Microsoft Office, added 2022\-03\-03.
+.PP
+Microsoft Office Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Office contains a use\-after\-free vulnerability which can allow for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-03\-24.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-0261
+.SS CVE\-2017\-0263
+Microsoft Win32k, added 2022\-02\-10.
+.PP
+Microsoft Win32k Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Win32k contains a privilege escalation vulnerability due to the Windows kernel\-mode driver failing to properly handle objects in memory.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-08\-10.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-0263
+.SS CVE\-2018\-4878
+Adobe Flash Player, added 2021\-11\-03, ransomware: Known.
+.PP
+Adobe Flash Player Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Adobe Flash Player contains a use\-after\-free vulnerability that could allow for code execution.
+.PP
+\fIRemediation:\fR
+The impacted product is end\-of\-life and should be disconnected if still in use.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-4878
+.SS CVE\-2018\-15982
+Adobe Flash Player, added 2022\-02\-15, ransomware: Known.
+.PP
+Adobe Flash Player Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Adobe Flash Player com.adobe.tvsdk.mediacore.metadata Use After Free Vulnerability
+.PP
+\fIRemediation:\fR
+The impacted product is end\-of\-life and should be disconnected if still in use.
+ Due 2022\-08\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-15982
+.SS CVE\-2019\-0211
+Apache HTTP Server, added 2021\-11\-03.
+.PP
+Apache HTTP Server Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apache HTTP Server, with MPM event, worker or prefork, code executing in less\-privileged child processes or threads (including scripts executed by an in\-process scripting interpreter) could execute code with the privileges of the parent process (usually root) by manipulating the scoreboard.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-0211
+.SS CVE\-2019\-0708
+Microsoft Remote Desktop Services, added 2021\-11\-03, ransomware: Known.
+.PP
+Microsoft Remote Desktop Services Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Remote Desktop Services, formerly known as Terminal Service, contains an unspecified vulnerability that allows an unauthenticated attacker to connect to the target system using RDP and send specially crafted requests. Successful exploitation allows for remote code execution. The vulnerability is also known under the moniker of BlueKeep.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-0708
+.SS CVE\-2019\-1429
+Microsoft Internet Explorer, added 2021\-11\-03.
+.PP
+Microsoft Internet Explorer Scripting Engine Memory Corruption Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Internet Explorer contains a memory corruption vulnerability which can allow for remote code execution in the context of the current user.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-1429
+.SS CVE\-2019\-2215
+Android Android Kernel, added 2021\-11\-03.
+.PP
+Android Kernel Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Android Kernel contains a use\-after\-free vulnerability in binder.c that allows for privilege escalation from an application to the Linux Kernel. This vulnerability was observed chained with CVE\-2020\-0041 and CVE\-2020\-0069 under exploit chain "AbstractEmu."
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-2215
+.SS CVE\-2019\-5786
+Google Chrome Blink, added 2022\-05\-23.
+.PP
+Google Chrome Blink Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chrome Blink contains a heap use\-after\-free vulnerability that allows an attacker to potentially perform out of bounds memory access via a crafted HTML page.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-13.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-5786
+.SS CVE\-2019\-8526
+Apple macOS, added 2023\-04\-17.
+.PP
+Apple macOS Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apple macOS contains a use\-after\-free vulnerability that could allow for privilege escalation.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-05\-08.
+.PP
+\fIReferences:\fR
+.br
+https://support.apple.com/en\-us/HT209600
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-8526
+.SS CVE\-2019\-8605
+Apple Multiple Products, added 2022\-06\-27.
+.PP
+Apple Multiple Products Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A use\-after\-free vulnerability in Apple iOS, macOS, tvOS, and watchOS could allow a malicious application to execute code with system privileges.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-07\-18.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-8605
+.SS CVE\-2019\-13720
+Google Chrome WebAudio, added 2022\-05\-23.
+.PP
+Google Chrome WebAudio Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chrome WebAudio contains a use\-after\-free vulnerability that allows a remote attacker to potentially exploit heap corruption via a crafted HTML page.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-13.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-13720
+.SS CVE\-2020\-0674
+Microsoft Internet Explorer, added 2021\-11\-03.
+.PP
+Microsoft Internet Explorer Scripting Engine Memory Corruption Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Internet Explorer contains a memory corruption vulnerability due to the way the Scripting Engine handles objects in memory. Successful exploitation could allow remote code execution in the context of the current user.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-0674
+.SS CVE\-2020\-3992
+VMware ESXi, added 2021\-11\-03, ransomware: Known.
+.PP
+VMware ESXi OpenSLP Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+VMware ESXi OpenSLP contains a use\-after\-free vulnerability that allows an attacker residing in the management network with access to port 427 to perform remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-3992
+.SS CVE\-2020\-6572
+Google Chrome Media, added 2022\-01\-10.
+.PP
+Google Chrome Media Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chrome Media contains a use\-after\-free vulnerability that allows a remote attacker to execute code via a crafted HTML page.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-07\-10.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-6572
+.SS CVE\-2020\-6819
+Mozilla Firefox and Thunderbird, added 2021\-11\-03.
+.PP
+Mozilla Firefox And Thunderbird Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Mozilla Firefox and Thunderbird contain a race condition vulnerability when running the nsDocShell destructor under certain conditions. The race condition creates a use\-after\-free vulnerability, causing unspecified impacts.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-6819
+.SS CVE\-2020\-9715
+Adobe Acrobat, added 2026\-04\-13.
+.PP
+Adobe Acrobat Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Adobe Acrobat contains a use\-after\-free vulnerability that allows for code execution
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-04\-27.
+.PP
+\fIReferences:\fR
+.br
+https://helpx.adobe.com/security/products/acrobat/apsb20\-48.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-9715
+.SS CVE\-2020\-16017
+Google Chrome, added 2021\-11\-03.
+.PP
+Google Chrome Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chrome contains a use\-after\-free vulnerability that allows a remote attacker, who has compromised the renderer process, to potentially perform a sandbox escape via a crafted HTML page.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-16017
+.SS CVE\-2021\-0920
+Android Kernel, added 2022\-05\-23.
+.PP
+Android Kernel Race Condition Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Android kernel contains a race condition, which allows for a use\-after\-free vulnerability. Exploitation can allow for privilege escalation.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-13.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-0920
+.SS CVE\-2021\-1048
+Android Kernel, added 2022\-05\-23.
+.PP
+Android Kernel Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Android kernel contains a use\-after\-free vulnerability that allows for privilege escalation.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-13.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-1048
+.SS CVE\-2021\-1905
+Qualcomm Multiple Chipsets, added 2021\-11\-03.
+.PP
+Qualcomm Multiple Chipsets Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Multiple Qualcomm Chipsets contain a use after free vulnerability due to improper handling of memory mapping of multiple processes simultaneously.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-1905
+.SS CVE\-2021\-4102
+Google Chromium V8, added 2021\-12\-15.
+.PP
+Google Chromium V8 Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium V8 Engine contains a use\-after\-free vulnerability that allows a remote attacker to potentially exploit heap corruption via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-12\-29.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-4102
+.SS CVE\-2021\-21193
+Google Chromium Blink, added 2021\-11\-03.
+.PP
+Google Chromium Blink Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium Blink contains a use\-after\-free vulnerability that allows a remote attacker to potentially exploit heap corruption via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-21193
+.SS CVE\-2021\-21206
+Google Chromium Blink, added 2021\-11\-03.
+.PP
+Google Chromium Blink Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium Blink contains a use\-after\-free vulnerability that allows a remote attacker to potentially exploit heap corruption via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-21206
+.SS CVE\-2021\-25370
+Samsung Mobile Devices, added 2022\-11\-08.
+.PP
+Samsung Mobile Devices Memory Corruption Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Samsung mobile devices using Mali GPU contain an incorrect implementation handling file descriptor in dpu driver. This incorrect implementation results in memory corruption, leading to kernel panic. This vulnerability was chained with CVE\-2021\-25337 and CVE\-2021\-25369.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-11\-29.
+.PP
+\fIReferences:\fR
+.br
+https://security.samsungmobile.com/securityUpdate.smsb
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-25370
+.SS CVE\-2021\-25394
+Samsung Mobile Devices, added 2023\-06\-29.
+.PP
+Samsung Mobile Devices Race Condition Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Samsung mobile devices contain a race condition vulnerability within the MFC charger driver that leads to a use\-after\-free allowing for a write given a radio privilege is compromised.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-07\-20.
+.PP
+\fIReferences:\fR
+.br
+https://security.samsungmobile.com/securityUpdate.smsb?year=2021&month=5
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-25394
+.SS CVE\-2021\-26411
+Microsoft Internet Explorer, added 2021\-11\-03, ransomware: Known.
+.PP
+Microsoft Internet Explorer Memory Corruption Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Internet Explorer contains an unspecified vulnerability that allows for memory corruption.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-26411
+.SS CVE\-2021\-28550
+Adobe Acrobat and Reader, added 2021\-11\-03.
+.PP
+Adobe Acrobat and Reader Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Adobe Acrobat and Reader contains a use\-after\-free vulnerability that could allow an unauthenticated attacker to achieve code execution in the context of the current user.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-28550
+.SS CVE\-2021\-28663
+Arm Mali Graphics Processing Unit (GPU), added 2021\-11\-03.
+.PP
+Arm Mali Graphics Processing Unit (GPU) Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Arm Mali Graphics Processing Unit (GPU) kernel driver contains a use\-after\-free vulnerability that may allow a non\-privileged user to make improper operations on GPU memory to gain root privilege, and/or disclose information.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-28663
+.SS CVE\-2021\-29256
+Arm Mali Graphics Processing Unit (GPU), added 2023\-07\-07.
+.PP
+Arm Mali GPU Kernel Driver Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Arm Mali GPU Kernel Driver contains a use\-after\-free vulnerability that may allow a non\-privileged user to gain root privilege and/or disclose information.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-07\-28.
+.PP
+\fIReferences:\fR
+.br
+https://developer.arm.com/Arm%20Security%20Center/Mali%20GPU%20Driver%20Vulnerabilities
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-29256
+.SS CVE\-2021\-30554
+Google Chromium WebGL, added 2021\-11\-03.
+.PP
+Google Chromium WebGL Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium WebGL contains a use\-after\-free vulnerability that allows a remote attacker to potentially exploit heap corruption via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-30554
+.SS CVE\-2021\-30633
+Google Chromium Indexed DB API, added 2021\-11\-03.
+.PP
+Google Chromium Indexed DB API Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium Indexed DB API contains a use\-after\-free vulnerability that allows a remote attacker, who has compromised the renderer process, to potentially perform a sandbox escape via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-30633
+.SS CVE\-2021\-30661
+Apple Multiple Products, added 2021\-11\-03.
+.PP
+Apple Multiple Products WebKit Storage Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apple iOS, iPadOS, macOS, tvOS, watchOS, and Safari WebKit Storage contain a use\-after\-free vulnerability that leads to code execution when processing maliciously crafted web content. This vulnerability could impact HTML parsers that use WebKit, including but not limited to Apple Safari and non\-Apple products which rely on WebKit for HTML processing.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-30661
+.SS CVE\-2021\-30762
+Apple iOS, added 2021\-11\-03.
+.PP
+Apple iOS WebKit Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apple iOS WebKit contains a use\-after\-free vulnerability that leads to code execution when processing maliciously crafted web content. This vulnerability could impact HTML parsers that use WebKit, including but not limited to Apple Safari and non\-Apple products which rely on WebKit for HTML processing.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-30762
+.SS CVE\-2021\-30858
+Apple iOS, iPadOS, and macOS, added 2021\-11\-03.
+.PP
+Apple iOS, iPadOS, macOS Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apple iOS, iPadOS, and macOS WebKit contain a use\-after\-free vulnerability that leads to code execution when processing maliciously crafted web content. This vulnerability could impact HTML parsers that use WebKit, including but not limited to Apple Safari and non\-Apple products which rely on WebKit for HTML processing.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-30858
+.SS CVE\-2021\-31166
+Microsoft HTTP Protocol Stack, added 2022\-04\-06.
+.PP
+Microsoft HTTP Protocol Stack Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft HTTP Protocol Stack contains a vulnerability in http.sys that allows for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-27.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-31166
+.SS CVE\-2021\-34486
+Microsoft Windows, added 2022\-03\-28.
+.PP
+Microsoft Windows Event Tracing Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Event Tracing contains an unspecified vulnerability which can allow for privilege escalation.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-18.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-34486
+.SS CVE\-2021\-37973
+Google Chromium Portals, added 2021\-11\-03.
+.PP
+Google Chromium Portals Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium Portals contains a use\-after\-free vulnerability that allows a remote attacker, who has compromised the renderer process, to potentially perform a sandbox escape via a crafted HTML page. This vulnerability affects web browsers that utilize Chromium, including Google Chrome and Microsoft Edge.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-37973
+.SS CVE\-2021\-37975
+Google Chromium V8, added 2021\-11\-03.
+.PP
+Google Chromium V8 Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium V8 Engine contains a use\-after\-free vulnerability that allows a remote attacker to potentially exploit heap corruption via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-37975
+.SS CVE\-2021\-40449
+Microsoft Windows, added 2021\-11\-17, ransomware: Known.
+.PP
+Microsoft Windows Win32k Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Unspecified vulnerability allows for an authenticated user to escalate privileges.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-12\-01.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-40449
+.SS CVE\-2022\-0609
+Google Chromium Animation, added 2022\-02\-15.
+.PP
+Google Chromium Animation Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium Animation contains a use\-after\-free vulnerability that allows a remote attacker to potentially exploit heap corruption via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-03\-01.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-0609
+.SS CVE\-2022\-2586
+Linux Kernel, added 2024\-06\-26.
+.PP
+Linux Kernel Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Linux Kernel contains a use\-after\-free vulnerability in the nft_object, allowing local attackers to escalate privileges.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2024\-07\-17.
+.PP
+\fIReferences:\fR
+.br
+https://seclists.org/oss\-sec/2022/q3/131
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-2586
+.SS CVE\-2022\-3038
+Google Chromium Network Service, added 2023\-03\-30.
+.PP
+Google Chromium Network Service Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium Network Service contains a use\-after\-free vulnerability that allows a remote attacker to potentially exploit heap corruption via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-04\-20.
+.PP
+\fIReferences:\fR
+.br
+https://chromereleases.googleblog.com/2022/08/stable\-channel\-update\-for\-desktop_30.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-3038
+.SS CVE\-2022\-22071
+Qualcomm Multiple Chipsets, added 2023\-12\-05.
+.PP
+Qualcomm Multiple Chipsets Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Multiple Qualcomm chipsets contain a use\-after\-free vulnerability when process shell memory is freed using IOCTL munmap call and process initialization is in progress.
+.PP
+\fIRemediation:\fR
+Apply remediations or mitigations per vendor instructions or discontinue use of the product if remediation or mitigations are unavailable.
+ Due 2023\-12\-26.
+.PP
+\fIReferences:\fR
+.br
+https://git.codelinaro.org/clo/la/kernel/msm\-5.4/\-/commit/586840fde350d7b8563df9889c8ce397e2c20dda
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-22071
+.SS CVE\-2022\-22620
+Apple iOS, iPadOS, and macOS, added 2022\-02\-11.
+.PP
+Apple iOS, iPadOS, and macOS Webkit Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apple iOS, iPadOS, and macOS WebKit contain a use\-after\-free vulnerability that leads to code execution when processing maliciously crafted web content. This vulnerability could impact HTML parsers that use WebKit, including but not limited to Apple Safari and non\-Apple products which rely on WebKit for HTML processing.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-02\-25.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-22620
+.SS CVE\-2022\-26485
+Mozilla Firefox, added 2022\-03\-07.
+.PP
+Mozilla Firefox Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Mozilla Firefox contains a use\-after\-free vulnerability in XSLT parameter processing which can be exploited to perform arbitrary code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-03\-21.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-26485
+.SS CVE\-2022\-26486
+Mozilla Firefox, added 2022\-03\-07.
+.PP
+Mozilla Firefox Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Mozilla Firefox contains a use\-after\-free vulnerability in WebGPU IPC Framework which can be exploited to perform arbitrary code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-03\-21.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-26486
+.SS CVE\-2022\-38181
+Arm Mali Graphics Processing Unit (GPU), added 2023\-03\-30.
+.PP
+Arm Mali GPU Kernel Driver Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Arm Mali GPU Kernel Driver contains a use\-after\-free vulnerability that may allow a non\-privileged user to gain root privilege and/or disclose information.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-04\-20.
+.PP
+\fIReferences:\fR
+.br
+https://developer.arm.com/Arm%20Security%20Center/Mali%20GPU%20Driver%20Vulnerabilities
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-38181
+.SS CVE\-2023\-0266
+Linux Kernel, added 2023\-03\-30.
+.PP
+Linux Kernel Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Linux kernel contains a use\-after\-free vulnerability that allows for privilege escalation to gain ring0 access from the system user.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-04\-20.
+.PP
+\fIReferences:\fR
+.br
+https://git.kernel.org/pub/scm/linux/kernel/git/stable/stable\-queue.git/tree/queue\-5.10/alsa\-pcm\-move\-rwsem\-lock\-inside\-snd_ctl_elem_read\-to\-prevent\-uaf.patch?id=72783cf35e6c55bca84c4bb7b776c58152856fd4
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-0266
+.SS CVE\-2023\-4211
+Arm Mali GPU Kernel Driver, added 2023\-10\-03.
+.PP
+Arm Mali GPU Kernel Driver Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Arm Mali GPU Kernel Driver contains a use\-after\-free vulnerability that allows a local, non\-privileged user to make improper GPU memory processing operations to gain access to already freed memory.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-10\-24.
+.PP
+\fIReferences:\fR
+.br
+https://developer.arm.com/Arm%20Security%20Center/Mali%20GPU%20Driver%20Vulnerabilities
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-4211
+.SS CVE\-2023\-21608
+Adobe Acrobat and Reader, added 2023\-10\-10.
+.PP
+Adobe Acrobat and Reader Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Adobe Acrobat and Reader contains a use\-after\-free vulnerability that allows for code execution in the context of the current user.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-10\-31.
+.PP
+\fIReferences:\fR
+.br
+https://helpx.adobe.com/security/products/acrobat/apsb23\-01.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-21608
+.SS CVE\-2023\-21674
+Microsoft Windows, added 2023\-01\-10.
+.PP
+Microsoft Windows Advanced Local Procedure Call (ALPC) Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Advanced Local Procedure Call (ALPC) contains an unspecified vulnerability that allows for privilege escalation.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-01\-31.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2023\-21674
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-21674
+.SS CVE\-2023\-28205
+Apple Multiple Products, added 2023\-04\-10.
+.PP
+Apple Multiple Products WebKit Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apple iOS, iPadOS, macOS, and Safari WebKit contain a use\-after\-free vulnerability that leads to code execution when processing maliciously crafted web content. This vulnerability could impact HTML parsers that use WebKit, including but not limited to Apple Safari and non\-Apple products which rely on WebKit for HTML processing.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-05\-01.
+.PP
+\fIReferences:\fR
+.br
+https://support.apple.com/en\-us/HT213720,https://support.apple.com/en\-us/HT213721,https://support.apple.com/en\-us/HT213722,https://support.apple.com/en\-us/HT213723
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-28205
+.SS CVE\-2023\-29336
+Microsoft Win32k, added 2023\-05\-09.
+.PP
+Microsoft Win32K Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Win32k contains an unspecified vulnerability that allows for privilege escalation up to SYSTEM privileges.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-05\-30.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2023\-29336
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-29336
+.SS CVE\-2023\-32373
+Apple Multiple Products, added 2023\-05\-22.
+.PP
+Apple Multiple Products WebKit Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apple iOS, iPadOS, macOS, tvOS, watchOS, and Safari WebKit contain a use\-after\-free vulnerability that leads to code execution when processing maliciously crafted web content. This vulnerability could impact HTML parsers that use WebKit, including but not limited to Apple Safari and non\-Apple products which rely on WebKit for HTML processing.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-06\-12.
+.PP
+\fIReferences:\fR
+.br
+https://support.apple.com/HT213757
+.br
+https://support.apple.com/HT213758
+.br
+https://support.apple.com/HT213761
+.br
+https://support.apple.com/HT213762
+.br
+https://support.apple.com/HT213764
+.br
+https://support.apple.com/HT213765
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-32373
+.SS CVE\-2023\-33063
+Qualcomm Multiple Chipsets, added 2023\-12\-05.
+.PP
+Qualcomm Multiple Chipsets Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Multiple Qualcomm chipsets contain a use\-after\-free vulnerability due to memory corruption in DSP Services during a remote call from HLOS to DSP.
+.PP
+\fIRemediation:\fR
+Apply remediations or mitigations per vendor instructions or discontinue use of the product if remediation or mitigations are unavailable.
+ Due 2023\-12\-26.
+.PP
+\fIReferences:\fR
+.br
+https://git.codelinaro.org/clo/la/kernel/msm\-5.15/\-/commit/2643808ddbedfaabbb334741873fb2857f78188a
+.br
+https://git.codelinaro.org/clo/la/kernel/msm\-4.14/\-/commit/d43222efda5a01c9804d74a541e3c1be9b7fe110
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-33063
+.SS CVE\-2023\-36802
+Microsoft Streaming Service Proxy, added 2023\-09\-12.
+.PP
+Microsoft Streaming Service Proxy Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Streaming Service Proxy contains an unspecified vulnerability that allows for privilege escalation.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-10\-03.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2023\-36802
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-36802
+.SS CVE\-2023\-41974
+Apple iOS and iPadOS, added 2026\-03\-05.
+.PP
+Apple iOS and iPadOS Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apple iOS and iPadOS contain a use\-after\-free vulnerability. An app may be able to execute arbitrary code with kernel privileges.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-03\-26.
+.PP
+\fIReferences:\fR
+.br
+https://support.apple.com/en\-us/HT213938
+.br
+https://support.apple.com/kb/HT213938
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-41974
+.SS CVE\-2023\-43000
+Apple Multiple Products, added 2026\-03\-05.
+.PP
+Apple Multiple products Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apple macOS, iOS, iPadOS, and Safari 16.6 contain a use\-after\-free vulnerability due to the processing of maliciously crafted web content that may lead to memory corruption.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-03\-26.
+.PP
+\fIReferences:\fR
+.br
+https://support.apple.com/en\-us/120324
+.br
+https://support.apple.com/en\-us/120331
+.br
+https://support.apple.com/en\-us/120338
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-43000
+.SS CVE\-2024\-1086
+Linux Kernel, added 2024\-05\-30, ransomware: Known.
+.PP
+Linux Kernel Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Linux kernel contains a use\-after\-free vulnerability in the netfilter: nf_tables component that allows an attacker to achieve local privilege escalation.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-06\-20.
+.PP
+\fIReferences:\fR
+.br
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f342de4e2f33e0e39165d8639387aa6c19dff660
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-1086
+.SS CVE\-2024\-4610
+Arm Mali GPU Kernel Driver, added 2024\-06\-12.
+.PP
+Arm Mali GPU Kernel Driver Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Arm Bifrost and Valhall GPU kernel drivers contain a use\-after\-free vulnerability that allows a local, non\-privileged user to make improper GPU memory processing operations to gain access to already freed memory.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-07\-03.
+.PP
+\fIReferences:\fR
+.br
+https://developer.arm.com/Arm%20Security%20Center/Mali%20GPU%20Driver%20Vulnerabilities
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-4610
+.SS CVE\-2024\-4671
+Google Chromium, added 2024\-05\-13.
+.PP
+Google Chromium Visuals Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium Visuals contains a use\-after\-free vulnerability that allows a remote attacker to exploit heap corruption via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-06\-03.
+.PP
+\fIReferences:\fR
+.br
+https://chromereleases.googleblog.com/2024/05/stable\-channel\-update\-for\-desktop_9.html?m=1
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-4671
+.SS CVE\-2024\-9680
+Mozilla Firefox, added 2024\-10\-15, ransomware: Known.
+.PP
+Mozilla Firefox Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Mozilla Firefox and Firefox ESR contain a use\-after\-free vulnerability in Animation timelines that allows for code execution in the content process.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-11\-05.
+.PP
+\fIReferences:\fR
+.br
+https://www.mozilla.org/en\-US/security/advisories/mfsa2024\-51/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-9680
+.SS CVE\-2024\-36971
+Android Kernel, added 2024\-08\-07.
+.PP
+Android Kernel Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Android contains an unspecified vulnerability in the kernel that allows for remote code execution. This vulnerability resides in Linux Kernel and could impact other products, including but not limited to Android OS.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-08\-28.
+.PP
+\fIReferences:\fR
+.br
+https://source.android.com/docs/security/bulletin/2024\-08\-01
+.br
+https://lore.kernel.org/linux\-cve\-announce/20240610090330.1347021\-2\-lee@kernel.org/T/#u
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-36971
+.SS CVE\-2024\-38107
+Microsoft Windows, added 2024\-08\-13.
+.PP
+Microsoft Windows Power Dependency Coordinator Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Power Dependency Coordinator contains an unspecified vulnerability that allows for privilege escalation, enabling a local attacker to obtain SYSTEM privileges.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-09\-03.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2024\-38107
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-38107
+.SS CVE\-2024\-38193
+Microsoft Windows, added 2024\-08\-13.
+.PP
+Microsoft Windows Ancillary Function Driver for WinSock Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Ancillary Function Driver for WinSock contains an unspecified vulnerability that allows for privilege escalation, enabling a local attacker to gain SYSTEM privileges.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-09\-03.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2024\-38193
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-38193
+.SS CVE\-2024\-43047
+Qualcomm Multiple Chipsets, added 2024\-10\-08.
+.PP
+Qualcomm Multiple Chipsets Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Multiple Qualcomm chipsets contain a use\-after\-free vulnerability due to memory corruption in DSP Services while maintaining memory maps of HLOS memory.
+.PP
+\fIRemediation:\fR
+Apply remediations or mitigations per vendor instructions or discontinue use of the product if remediation or mitigations are unavailable.
+ Due 2024\-10\-29.
+.PP
+\fIReferences:\fR
+.br
+https://git.codelinaro.org/clo/la/platform/vendor/qcom/opensource/dsp\-kernel/\-/commit/0e27b6c7d2bd8d0453e4465ac2ca49a8f8c440e2
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-43047
+.SS CVE\-2025\-21334
+Microsoft Windows, added 2025\-01\-14.
+.PP
+Microsoft Windows Hyper\-V NT Kernel Integration VSP Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Hyper\-V NT Kernel Integration VSP contains a use\-after\-free vulnerability that allows a local attacker to gain SYSTEM privileges.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-02\-04.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2025\-21334
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-21334
+.SS CVE\-2025\-21335
+Microsoft Windows, added 2025\-01\-14.
+.PP
+Microsoft Windows Hyper\-V NT Kernel Integration VSP Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Hyper\-V NT Kernel Integration VSP contains a use\-after\-free vulnerability that allows a local attacker to gain SYSTEM privileges.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-02\-04.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2025\-21335
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-21335
+.SS CVE\-2025\-24085
+Apple Multiple Products, added 2025\-01\-29.
+.PP
+Apple Multiple Products Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apple iOS, macOS, and other Apple products contain a user\-after\-free vulnerability that could allow a malicious application to elevate privileges.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-02\-19.
+.PP
+\fIReferences:\fR
+.br
+https://support.apple.com/en\-us/122066
+.br
+https://support.apple.com/en\-us/122068
+.br
+https://support.apple.com/en\-us/122071
+.br
+https://support.apple.com/en\-us/122072
+.br
+https://support.apple.com/en\-us/122073
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-24085
+.SS CVE\-2025\-24983
+Microsoft Windows, added 2025\-03\-11.
+.PP
+Microsoft Windows Win32k Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Win32 Kernel Subsystem contains a use\-after\-free vulnerability that allows an authorized attacker to elevate privileges locally.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-04\-01.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2025\-24983
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-24983
+.SS CVE\-2025\-27038
+Qualcomm Multiple Chipsets, added 2025\-06\-03.
+.PP
+Qualcomm Multiple Chipsets Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Multiple Qualcomm chipsets contain a use\-after\-free vulnerability. This vulnerability allows for memory corruption while rendering graphics using Adreno GPU drivers in Chrome.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-06\-24.
+.PP
+\fIReferences:\fR
+.br
+https://docs.qualcomm.com/product/publicresources/securitybulletin/june\-2025\-bulletin.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-27038
+.SS CVE\-2025\-29824
+Microsoft Windows, added 2025\-04\-08, ransomware: Known.
+.PP
+Microsoft Windows Common Log File System (CLFS) Driver Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Common Log File System (CLFS) Driver contains a use\-after\-free vulnerability that allows an authorized attacker to elevate privileges locally.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-04\-29.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2025\-29824
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-29824
+.SS CVE\-2025\-30400
+Microsoft Windows, added 2025\-05\-13.
+.PP
+Microsoft Windows DWM Core Library Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows DWM Core Library contains a use\-after\-free vulnerability that allows an authorized attacker to elevate privileges locally.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-06\-03.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2025\-30400
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-30400
+.SS CVE\-2025\-32701
+Microsoft Windows, added 2025\-05\-13.
+.PP
+Microsoft Windows Common Log File System (CLFS) Driver Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Common Log File System (CLFS) Driver contains a use\-after\-free vulnerability that allows an authorized attacker to elevate privileges locally.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-06\-03.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2025\-32701
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-32701
+.SS CVE\-2025\-32709
+Microsoft Windows, added 2025\-05\-13.
+.PP
+Microsoft Windows Ancillary Function Driver for WinSock Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Ancillary Function Driver for WinSock contains a use\-after\-free vulnerability that allows an authorized attacker to escalate privileges to administrator.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-06\-03.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2025\-32709
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-32709
+.SS CVE\-2025\-43529
+Apple Multiple Products, added 2025\-12\-15.
+.PP
+Apple Multiple Products Use\-After\-Free WebKit Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apple iOS, iPadOS, macOS, and other Apple products contain a use\-after\-free vulnerability in WebKit. Processing maliciously crafted web content may lead to memory corruption. This vulnerability could impact HTML parsers that use WebKit, including but not limited to Apple Safari and non\-Apple products which rely on WebKit for HTML processing.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-01\-05.
+.PP
+\fIReferences:\fR
+.br
+https://support.apple.com/en\-us/125884
+.br
+https://support.apple.com/en\-us/125892
+.br
+https://support.apple.com/en\-us/125885
+.br
+https://support.apple.com/en\-us/125886
+.br
+https://support.apple.com/en\-us/125889
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-43529
+.SS CVE\-2025\-62221
+Microsoft Windows, added 2025\-12\-09.
+.PP
+Microsoft Windows Use After Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Cloud Files Mini Filter Driver contains a use after free vulnerability that can allow an authorized attacker to elevate privileges locally.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-12\-30.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2025\-62221
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-62221
+.SS CVE\-2026\-2441
+Google Chromium, added 2026\-02\-17.
+.PP
+Google Chromium CSS Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium CSS contains a use\-after\-free vulnerability that could allow a remote attacker to potentially exploit heap corruption via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-03\-10.
+.PP
+\fIReferences:\fR
+.br
+https://chromereleases.googleblog.com/2026/02/stable\-channel\-update\-for\-desktop_13.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-2441
+.SS CVE\-2026\-5281
+Google Dawn, added 2026\-04\-01.
+.PP
+Google Dawn Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Dawn contains an use\-after\-free vulnerability that could allow a remote attacker who had compromised the renderer process to execute arbitrary code via a crafted HTML page. This vulnerability could affect multiple Chromium\-based products including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://chromereleases.googleblog.com/2026/03/stable\-channel\-update\-for\-desktop_31.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-5281
+.SS CVE\-2026\-68820
+Microsoft Windows Ancillary Function Driver for WinSock, added 2026\-08\-11.
+.PP
+Microsoft Windows Ancillary Function Driver for WinSock Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Ancillary Function Driver for WinSock contains a use\-after\-free vulnerability that allows an authorized attacker to elevate privileges locally.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-08\-25.
+.PP
+\fIReferences:\fR
+.br
+https://portal.msrc.microsoft.com/en\-US/security\-guidance/advisory/CVE\-2026\-68820
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-68820
+.SS CVE\-2026\-109618
+PHP Group PHP, added 2026\-10\-26.
+.PP
+PHP Memory Corruption Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+PHP contains an out\-of\-memory corruption vulnerability that allows for unauthenticated remote code execution.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-10\-29.
+.PP
+\fIReferences:\fR
+.br
+https://www.php.net/
+.br
+https://www.cisa.gov/news\-events/alerts/2026/10/21/critical\-vulnerabilities\-php\-require\-immediate\-patching
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-109618
+.SS CVE\-2026\-109619
+PHP Group PHP, added 2026\-10\-26.
+.PP
+PHP Stale Internal Request\-State Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+PHP contains a stale internal request\-state vulnerability that allows for unauthenticated remote code execution.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-10\-29.
+.PP
+\fIReferences:\fR
+.br
+https://www.php.net/
+.br
+https://www.cisa.gov/news\-events/alerts/2026/10/21/critical\-vulnerabilities\-php\-require\-immediate\-patching
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-109619
+.SS CVE\-2026\-125350
+Google Chromium, added 2026\-11\-10.
+.PP
+Google Chromium Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium contains a use\-after\-free vulnerability in the XML component that could allow a remote attacker to execute arbitrary code inside the sandbox via a specially crafted webpage. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-11\-24.
+.PP
+\fIReferences:\fR
+.br
+https://chromereleases.googleblog.com/2026/11/stable\-channel\-update\-for\-desktop_018223192.html
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-125350
 .SH EXAMPLES
 One vulnerable\->fixed pair per ecosystem (C, C++).
 .SS C
@@ -58,4 +1650,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/416.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-94 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-94 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-94 \- Improper Control of Generation of Code (Code Injection)
 .SH RANK
@@ -11,9 +11,1233 @@ The application builds code from untrusted input and then interprets/executes it
 .SH MITIGATION
 Never pass untrusted data to eval/exec or a general script engine. Use a purpose\-built safe parser for the intended data (a math\-expression library, a literal parser, or a data format like JSON). Keep code and data separate.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB72\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB72\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2008\-4250
+Microsoft Windows, added 2026\-05\-20.
 .PP
-CVE\-2008\-4250, CVE\-2009\-0238, CVE\-2009\-0556, CVE\-2009\-0557, CVE\-2009\-1151, CVE\-2009\-1862, CVE\-2009\-3129, CVE\-2010\-0188, CVE\-2012\-0158, CVE\-2012\-1856, CVE\-2013\-1347, CVE\-2013\-3163, CVE\-2013\-3906, CVE\-2013\-4810, CVE\-2014\-4148, CVE\-2014\-6287, CVE\-2014\-6352, CVE\-2015\-1635, CVE\-2015\-7450, CVE\-2017\-7494, CVE\-2017\-9841, CVE\-2018\-1273, CVE\-2018\-14667, CVE\-2019\-0193, CVE\-2019\-4716, CVE\-2019\-7609, CVE\-2019\-9082, CVE\-2019\-16759, CVE\-2020\-8218, CVE\-2020\-8243, CVE\-2020\-8644, CVE\-2021\-22894, CVE\-2021\-22900, CVE\-2021\-39144, CVE\-2021\-44529, CVE\-2022\-3236, CVE\-2022\-22947, CVE\-2022\-22954, CVE\-2022\-22963, CVE\-2022\-22965, CVE\-2022\-24816, CVE\-2022\-41223, CVE\-2023\-3519, CVE\-2023\-6548, CVE\-2023\-24955, CVE\-2023\-25717, CVE\-2023\-29492, CVE\-2023\-33246, CVE\-2024\-20359, CVE\-2024\-21351, CVE\-2024\-56145, CVE\-2025\-1976, CVE\-2025\-4428, CVE\-2025\-6204, CVE\-2025\-23209, CVE\-2025\-32432, CVE\-2025\-37164, CVE\-2025\-49704, CVE\-2025\-54068, CVE\-2025\-62593, CVE\-2025\-67038, CVE\-2026\-0322, CVE\-2026\-1281, CVE\-2026\-1340, CVE\-2026\-9198, CVE\-2026\-15410, CVE\-2026\-20045, CVE\-2026\-33017, CVE\-2026\-34197, CVE\-2026\-60004, CVE\-2026\-65660, CVE\-2026\-72530.
+Microsoft Windows Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows contains a buffer overflow vulnerability in the Windows Server Service that allows remote attackers to execute arbitrary code via a crafted RPC request that triggers an overflow during path canonicalization.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-06\-03.
+.PP
+\fIReferences:\fR
+.br
+https://learn.microsoft.com/en\-us/security\-updates/securitybulletins/2008/ms08\-067
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2008\-4250
+.SS CVE\-2009\-0238
+Microsoft Office, added 2026\-04\-14.
+.PP
+Microsoft Office Remote Code Execution.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Office Excel contains a remote code execution vulnerability that could allow an attacker to take complete control of an affected system if a user opens a specially crafted Excel file that includes a malformed object.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-04\-28.
+.PP
+\fIReferences:\fR
+.br
+https://learn.microsoft.com/en\-us/security\-updates/securitybulletins/2009/ms09\-009
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2009\-0238
+.SS CVE\-2009\-0556
+Microsoft Office, added 2026\-01\-07.
+.PP
+Microsoft Office PowerPoint Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Office PowerPoint contains a code injection vulnerability that allows remote attackers to execute arbitrary code via a PowerPoint file with an OutlineTextRefAtom containing an invalid index value that triggers memory corruption.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-01\-28.
+.PP
+\fIReferences:\fR
+.br
+https://learn.microsoft.com/en\-us/security\-updates/securitybulletins/2009/ms09\-017
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2009\-0556
+.SS CVE\-2009\-0557
+Microsoft Office, added 2022\-06\-08.
+.PP
+Microsoft Office Object Record Corruption Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Office contains an object record corruption vulnerability that allows remote attackers to execute code via a crafted Excel file with a malformed record object.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-22.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2009\-0557
+.SS CVE\-2009\-1151
+phpMyAdmin phpMyAdmin, added 2022\-03\-25.
+.PP
+phpMyAdmin Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Setup script used to generate configuration can be fooled using a crafted POST request to include arbitrary PHP code in generated configuration file.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2009\-1151
+.SS CVE\-2009\-1862
+Adobe Acrobat and Reader, Flash Player, added 2022\-06\-08.
+.PP
+Adobe Acrobat and Reader, Flash Player Unspecified Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Adobe Acrobat and Reader and Adobe Flash Player allows remote attackers to execute code or cause denial\-of\-service (DoS).
+.PP
+\fIRemediation:\fR
+For Adobe Acrobat and Reader, apply updates per vendor instructions. For Adobe Flash Player, the impacted product is end\-of\-life and should be disconnected if still in use.
+ Due 2022\-06\-22.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2009\-1862
+.SS CVE\-2009\-3129
+Microsoft Excel, added 2022\-03\-03.
+.PP
+Microsoft Excel Featheader Record Memory Corruption Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Office Excel allows remote attackers to execute arbitrary code via a spreadsheet with a FEATHEADER record containing an invalid cbHdrData size element that affects a pointer offset.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-03\-24.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2009\-3129
+.SS CVE\-2010\-0188
+Adobe Reader and Acrobat, added 2022\-03\-03, ransomware: Known.
+.PP
+Adobe Reader and Acrobat Arbitrary Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Unspecified vulnerability in Adobe Reader and Acrobat allows attackers to cause a denial of service or possibly execute arbitrary code.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-03\-24.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2010\-0188
+.SS CVE\-2012\-0158
+Microsoft MSCOMCTL.OCX, added 2021\-11\-03, ransomware: Known.
+.PP
+Microsoft MSCOMCTL.OCX Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft MSCOMCTL.OCX contains an unspecified vulnerability that allows for remote code execution, allowing an attacker to take complete control of an affected system under the context of the current user.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2012\-0158
+.SS CVE\-2012\-1856
+Microsoft Office, added 2022\-03\-03.
+.PP
+Microsoft Office MSCOMCTL.OCX Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The TabStrip ActiveX control in the Common Controls in MSCOMCTL.OCX in Microsoft Office allows remote attackers to execute arbitrary code via a crafted (1) document or (2) web page that triggers system\-state corruption.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-03\-24.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2012\-1856
+.SS CVE\-2013\-1347
+Microsoft Internet Explorer, added 2022\-03\-03.
+.PP
+Microsoft Internet Explorer Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+This vulnerability may corrupt memory in a way that could allow an attacker to execute arbitrary code in the context of the current user within Internet Explorer.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-03\-24.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2013\-1347
+.SS CVE\-2013\-3163
+Microsoft Internet Explorer, added 2023\-03\-30.
+.PP
+Microsoft Internet Explorer Memory Corruption Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Internet Explorer contains a memory corruption vulnerability that allows remote attackers to execute code or cause a denial of service via a crafted website.
+.PP
+\fIRemediation:\fR
+The impacted product is end\-of\-life and should be disconnected if still in use.
+ Due 2023\-04\-20.
+.PP
+\fIReferences:\fR
+.br
+https://learn.microsoft.com/en\-us/security\-updates/securitybulletins/2013/ms13\-055
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2013\-3163
+.SS CVE\-2013\-3906
+Microsoft Graphics Component, added 2022\-02\-15.
+.PP
+Microsoft Graphics Component Memory Corruption Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Graphics Component contains a memory corruption vulnerability which can allow for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-08\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2013\-3906
+.SS CVE\-2013\-4810
+Hewlett Packard (HP) ProCurve Manager (PCM), PCM+, Identity Driven Manager (IDM), and Application Lifecycle Management, added 2022\-03\-25.
+.PP
+HP Multiple Products Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+HP ProCurve Manager (PCM), PCM+, Identity Driven Manager (IDM), and Application Lifecycle Management allow remote attackers to execute arbitrary code via a marshalled object to (1) EJBInvokerServlet or (2) JMXInvokerServlet.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2013\-4810
+.SS CVE\-2014\-4148
+Microsoft Windows, added 2022\-05\-25.
+.PP
+Microsoft Windows Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A remote code execution vulnerability exists when the Windows kernel\-mode driver improperly handles TrueType fonts.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2014\-4148
+.SS CVE\-2014\-6287
+Rejetto HTTP File Server (HFS), added 2022\-03\-25.
+.PP
+Rejetto HTTP File Server (HFS) Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The findMacroMarker function in parserLib.pas in Rejetto HTTP File Server (HFS or HttpFileServer) allows remote attackers to execute arbitrary programs.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2014\-6287
+.SS CVE\-2014\-6352
+Microsoft Windows, added 2022\-02\-25.
+.PP
+Microsoft Windows Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows allow remote attackers to execute arbitrary code via a crafted OLE object.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-08\-25.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2014\-6352
+.SS CVE\-2015\-1635
+Microsoft HTTP.sys, added 2022\-02\-10.
+.PP
+Microsoft HTTP.sys Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft HTTP protocol stack (HTTP.sys) contains a vulnerability that allows for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-08\-10.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2015\-1635
+.SS CVE\-2015\-7450
+IBM WebSphere Application Server and Server Hypervisor Edition, added 2022\-01\-10.
+.PP
+IBM WebSphere Application Server and Server Hypervisor Edition Code Injection..
+.PP
+\fIHow it is exploited (CISA):\fR
+Serialized\-object interfaces in certain IBM analytics, business solutions, cognitive, IT infrastructure, and mobile and social products allow remote attackers to execute arbitrary commands
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-07\-10.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2015\-7450
+.SS CVE\-2017\-7494
+Samba Samba, added 2023\-03\-30, ransomware: Known.
+.PP
+Samba Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Samba contains a remote code execution vulnerability, allowing a malicious client to upload a shared library to a writable share and then cause the server to load and execute it.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-04\-20.
+.PP
+\fIReferences:\fR
+.br
+https://www.samba.org/samba/security/CVE\-2017\-7494.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-7494
+.SS CVE\-2017\-9841
+PHPUnit PHPUnit, added 2022\-02\-15.
+.PP
+PHPUnit Command Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+PHPUnit allows remote attackers to execute arbitrary PHP code via HTTP POST data beginning with a "<?php " substring, as demonstrated by an attack on a site with an exposed /vendor folder, i.e., external access to the /vendor/phpunit/phpunit/src/Util/PHP/eval\-stdin.php URI.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-08\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-9841
+.SS CVE\-2018\-1273
+VMware Tanzu Spring Data Commons, added 2022\-03\-25, ransomware: Known.
+.PP
+VMware Tanzu Spring Data Commons Property Binder Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Spring Data Commons contains a property binder vulnerability which can allow an attacker to perform remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-1273
+.SS CVE\-2018\-14667
+Red Hat JBoss RichFaces Framework, added 2023\-09\-28.
+.PP
+Red Hat JBoss RichFaces Framework Expression Language Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Red Hat JBoss RichFaces Framework contains an expression language injection vulnerability via the UserResource resource. A remote, unauthenticated attacker could exploit this vulnerability to execute malicious code using a chain of Java serialized objects via org.ajax4jsf.resource.UserResource$UriData.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-10\-19.
+.PP
+\fIReferences:\fR
+.br
+https://bugzilla.redhat.com/show_bug.cgi?id=CVE\-2018\-14667
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-14667
+.SS CVE\-2019\-0193
+Apache Solr, added 2021\-12\-10.
+.PP
+Apache Solr DataImportHandler Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The optional Apache Solr module DataImportHandler contains a code injection vulnerability.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-10.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-0193
+.SS CVE\-2019\-4716
+IBM Planning Analytics, added 2021\-11\-03.
+.PP
+IBM Planning Analytics Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+IBM Planning Analytics is vulnerable to a configuration overwrite that allows an unauthenticated user to login as "admin", and then execute code as root or SYSTEM via TM1 scripting.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-4716
+.SS CVE\-2019\-7609
+Elastic Kibana, added 2022\-01\-10.
+.PP
+Kibana Arbitrary Code Execution.
+.PP
+\fIHow it is exploited (CISA):\fR
+Kibana contain an arbitrary code execution flaw in the Timelion visualizer.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-07\-10.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-7609
+.SS CVE\-2019\-9082
+ThinkPHP ThinkPHP, added 2021\-11\-03.
+.PP
+ThinkPHP Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+ThinkPHP contains an unspecified vulnerability that allows for remote code execution via public//?s=index/\ethink\eapp/invokefunction&function=call_user_func_array&vars[0]=system&vars[1][]= followed by the command.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-9082
+.SS CVE\-2019\-16759
+vBulletin vBulletin, added 2021\-11\-03.
+.PP
+vBulletin PHP Module Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The PHP module within vBulletin contains an unspecified vulnerability that allows for remote code execution via the widgetConfig[code] parameter in an ajax/render/widget_php routestring request.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-16759
+.SS CVE\-2020\-8218
+Pulse Secure Pulse Connect Secure, added 2022\-03\-07.
+.PP
+Pulse Connect Secure Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A code injection vulnerability exists in Pulse Connect Secure that allows an attacker to crafted a URI to perform an arbitrary code execution via the admin web interface.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-09\-07.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-8218
+.SS CVE\-2020\-8243
+Ivanti Pulse Connect Secure, added 2021\-11\-03.
+.PP
+Ivanti Pulse Connect Secure Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ivanti Pulse Connect Secure contains an unspecified vulnerability in the admin web interface that could allow an authenticated attacker to upload a custom template to perform code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://www.cisa.gov/news\-events/directives/ed\-21\-03\-mitigate\-pulse\-connect\-secure\-product\-vulnerabilities
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-8243
+.SS CVE\-2020\-8644
+PlaySMS PlaySMS, added 2021\-11\-03.
+.PP
+PlaySMS Server\-Side Template Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+PlaySMS contains a server\-side template injection vulnerability that allows for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-8644
+.SS CVE\-2021\-22894
+Ivanti Pulse Connect Secure, added 2021\-11\-03.
+.PP
+Ivanti Pulse Connect Secure Collaboration Suite Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ivanti Pulse Connect Secure Collaboration Suite contains a buffer overflow vulnerabilities that allows a remote authenticated users to execute code as the root user via maliciously crafted meeting room.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://www.cisa.gov/news\-events/directives/ed\-21\-03\-mitigate\-pulse\-connect\-secure\-product\-vulnerabilities
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-22894
+.SS CVE\-2021\-22900
+Ivanti Pulse Connect Secure, added 2021\-11\-03.
+.PP
+Ivanti Pulse Connect Secure Unrestricted File Upload Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ivanti Pulse Connect Secure contains an unrestricted file upload vulnerability that allows an authenticated administrator to perform a file write via a maliciously crafted archive upload in the administrator web interface.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://www.cisa.gov/news\-events/directives/ed\-21\-03\-mitigate\-pulse\-connect\-secure\-product\-vulnerabilities
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-22900
+.SS CVE\-2021\-39144
+XStream XStream, added 2023\-03\-10.
+.PP
+XStream Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+XStream contains a remote code execution vulnerability that allows an attacker to manipulate the processed input stream and replace or inject objects that result in the execution of a local command on the server. This vulnerability can affect multiple products, including but not limited to VMware Cloud Foundation.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-03\-31.
+.PP
+\fIReferences:\fR
+.br
+https://www.vmware.com/security/advisories/VMSA\-2022\-0027.html
+.br
+https://x\-stream.github.io/CVE\-2021\-39144.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-39144
+.SS CVE\-2021\-44529
+Ivanti Endpoint Manager Cloud Service Appliance (EPM CSA), added 2024\-03\-25, ransomware: Known.
+.PP
+Ivanti Endpoint Manager Cloud Service Appliance (EPM CSA) Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ivanti Endpoint Manager Cloud Service Appliance (EPM CSA) contains a code injection vulnerability that allows an unauthenticated user to execute malicious code with limited permissions (nobody).
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://forums.ivanti.com/s/article/SA\-2021\-12\-02?language=en_US
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-44529
+.SS CVE\-2022\-3236
+Sophos Firewall, added 2022\-09\-23.
+.PP
+Sophos Firewall Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A code injection vulnerability in the User Portal and Webadmin of Sophos Firewall allows for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-10\-14.
+.PP
+\fIReferences:\fR
+.br
+https://www.sophos.com/en\-us/security\-advisories/sophos\-sa\-20220923\-sfos\-rce
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-3236
+.SS CVE\-2022\-22947
+VMware Spring Cloud Gateway, added 2022\-05\-16.
+.PP
+VMware Spring Cloud Gateway Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Spring Cloud Gateway applications are vulnerable to a code injection attack when the Gateway Actuator endpoint is enabled, exposed and unsecured.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-06.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-22947
+.SS CVE\-2022\-22954
+VMware Workspace ONE Access and Identity Manager, added 2022\-04\-14, ransomware: Known.
+.PP
+VMware Workspace ONE Access and Identity Manager Server\-Side Template Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+VMware Workspace ONE Access and Identity Manager allow for remote code execution due to server\-side template injection.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-05.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-22954
+.SS CVE\-2022\-22963
+VMware Tanzu Spring Cloud, added 2022\-08\-25.
+.PP
+VMware Tanzu Spring Cloud Function Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+When using routing functionality in VMware Tanzu's Spring Cloud Function, it is possible for a user to provide a specially crafted SpEL as a routing\-expression that may result in remote code execution and access to local resources.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-09\-15.
+.PP
+\fIReferences:\fR
+.br
+https://tanzu.vmware.com/security/cve\-2022\-22963
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-22963
+.SS CVE\-2022\-22965
+VMware Spring Framework, added 2022\-04\-04.
+.PP
+Spring Framework JDK 9+ Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Spring MVC or Spring WebFlux application running on JDK 9+ may be vulnerable to remote code execution (RCE) via data binding.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-25.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-22965
+.SS CVE\-2022\-24816
+OSGeo JAI\-EXT, added 2024\-06\-26.
+.PP
+OSGeo GeoServer JAI\-EXT Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+OSGeo GeoServer JAI\-EXT contains a code injection vulnerability that, when programs use jt\-jiffle and allow Jiffle script to be provided via network request, could allow remote code execution.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-07\-17.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/geosolutions\-it/jai\-ext/releases/tag/1.1.22
+.br
+https://github.com/geosolutions\-it/jai\-ext/security/advisories/GHSA\-v92f\-jx6p\-73rx
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-24816
+.SS CVE\-2022\-41223
+Mitel MiVoice Connect, added 2023\-02\-21, ransomware: Known.
+.PP
+Mitel MiVoice Connect Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The Director component in Mitel MiVoice Connect allows an authenticated attacker with internal network access to execute code within the context of the application.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-03\-14.
+.PP
+\fIReferences:\fR
+.br
+https://www.mitel.com/support/security\-advisories/mitel\-product\-security\-advisory\-22\-0008
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-41223
+.SS CVE\-2023\-3519
+Citrix NetScaler ADC and NetScaler Gateway, added 2023\-07\-19, ransomware: Known.
+.PP
+Citrix NetScaler ADC and NetScaler Gateway Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Citrix NetScaler ADC and NetScaler Gateway contains a code injection vulnerability that allows for unauthenticated remote code execution.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-08\-09.
+.PP
+\fIReferences:\fR
+.br
+https://support.citrix.com/article/CTX561482/citrix\-adc\-and\-citrix\-gateway\-security\-bulletin\-for\-cve20233519\-cve20233466\-cve20233467
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-3519
+.SS CVE\-2023\-6548
+Citrix NetScaler ADC and NetScaler Gateway, added 2024\-01\-17.
+.PP
+Citrix NetScaler ADC and NetScaler Gateway Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Citrix NetScaler ADC and NetScaler Gateway contain a code injection vulnerability that allows for authenticated remote code execution on the management interface with access to NSIP, CLIP, or SNIP.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-01\-24.
+.PP
+\fIReferences:\fR
+.br
+https://support.citrix.com/article/CTX584986/netscaler\-adc\-and\-netscaler\-gateway\-security\-bulletin\-for\-cve20236548\-and\-cve20236549
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-6548
+.SS CVE\-2023\-24955
+Microsoft SharePoint Server, added 2024\-03\-26, ransomware: Known.
+.PP
+Microsoft SharePoint Server Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft SharePoint Server contains a code injection vulnerability that allows an authenticated attacker with Site Owner privileges to execute code remotely.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-04\-16.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2023\-24955
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-24955
+.SS CVE\-2023\-25717
+Ruckus Wireless Multiple Products, added 2023\-05\-12.
+.PP
+Multiple Ruckus Wireless Products CSRF and RCE Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ruckus Wireless Access Point (AP) software contains an unspecified vulnerability in the web services component. If the web services component is enabled on the AP, an attacker can perform cross\-site request forgery (CSRF) or remote code execution (RCE). This vulnerability impacts Ruckus ZoneDirector, SmartZone, and Solo APs.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-06\-02.
+.PP
+\fIReferences:\fR
+.br
+https://support.ruckuswireless.com/security_bulletins/315
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-25717
+.SS CVE\-2023\-29492
+Novi Survey Novi Survey, added 2023\-04\-13.
+.PP
+Novi Survey Insecure Deserialization Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Novi Survey contains an insecure deserialization vulnerability that allows remote attackers to execute code on the server in the context of the service account.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-05\-04.
+.PP
+\fIReferences:\fR
+.br
+https://novisurvey.net/blog/novi\-survey\-security\-advisory\-apr\-2023.aspx
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-29492
+.SS CVE\-2023\-33246
+Apache RocketMQ, added 2023\-09\-06.
+.PP
+Apache RocketMQ Command Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Several components of Apache RocketMQ, including NameServer, Broker, and Controller, are exposed to the extranet and lack permission verification. An attacker can exploit this vulnerability by using the update configuration function to execute commands as the system users that RocketMQ is running as or achieve the same effect by forging the RocketMQ protocol content.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-09\-27.
+.PP
+\fIReferences:\fR
+.br
+https://lists.apache.org/thread/1s8j2c8kogthtpv3060yddk03zq0pxyp
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-33246
+.SS CVE\-2024\-20359
+Cisco Adaptive Security Appliance (ASA) and Firepower Threat Defense (FTD), added 2024\-04\-24.
+.PP
+Cisco ASA and FTD Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Cisco Adaptive Security Appliance (ASA) and Firepower Threat Defense (FTD) contain a privilege escalation vulnerability that can allow local privilege escalation from Administrator to root.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-05\-01.
+.PP
+\fIReferences:\fR
+.br
+https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco\-sa\-asaftd\-persist\-rce\-FLsNXF4h
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-20359
+.SS CVE\-2024\-21351
+Microsoft Windows, added 2024\-02\-13.
+.PP
+Microsoft Windows SmartScreen Security Feature Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows SmartScreen contains a security feature bypass vulnerability that allows an attacker to bypass the SmartScreen user experience and inject code to potentially gain code execution, which could lead to some data exposure, lack of system availability, or both.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-03\-05.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2024\-21351
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-21351
+.SS CVE\-2024\-56145
+Craft CMS Craft CMS, added 2025\-06\-02.
+.PP
+Craft CMS Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Craft CMS contains a code injection vulnerability. Users with affected versions are vulnerable to remote code execution if their php.ini configuration has `register_argc_argv` enabled.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-06\-23.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/craftcms/cms/security/advisories/GHSA\-2p6p\-9rc9\-62j9
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-56145
+.SS CVE\-2025\-1976
+Broadcom Brocade Fabric OS, added 2025\-04\-28.
+.PP
+Broadcom Brocade Fabric OS Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Broadcom Brocade Fabric OS contains a code injection vulnerability that allows a local user with administrative privileges to execute arbitrary code with full root privileges.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-05\-19.
+.PP
+\fIReferences:\fR
+.br
+https://support.broadcom.com/web/ecx/support\-content\-notification/\-/external/content/SecurityAdvisories/0/25602
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-1976
+.SS CVE\-2025\-4428
+Ivanti Endpoint Manager Mobile (EPMM), added 2025\-05\-19.
+.PP
+Ivanti Endpoint Manager Mobile (EPMM) Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ivanti Endpoint Manager Mobile (EPMM) contains a code injection vulnerability in the API component that allows an authenticated attacker to remotely execute arbitrary code via crafted API requests. This vulnerability results from an insecure implementation of the Hibernate Validator open\-source library, as represented by CVE\-2025\-35036.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-06\-09.
+.PP
+\fIReferences:\fR
+.br
+https://forums.ivanti.com/s/article/Security\-Advisory\-Ivanti\-Endpoint\-Manager\-Mobile\-EPMM
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-4428
+.SS CVE\-2025\-6204
+Dassault Systèmes DELMIA Apriso, added 2025\-10\-28.
+.PP
+Dassault Systèmes DELMIA Apriso Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Dassault Systèmes DELMIA Apriso contains a code injection vulnerability that could allow an attacker to execute arbitrary code.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-11\-18.
+.PP
+\fIReferences:\fR
+.br
+https://www.3ds.com/trust\-center/security/security\-advisories/cve\-2025\-6204
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-6204
+.SS CVE\-2025\-23209
+Craft CMS Craft CMS, added 2025\-02\-20.
+.PP
+Craft CMS Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Craft CMS contains a code injection vulnerability caused by improper validation of the database backup path, ultimately enabling remote code execution.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-03\-13.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/craftcms/cms/security/advisories/GHSA\-x684\-96hh\-833x
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-23209
+.SS CVE\-2025\-32432
+Craft CMS Craft CMS, added 2026\-03\-20.
+.PP
+Craft CMS Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Craft CMS contains a code injection vulnerability that allows a remote attacker to execute arbitrary code.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-04\-03.
+.PP
+\fIReferences:\fR
+.br
+https://craftcms.com/knowledge\-base/craft\-cms\-cve\-2025\-32432
+.br
+https://github.com/craftcms/cms/security/advisories/GHSA\-f3gw\-9ww9\-jmc3
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-32432
+.SS CVE\-2025\-37164
+Hewlett Packard Enterprise (HPE) OneView, added 2026\-01\-07.
+.PP
+Hewlett Packard Enterprise (HPE) OneView Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Hewlett Packard Enterprise (HPE) OneView contains a code injection vulnerability that allows a remote unauthenticated user to perform remote code execution.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-01\-28.
+.PP
+\fIReferences:\fR
+.br
+https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbgn04985en_us&docLocale=en_US
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-37164
+.SS CVE\-2025\-49704
+Microsoft SharePoint, added 2025\-07\-22, ransomware: Known.
+.PP
+Microsoft SharePoint Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft SharePoint contains a code injection vulnerability that could allow an authorized attacker to execute code over a network. This vulnerability could be chained with CVE\-2025\-49706. CVE\-2025\-53770 is a patch bypass for CVE\-2025\-49704, and the updates for CVE\-2025\-53770 include more robust protection than those for CVE\-2025\-49704.
+.PP
+\fIRemediation:\fR
+Disconnect public\-facing versions of SharePoint Server that have reached their end\-of\-life (EOL) or end\-of\-service (EOS) to include SharePoint Server 2013 and earlier versions. For supported versions, please follow the mitigations according to CISA (URL listed below in Notes) and vendor instructions (URL listed below in Notes). Adhere to the applicable BOD 22\-01 guidance for cloud services or discontinue use of the product if mitigations are not available.
+ Due 2025\-07\-23.
+.PP
+\fIReferences:\fR
+.br
+https://www.cisa.gov/news\-events/alerts/2025/07/20/microsoft\-releases\-guidance\-exploitation\-sharepoint\-vulnerability\-cve\-2025\-53770
+.br
+https://www.microsoft.com/en\-us/security/blog/2025/07/22/disrupting\-active\-exploitation\-of\-on\-premises\-sharepoint\-vulnerabilities/
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2025\-49704
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-49704
+.SS CVE\-2025\-54068
+Laravel Livewire, added 2026\-03\-20.
+.PP
+Laravel Livewire Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Laravel Livewire contain a code injection vulnerability that could allow unauthenticated attackers to achieve remote command execution in specific scenarios.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-04\-03.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/livewire/livewire/security/advisories/GHSA\-29cq\-5w36\-x7w3
+.br
+https://github.com/livewire/livewire/commit/ef04be759da41b14d2d129e670533180a44987dc
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-54068
+.SS CVE\-2025\-62593
+Ray\-Project Ray, added 2026\-08\-17.
+.PP
+Ray\-Project Ray Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ray\-Project Ray contains a code injection vulnerability that could allow remote code execution. Developers using Ray as a development tool may be exposed to this vulnerability exploitable through Firefox and Safari.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-08\-20.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/ray\-project/ray/security/advisories/GHSA\-q279\-jhrf\-cc6v
+.br
+https://github.com/ray\-project/ray/commit/70e7c72780bdec075dba6cad1afe0832772bfe09
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-62593
+.SS CVE\-2025\-67038
+Lantronix EDS5000, added 2026\-06\-23.
+.PP
+Lantronix EDS5000 Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Lantronix EDS5000 contains a code injection vulnerability that could allow attackers to inject arbitrary OS commands into the username parameter. Injected commands are executed with root privileges.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-06\-26.
+.PP
+\fIReferences:\fR
+.br
+https://ltrxdev.atlassian.net/wiki/spaces/LTRXTS/pages/2538438657/Latest+Firmware+for+the+EDS5000+series+EDS5008+EDS5016+EDS5032
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-67038
+.SS CVE\-2026\-0322
+Palo Alto Networks PAN\-OS, added 2026\-10\-14.
+.PP
+Palo Alto Networks PAN\-OS Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Palo Alto Networks PAN\-OS contains a code injection vulnerability that could allow an authenticated attacker with network access to execute arbitrary code with root privileges on the firewall.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-10\-17.
+.PP
+\fIReferences:\fR
+.br
+https://security.paloaltonetworks.com/CVE\-2026\-0322
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-0322
+.SS CVE\-2026\-1281
+Ivanti Endpoint Manager Mobile (EPMM), added 2026\-01\-29.
+.PP
+Ivanti Endpoint Manager Mobile (EPMM) Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ivanti Endpoint Manager Mobile (EPMM) contains a code injection vulnerability that could allow attackers to achieve unauthenticated remote code execution.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-02\-01.
+.PP
+\fIReferences:\fR
+.br
+https://forums.ivanti.com/s/article/Security\-Advisory\-Ivanti\-Endpoint\-Manager\-Mobile\-EPMM\-CVE\-2026\-1281\-CVE\-2026\-1340
+.br
+https://support.mobileiron.com/mi/vsp/AB1771634/ivanti\-security\-update\-1761642\-1.0.0S\-5.noarch.rpm
+.br
+https://support.mobileiron.com/mi/vsp/AB1771634/ivanti\-security\-update\-1761642\-1.0.0L\-5.noarch.rpm
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-1281
+.SS CVE\-2026\-1340
+Ivanti Endpoint Manager Mobile (EPMM), added 2026\-04\-08.
+.PP
+Ivanti Endpoint Manager Mobile (EPMM) Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ivanti Endpoint Manager Mobile (EPMM) contains a code injection vulnerability that could allow attackers to achieve unauthenticated remote code execution.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-04\-11.
+.PP
+\fIReferences:\fR
+.br
+https://hub.ivanti.com/s/article/Security\-Advisory\-Ivanti\-Endpoint\-Manager\-Mobile\-EPMM\-CVE\-2026\-1281\-CVE\-2026\-1340?language=en_US
+.br
+https://support.mobileiron.com/mi/vsp/AB1786671/ivanti\-security\-update\-1761642\-1.1.0S\-5.noarch.rpm
+.br
+https://support.mobileiron.com/mi/vsp/AB1786671/ivanti\-security\-update\-1761642\-1.1.0L\-5.noarch.rpm
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-1340
+.SS CVE\-2026\-9198
+IBM Langflow, added 2026\-08\-04.
+.PP
+IBM Langflow Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Langflow contains a code injection vulnerability that allows unauthenticated attackers to achieve full remote code execution on default Langflow deployments.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-08\-07.
+.PP
+\fIReferences:\fR
+.br
+https://www.ibm.com/support/pages/node/7278927
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-9198
+.SS CVE\-2026\-15410
+SonicWall SMA1000 Appliances, added 2026\-07\-14, ransomware: Known.
+.PP
+SonicWall SMA1000 Appliances Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SonicWall SMA1000 Appliances contain a code injection vulnerability which in specific conditions could potentially enable a remote authenticated attacker as administrator to execute arbitrary OS commands.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-07\-17.
+.PP
+\fIReferences:\fR
+.br
+https://psirt.global.sonicwall.com/vuln\-detail/SNWLID\-2026\-0008
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-15410
+.SS CVE\-2026\-20045
+Cisco Unified Communications Manager, added 2026\-01\-21.
+.PP
+Cisco Unified Communications Products Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Cisco Unified Communications Manager (Unified CM), Cisco Unified Communications Manager Session Management Edition (Unified CM SME), Cisco Unified Communications Manager IM & Presence Service (Unified CM IM&P), Cisco Unity Connection, and Cisco Webex Calling Dedicated Instance contain a code injection vulnerability that could allow the attacker to obtain user\-level access to the underlying operating system and then elevate privileges to root.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-02\-11.
+.PP
+\fIReferences:\fR
+.br
+https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco\-sa\-voice\-rce\-mORhqY4b
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-20045
+.SS CVE\-2026\-33017
+Langflow Langflow, added 2026\-03\-25.
+.PP
+Langflow Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Langflow contains a code injection vulnerability that could allow building public flows without requiring authentication.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-04\-08.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/langflow\-ai/langflow/security/advisories/GHSA\-vwmf\-pq79\-vjvx
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-33017
+.SS CVE\-2026\-34197
+Apache ActiveMQ, added 2026\-04\-16.
+.PP
+Apache ActiveMQ Improper Input Validation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apache ActiveMQ contains an improper input validation vulnerability that allows for code injection.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-04\-30.
+.PP
+\fIReferences:\fR
+.br
+https://activemq.apache.org/security\-advisories.data/CVE\-2026\-34197\-announcement.txt
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-34197
+.SS CVE\-2026\-60004
+Gitea Gitea, added 2026\-08\-25.
+.PP
+Gitea Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Gitea contains a code injection vulnerability that allows an attacker with repository write access to send a malicious patch to the diffpatch API endpoint to plant an executable Git hook and run shell commands as the Gitea service account.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-08\-28.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/go\-gitea/gitea/security/advisories/GHSA\-rcr6\-4jqh\-j84m
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-60004
+.SS CVE\-2026\-65660
+Microsoft SharePoint, added 2026\-09\-25.
+.PP
+Microsoft SharePoint Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft SharePoint contains a code injection vulnerability which could allow an authorized attacker to execute code over a network.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-28.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2026\-65660
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-65660
+.SS CVE\-2026\-72530
+TrueConf Server, added 2026\-08\-20.
+.PP
+TrueConf Server Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+TrueConf Server contains a code injection vulnerability that could allow an unauthorized remote attacker with network access via port 4307/TCP to use a specially crafted script to break out of the isolated environment and execute arbitrary code on the host system.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-03.
+.PP
+\fIReferences:\fR
+.br
+https://trueconf.com/blog/news/security\-fixes\-updates\-and\-advisories
+.br
+https://ics\-cert.kaspersky.com/advisories/2026/08/11/trueconf\-server\-breakout\-from\-isolated\-environment/
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-72530
 .SH EXAMPLES
 One vulnerable\->fixed pair per ecosystem (Node.js, Python, Java, PHP).
 .SS Node.js
@@ -88,4 +1312,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/94.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

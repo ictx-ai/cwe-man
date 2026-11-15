@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-798 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-798 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-798 \- Use of Hard\-coded Credentials
 .SH RANK
@@ -9,9 +9,151 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product contains hard\-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. Hard\-coded credentials typically create a significant hole that allows an attacker to bypass the authentication that has been configured by the product administrator. This hole might be difficult for the system administrator to detect. Even if detected, it can be difficult to fix, so the administrator may be forced into disabling the product entirely. There are two main variations: Inbound: the product contains an authentication mechanism that checks the input credentials against a hard\-coded set of credentials. Outbound: the product connects to another system or component, and it contains hard\-coded credentials for connecting to that component. In the Inbound variant, a default administration account is created, and a simple password is hard\-coded into the product and associated with that account. This hard\-coded password is the same for each installation of the product, and it usually cannot be changed or disabled by system administrators without manually modifying the program, or otherwise patching the product. If the password is ever discovered or published (a common occurrence on the Internet), then anybody with knowledge of this password can access the product. Finally, since all installations of the product will have the same password, even across different organizations, this enables massive attacks such as worms to take place. The Outbound variant applies to front\-end systems that authenticate with a back\-end service. The back\-end service may require a fixed password which can be easily discovered. The programmer may simply hard\-code those back\-end credentials into the front\-end product. Any user of that program may be able to extract the password. Client\-side systems with hard\-coded passwords pose even more of a threat, since the extraction of a password from a binary is usually very simple.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB8\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB8\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2019\-6693
+Fortinet FortiOS, added 2025\-06\-25, ransomware: Known.
 .PP
-CVE\-2019\-6693, CVE\-2020\-8657, CVE\-2021\-44207, CVE\-2022\-26138, CVE\-2024\-3272, CVE\-2024\-28987, CVE\-2025\-14611, CVE\-2026\-22769.
+Fortinet FortiOS Use of Hard\-Coded Credentials Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Fortinet FortiOS contains a use of hard\-coded credentials vulnerability that could allow an attacker to cipher sensitive data in FortiOS configuration backup file via knowledge of the hard\-coded key.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-07\-16.
+.PP
+\fIReferences:\fR
+.br
+https://fortiguard.com/advisory/FG\-IR\-19\-007
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-6693
+.SS CVE\-2020\-8657
+EyesOfNetwork EyesOfNetwork, added 2021\-11\-03.
+.PP
+EyesOfNetwork Use of Hard\-Coded Credentials Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+EyesOfNetwork contains a use of hard\-coded credentials vulnerability, as it uses the same API key by default. Exploitation allows an attacker to calculate or guess the admin access token.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-8657
+.SS CVE\-2021\-44207
+Acclaim Systems USAHERDS, added 2024\-12\-23.
+.PP
+Acclaim Systems USAHERDS Use of Hard\-Coded Credentials Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Acclaim Systems USAHERDS contains a hard\-coded credentials vulnerability that could allow an attacker to achieve remote code execution on the system that runs the application. The MachineKey must be obtained via a separate vulnerability or other channel.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-01\-13.
+.PP
+\fIReferences:\fR
+.br
+https://www.acclaimsystems.com/#contact
+.br
+https://www.tnatc.org/#contact
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-44207
+.SS CVE\-2022\-26138
+Atlassian Confluence, added 2022\-07\-29.
+.PP
+Atlassian Questions For Confluence App Hard\-coded Credentials Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Atlassian Questions For Confluence App has hard\-coded credentials, exposing the username and password in plaintext. A remote unauthenticated attacker can use these credentials to log into Confluence and access all content accessible to users in the confluence\-users group.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-08\-19.
+.PP
+\fIReferences:\fR
+.br
+https://confluence.atlassian.com/doc/questions\-for\-confluence\-security\-advisory\-2022\-07\-20\-1142446709.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-26138
+.SS CVE\-2024\-3272
+D\-Link Multiple NAS Devices, added 2024\-04\-11.
+.PP
+D\-Link Multiple NAS Devices Use of Hard\-Coded Credentials Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+D\-Link DNS\-320L, DNS\-325, DNS\-327L, and DNS\-340L contains a hard\-coded credential that allows an attacker to conduct authenticated command injection, leading to remote, unauthorized code execution.
+.PP
+\fIRemediation:\fR
+This vulnerability affects legacy D\-Link products. All associated hardware revisions have reached their end\-of\-life (EOL) or end\-of\-service (EOS) life cycle and should be retired and replaced per vendor instructions.
+ Due 2024\-05\-02.
+.PP
+\fIReferences:\fR
+.br
+https://supportannouncement.us.dlink.com/security/publication.aspx?name=SAP10383
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-3272
+.SS CVE\-2024\-28987
+SolarWinds Web Help Desk, added 2024\-10\-15.
+.PP
+SolarWinds Web Help Desk Hardcoded Credential Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SolarWinds Web Help Desk contains a hardcoded credential vulnerability that could allow a remote, unauthenticated user to access internal functionality and modify data.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-11\-05.
+.PP
+\fIReferences:\fR
+.br
+https://www.solarwinds.com/trust\-center/security\-advisories/cve\-2024\-28987
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-28987
+.SS CVE\-2025\-14611
+Gladinet CentreStack and Triofox, added 2025\-12\-15.
+.PP
+Gladinet CentreStack and Triofox Hard Coded Cryptographic Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Gladinet CentreStack and TrioFox contain a hardcoded cryptographic keys vulnerability for their implementation of the AES cryptoscheme. This vulnerability degrades security for public exposed endpoints that may make use of it and may offer arbitrary local file inclusion when provided a specially crafted request without authentication.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-01\-05.
+.PP
+\fIReferences:\fR
+.br
+https://www.centrestack.com/p/gce_latest_release.html
+.br
+https://access.triofox.com/releases_history/
+.br
+https://support.centrestack.com/hc/en\-us/articles/360007159054\-Hardening\-the\-CentreStack\-Cluster#h_01JQRV57T37HJFQZKBZH9NBXQP
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-14611
+.SS CVE\-2026\-22769
+Dell RecoverPoint for Virtual Machines (RP4VMs), added 2026\-02\-18.
+.PP
+Dell RecoverPoint for Virtual Machines (RP4VMs) Use of Hard\-coded Credentials Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Dell RecoverPoint for Virtual Machines (RP4VMs) contains an use of hard\-coded credentials vulnerability that could allow an unauthenticated remote attacker to gain unauthorized access to the underlying operating system and root\-level persistence.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-02\-21.
+.PP
+\fIReferences:\fR
+.br
+https://www.dell.com/support/kbdoc/en\-us/000426773/dsa\-2026\-079
+.br
+https://www.dell.com/support/kbdoc/en\-us/000426742/recoverpoint\-for\-vms\-apply\-the\-remediation\-script\-for\-dsa
+.br
+https://cloud.google.com/blog/topics/threat\-intelligence/unc6201\-exploiting\-dell\-recoverpoint\-zero\-day
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-22769
 .SH EXAMPLES
 One vulnerable\->fixed pair per ecosystem (Python).
 .SS Python
@@ -35,4 +177,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/798.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

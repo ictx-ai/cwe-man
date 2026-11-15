@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-312 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-312 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-312 \- Cleartext Storage of Sensitive Information
 .SH RANK
@@ -9,9 +9,30 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product stores sensitive information in cleartext within a resource that might be accessible to another control sphere. Because the information is stored in cleartext (i.e., unencrypted), attackers could potentially read it. Even if the information is encoded in a way that is not human\-readable, certain techniques could determine which encoding is being used, then decode the information. When organizations adopt cloud services, it can be easier for attackers to access the data from anywhere on the Internet. In some systems/environments such as cloud, the use of double encryption (at both the software and hardware layer) might be required, and the developer might be solely responsible for both layers, instead of shared responsibility with the administrator of the broader system/environment.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB1\fR exploited CVE mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB1\fR exploited CVE mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2023\-22894
+Strapi Strapi, added 2026\-10\-08.
 .PP
-CVE\-2023\-22894.
+Strapi Cleartext Storage of Sensitive Information Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Strapi contains a cleartext storage of sensitive information vulnerability that could allow attackers with access to the admin panel to discover sensitive user details via the query filter. The impacted product(s) could be end\-of\-life (EoL) and/or end\-of\-service (EoS). Users are advised to discontinue use and/or transition to a supported version. This vulnerability can be chained with CVE\-2023\-22621 to achieve remote code execution.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-10\-11.
+.PP
+\fIReferences:\fR
+.br
+https://strapi.io/blog/security\-disclosure\-of\-vulnerabilities\-cve
+.br
+https://github.com/strapi/strapi/releases
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-22894
 .SH EXAMPLES
 One vulnerable\->fixed pair per ecosystem (Python).
 .SS Python
@@ -35,4 +56,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/312.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

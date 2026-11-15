@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-200 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-200 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-200 \- Exposure of Sensitive Information to an Unauthorized Actor
 .SH RANK
@@ -11,9 +11,416 @@ Sensitive information (credentials, keys, personal data, internal details) is di
 .SH MITIGATION
 Return only the fields each caller is entitled to (allow\-list). Keep secrets out of logs and error messages, disable debug output in production, and return generic errors to clients while logging detail server\-side.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB25\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB25\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2013\-0631
+Adobe ColdFusion, added 2022\-03\-07.
 .PP
-CVE\-2013\-0631, CVE\-2013\-0632, CVE\-2013\-7331, CVE\-2015\-4495, CVE\-2015\-5317, CVE\-2016\-0162, CVE\-2016\-2388, CVE\-2016\-3298, CVE\-2016\-3351, CVE\-2016\-4655, CVE\-2016\-6415, CVE\-2017\-0022, CVE\-2017\-0059, CVE\-2017\-0147, CVE\-2017\-5521, CVE\-2020\-3259, CVE\-2021\-25369, CVE\-2021\-41277, CVE\-2023\-21237, CVE\-2023\-28432, CVE\-2024\-24919, CVE\-2025\-31125, CVE\-2025\-68686, CVE\-2026\-20133, CVE\-2026\-20805.
+Adobe ColdFusion Information Disclosure Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Adobe Coldfusion contains an unspecified vulnerability, which could result in information disclosure from a compromised server.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-09\-07.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2013\-0631
+.SS CVE\-2013\-0632
+Adobe ColdFusion, added 2022\-03\-03.
+.PP
+Adobe ColdFusion Authentication Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+An authentication bypass vulnerability exists in Adobe ColdFusion which could result in an unauthorized user gaining administrative access.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-03\-24.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2013\-0632
+.SS CVE\-2013\-7331
+Microsoft Internet Explorer, added 2022\-05\-25.
+.PP
+Microsoft Internet Explorer Information Disclosure Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+An information disclosure vulnerability exists in Internet Explorer which allows resources loaded into memory to be queried. This vulnerability could allow an attacker to detect anti\-malware applications.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2013\-7331
+.SS CVE\-2015\-4495
+Mozilla Firefox, added 2022\-05\-25.
+.PP
+Mozilla Firefox Security Feature Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Moxilla Firefox allows remote attackers to bypass the Same Origin Policy to read arbitrary files or gain privileges.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2015\-4495
+.SS CVE\-2015\-5317
+Jenkins Jenkins User Interface (UI), added 2023\-05\-12.
+.PP
+Jenkins User Interface (UI) Information Disclosure Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Jenkins User Interface (UI) contains an information disclosure vulnerability that allows users to see the names of jobs and builds otherwise inaccessible to them on the "Fingerprints" pages.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-06\-02.
+.PP
+\fIReferences:\fR
+.br
+https://www.jenkins.io/security/advisory/2015\-11\-11/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2015\-5317
+.SS CVE\-2016\-0162
+Microsoft Internet Explorer, added 2022\-05\-24.
+.PP
+Microsoft Internet Explorer Information Disclosure Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+An information disclosure vulnerability exists when Internet Explorer does not properly handle JavaScript. The vulnerability could allow an attacker to detect specific files on the user's computer.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-14.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2016\-0162
+.SS CVE\-2016\-2388
+SAP NetWeaver, added 2022\-06\-09.
+.PP
+SAP NetWeaver Information Disclosure Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The Universal Worklist Configuration in SAP NetWeaver AS JAVA 7.4 allows remote attackers to obtain sensitive user information via a crafted HTTP request.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-30.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2016\-2388
+.SS CVE\-2016\-3298
+Microsoft Internet Explorer, added 2022\-05\-24.
+.PP
+Microsoft Internet Explorer Messaging API Information Disclosure Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+An information disclosure vulnerability exists when the Microsoft Internet Messaging API improperly handles objects in memory. An attacker who successfully exploited this vulnerability could allow the attacker to test for the presence of files on disk.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-14.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2016\-3298
+.SS CVE\-2016\-3351
+Microsoft Internet Explorer and Edge, added 2022\-05\-24, ransomware: Known.
+.PP
+Microsoft Internet Explorer and Edge Information Disclosure Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+An information disclosure vulnerability exists in the way that certain functions in Internet Explorer and Edge handle objects in memory. The vulnerability could allow an attacker to detect specific files on the user's computer.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-14.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2016\-3351
+.SS CVE\-2016\-4655
+Apple iOS, added 2022\-05\-24.
+.PP
+Apple iOS Information Disclosure Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The Apple iOS kernel allows attackers to obtain sensitive information from memory via a crafted application.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-14.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2016\-4655
+.SS CVE\-2016\-6415
+Cisco IOS, IOS XR, and IOS XE, added 2023\-05\-19.
+.PP
+Cisco IOS, IOS XR, and IOS XE IKEv1 Information Disclosure Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Cisco IOS, IOS XR, and IOS XE contain insufficient condition checks in the part of the code that handles Internet Key Exchange version 1 (IKEv1) security negotiation requests. contains an information disclosure vulnerability in the Internet Key Exchange version 1 (IKEv1) that could allow an attacker to retrieve memory contents. Successful exploitation could allow the attacker to retrieve memory contents, which can lead to information disclosure.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-06\-09.
+.PP
+\fIReferences:\fR
+.br
+https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco\-sa\-20160916\-ikev1
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2016\-6415
+.SS CVE\-2017\-0022
+Microsoft XML Core Services, added 2022\-05\-24.
+.PP
+Microsoft XML Core Services Information Disclosure Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft XML Core Services (MSXML) improperly handles objects in memory, allowing attackers to test for files on disk via a crafted web site.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-14.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-0022
+.SS CVE\-2017\-0059
+Microsoft Internet Explorer, added 2022\-03\-28.
+.PP
+Microsoft Internet Explorer Information Disclosure Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Internet Explorer allow remote attackers to obtain sensitive information from process memory via a crafted web site.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-18.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-0059
+.SS CVE\-2017\-0147
+Microsoft SMBv1 server, added 2022\-05\-24, ransomware: Known.
+.PP
+Microsoft Windows SMBv1 Information Disclosure Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The SMBv1 server in Microsoft Windows allows remote attackers to obtain sensitive information from process memory via a crafted packet.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-14.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-0147
+.SS CVE\-2017\-5521
+NETGEAR Multiple Devices, added 2022\-09\-08.
+.PP
+NETGEAR Multiple Devices Exposure of Sensitive Information Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Multiple NETGEAR devices are prone to admin password disclosure via simple crafted requests to the web management server.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-09\-29.
+.PP
+\fIReferences:\fR
+.br
+https://kb.netgear.com/30632/Web\-GUI\-Password\-Recovery\-and\-Exposure\-Security\-Vulnerability
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-5521
+.SS CVE\-2020\-3259
+Cisco Adaptive Security Appliance (ASA) and Firepower Threat Defense (FTD), added 2024\-02\-15, ransomware: Known.
+.PP
+Cisco ASA and FTD Information Disclosure Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Cisco Adaptive Security Appliance (ASA) and Firepower Threat Defense (FTD) contain an information disclosure vulnerability. An attacker could retrieve memory contents on an affected device, which could lead to the disclosure of confidential information due to a buffer tracking issue when the software parses invalid URLs that are requested from the web services interface. This vulnerability affects only specific AnyConnect and WebVPN configurations.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-03\-07.
+.PP
+\fIReferences:\fR
+.br
+https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco\-sa\-asaftd\-info\-disclose\-9eJtycMB
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-3259
+.SS CVE\-2021\-25369
+Samsung Mobile Devices, added 2022\-11\-08.
+.PP
+Samsung Mobile Devices Improper Access Control Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Samsung mobile devices using Mali GPU contains an improper access control vulnerability in sec_log file. Exploitation of the vulnerability exposes sensitive kernel information to the userspace. This vulnerability was chained with CVE\-2021\-25337 and CVE\-2021\-25370.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-11\-29.
+.PP
+\fIReferences:\fR
+.br
+https://security.samsungmobile.com/securityUpdate.smsb
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-25369
+.SS CVE\-2021\-41277
+Metabase Metabase, added 2024\-11\-12.
+.PP
+Metabase GeoJSON API Local File Inclusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Metabase contains a local file inclusion vulnerability in the custom map support in the API to read GeoJSON formatted data.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-12\-03.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/metabase/metabase/security/advisories/GHSA\-w73v\-6p7p\-fpfr
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-41277
+.SS CVE\-2023\-21237
+Android Pixel, added 2024\-03\-05.
+.PP
+Android Pixel Information Disclosure Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Android Pixel contains a vulnerability in the Framework component, where the UI may be misleading or insufficient, providing a means to hide a foreground service notification. This could enable a local attacker to disclose sensitive information.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-03\-26.
+.PP
+\fIReferences:\fR
+.br
+https://source.android.com/docs/security/bulletin/pixel/2023\-06\-01
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-21237
+.SS CVE\-2023\-28432
+MinIO MinIO, added 2023\-04\-21.
+.PP
+MinIO Information Disclosure Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+MinIO contains a vulnerability in a cluster deployment where MinIO returns all environment variables, which allows for information disclosure.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-05\-12.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/minio/minio/security/advisories/GHSA\-6xvq\-wj2x\-3h3q
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-28432
+.SS CVE\-2024\-24919
+Check Point Quantum Security Gateways, added 2024\-05\-30, ransomware: Known.
+.PP
+Check Point Quantum Security Gateways Information Disclosure Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Check Point Quantum Security Gateways contain an unspecified information disclosure vulnerability. The vulnerability potentially allows an attacker to access information on Gateways connected to the internet, with IPSec VPN, Remote Access VPN or Mobile Access enabled. This issue affects several product lines from Check Point, including CloudGuard Network, Quantum Scalable Chassis, Quantum Security Gateways, and Quantum Spark Appliances.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-06\-20.
+.PP
+\fIReferences:\fR
+.br
+https://support.checkpoint.com/results/sk/sk182336
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-24919
+.SS CVE\-2025\-31125
+Vite Vitejs, added 2026\-01\-22.
+.PP
+Vite Vitejs Improper Access Control Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Vite Vitejs contains an improper access control vulnerability that exposes content of non\-allowed files using ?inline&import or ?raw?import. Only apps explicitly exposing the Vite dev server to the network (using \-\-host or server.host config option) are affected.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-02\-12.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/vitejs/vite/commit/59673137c45ac2bcfad1170d954347c1a17ab949
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-31125
+.SS CVE\-2025\-68686
+Fortinet FortiOS, added 2026\-07\-27.
+.PP
+Fortinet FortiOS Exposure of Sensitive Information to an Unauthorized Actor Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Fortinet FortiOS contains an exposure of sensitive information to an unauthorized actor vulnerability. This may allow a remote unauthenticated attacker to bypass the patch developed for the symbolic link persistency mechanism observed in some post\-exploit cases, via crafted HTTP requests. An attacker would need first to have compromised the product via another vulnerability, at filesystem level.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-08\-10.
+.PP
+\fIReferences:\fR
+.br
+https://fortiguard.fortinet.com/psirt/FG\-IR\-25\-934
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-68686
+.SS CVE\-2026\-20133
+Cisco Catalyst SD\-WAN Manager, added 2026\-04\-20.
+.PP
+Cisco Catalyst SD\-WAN Manager Exposure of Sensitive Information to an Unauthorized Actor Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Cisco Catalyst SD\-WAN Manager contains an exposure of sensitive information to an unauthorized actor vulnerability that could allow remote attackers to view sensitive information on affected systems.
+.PP
+\fIRemediation:\fR
+Please adhere to CISA’s guidelines to assess exposure and mitigate risks associated with Cisco SD\-WAN devices as outlines in CISA’s Emergency Directive 26\-03 (URL listed below in Notes) and CISA’s “Hunt & Hardening Guidance for Cisco SD\-WAN Devices (URL listed below in Notes). Adhere to the applicable BOD 22\-01 guidance for cloud services or discontinue use of the product if mitigations are not available.
+ Due 2026\-04\-23.
+.PP
+\fIReferences:\fR
+.br
+https://www.cisa.gov/news\-events/directives/ed\-26\-03\-mitigate\-vulnerabilities\-cisco\-sd\-wan\-systems
+.br
+https://www.cisa.gov/news\-events/directives/supplemental\-direction\-ed\-26\-03\-hunt\-and\-hardening\-guidance\-cisco\-sd\-wan\-systems
+.br
+https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco\-sa\-sdwan\-authbp\-qwCX8D4v
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-20133
+.SS CVE\-2026\-20805
+Microsoft Windows, added 2026\-01\-13.
+.PP
+Microsoft Windows Information Disclosure Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Desktop Windows Manager contains an information disclosure vulnerability that allows an authorized attacker to disclose information locally.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-02\-03.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2026\-20805
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-20805
 .SH EXAMPLES
 One vulnerable\->fixed pair per ecosystem (Node.js, Python, Java, Go, PHP).
 .SS Node.js
@@ -106,4 +513,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/200.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

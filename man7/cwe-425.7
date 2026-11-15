@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-425 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-425 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-425 \- Direct Request ('Forced Browsing')
 .SH RANK
@@ -9,9 +9,39 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The web application does not adequately enforce appropriate authorization on all restricted URLs, scripts, or files. Web applications susceptible to direct request attacks often make the false assumption that such resources can only be reached through a given navigation path and so only apply authorization at certain points in the path.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB2\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB2\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2021\-26085
+Atlassian Confluence Server, added 2022\-03\-28, ransomware: Known.
 .PP
-CVE\-2021\-26085, CVE\-2024\-45195.
+Atlassian Confluence Server Pre\-Authorization Arbitrary File Read Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Affected versions of Atlassian Confluence Server allow remote attackers to view restricted resources via a pre\-authorization arbitrary file read vulnerability in the /s/ endpoint.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-18.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-26085
+.SS CVE\-2024\-45195
+Apache OFBiz, added 2025\-02\-04.
+.PP
+Apache OFBiz Forced Browsing Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apache OFBiz contains a forced browsing vulnerability that allows a remote attacker to obtain unauthorized access.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-02\-25.
+.PP
+\fIReferences:\fR
+.br
+https://ofbiz.apache.org/security.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-45195
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +51,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/425.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

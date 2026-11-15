@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-269 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-269 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-269 \- Improper Privilege Management
 .SH RANK
@@ -9,9 +9,330 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product does not properly assign, modify, track, or check privileges for an actor, creating an unintended sphere of control for that actor.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB19\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB19\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2014\-3153
+Linux Kernel, added 2022\-05\-25.
 .PP
-CVE\-2014\-3153, CVE\-2019\-1388, CVE\-2019\-13272, CVE\-2020\-0787, CVE\-2020\-3950, CVE\-2020\-8655, CVE\-2021\-25337, CVE\-2021\-34484, CVE\-2021\-34527, CVE\-2021\-42287, CVE\-2023\-28434, CVE\-2024\-8068, CVE\-2024\-26169, CVE\-2024\-38014, CVE\-2024\-49035, CVE\-2026\-21533, CVE\-2026\-46817, CVE\-2026\-84869, CVE\-2026\-102490.
+Linux Kernel Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The futex_requeue function in kernel/futex.c in Linux kernel does not ensure that calls have two different futex addresses, which allows local users to gain privileges.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2014\-3153
+.SS CVE\-2019\-1388
+Microsoft Windows, added 2023\-04\-07, ransomware: Known.
+.PP
+Microsoft Windows Certificate Dialog Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Certificate Dialog contains a privilege escalation vulnerability, allowing attackers to run processes in an elevated context.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-04\-28.
+.PP
+\fIReferences:\fR
+.br
+https://portal.msrc.microsoft.com/en\-US/security\-guidance/advisory/CVE\-2019\-1388
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-1388
+.SS CVE\-2019\-13272
+Linux Kernel, added 2021\-12\-10.
+.PP
+Linux Kernel Improper Privilege Management Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Kernel/ptrace.c in Linux kernel mishandles contains an improper privilege management vulnerability that allows local users to obtain root access.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-10.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-13272
+.SS CVE\-2020\-0787
+Microsoft Windows, added 2022\-01\-28, ransomware: Known.
+.PP
+Microsoft Windows Background Intelligent Transfer Service (BITS) Improper Privilege Management Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows BITS is vulnerable to to a privilege elevation vulnerability if it improperly handles symbolic links. An actor can exploit this vulnerability to execute arbitrary code with system\-level privileges.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-07\-28.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-0787
+.SS CVE\-2020\-3950
+VMware Multiple Products, added 2021\-11\-03.
+.PP
+VMware Multiple Products Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+VMware Fusion, Remote Console (VMRC) for Mac, and Horizon Client for Mac contain a privilege escalation vulnerability due to improper use of setuid binaries that allows attackers to escalate privileges to root.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-3950
+.SS CVE\-2020\-8655
+EyesOfNetwork EyesOfNetwork, added 2021\-11\-03.
+.PP
+EyesOfNetwork Improper Privilege Management Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+EyesOfNetwork contains an improper privilege management vulnerability that may allow a user to run commands as root via a crafted Nmap Scripting Engine (NSE) script to nmap7.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-8655
+.SS CVE\-2021\-25337
+Samsung Mobile Devices, added 2022\-11\-08.
+.PP
+Samsung Mobile Devices Improper Access Control Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Samsung mobile devices contain an improper access control vulnerability in clipboard service which allows untrusted applications to read or write arbitrary files. This vulnerability was chained with CVE\-2021\-25369 and CVE\-2021\-25370.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-11\-29.
+.PP
+\fIReferences:\fR
+.br
+https://security.samsungmobile.com/securityUpdate.smsb
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-25337
+.SS CVE\-2021\-34484
+Microsoft Windows, added 2022\-03\-31.
+.PP
+Microsoft Windows User Profile Service Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows User Profile Service contains an unspecified vulnerability that allows for privilege escalation.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-21.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-34484
+.SS CVE\-2021\-34527
+Microsoft Windows, added 2021\-11\-03, ransomware: Known.
+.PP
+Microsoft Windows Print Spooler Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Print Spooler contains an unspecified vulnerability due to the Windows Print Spooler service improperly performing privileged file operations. Successful exploitation allows an attacker to perform remote code execution with SYSTEM privileges. The vulnerability is also known under the moniker of PrintNightmare.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://www.cisa.gov/news\-events/directives/ed\-21\-04\-mitigate\-windows\-print\-spooler\-service\-vulnerability
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-34527
+.SS CVE\-2021\-42287
+Microsoft Active Directory, added 2022\-04\-11, ransomware: Known.
+.PP
+Microsoft Active Directory Domain Services Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Active Directory Domain Services contains an unspecified vulnerability that allows for privilege escalation.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-02.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-42287
+.SS CVE\-2023\-28434
+MinIO MinIO, added 2023\-09\-19.
+.PP
+MinIO Security Feature Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+MinIO contains a security feature bypass vulnerability that allows an attacker to use crafted requests to bypass metadata bucket name checking and put an object into any bucket while processing `PostPolicyBucket` to conduct privilege escalation. To carry out this attack, the attacker requires credentials with `arn:aws:s3:::*` permission, as well as enabled Console API access.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-10\-10.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/minio/minio/security/advisories/GHSA\-2pxw\-r47w\-4p8c
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-28434
+.SS CVE\-2024\-8068
+Citrix Session Recording, added 2025\-08\-25.
+.PP
+Citrix Session Recording Improper Privilege Management Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Citrix Session Recording contains an improper privilege management vulnerability that could allow for privilege escalation to NetworkService Account access. An attacker must be an authenticated user in the same Windows Active Directory domain as the session recording server domain.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-09\-15.
+.PP
+\fIReferences:\fR
+.br
+https://support.citrix.com/external/article/691941/citrix\-session\-recording\-security\-bullet.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-8068
+.SS CVE\-2024\-26169
+Microsoft Windows, added 2024\-06\-13, ransomware: Known.
+.PP
+Microsoft Windows Error Reporting Service Improper Privilege Management Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Error Reporting Service contains an improper privilege management vulnerability that allows a local attacker with user permissions to gain SYSTEM privileges.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2024\-07\-04.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2024\-26169
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-26169
+.SS CVE\-2024\-38014
+Microsoft Windows, added 2024\-09\-10.
+.PP
+Microsoft Windows Installer Improper Privilege Management Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Installer contains an improper privilege management vulnerability that could allow an attacker to gain SYSTEM privileges.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-10\-01.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2024\-38014
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-38014
+.SS CVE\-2024\-49035
+Microsoft Partner Center, added 2025\-02\-25.
+.PP
+Microsoft Partner Center Improper Access Control Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Partner Center contains an improper access control vulnerability that allows an attacker to escalate privileges.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-03\-18.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2024\-49035
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-49035
+.SS CVE\-2026\-21533
+Microsoft Windows, added 2026\-02\-10.
+.PP
+Microsoft Windows Improper Privilege Management Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Remote Desktop Services contains an improper privilege management vulnerability that could allow an authorized attacker to elevate privileges locally.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-03\-03.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2026\-21533
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-21533
+.SS CVE\-2026\-46817
+Oracle E\-Business Suite, added 2026\-07\-15.
+.PP
+Oracle E\-Business Suite Improper Privilege Management Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Oracle E\-Business Suite contains an improper privilege management vulnerability that allows an unauthenticated attacker with network access via HTTP to compromise Oracle Payments. Successful attacks of this vulnerability can result in takeover of Oracle Payments.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-07\-18.
+.PP
+\fIReferences:\fR
+.br
+https://www.oracle.com/security\-alerts/cspumay2026.html
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-46817
+.SS CVE\-2026\-84869
+ConnectWise ScreenConnect, added 2026\-09\-11.
+.PP
+ConnectWise ScreenConnect Improper Privilege Management and Missing Authorization Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+ConnectWise ScreenConnect contains both an improper privilege management and missing authorization vulnerability that may allow an attacker to transfer and execute files through an active remote session without authorization or host confirmation.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-14.
+.PP
+\fIReferences:\fR
+.br
+https://www.connectwise.com/company/trust/security\-bulletins/2026\-09\-08\-screenconnect\-bulletin
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-84869
+.SS CVE\-2026\-102490
+Zammad GmbH Zammad, added 2026\-10\-02.
+.PP
+Zammad GmbH Zammad Improper Privilege Management Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Zammad GmbH Zammad contains an improper privilege management vulnerability that can allow the local zammad user to escalate privileges to root. This vulnerability can be chained with CVE\-2026\-102489.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-10\-05.
+.PP
+\fIReferences:\fR
+.br
+https://zammad.com/en/product/releases/
+.br
+https://community.zammad.org/t/take\-care\-local\-privilege\-escalation\-cve\-2026\-102490\-is\-reported\-as\-being\-actively\-exploited/21297/2
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-102490
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +342,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/269.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

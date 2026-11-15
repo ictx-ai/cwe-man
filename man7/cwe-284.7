@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-284 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-284 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-284 \- Improper Access Control
 .SH RANK
@@ -11,9 +11,642 @@ Access to a resource is not restricted, or is incorrectly restricted, from an un
 .SH MITIGATION
 Enforce access control at the server for every resource and entry point, default to deny, and rely on a centralised, well\-tested authorization layer rather than UI restrictions or obscurity. Apply least privilege.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB37\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB37\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2014\-3120
+Elastic Elasticsearch, added 2022\-03\-25.
 .PP
-CVE\-2014\-3120, CVE\-2015\-1427, CVE\-2015\-3306, CVE\-2016\-3393, CVE\-2016\-3715, CVE\-2016\-4437, CVE\-2016\-7256, CVE\-2016\-8735, CVE\-2019\-1653, CVE\-2020\-2506, CVE\-2020\-8193, CVE\-2020\-8196, CVE\-2021\-22941, CVE\-2021\-23874, CVE\-2022\-23134, CVE\-2023\-7028, CVE\-2023\-23752, CVE\-2023\-24489, CVE\-2023\-26360, CVE\-2023\-27350, CVE\-2023\-29298, CVE\-2023\-38205, CVE\-2024\-20767, CVE\-2024\-27348, CVE\-2024\-40766, CVE\-2024\-45519, CVE\-2025\-12480, CVE\-2025\-24989, CVE\-2025\-31125, CVE\-2025\-33073, CVE\-2025\-59230, CVE\-2026\-21962, CVE\-2026\-34908, CVE\-2026\-35616, CVE\-2026\-48907, CVE\-2026\-56290, CVE\-2026\-81963.
+Elasticsearch Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Elasticsearch enables dynamic scripting, which allows remote attackers to execute arbitrary MVEL expressions and Java code.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2014\-3120
+.SS CVE\-2015\-1427
+Elastic Elasticsearch, added 2022\-03\-25.
+.PP
+Elasticsearch Groovy Scripting Engine Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The Groovy scripting engine in Elasticsearch allows remote attackers to bypass the sandbox protection mechanism and execute arbitrary shell commands.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2015\-1427
+.SS CVE\-2015\-3306
+ProFTPD ProFTPD, added 2026\-10\-08.
+.PP
+ProFTPD Improper Access Control Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+ProFTPD contains an improper access control vulnerability that could allow remote attackers to read and write to arbitrary files via the site cpfr and site cpto commands.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-10\-11.
+.PP
+\fIReferences:\fR
+.br
+http://www.proftpd.org/
+.br
+https://lists.debian.org/debian\-security\-announce/2015/msg00154.html
+.br
+https://lists.opensuse.org/archives/list/updates@lists.opensuse.org/message/WE6YZRG5UVXMGQ7IVDRYBPIWV4M6UUGM/
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2015\-3306
+.SS CVE\-2016\-3393
+Microsoft Windows, added 2022\-05\-25.
+.PP
+Microsoft Windows Graphics Device Interface (GDI) Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A remote code execution vulnerability exists due to the way the Windows GDI component handles objects in the memory. An attacker who successfully exploits this vulnerability could take control of the affected system.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2016\-3393
+.SS CVE\-2016\-3715
+ImageMagick ImageMagick, added 2021\-11\-03.
+.PP
+ImageMagick Arbitrary File Deletion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+ImageMagick contains an unspecified vulnerability that could allow users to delete files by using ImageMagick's 'ephemeral' pseudo protocol, which deletes files after reading.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2016\-3715
+.SS CVE\-2016\-4437
+Apache Shiro, added 2021\-11\-03.
+.PP
+Apache Shiro Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apache Shiro contains a vulnerability which may allow remote attackers to execute code or bypass intended access restrictions via an unspecified request parameter when a cipher key has not been configured for the "remember me" feature.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2016\-4437
+.SS CVE\-2016\-7256
+Microsoft Windows, added 2022\-05\-25.
+.PP
+Microsoft Windows Open Type Font Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A remote code execution vulnerability exists when the Windows font library improperly handles specially crafted embedded fonts. An attacker who successfully exploits this vulnerability could take control of the affected system.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2016\-7256
+.SS CVE\-2016\-8735
+Apache Tomcat, added 2023\-05\-12.
+.PP
+Apache Tomcat Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apache Tomcat contains an unspecified vulnerability that allows for remote code execution if JmxRemoteLifecycleListener is used and an attacker can reach Java Management Extension (JMX) ports. This CVE exists because this listener wasn't updated for consistency with the Oracle patched issues for CVE\-2016\-3427 which affected credential types.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-06\-02.
+.PP
+\fIReferences:\fR
+.br
+https://tomcat.apache.org/security\-9.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2016\-8735
+.SS CVE\-2019\-1653
+Cisco Small Business RV320 and RV325 Routers, added 2021\-11\-03.
+.PP
+Cisco Small Business RV320 and RV325 Routers Information Disclosure Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Cisco Small Business RV320 and RV325 Dual Gigabit WAN VPN Routers contain improper access controls for URLs. Exploitation could allow an attacker to download the router configuration or detailed diagnostic information.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-1653
+.SS CVE\-2020\-2506
+QNAP Systems Helpdesk, added 2022\-03\-25.
+.PP
+QNAP Helpdesk Improper Access Control Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+QNAP Helpdesk contains an improper access control vulnerability which could allow an attacker to gain privileges or to read sensitive information.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-2506
+.SS CVE\-2020\-8193
+Citrix Application Delivery Controller (ADC), Gateway, and SD\-WAN WANOP Appliance, added 2021\-11\-03.
+.PP
+Citrix ADC, Gateway, and SD\-WAN WANOP Appliance Authorization Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Citrix ADC, Citrix Gateway, and multiple Citrix SD\-WAN WANOP appliance models contain an authorization bypass vulnerability that may allow unauthenticated access to certain URL endpoints. The attacker must have access to the NetScaler IP (NSIP) in order to perform exploitation.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-8193
+.SS CVE\-2020\-8196
+Citrix Application Delivery Controller (ADC), Gateway, and SD\-WAN WANOP Appliance, added 2021\-11\-03.
+.PP
+Citrix ADC, Gateway, and SD\-WAN WANOP Appliance Information Disclosure Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Citrix ADC, Citrix Gateway, and multiple Citrix SD\-WAN WANOP appliance models contain an information disclosure vulnerability.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-8196
+.SS CVE\-2021\-22941
+Citrix ShareFile, added 2022\-03\-25, ransomware: Known.
+.PP
+Citrix ShareFile Improper Access Control Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Improper Access Control in Citrix ShareFile storage zones controller may allow an unauthenticated attacker to remotely compromise the storage zones controller.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-22941
+.SS CVE\-2021\-23874
+McAfee McAfee Total Protection (MTP), added 2021\-11\-03.
+.PP
+McAfee Total Protection (MTP) Improper Privilege Management Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+McAfee Total Protection (MTP) contains an improper privilege management vulnerability that allows a local user to gain elevated privileges and execute code, bypassing MTP self\-defense.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-23874
+.SS CVE\-2022\-23134
+Zabbix Frontend, added 2022\-02\-22.
+.PP
+Zabbix Frontend Improper Access Control Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Malicious actors can pass step checks and potentially change the configuration of Zabbix Frontend.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-03\-08.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-23134
+.SS CVE\-2023\-7028
+GitLab GitLab CE/EE, added 2024\-05\-01.
+.PP
+GitLab Community and Enterprise Editions Improper Access Control Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+GitLab Community and Enterprise Editions contain an improper access control vulnerability. This allows an attacker to trigger password reset emails to be sent to an unverified email address to ultimately facilitate an account takeover.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-05\-22.
+.PP
+\fIReferences:\fR
+.br
+https://about.gitlab.com/releases/2024/01/11/critical\-security\-release\-gitlab\-16\-7\-2\-released/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-7028
+.SS CVE\-2023\-23752
+Joomla! Joomla!, added 2024\-01\-08.
+.PP
+Joomla! Improper Access Control Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Joomla! contains an improper access control vulnerability that allows unauthorized access to webservice endpoints.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-01\-29.
+.PP
+\fIReferences:\fR
+.br
+https://developer.joomla.org/security\-centre/894\-20230201\-core\-improper\-access\-check\-in\-webservice\-endpoints.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-23752
+.SS CVE\-2023\-24489
+Citrix Content Collaboration, added 2023\-08\-16.
+.PP
+Citrix Content Collaboration ShareFile Improper Access Control Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Citrix Content Collaboration contains an improper access control vulnerability that could allow an unauthenticated attacker to remotely compromise customer\-managed ShareFile storage zones controllers.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-09\-06.
+.PP
+\fIReferences:\fR
+.br
+https://support.citrix.com/article/CTX559517/sharefile\-storagezones\-controller\-security\-update\-for\-cve202324489
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-24489
+.SS CVE\-2023\-26360
+Adobe ColdFusion, added 2023\-03\-15.
+.PP
+Adobe ColdFusion Deserialization of Untrusted Data Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Adobe ColdFusion contains a deserialization of untrusted data vulnerability that allows for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-04\-05.
+.PP
+\fIReferences:\fR
+.br
+https://helpx.adobe.com/security/products/coldfusion/apsb23\-25.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-26360
+.SS CVE\-2023\-27350
+PaperCut MF/NG, added 2023\-04\-21, ransomware: Known.
+.PP
+PaperCut MF/NG Improper Access Control Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+PaperCut MF/NG contains an improper access control vulnerability within the SetupCompleted class that allows authentication bypass and code execution in the context of system.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-05\-12.
+.PP
+\fIReferences:\fR
+.br
+https://www.papercut.com/kb/Main/PO\-1216\-and\-PO\-1219
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-27350
+.SS CVE\-2023\-29298
+Adobe ColdFusion, added 2023\-07\-20.
+.PP
+Adobe ColdFusion Improper Access Control Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Adobe ColdFusion contains an improper access control vulnerability that allows for a security feature bypass.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-08\-10.
+.PP
+\fIReferences:\fR
+.br
+https://helpx.adobe.com/security/products/coldfusion/apsb23\-40.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-29298
+.SS CVE\-2023\-38205
+Adobe ColdFusion, added 2023\-07\-20.
+.PP
+Adobe ColdFusion Improper Access Control Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Adobe ColdFusion contains an improper access control vulnerability that allows for a security feature bypass.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-08\-10.
+.PP
+\fIReferences:\fR
+.br
+https://helpx.adobe.com/security/products/coldfusion/apsb23\-47.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-38205
+.SS CVE\-2024\-20767
+Adobe ColdFusion, added 2024\-12\-16.
+.PP
+Adobe ColdFusion Improper Access Control Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Adobe ColdFusion contains an improper access control vulnerability that could allow an attacker to access or modify restricted files via an internet\-exposed admin panel.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-01\-06.
+.PP
+\fIReferences:\fR
+.br
+https://helpx.adobe.com/security/products/coldfusion/apsb24\-14.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-20767
+.SS CVE\-2024\-27348
+Apache HugeGraph\-Server, added 2024\-09\-18.
+.PP
+Apache HugeGraph\-Server Improper Access Control Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apache HugeGraph\-Server contains an improper access control vulnerability that could allow a remote attacker to execute arbitrary code.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-10\-09.
+.PP
+\fIReferences:\fR
+.br
+https://lists.apache.org/thread/nx6g6htyhpgtzsocybm242781o8w5kq9
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-27348
+.SS CVE\-2024\-40766
+SonicWall SonicOS, added 2024\-09\-09, ransomware: Known.
+.PP
+SonicWall SonicOS Improper Access Control Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SonicWall SonicOS contains an improper access control vulnerability that could lead to unauthorized resource access and, under certain conditions, may cause the firewall to crash.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-09\-30.
+.PP
+\fIReferences:\fR
+.br
+https://psirt.global.sonicwall.com/vuln\-detail/SNWLID\-2024\-0015
+.br
+https://www.sonicwall.com/support/notices/gen\-7\-and\-newer\-sonicwall\-firewalls\-sslvpn\-recent\-threat\-activity/kA1VN0000000RDG0A2
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-40766
+.SS CVE\-2024\-45519
+Synacor Zimbra Collaboration Suite (ZCS), added 2024\-10\-03.
+.PP
+Synacor Zimbra Collaboration Suite (ZCS) Command Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Synacor Zimbra Collaboration Suite (ZCS) contains an unspecified vulnerability in the postjournal service that may allow an unauthenticated user to execute commands.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-10\-24.
+.PP
+\fIReferences:\fR
+.br
+https://wiki.zimbra.com/wiki/Zimbra_Security_Advisories
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-45519
+.SS CVE\-2025\-12480
+Gladinet Triofox, added 2025\-11\-12.
+.PP
+Gladinet Triofox Improper Access Control Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Gladinet Triofox contains an improper access control vulnerability that allows access to initial setup pages even after setup is complete.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-12\-03.
+.PP
+\fIReferences:\fR
+.br
+https://access.triofox.com/releases_history
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-12480
+.SS CVE\-2025\-24989
+Microsoft Power Pages, added 2025\-02\-21.
+.PP
+Microsoft Power Pages Improper Access Control Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Power Pages contains an improper access control vulnerability that allows an unauthorized attacker to elevate privileges over a network potentially bypassing the user registration control.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-03\-14.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/advisory/CVE\-2025\-24989
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-24989
+.SS CVE\-2025\-31125
+Vite Vitejs, added 2026\-01\-22.
+.PP
+Vite Vitejs Improper Access Control Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Vite Vitejs contains an improper access control vulnerability that exposes content of non\-allowed files using ?inline&import or ?raw?import. Only apps explicitly exposing the Vite dev server to the network (using \-\-host or server.host config option) are affected.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-02\-12.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/vitejs/vite/commit/59673137c45ac2bcfad1170d954347c1a17ab949
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-31125
+.SS CVE\-2025\-33073
+Microsoft Windows, added 2025\-10\-20.
+.PP
+Microsoft Windows SMB Client Improper Access Control Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows SMB Client contains an improper access control vulnerability that could allow for privilege escalation. An attacker could execute a specially crafted malicious script to coerce the victim machine to connect back to the attack system using SMB and authenticate.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-11\-10.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/advisory/CVE\-2025\-33073
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-33073
+.SS CVE\-2025\-59230
+Microsoft Windows, added 2025\-10\-14.
+.PP
+Microsoft Windows Improper Access Control Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows contains an improper access control vulnerability in Windows Remote Access Connection Manager which could allow an authorized attacker to elevate privileges locally.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-11\-04.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2025\-59230
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-59230
+.SS CVE\-2026\-21962
+Oracle HTTP Server and Oracle Weblogic Server Proxy Plug\-in, added 2026\-08\-24.
+.PP
+Oracle HTTP Server and Oracle Weblogic Server Proxy Plug\-in Improper Access Control Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Oracle HTTP Server and Oracle Weblogic Server Proxy Plug\-in contain an improper access control vulnerability that can result in unauthorized creation, deletion or modification access to critical data as well as unauthorized access to critical data or complete access to all Oracle HTTP Server and Oracle Weblogic Server Proxy Plug\-in accessible data.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-08\-27.
+.PP
+\fIReferences:\fR
+.br
+https://www.oracle.com/security\-alerts/cpujan2026.html
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-21962
+.SS CVE\-2026\-34908
+Ubiquiti UniFi OS, added 2026\-06\-23.
+.PP
+Ubiquiti UniFi OS Improper Access Control Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ubiquiti UniFi OS contains an improper access control vulnerability which could allow a malicious actor with access to the network to make unauthorized changes to the system.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-06\-26.
+.PP
+\fIReferences:\fR
+.br
+https://community.ui.com/releases/Security\-Advisory\-Bulletin\-064\-064/84811c09\-4cf4\-42ab\-bd61\-cc994445963b
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-34908
+.SS CVE\-2026\-35616
+Fortinet FortiClient EMS, added 2026\-04\-06.
+.PP
+Fortinet FortiClient EMS Improper Access Control Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Fortinet FortiClient EMS contains an improper access control vulnerability that may allow an unauthenticated attacker to execute unauthorized code or commands via crafted requests.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-04\-09.
+.PP
+\fIReferences:\fR
+.br
+https://fortiguard.fortinet.com/psirt/FG\-IR\-26\-099
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-35616
+.SS CVE\-2026\-48907
+Widget Factory Joomla Content Editor, added 2026\-06\-16.
+.PP
+Widget Factory Joomla Content Editor Improper Access Control Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Widget Factory Joomla Content Editor contains an improper access control vulnerability which could allow for upload and execution of PHP code via the creation of new editor profiles for unauthenticated users.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-06\-19.
+.PP
+\fIReferences:\fR
+.br
+https://www.joomlacontenteditor.net/news/jce\-security\-update\-and\-a\-free\-patch\-for\-older\-sites
+.br
+https://www.joomlacontenteditor.net/support/changelog/editor
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-48907
+.SS CVE\-2026\-56290
+Joomlack Page Builder, added 2026\-07\-07.
+.PP
+Joomlack Page Builder Improper Access Control Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Joomlack Page Builder contains an improper access control vulnerability that could allow for remote code execution via unauthenticated arbitrary file upload.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-07\-10.
+.PP
+\fIReferences:\fR
+.br
+https://www.joomlack.fr/en/joomla\-extensions/page\-builder\-ck
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-56290
+.SS CVE\-2026\-81963
+Microsoft Windows, added 2026\-09\-08.
+.PP
+Microsoft Windows Link Following Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Update Stack contains a link following vulnerability that allows a local attacker to escalate privileges locally up to SYSTEM.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-22.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2026\-81963
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-81963
 .SH EXAMPLES
 One vulnerable\->fixed pair per ecosystem (Node.js, Python, Java, Go, PHP).
 .SS Node.js
@@ -118,4 +751,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/284.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-134 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-134 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-134 \- Use of Externally\-Controlled Format String
 .SH RANK
@@ -9,9 +9,54 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product uses a function that accepts a format string as an argument, but the format string originates from an external source. When an attacker can modify an externally\-controlled format string, this can lead to buffer overflows, denial of service, or data representation problems. It should be noted that in some circumstances, such as internationalization, the set of format strings is externally controlled by design. If the source of these format strings is trusted (e.g. only contained in library files that are only modifiable by the system administrator), then the external control might not itself pose a vulnerability.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB3\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB3\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2019\-1579
+Palo Alto Networks PAN\-OS, added 2022\-01\-10, ransomware: Known.
 .PP
-CVE\-2019\-1579, CVE\-2020\-3118, CVE\-2024\-23113.
+Palo Alto Networks PAN\-OS Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Remote Code Execution in PAN\-OS with GlobalProtect Portal or GlobalProtect Gateway Interface enabled.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-07\-10.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-1579
+.SS CVE\-2020\-3118
+Cisco IOS XR, added 2021\-11\-03.
+.PP
+Cisco IOS XR Software Discovery Protocol Format String Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Cisco IOS XR improperly validates string input from certain fields in Cisco Discovery Protocol messages. Exploitation could allow an unauthenticated, adjacent attacker to execute code with administrative privileges or cause a reload on an affected device.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-3118
+.SS CVE\-2024\-23113
+Fortinet Multiple Products, added 2024\-10\-09.
+.PP
+Fortinet Multiple Products Format String Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Fortinet FortiOS, FortiPAM, FortiProxy, and FortiWeb contain a format string vulnerability that allows a remote, unauthenticated attacker to execute arbitrary code or commands via specially crafted requests.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-10\-30.
+.PP
+\fIReferences:\fR
+.br
+https://www.fortiguard.com/psirt/FG\-IR\-24\-029
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-23113
 .SH EXAMPLES
 One vulnerable\->fixed pair per ecosystem (C).
 .SS C
@@ -34,4 +79,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/134.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

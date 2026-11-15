@@ -1,0 +1,148 @@
+.\" OWASP Top 10 overlay. Generated, not hand-edited.
+.TH OWASP-A01 7 "2026-11-15" "OWASP Top 10:2025" "Software Weakness Reference"
+.SH NAME
+owasp\-a01 \- Broken Access Control (OWASP Top 10:2025 A01)
+.SH RANK
+OWASP Top 10:2025 rank \fB#1\fR (A01:2021; A10:2021 SSRF folded in).
+.SH DESCRIPTION
+The application does not enforce what an authenticated user is allowed to do. Attackers access other users' data, change object IDs in the URL, or reach admin functions. Server\-Side Request Forgery is in this category in 2025.
+.PP
+This page is an overlay. Vulnerable\->fixed code lives on the \fBcwe\-*\fR(7) pages listed below, not here.
+.SH MAPPED CWES
+Official mapping: \fB40\fR CWEs (OWASP count 40). \fBman\fR after a CWE id if that page exists in this set.
+.PP
+.TS
+l l r lx.
+PAGE	CWE	KEV	NAME
+_
+cwe\-22(7)	CWE\-22	82	T{
+Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')
+T}
+cwe\-23(7)	CWE\-23	10	T{
+Relative Path Traversal
+T}
+cwe\-36(7)	CWE\-36	5	T{
+Absolute Path Traversal
+T}
+cwe\-59(7)	CWE\-59	17	T{
+Improper Link Resolution Before File Access ('Link Following')
+T}
+cwe\-61(7)	CWE\-61	1	T{
+UNIX Symbolic Link (Symlink) Following
+T}
+\(em	CWE\-65	0	T{
+Windows Hard Link
+T}
+cwe\-200(7)	CWE\-200	25	T{
+Exposure of Sensitive Information to an Unauthorized Actor
+T}
+\(em	CWE\-201	0	T{
+Insertion of Sensitive Information Into Sent Data
+T}
+\(em	CWE\-219	0	T{
+Storage of File with Sensitive Data Under Web Root
+T}
+cwe\-276(7)	CWE\-276	5	T{
+Incorrect Default Permissions
+T}
+cwe\-281(7)	CWE\-281	1	T{
+Improper Preservation of Permissions
+T}
+cwe\-282(7)	CWE\-282	2	T{
+Improper Ownership Management
+T}
+\(em	CWE\-283	0	T{
+Unverified Ownership
+T}
+cwe\-284(7)	CWE\-284	37	T{
+Improper Access Control
+T}
+cwe\-285(7)	CWE\-285	3	T{
+Improper Authorization
+T}
+cwe\-352(7)	CWE\-352	6	T{
+Cross\-Site Request Forgery (CSRF)
+T}
+\(em	CWE\-359	0	T{
+Exposure of Private Personal Information to an Unauthorized Actor
+T}
+\(em	CWE\-377	0	T{
+Insecure Temporary File
+T}
+\(em	CWE\-379	0	T{
+Creation of Temporary File in Directory with Insecure Permissions
+T}
+\(em	CWE\-402	0	T{
+Transmission of Private Resources into a New Sphere ('Resource Leak')
+T}
+cwe\-424(7)	CWE\-424	1	T{
+Improper Protection of Alternate Path
+T}
+cwe\-425(7)	CWE\-425	2	T{
+Direct Request ('Forced Browsing')
+T}
+cwe\-441(7)	CWE\-441	2	T{
+Unintended Proxy or Intermediary ('Confused Deputy')
+T}
+cwe\-497(7)	CWE\-497	1	T{
+Exposure of Sensitive System Information to an Unauthorized Control Sphere
+T}
+\(em	CWE\-538	0	T{
+Insertion of Sensitive Information into Externally\-Accessible File or Directory
+T}
+\(em	CWE\-540	0	T{
+Inclusion of Sensitive Information in Source Code
+T}
+\(em	CWE\-548	0	T{
+Exposure of Information Through Directory Listing
+T}
+cwe\-552(7)	CWE\-552	4	T{
+Files or Directories Accessible to External Parties
+T}
+\(em	CWE\-566	0	T{
+Authorization Bypass Through User\-Controlled SQL Primary Key
+T}
+cwe\-601(7)	CWE\-601	1	T{
+URL Redirection to Untrusted Site ('Open Redirect')
+T}
+\(em	CWE\-615	0	T{
+Inclusion of Sensitive Information in Source Code Comments
+T}
+cwe\-639(7)	CWE\-639	1	T{
+Authorization Bypass Through User\-Controlled Key
+T}
+cwe\-668(7)	CWE\-668	1	T{
+Exposure of Resource to Wrong Sphere
+T}
+cwe\-732(7)	CWE\-732	3	T{
+Incorrect Permission Assignment for Critical Resource
+T}
+cwe\-749(7)	CWE\-749	3	T{
+Exposed Dangerous Method or Function
+T}
+cwe\-862(7)	CWE\-862	14	T{
+Missing Authorization
+T}
+cwe\-863(7)	CWE\-863	19	T{
+Incorrect Authorization
+T}
+cwe\-918(7)	CWE\-918	24	T{
+Server\-Side Request Forgery (SSRF)
+T}
+\(em	CWE\-922	0	T{
+Insecure Storage of Sensitive Information
+T}
+\(em	CWE\-1275	0	T{
+Sensitive Cookie with Improper SameSite Attribute
+T}
+.TE
+.PP
+PAGE \(em means there is no local \fBcwe\-*\fR(7) for that id (not Top 25 and not in KEV). MITRE still defines it.
+.SH SEE ALSO
+\fBowasp\fR(7), \fBcwe\-22\fR(7), \fBcwe\-23\fR(7), \fBcwe\-36\fR(7), \fBcwe\-59\fR(7), \fBcwe\-61\fR(7), \fBcwe\-200\fR(7), \fBcwe\-276\fR(7), \fBcwe\-281\fR(7), \fBcwe\-282\fR(7), \fBcwe\-284\fR(7), \fBcwe\-285\fR(7), \fBcwe\-352\fR(7), \fBcwe\-424\fR(7), \fBcwe\-425\fR(7), \fBcwe\-441\fR(7), \fBcwe\-497\fR(7), \fBcwe\-552\fR(7), \fBcwe\-601\fR(7), \fBcwe\-639\fR(7), \fBcwe\-668\fR(7), \fBcwe\-732\fR(7), \fBcwe\-749\fR(7), \fBcwe\-862\fR(7), \fBcwe\-863\fR(7), \fBcwe\-918\fR(7).
+.PP
+https://owasp.org/Top10/2025/A01_2025-Broken_Access_Control/
+.SH NOTES
+OWASP categories group many CWEs. They are not a replacement for the CWE or KEV pages.
+.PP
+Generated 2026\-11\-15 from OWASP Top 10:2025.

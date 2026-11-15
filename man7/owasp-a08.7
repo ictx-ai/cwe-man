@@ -1,0 +1,70 @@
+.\" OWASP Top 10 overlay. Generated, not hand-edited.
+.TH OWASP-A08 7 "2026-11-15" "OWASP Top 10:2025" "Software Weakness Reference"
+.SH NAME
+owasp\-a08 \- Software or Data Integrity Failures (OWASP Top 10:2025 A08)
+.SH RANK
+OWASP Top 10:2025 rank \fB#8\fR (A08:2021 Software and Data Integrity Failures).
+.SH DESCRIPTION
+Untrusted code or data is treated as trusted: unsigned updates, deserialization of untrusted data, plugins from a CDN without integrity checks. Lower layer than A03 supply chain.
+.PP
+This page is an overlay. Vulnerable\->fixed code lives on the \fBcwe\-*\fR(7) pages listed below, not here.
+.SH MAPPED CWES
+Official mapping: \fB14\fR CWEs (OWASP count 14). \fBman\fR after a CWE id if that page exists in this set.
+.PP
+.TS
+l l r lx.
+PAGE	CWE	KEV	NAME
+_
+cwe\-345(7)	CWE\-345	1	T{
+Insufficient Verification of Data Authenticity
+T}
+cwe\-353(7)	CWE\-353	1	T{
+Missing Support for Integrity Check
+T}
+cwe\-426(7)	CWE\-426	2	T{
+Untrusted Search Path
+T}
+cwe\-427(7)	CWE\-427	3	T{
+Uncontrolled Search Path Element
+T}
+cwe\-494(7)	CWE\-494	4	T{
+Download of Code Without Integrity Check
+T}
+cwe\-502(7)	CWE\-502	71	T{
+Deserialization of Untrusted Data
+T}
+cwe\-506(7)	CWE\-506	8	T{
+Embedded Malicious Code
+T}
+\(em	CWE\-509	0	T{
+Replicating Malicious Code (Virus or Worm)
+T}
+cwe\-565(7)	CWE\-565	1	T{
+Reliance on Cookies without Validation and Integrity Checking
+T}
+\(em	CWE\-784	0	T{
+Reliance on Cookies without Validation and Integrity Checking in a Security Decision
+T}
+cwe\-829(7)	CWE\-829	2	T{
+Inclusion of Functionality from Untrusted Control Sphere
+T}
+\(em	CWE\-830	0	T{
+Inclusion of Web Functionality from an Untrusted Source
+T}
+\(em	CWE\-915	0	T{
+Improperly Controlled Modification of Dynamically\-Determined Object Attributes
+T}
+\(em	CWE\-926	0	T{
+Improper Export of Android Application Components
+T}
+.TE
+.PP
+PAGE \(em means there is no local \fBcwe\-*\fR(7) for that id (not Top 25 and not in KEV). MITRE still defines it.
+.SH SEE ALSO
+\fBowasp\fR(7), \fBcwe\-345\fR(7), \fBcwe\-353\fR(7), \fBcwe\-426\fR(7), \fBcwe\-427\fR(7), \fBcwe\-494\fR(7), \fBcwe\-502\fR(7), \fBcwe\-506\fR(7), \fBcwe\-565\fR(7), \fBcwe\-829\fR(7).
+.PP
+https://owasp.org/Top10/2025/A08_2025-Software_or_Data_Integrity_Failures/
+.SH NOTES
+OWASP categories group many CWEs. They are not a replacement for the CWE or KEV pages.
+.PP
+Generated 2026\-11\-15 from OWASP Top 10:2025.

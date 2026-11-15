@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-35 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-35 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-35 \- Path Traversal: '.../...//'
 .SH RANK
@@ -9,9 +9,45 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize '.../...//' (doubled triple dot slash) sequences that can resolve to a location that is outside of that directory. This allows attackers to traverse the file system to access files or directories that are outside of the restricted directory. The '.../...//' manipulation is useful for bypassing some path traversal protection schemes. If ../ is filtered in a sequential fashion, as done by some regular expression engines, then .../...// can collapse into the ../ unsafe value (CWE\-182). Removing the first ../ yields ....//; the second removal yields ../. Depending on the algorithm, the product could be susceptible to CWE\-34 but not CWE\-35, or vice versa.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB2\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB2\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2025\-8088
+RARLAB WinRAR, added 2025\-08\-12, ransomware: Known.
 .PP
-CVE\-2025\-8088, CVE\-2026\-85706.
+RARLAB WinRAR Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+RARLAB WinRAR contains a path traversal vulnerability affecting the Windows version of WinRAR. This vulnerability could allow an attacker to execute arbitrary code by crafting malicious archive files.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-09\-02.
+.PP
+\fIReferences:\fR
+.br
+https://www.win\-rar.com/singlenewsview.html?&L=0&tx_ttnews%5Btt_news%5D=283&cHash=a64b4a8f662d3639dec8d65f47bc93c5
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-8088
+.SS CVE\-2026\-85706
+GitLab Community Edition and Enterprise Edition, added 2026\-09\-11.
+.PP
+GitLab Community Edition and Enterprise Edition Path Traversal Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+GitLab Community Edition and Enterprise Edition contains a path traversal vulnerability that allows an unauthenticated user to read arbitrary files due to an improper path confinement and missing authentication enforcement in the repository commits API.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-14.
+.PP
+\fIReferences:\fR
+.br
+https://docs.gitlab.com/releases/patches/patch\-release\-gitlab\-19\-3\-2\-released/
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-85706
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +57,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/35.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

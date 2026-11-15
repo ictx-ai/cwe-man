@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-295 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-295 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-295 \- Improper Certificate Validation
 .SH RANK
@@ -9,9 +9,104 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product does not validate, or incorrectly validates, a certificate. When a certificate is invalid or malicious, it might allow an attacker to spoof a trusted entity by interfering in the communication path between the host and client. The product might connect to a malicious host while believing it is a trusted host, or the product might be deceived into accepting spoofed data that appears to originate from a trusted host.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB5\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB5\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2020\-0601
+Microsoft Windows, added 2021\-11\-03.
 .PP
-CVE\-2020\-0601, CVE\-2022\-26923, CVE\-2023\-20963, CVE\-2023\-41991, CVE\-2026\-85102.
+Microsoft Windows CryptoAPI Spoofing Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows CryptoAPI (Crypt32.dll) contains a spoofing vulnerability in the way it validates Elliptic Curve Cryptography (ECC) certificates. An attacker could exploit the vulnerability by using a spoofed code\-signing certificate to sign a malicious executable, making it appear the file was from a trusted, legitimate source. A successful exploit could also allow the attacker to conduct man\-in\-the\-middle attacks and decrypt confidential information on user connections to the affected software. The vulnerability is also known under the moniker of CurveBall.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://www.cisa.gov/news\-events/directives/ed\-20\-02\-mitigate\-windows\-vulnerabilities\-january\-2020\-patch\-tuesday
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-0601
+.SS CVE\-2022\-26923
+Microsoft Active Directory, added 2022\-08\-18.
+.PP
+Microsoft Active Directory Domain Services Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+An authenticated user could manipulate attributes on computer accounts they own or manage, and acquire a certificate from Active Directory Certificate Services that would allow for privilege escalation to SYSTEM.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-09\-08.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2022\-26923
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-26923
+.SS CVE\-2023\-20963
+Android Framework, added 2023\-04\-13.
+.PP
+Android Framework Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Android Framework contains an unspecified vulnerability that allows for privilege escalation after updating an app to a higher Target SDK with no additional execution privileges needed.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-05\-04.
+.PP
+\fIReferences:\fR
+.br
+https://source.android.com/docs/security/bulletin/2023\-03\-01
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-20963
+.SS CVE\-2023\-41991
+Apple Multiple Products, added 2023\-09\-25.
+.PP
+Apple Multiple Products Improper Certificate Validation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apple iOS, iPadOS, macOS, and watchOS contain an improper certificate validation vulnerability that can allow a malicious app to bypass signature validation.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-10\-16.
+.PP
+\fIReferences:\fR
+.br
+https://support.apple.com/en\-us/HT213926
+.br
+https://support.apple.com/en\-us/HT213927
+.br
+https://support.apple.com/en\-us/HT213928
+.br
+https://support.apple.com/en\-us/HT213929
+.br
+https://support.apple.com/en\-us/HT213931
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-41991
+.SS CVE\-2026\-85102
+Check Point Multiple Products, added 2026\-09\-22.
+.PP
+Check Point Multiple Products Improper Certificate Validation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Check Point Security Gateway and Check Point Spark Firewall using Site to Site VPN or Remote Access VPN contain an improper certificate validation vulnerability which could allow an unauthenticated remote attacker to execute arbitrary code on the Gateway.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-25.
+.PP
+\fIReferences:\fR
+.br
+https://support.checkpoint.com/results/sk/sk1000117
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-85102
 .SH EXAMPLES
 One vulnerable\->fixed pair per ecosystem (Python).
 .SS Python
@@ -36,4 +131,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/295.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

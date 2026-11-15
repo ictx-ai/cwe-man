@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-178 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-178 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-178 \- Improper Handling of Case Sensitivity
 .SH RANK
@@ -9,9 +9,22 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product does not properly account for differences in case sensitivity when accessing or determining the properties of a resource, leading to inconsistent results. Improperly handled case sensitive data can lead to several possible consequences, including: case\-insensitive passwords reducing the size of the key space, making brute force attacks easier bypassing filters or access controls using alternate names multiple interpretation errors using alternate names.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB1\fR exploited CVE mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB1\fR exploited CVE mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2020\-12812
+Fortinet FortiOS, added 2021\-11\-03, ransomware: Known.
 .PP
-CVE\-2020\-12812.
+Fortinet FortiOS SSL VPN Improper Authentication Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Fortinet FortiOS SSL VPN contains an improper authentication vulnerability that may allow a user to login successfully without being prompted for the second factor of authentication (FortiToken) if they change the case in their username.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-12812
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +34,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/178.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

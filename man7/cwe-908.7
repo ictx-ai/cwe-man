@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-908 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-908 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-908 \- Use of Uninitialized Resource
 .SH RANK
@@ -9,9 +9,64 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product uses or accesses a resource that has not been initialized. When a resource has not been properly initialized, the product may behave unexpectedly. This may lead to a crash or invalid memory access, but the consequences vary depending on the type of resource and how it is used within the product.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB3\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB3\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2024\-29745
+Android Pixel, added 2024\-04\-04.
 .PP
-CVE\-2024\-29745, CVE\-2024\-50302, CVE\-2026\-85880.
+Android Pixel Information Disclosure Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Android Pixel contains an information disclosure vulnerability in the fastboot firmware used to support unlocking, flashing, and locking affected devices.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-04\-25.
+.PP
+\fIReferences:\fR
+.br
+https://source.android.com/docs/security/bulletin/pixel/2024\-04\-01
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-29745
+.SS CVE\-2024\-50302
+Linux Kernel, added 2025\-03\-04.
+.PP
+Linux Kernel Use of Uninitialized Resource Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The Linux kernel contains a use of uninitialized resource vulnerability that allows an attacker to leak kernel memory via a specially crafted HID report.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-03\-25.
+.PP
+\fIReferences:\fR
+.br
+https://lore.kernel.org/linux\-cve\-announce/2024111908\-CVE\-2024\-50302\-f677@gregkh/
+.br
+https://source.android.com/docs/security/bulletin/2025\-03\-01
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-50302
+.SS CVE\-2026\-85880
+Microsoft Windows, added 2026\-09\-08.
+.PP
+Microsoft Windows Heap\-Based Buffer Overflow Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Advanced Local Procedure Call contains a heap\-based buffer overflow vulnerability that allows an attacker to elevate privileges locally.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-22.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2026\-85880
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-85880
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +76,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/908.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

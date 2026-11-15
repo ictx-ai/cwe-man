@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-362 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-362 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-362 \- Concurrent Execution using Shared Resource with Improper Synchronization ('Race Condition')
 .SH RANK
@@ -9,9 +9,213 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product contains a code sequence that can run concurrently with other code, and the code sequence requires temporary, exclusive access to a shared resource, but a timing window exists in which the shared resource can be modified by another code sequence that is operating concurrently. This can have security implications when the expected synchronization is in security\-critical code, such as recording whether a user is authenticated or modifying important state information that should not be influenced by an outsider. A race condition occurs within concurrent environments, and is effectively a property of a code sequence. Depending on the context, a code sequence may be in the form of a function call, a small number of instructions, a series of program invocations, etc. A race condition violates these properties, which are closely related: Exclusivity \- the code sequence is given exclusive access to the shared resource, i.e., no other code sequence can modify properties of the shared resource before the original sequence has completed execution. Atomicity \- the code sequence is behaviorally atomic, i.e., no other thread or process can concurrently execute the same sequence of instructions (or a subset) against the same resource. A race condition exists when an interfering code sequence can still access the shared resource, violating exclusivity. Programmers may assume that certain code sequences execute too quickly to be affected by an interfering code sequence; when they are not, this violates atomicity. For example, the single x++ statement may appear atomic at the code layer, but it is actually non\-atomic at the instruction layer, since it involves a read (the original value of x), followed by a computation (x+1), followed by a write (save the result to x). The interfering code sequence could be trusted or untrusted. A trusted interfering code sequence occurs within the product; it cannot be modified by the attacker, and it can only be invoked indirectly. An untrusted interfering code sequence can be authored directly by the attacker, and typically it is external to the vulnerable product.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB12\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB12\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2014\-0196
+Linux Kernel, added 2023\-05\-12.
 .PP
-CVE\-2014\-0196, CVE\-2016\-5195, CVE\-2020\-6819, CVE\-2020\-6820, CVE\-2021\-0920, CVE\-2021\-1782, CVE\-2021\-21166, CVE\-2021\-25395, CVE\-2022\-26904, CVE\-2023\-36884, CVE\-2025\-39964, CVE\-2025\-62215.
+Linux Kernel Race Condition Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Linux Kernel contains a race condition vulnerability within the n_tty_write function that allows local users to cause a denial\-of\-service (DoS) or gain privileges via read and write operations with long strings.
+.PP
+\fIRemediation:\fR
+The impacted product is end\-of\-life and should be disconnected if still in use.
+ Due 2023\-06\-02.
+.PP
+\fIReferences:\fR
+.br
+https://lkml.iu.edu/hypermail/linux/kernel/1609.1/02103.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2014\-0196
+.SS CVE\-2016\-5195
+Linux Kernel, added 2022\-03\-03.
+.PP
+Linux Kernel Race Condition Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Race condition in mm/gup.c in the Linux kernel allows local users to escalate privileges.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-03\-24.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2016\-5195
+.SS CVE\-2020\-6819
+Mozilla Firefox and Thunderbird, added 2021\-11\-03.
+.PP
+Mozilla Firefox And Thunderbird Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Mozilla Firefox and Thunderbird contain a race condition vulnerability when running the nsDocShell destructor under certain conditions. The race condition creates a use\-after\-free vulnerability, causing unspecified impacts.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-6819
+.SS CVE\-2020\-6820
+Mozilla Firefox and Thunderbird, added 2021\-11\-03.
+.PP
+Mozilla Firefox And Thunderbird Use\-After\-Free Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Mozilla Firefox and Thunderbird contain a race condition vulnerability when handling a ReadableStream under certain conditions. The race condition creates a use\-after\-free vulnerability, causing unspecified impacts.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-6820
+.SS CVE\-2021\-0920
+Android Kernel, added 2022\-05\-23.
+.PP
+Android Kernel Race Condition Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Android kernel contains a race condition, which allows for a use\-after\-free vulnerability. Exploitation can allow for privilege escalation.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-13.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-0920
+.SS CVE\-2021\-1782
+Apple Multiple Products, added 2021\-11\-03.
+.PP
+Apple Multiple Products Race Condition Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apple iOS, iPadOs, macOS, watchOS, and tvOS contain a race condition vulnerability that may allow a malicious application to elevate privileges.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-1782
+.SS CVE\-2021\-21166
+Google Chromium, added 2021\-11\-03.
+.PP
+Google Chromium Race Condition Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium contains a race condition vulnerability that allows a remote attacker to potentially exploit heap corruption via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-21166
+.SS CVE\-2021\-25395
+Samsung Mobile Devices, added 2023\-06\-29.
+.PP
+Samsung Mobile Devices Race Condition Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Samsung mobile devices contain a race condition vulnerability within the MFC charger driver that leads to a use\-after\-free allowing for a write given a radio privilege is compromised.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-07\-20.
+.PP
+\fIReferences:\fR
+.br
+https://security.samsungmobile.com/securityUpdate.smsb?year=2021&month=5
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-25395
+.SS CVE\-2022\-26904
+Microsoft Windows, added 2022\-04\-25.
+.PP
+Microsoft Windows User Profile Service Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows User Profile Service contains an unspecified vulnerability that allows for privilege escalation.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-16.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-26904
+.SS CVE\-2023\-36884
+Microsoft Windows, added 2023\-07\-17, ransomware: Known.
+.PP
+Microsoft Windows Search Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Search contains an unspecified vulnerability that could allow an attacker to evade Mark of the Web (MOTW) defenses via a specially crafted malicious file, leading to remote code execution.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-08\-29.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2023\-36884
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-36884
+.SS CVE\-2025\-39964
+Linux Kernel, added 2026\-09\-18.
+.PP
+Linux Kernel Race Condition Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Linux Kernel contains a race condition vulnerability which allows concurrent writes to the same AF_ALG socket causing data to be unpredictably interleaved and creating inconsistencies in the socket's internal state.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-21.
+.PP
+\fIReferences:\fR
+.br
+https://git.kernel.org/stable/c/0f28c4adbc4a97437874c9b669fd7958a8c6d6ce
+.br
+https://git.kernel.org/stable/c/e4c1ec11132ec466f7362a95f36a506ce4dc08c9
+.br
+https://git.kernel.org/stable/c/1f323a48e9b5ebfe6dc7d130fdf5c3c0e92a07c8
+.br
+https://git.kernel.org/stable/c/7c4491b5644e3a3708f3dbd7591be0a570135b84
+.br
+https://git.kernel.org/stable/c/9aee87da5572b3a14075f501752e209801160d3d
+.br
+https://git.kernel.org/stable/c/45bcf60fe49b37daab1acee57b27211ad1574042
+.br
+https://git.kernel.org/stable/c/1b34cbbf4f011a121ef7b2d7d6e6920a036d5285
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-39964
+.SS CVE\-2025\-62215
+Microsoft Windows, added 2025\-11\-12.
+.PP
+Microsoft Windows Race Condition Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Kernel contains a race condition vulnerability that allows a local attacker with low\-level privileges to escalate privileges. Successful exploitation of this vulnerability could enable the attacker to gain SYSTEM\-level access.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-12\-03.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2025\-62215
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-62215
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +225,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/362.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

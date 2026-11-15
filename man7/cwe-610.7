@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-610 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-610 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-610 \- Externally Controlled Reference to a Resource in Another Sphere
 .SH RANK
@@ -9,9 +9,39 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product uses an externally controlled name or reference that resolves to a resource that is outside of the intended control sphere.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB2\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB2\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2022\-27593
+QNAP Photo Station, added 2022\-09\-08, ransomware: Known.
 .PP
-CVE\-2022\-27593, CVE\-2022\-30190.
+QNAP Photo Station Externally Controlled Reference Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Certain QNAP NAS running Photo Station with internet exposure contain an externally controlled reference to a resource vulnerability which can allow an attacker to modify system files. This vulnerability was observed being utilized in a Deadbolt ransomware campaign.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-09\-29.
+.PP
+\fIReferences:\fR
+.br
+https://www.qnap.com/en/security\-advisory/qsa\-22\-24
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-27593
+.SS CVE\-2022\-30190
+Microsoft Windows, added 2022\-06\-14, ransomware: Known.
+.PP
+Microsoft Windows Support Diagnostic Tool (MSDT) Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A remote code execution vulnerability exists when MSDT is called using the URL protocol from a calling application such as Word. An attacker who successfully exploits this vulnerability can run code with the privileges of the calling application.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-07\-05.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-30190
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +51,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/610.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

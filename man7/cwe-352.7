@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-352 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-352 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-352 \- Cross\-Site Request Forgery (CSRF)
 .SH RANK
@@ -11,9 +11,115 @@ A state\-changing request is accepted without proof the user intended it. Becaus
 .SH MITIGATION
 Require an unpredictable per\-session anti\-CSRF token on every state\-changing request and reject it if missing/wrong. Set session cookies SameSite=Lax or Strict, and re\-authenticate for the most sensitive actions.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB6\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB6\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2008\-4128
+Cisco IOS, added 2026\-07\-13.
 .PP
-CVE\-2008\-4128, CVE\-2014\-100005, CVE\-2016\-6277, CVE\-2020\-10181, CVE\-2023\-2533, CVE\-2025\-62593.
+Cisco IOS Cross\-Site Request Forgery Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Cisco IOS 12.4 contains multiple cross\-site forgery vulnerabilities that allows remote attackers to execute arbitrary commands via (1) a certain "show privilege" command to the /level/15/exec/\- URI, and (2) a certain "alias exec" command to the /level/15/exec/\-/configure/http URI.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-07\-16.
+.PP
+\fIReferences:\fR
+.br
+https://www.cisco.com/c/en/us/obsolete/ios\-nx\-os\-software/cisco\-ios\-software\-releases\-12\-4\-mainline.html
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2008\-4128
+.SS CVE\-2014\-100005
+D\-Link DIR\-600 Router, added 2024\-05\-16.
+.PP
+D\-Link DIR\-600 Router Cross\-Site Request Forgery (CSRF) Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+D\-Link DIR\-600 routers contain a cross\-site request forgery (CSRF) vulnerability that allows an attacker to change router configurations by hijacking an existing administrator session.
+.PP
+\fIRemediation:\fR
+This vulnerability affects legacy D\-Link products. All associated hardware revisions have reached their end\-of\-life (EOL) or end\-of\-service (EOS) life cycle and should be retired and replaced per vendor instructions.
+ Due 2024\-06\-06.
+.PP
+\fIReferences:\fR
+.br
+https://legacy.us.dlink.com/pages/product.aspx?id=4587b63118524aec911191cc81605283
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2014\-100005
+.SS CVE\-2016\-6277
+NETGEAR Multiple Routers, added 2022\-03\-07.
+.PP
+NETGEAR Multiple Routers Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+NETGEAR confirmed multiple routers allow unauthenticated web pages to pass form input directly to the command\-line interface, permitting remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-09\-07.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2016\-6277
+.SS CVE\-2020\-10181
+Sumavision Enhanced Multimedia Router (EMR), added 2021\-11\-03.
+.PP
+Sumavision EMR Cross\-Site Request Forgery (CSRF) Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Sumavision Enhanced Multimedia Router (EMR) contains a cross\-site request forgery (CSRF) vulnerability allowing the creation of users with elevated privileges as administrator on a device.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-10181
+.SS CVE\-2023\-2533
+PaperCut NG/MF, added 2025\-07\-28.
+.PP
+PaperCut NG/MF Cross\-Site Request Forgery (CSRF) Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+PaperCut NG/MF contains a cross\-site request forgery (CSRF) vulnerability, which, under specific conditions, could potentially enable an attacker to alter security settings or execute arbitrary code.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-08\-18.
+.PP
+\fIReferences:\fR
+.br
+https://www.papercut.com/kb/Main/SecurityBulletinJune2023
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-2533
+.SS CVE\-2025\-62593
+Ray\-Project Ray, added 2026\-08\-17.
+.PP
+Ray\-Project Ray Code Injection Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ray\-Project Ray contains a code injection vulnerability that could allow remote code execution. Developers using Ray as a development tool may be exposed to this vulnerability exploitable through Firefox and Safari.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-08\-20.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/ray\-project/ray/security/advisories/GHSA\-q279\-jhrf\-cc6v
+.br
+https://github.com/ray\-project/ray/commit/70e7c72780bdec075dba6cad1afe0832772bfe09
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-62593
 .SH EXAMPLES
 One vulnerable\->fixed pair per ecosystem (Node.js, Python, Java, Go, PHP).
 .SS Node.js
@@ -119,4 +225,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/352.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

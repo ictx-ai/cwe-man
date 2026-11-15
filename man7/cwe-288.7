@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-288 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-288 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-288 \- Authentication Bypass Using an Alternate Path or Channel
 .SH RANK
@@ -9,9 +9,409 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 A product requires authentication, but the product has an alternate path or channel that does not require authentication.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB22\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB22\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2020\-10148
+SolarWinds Orion, added 2021\-11\-03.
 .PP
-CVE\-2020\-10148, CVE\-2022\-40684, CVE\-2023\-20269, CVE\-2023\-42793, CVE\-2023\-46747, CVE\-2024\-1709, CVE\-2024\-27198, CVE\-2024\-55591, CVE\-2025\-2746, CVE\-2025\-2747, CVE\-2025\-4427, CVE\-2025\-24472, CVE\-2025\-34026, CVE\-2025\-57819, CVE\-2026\-1603, CVE\-2026\-18556, CVE\-2026\-18577, CVE\-2026\-19490, CVE\-2026\-20079, CVE\-2026\-23760, CVE\-2026\-24858, CVE\-2026\-116606.
+SolarWinds Orion Authentication Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SolarWinds Orion API contains an authentication bypass vulnerability that could allow a remote attacker to execute API commands.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-10148
+.SS CVE\-2022\-40684
+Fortinet Multiple Products, added 2022\-10\-11, ransomware: Known.
+.PP
+Fortinet Multiple Products Authentication Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Fortinet FortiOS, FortiProxy, and FortiSwitchManager contain an authentication bypass vulnerability that could allow an unauthenticated attacker to perform operations on the administrative interface via specially crafted HTTP or HTTPS requests.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-11\-01.
+.PP
+\fIReferences:\fR
+.br
+https://www.fortiguard.com/psirt/FG\-IR\-22\-377
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-40684
+.SS CVE\-2023\-20269
+Cisco Adaptive Security Appliance and Firepower Threat Defense, added 2023\-09\-13, ransomware: Known.
+.PP
+Cisco Adaptive Security Appliance and Firepower Threat Defense Unauthorized Access Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Cisco Adaptive Security Appliance and Firepower Threat Defense contain an unauthorized access vulnerability that could allow an unauthenticated, remote attacker to conduct a brute force attack in an attempt to identify valid username and password combinations or establish a clientless SSL VPN session with an unauthorized user.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-10\-04.
+.PP
+\fIReferences:\fR
+.br
+https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco\-sa\-asaftd\-ravpn\-auth\-8LyfCkeC
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-20269
+.SS CVE\-2023\-42793
+JetBrains TeamCity, added 2023\-10\-04, ransomware: Known.
+.PP
+JetBrains TeamCity Authentication Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+JetBrains TeamCity contains an authentication bypass vulnerability that allows for remote code execution on TeamCity Server.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-10\-25.
+.PP
+\fIReferences:\fR
+.br
+https://blog.jetbrains.com/teamcity/2023/09/critical\-security\-issue\-affecting\-teamcity\-on\-premises\-update\-to\-2023\-05\-4\-now/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-42793
+.SS CVE\-2023\-46747
+F5 BIG\-IP Configuration Utility, added 2023\-10\-31, ransomware: Known.
+.PP
+F5 BIG\-IP Configuration Utility Authentication Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+F5 BIG\-IP Configuration utility contains an authentication bypass using an alternate path or channel vulnerability due to undisclosed requests that may allow an unauthenticated attacker with network access to the BIG\-IP system through the management port and/or self IP addresses to execute system commands. This vulnerability can be used in conjunction with CVE\-2023\-46748.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2023\-11\-21.
+.PP
+\fIReferences:\fR
+.br
+https://my.f5.com/manage/s/article/K000137353
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-46747
+.SS CVE\-2024\-1709
+ConnectWise ScreenConnect, added 2024\-02\-22, ransomware: Known.
+.PP
+ConnectWise ScreenConnect Authentication Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+ConnectWise ScreenConnect contains an authentication bypass vulnerability that allows an attacker with network access to the management interface to create a new, administrator\-level account on affected devices.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-02\-29.
+.PP
+\fIReferences:\fR
+.br
+https://www.connectwise.com/company/trust/security\-bulletins/connectwise\-screenconnect\-23.9.8
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-1709
+.SS CVE\-2024\-27198
+JetBrains TeamCity, added 2024\-03\-07, ransomware: Known.
+.PP
+JetBrains TeamCity Authentication Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+JetBrains TeamCity contains an authentication bypass vulnerability that allows an attacker to perform admin actions.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-03\-28.
+.PP
+\fIReferences:\fR
+.br
+https://www.jetbrains.com/help/teamcity/teamcity\-2023\-11\-4\-release\-notes.html
+.br
+https://blog.jetbrains.com/teamcity/2024/03/additional\-critical\-security\-issues\-affecting\-teamcity\-on\-premises\-cve\-2024\-27198\-and\-cve\-2024\-27199\-update\-to\-2023\-11\-4\-now/
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-27198
+.SS CVE\-2024\-55591
+Fortinet FortiOS and FortiProxy, added 2025\-01\-14, ransomware: Known.
+.PP
+Fortinet FortiOS and FortiProxy Authentication Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Fortinet FortiOS and FortiProxy contain an authentication bypass vulnerability that may allow an unauthenticated, remote attacker to gain super\-admin privileges via crafted requests to Node.js websocket module.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-01\-21.
+.PP
+\fIReferences:\fR
+.br
+https://fortiguard.fortinet.com/psirt/FG\-IR\-24\-535
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-55591
+.SS CVE\-2025\-2746
+Kentico Xperience CMS, added 2025\-10\-20.
+.PP
+Kentico Xperience CMS Authentication Bypass Using an Alternate Path or Channel Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Kentico Xperience CMS contains an authentication bypass using an alternate path or channel vulnerability that could allow an attacker to control administrative objects.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-11\-10.
+.PP
+\fIReferences:\fR
+.br
+https://devnet.kentico.com/download/hotfixes
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-2746
+.SS CVE\-2025\-2747
+Kentico Xperience CMS, added 2025\-10\-20.
+.PP
+Kentico Xperience CMS Authentication Bypass Using an Alternate Path or Channel Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Kentico Xperience CMS contains an authentication bypass using an alternate path or channel vulnerability that could allow an attacker to control administrative objects.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-11\-10.
+.PP
+\fIReferences:\fR
+.br
+https://devnet.kentico.com/download/hotfixes
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-2747
+.SS CVE\-2025\-4427
+Ivanti Endpoint Manager Mobile (EPMM), added 2025\-05\-19.
+.PP
+Ivanti Endpoint Manager Mobile (EPMM) Authentication Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ivanti Endpoint Manager Mobile (EPMM) contains an authentication bypass vulnerability in the API component that allows an attacker to access protected resources without proper credentials via crafted API requests. This vulnerability results from an insecure implementation of the Spring Framework open\-source library.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-06\-09.
+.PP
+\fIReferences:\fR
+.br
+https://forums.ivanti.com/s/article/Security\-Advisory\-Ivanti\-Endpoint\-Manager\-Mobile\-EPMM
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-4427
+.SS CVE\-2025\-24472
+Fortinet FortiOS and FortiProxy, added 2025\-03\-18, ransomware: Known.
+.PP
+Fortinet FortiOS and FortiProxy Authentication Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Fortinet FortiOS and FortiProxy contain an authentication bypass vulnerability that allows a remote attacker to gain super\-admin privileges via crafted CSF proxy requests.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-04\-08.
+.PP
+\fIReferences:\fR
+.br
+https://fortiguard.fortinet.com/psirt/FG\-IR\-24\-535
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-24472
+.SS CVE\-2025\-34026
+Versa Concerto, added 2026\-01\-22.
+.PP
+Versa Concerto Improper Authentication Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Versa Concerto SD\-WAN orchestration platform contains an improper authentication vulnerability in the Traefik reverse proxy configuration, allowing at attacker to access administrative endpoints. The internal Actuator endpoint can be leveraged for access to heap dumps and trace logs.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-02\-12.
+.PP
+\fIReferences:\fR
+.br
+https://security\-portal.versa\-networks.com/emailbulletins/6830f94328defa375486ff2e
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-34026
+.SS CVE\-2025\-57819
+Sangoma FreePBX, added 2025\-08\-29.
+.PP
+Sangoma FreePBX Authentication Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Sangoma FreePBX contains an authentication bypass vulnerability due to insufficiently sanitized user\-supplied data allows unauthenticated access to FreePBX Administrator leading to arbitrary database manipulation and remote code execution.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-09\-19.
+.PP
+\fIReferences:\fR
+.br
+https://github.com/FreePBX/security\-reporting/security/advisories/GHSA\-m42g\-xg4c\-5f3h
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-57819
+.SS CVE\-2026\-1603
+Ivanti Endpoint Manager (EPM), added 2026\-03\-09.
+.PP
+Ivanti Endpoint Manager (EPM) Authentication Bypass Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Ivanti Endpoint Manager (EPM) contains an authentication bypass using an alternate path or channel vulnerability that could allow a remote unauthenticated attacker to leak specific stored credential data.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-03\-23.
+.PP
+\fIReferences:\fR
+.br
+https://hub.ivanti.com/s/article/Security\-Advisory\-EPM\-February\-2026\-for\-EPM\-2024?language=en_US
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-1603
+.SS CVE\-2026\-18556
+N\-able N\-central, added 2026\-08\-04.
+.PP
+N\-able N\-central Authentication Bypass Using an Alternate Path or Channel Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+N\-able N\-central contains an authentication bypass using an alternate path or channel that allows for authentication bypass.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-08\-07.
+.PP
+\fIReferences:\fR
+.br
+https://uptime.n\-able.com/
+.br
+https://status.n\-able.com/2026/08/02/n\-central\-2026\-3\-hotfix\-1\-mitigation\-for\-cve\-2026\-18577/
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-18556
+.SS CVE\-2026\-18577
+N\-able N\-central, added 2026\-08\-03.
+.PP
+N\-able N\-central Authentication Bypass Using an Alternate Path or Channel Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+N\-able N\-central contains an authentication bypass using an alternate path or channel allows for authentication bypass and account takeover in N\-central. This vulnerability is the result of an incomplete patch for CVE\-2026\-18556.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-08\-06.
+.PP
+\fIReferences:\fR
+.br
+https://documentation.n\-able.com/N\-central/Release_Notes/GA/Content/N\-central_2026.3_HF1_Release_Notes.htm
+.br
+https://status.n\-able.com/2026/08/02/n\-central\-2026\-3\-hotfix\-1\-mitigation\-for\-cve\-2026\-18577/
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-18577
+.SS CVE\-2026\-19490
+Citrix NetScaler, added 2026\-09\-09.
+.PP
+Citrix NetScaler Authentication Bypass Using an Alternate Path or Channel Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Citrix NetScaler ADC and NetScaler Gateway contain an authentication\-bypass vulnerability involving an alternate path or channel. When the NetScaler appliance is configured as an AAA virtual server or as a Gateway (SSL VPN, ICA Proxy, CVPN, or RDP Proxy), an unauthenticated remote threat actor may be able to bypass authentication.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-12.
+.PP
+\fIReferences:\fR
+.br
+https://support.citrix.com/external/article/CTX696939/netscaler\-adc\-and\-netscaler\-gateway\-secu.html
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-19490
+.SS CVE\-2026\-20079
+Cisco Secure Firewall Management Center (FMC) and Security Cloud Control (SCC) Firewall Management, added 2026\-09\-09.
+.PP
+Cisco Firewall Management Center Authentication Bypass Using an Alternate Path or Channel Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Cisco Secure Firewall Management Center (FMC) Software and Cisco Security Cloud Control (SCC) Firewall Management contain an authentication Bypass using an alternate path or channel vulnerability that could allow an unauthenticated, remote attacker to bypass authentication and execute script files on an affected device to obtain root access to the underlying operating system.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-12.
+.PP
+\fIReferences:\fR
+.br
+https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco\-sa\-onprem\-fmc\-authbypass\-5JPp45V2
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-20079
+.SS CVE\-2026\-23760
+SmarterTools SmarterMail, added 2026\-01\-26, ransomware: Known.
+.PP
+SmarterTools SmarterMail Authentication Bypass Using an Alternate Path or Channel Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+SmarterTools SmarterMail contains an authentication bypass using an alternate path or channel vulnerability in the password reset API. The force\-reset\-password endpoint permits anonymous requests and fails to verify the existing password or a reset token when resetting system administrator accounts. This could allow an unauthenticated attacker to supply a target administrator username and a new password to reset the account, resulting in full administrative compromise of the SmarterMail instance.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-02\-16.
+.PP
+\fIReferences:\fR
+.br
+https://www.smartertools.com/smartermail/release\-notes/current
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-23760
+.SS CVE\-2026\-24858
+Fortinet Multiple Products, added 2026\-01\-27.
+.PP
+Fortinet Multiple Products Authentication Bypass Using an Alternate Path or Channel Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Fortinet FortiAnalyzer, FortiManager, FortiOS, and FortiProxy contain an authentication bypass using an alternate path or channel that could allow an attacker with a FortiCloud account and a registered device to log into other devices registered to other accounts, if FortiCloud SSO authentication is enabled on those devices.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-01\-30.
+.PP
+\fIReferences:\fR
+.br
+https://fortiguard.fortinet.com/psirt/FG\-IR\-26\-060
+.br
+https://www.fortinet.com/blog/psirt\-blogs/analysis\-of\-sso\-abuse\-on\-fortios
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-24858
+.SS CVE\-2026\-116606
+Barracuda Networks Barracuda Email Security Gateway (ESG), added 2026\-11\-10.
+.PP
+Barracuda Networks Email Security Gateway (ESG) Authentication Bypass Using an Alternate Path or Channel Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Barracuda Networks Email Security Gateway (ESG) contains an authentication bypass using an alternate path or channel that could allow an unauthenticated remote attacker to invoke a configuration\-import function and restore a crafted, compatible backup archive, resulting in unauthorized modification of the appliance’s global configuration. This vulnerability can be chained with CVE\-2026\-111560.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-11\-13.
+.PP
+\fIReferences:\fR
+.br
+https://trust.barracuda.com/security/pre\-authentication\-authorization\-bypass\-command\-injection
+.br
+https://github.com/mandiant/Vulnerability\-Disclosures/blob/master/2026/MNDT\-2026\-0042.md
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-116606
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +421,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/288.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.

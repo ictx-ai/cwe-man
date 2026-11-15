@@ -59,15 +59,36 @@ def card(e):
     prev_chip = ("Not in Top 25" if appendix
                  else f"2024: {'NEW' if str(e['prev']).upper()=='NEW' else '#'+str(e['prev'])}")
     cls = "card appendix" if appendix else "card"
-    cves = KEV.get(int(num), [])
-    kev_chip = (f'<span class="chip kev">{len(cves)} KEV</span>' if cves else "")
-    if cves:
-        links = "".join(
-            f'<a href="https://nvd.nist.gov/vuln/detail/{c}" target="_blank" '
-            f'rel="noopener">{c}</a>' for c in cves)
-        kev_block = (f'<details class="kev"><summary>{len(cves)} known '
-                     f'exploited CVE{"s" if len(cves) != 1 else ""} '
-                     f'(CISA KEV)</summary><div class="cvelist">{links}</div>'
+    recs = KEV.get(int(num), [])
+    kev_chip = (f'<span class="chip kev">{len(recs)} KEV</span>' if recs else "")
+    if recs:
+        items = []
+        for r in recs:
+            cve = r["cveID"] if isinstance(r, dict) else r
+            if not isinstance(r, dict):
+                items.append(
+                    f'<a href="https://nvd.nist.gov/vuln/detail/{cve}" '
+                    f'target="_blank" rel="noopener">{cve}</a>')
+                continue
+            refs = "".join(
+                f'<a href="{_html.escape(u)}" target="_blank" rel="noopener">'
+                f'{_html.escape(u)}</a><br>' for u in (r.get("urls") or []))
+            nvd = f"https://nvd.nist.gov/vuln/detail/{cve}"
+            desc = _html.escape(r.get("description") or "")
+            act = _html.escape(r.get("action") or "")
+            meta = " ".join(x for x in (r.get("vendor"), r.get("product")) if x)
+            items.append(
+                f'<article class="kev-cve"><h5><a href="{nvd}" target="_blank" '
+                f'rel="noopener">{_html.escape(cve)}</a></h5>'
+                f'<p class="kev-meta">{_html.escape(meta)}'
+                f'{" · added " + _html.escape(r["dateAdded"]) if r.get("dateAdded") else ""}</p>'
+                f'<p><strong>How it is exploited (CISA).</strong> {desc}</p>'
+                f'<p><strong>Remediation.</strong> {act}</p>'
+                f'<p class="kev-refs">{refs}</p></article>')
+        kev_block = (f'<details class="kev" open><summary>{len(recs)} known '
+                     f'exploited CVE{"s" if len(recs) != 1 else ""} '
+                     f'(CISA KEV) — description, remediation, references'
+                     f'</summary><div class="cvelist">{"".join(items)}</div>'
                      f'</details>')
     else:
         kev_block = ('<div class="kev-none">No CISA KEV entries reference '

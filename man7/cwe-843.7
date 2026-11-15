@@ -1,5 +1,5 @@
 .\" Educational secure-coding reference. Generated, not hand-edited.
-.TH CWE-843 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE-843 7 "2026-11-15" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 CWE\-843 \- Access of Resource Using Incompatible Type ('Type Confusion')
 .SH RANK
@@ -9,9 +9,643 @@ Class: KEV\-referenced weakness.
 .SH DESCRIPTION
 The product allocates or initializes a resource such as a pointer, object, or variable using one type, but it later accesses that resource using a type that is incompatible with the original type. When the product accesses the resource using an incompatible type, this could trigger logical errors because the resource does not have expected properties. In languages without memory safety, such as C and C++, type confusion can lead to out\-of\-bounds memory access. While this weakness is frequently associated with unions when parsing data with many different embedded object types in C, it can be present in any application that can interpret the same variable or memory location in multiple ways. This weakness is not unique to C and C++. For example, errors in PHP applications can be triggered by providing array parameters when scalars are expected, or vice versa. Languages such as Perl, which perform automatic conversion of a variable of one type when it is accessed as if it were another type, can also contain these issues.
 .SH KNOWN EXPLOITED VULNERABILITIES
-CISA KEV catalog (as of 2026-11-14): \fB38\fR exploited CVEs mapped to this weakness.
+CISA KEV catalog (as of 2026-11-15): \fB38\fR exploited CVEs mapped to this weakness. Each entry has the catalog write\-up of how it was used in the wild (not a runnable exploit) and the required remediation. Code\-level vulnerable\->fixed pairs, when curated, are under \fBEXAMPLES\fR.
+.SS CVE\-2011\-0611
+Adobe Flash Player, added 2022\-03\-03.
 .PP
-CVE\-2011\-0611, CVE\-2017\-5070, CVE\-2017\-11292, CVE\-2018\-8298, CVE\-2019\-0752, CVE\-2019\-8506, CVE\-2019\-11707, CVE\-2019\-17026, CVE\-2020\-6418, CVE\-2020\-16009, CVE\-2020\-27932, CVE\-2021\-1789, CVE\-2021\-21224, CVE\-2021\-30551, CVE\-2021\-30563, CVE\-2021\-30869, CVE\-2022\-1096, CVE\-2022\-1364, CVE\-2022\-3723, CVE\-2022\-4262, CVE\-2022\-41033, CVE\-2022\-42856, CVE\-2023\-2033, CVE\-2023\-3079, CVE\-2023\-4762, CVE\-2023\-23529, CVE\-2023\-32439, CVE\-2024\-4947, CVE\-2024\-5274, CVE\-2024\-7971, CVE\-2024\-23222, CVE\-2024\-38178, CVE\-2025\-6554, CVE\-2025\-10585, CVE\-2025\-13223, CVE\-2025\-30397, CVE\-2026\-21519, CVE\-2026\-85046.
+Adobe Flash Player Remote Code Execution Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Adobe Flash Player contains a vulnerability that allows remote attackers to execute arbitrary code or cause a denial of service (application crash) via crafted Flash content.
+.PP
+\fIRemediation:\fR
+The impacted product is end\-of\-life and should be disconnected if still in use.
+ Due 2022\-03\-24.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2011\-0611
+.SS CVE\-2017\-5070
+Google Chromium V8, added 2022\-06\-08.
+.PP
+Google Chromium V8 Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium V8 Engine contains a type confusion vulnerability that allows a remote attacker to execute code inside a sandbox via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-22.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-5070
+.SS CVE\-2017\-11292
+Adobe Flash Player, added 2022\-03\-03.
+.PP
+Adobe Flash Player Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Adobe Flash Player contains a type confusion vulnerability which can allow for remote code execution.
+.PP
+\fIRemediation:\fR
+The impacted product is end\-of\-life and should be disconnected if still in use.
+ Due 2022\-03\-24.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2017\-11292
+.SS CVE\-2018\-8298
+ChakraCore ChakraCore scripting engine, added 2022\-03\-03.
+.PP
+ChakraCore Scripting Engine Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+The ChakraCore scripting engine contains a type confusion vulnerability which can allow for remote code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-03\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2018\-8298
+.SS CVE\-2019\-0752
+Microsoft Internet Explorer, added 2022\-02\-15, ransomware: Known.
+.PP
+Microsoft Internet Explorer Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A remote code execution vulnerability exists in the way that the scripting engine handles objects in memory in Internet Explorer
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-08\-15.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-0752
+.SS CVE\-2019\-8506
+Apple Multiple Products, added 2022\-05\-04.
+.PP
+Apple Multiple Products Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A type confusion issue affecting multiple Apple products allows processing of maliciously crafted web content, leading to arbitrary code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-25.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-8506
+.SS CVE\-2019\-11707
+Mozilla Firefox and Thunderbird, added 2022\-05\-23.
+.PP
+Mozilla Firefox and Thunderbird Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Mozilla Firefox and Thunderbird contain a type confusion vulnerability that can occur when manipulating JavaScript objects due to issues in Array.pop, allowing for an exploitable crash.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-06\-13.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-11707
+.SS CVE\-2019\-17026
+Mozilla Firefox and Thunderbird, added 2021\-11\-03.
+.PP
+Mozilla Firefox And Thunderbird Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Mozilla Firefox and Thunderbird contain a type confusion vulnerability due to incorrect alias information in the IonMonkey JIT compiler when setting array elements.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2019\-17026
+.SS CVE\-2020\-6418
+Google Chromium V8, added 2021\-11\-03.
+.PP
+Google Chromium V8 Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium V8 Engine contains a type confusion vulnerability allows a remote attacker to potentially exploit heap corruption via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-6418
+.SS CVE\-2020\-16009
+Google Chromium V8, added 2021\-11\-03.
+.PP
+Google Chromium V8 Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium V8 Engine contains a type confusion vulnerability that allows a remote attacker to potentially exploit heap corruption via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-16009
+.SS CVE\-2020\-27932
+Apple Multiple Products, added 2021\-11\-03.
+.PP
+Apple Multiple Products Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apple iOS, iPadOS, macOS, and watchOS contain a type confusion vulnerability that may allow a malicious application to execute code with kernel privileges.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-03.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2020\-27932
+.SS CVE\-2021\-1789
+Apple Multiple Products, added 2022\-05\-04.
+.PP
+Apple Multiple Products Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+A type confusion issue affecting multiple Apple products allows processing of maliciously crafted web content, leading to arbitrary code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-25.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-1789
+.SS CVE\-2021\-21224
+Google Chromium V8, added 2021\-11\-03.
+.PP
+Google Chromium V8 Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium V8 Engine contains a type confusion vulnerability that allows a remote attacker to execute code inside a sandbox via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-21224
+.SS CVE\-2021\-30551
+Google Chromium V8, added 2021\-11\-03.
+.PP
+Google Chromium V8 Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium V8 Engine contains a type confusion vulnerability that allows a remote attacker to potentially exploit heap corruption via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-30551
+.SS CVE\-2021\-30563
+Google Chromium V8, added 2021\-11\-03.
+.PP
+Google Chromium V8 Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium V8 Engine contains a type confusion vulnerability that allows a remote attacker to potentially exploit heap corruption via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-30563
+.SS CVE\-2021\-30869
+Apple iOS, iPadOS, and macOS, added 2021\-11\-03.
+.PP
+Apple iOS, iPadOS, and macOS Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apple iOS, iPadOS, and macOS contain a type confusion vulnerability in the XNU which may allow a malicious application to execute code with kernel privileges.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2021\-11\-17.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2021\-30869
+.SS CVE\-2022\-1096
+Google Chromium V8, added 2022\-03\-28.
+.PP
+Google Chromium V8 Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium V8 Engine contains a type confusion vulnerability that allows a remote attacker to potentially exploit heap corruption via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-04\-18.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-1096
+.SS CVE\-2022\-1364
+Google Chromium V8, added 2022\-04\-15.
+.PP
+Google Chromium V8 Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium V8 Engine contains a type confusion vulnerability that allows a remote attacker to potentially exploit heap corruption via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-05\-06.
+.PP
+\fIReferences:\fR
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-1364
+.SS CVE\-2022\-3723
+Google Chromium V8, added 2022\-10\-28.
+.PP
+Google Chromium V8 Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium V8 Engine contains a type confusion vulnerability that allows a remote attacker to potentially exploit heap corruption via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-11\-18.
+.PP
+\fIReferences:\fR
+.br
+https://chromereleases.googleblog.com/2022/10/stable\-channel\-update\-for\-desktop_27.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-3723
+.SS CVE\-2022\-4262
+Google Chromium V8, added 2022\-12\-05.
+.PP
+Google Chromium V8 Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium V8 Engine contains a type confusion vulnerability that allows a remote attacker to potentially exploit heap corruption via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-12\-26.
+.PP
+\fIReferences:\fR
+.br
+https://chromereleases.googleblog.com/2022/12/stable\-channel\-update\-for\-desktop.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-4262
+.SS CVE\-2022\-41033
+Microsoft Windows COM+ Event System Service, added 2022\-10\-11.
+.PP
+Microsoft Windows COM+ Event System Service Privilege Escalation Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows COM+ Event System Service contains an unspecified vulnerability that allows for privilege escalation.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2022\-11\-01.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2022\-41033
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-41033
+.SS CVE\-2022\-42856
+Apple iOS, added 2022\-12\-14.
+.PP
+Apple iOS Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apple iOS contains a type confusion vulnerability when processing maliciously crafted web content leading to code execution.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-01\-04.
+.PP
+\fIReferences:\fR
+.br
+https://support.apple.com/en\-us/HT213516
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2022\-42856
+.SS CVE\-2023\-2033
+Google Chromium V8, added 2023\-04\-17.
+.PP
+Google Chromium V8 Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium V8 Engine contains a type confusion vulnerability that allows a remote attacker to potentially exploit heap corruption via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-05\-08.
+.PP
+\fIReferences:\fR
+.br
+https://chromereleases.googleblog.com/2023/04/stable\-channel\-update\-for\-desktop_14.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-2033
+.SS CVE\-2023\-3079
+Google Chromium V8, added 2023\-06\-07.
+.PP
+Google Chromium V8 Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium V8 Engine contains a type confusion vulnerability that allows a remote attacker to potentially exploit heap corruption via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-06\-28.
+.PP
+\fIReferences:\fR
+.br
+https://chromereleases.googleblog.com/2023/06/stable\-channel\-update\-for\-desktop.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-3079
+.SS CVE\-2023\-4762
+Google Chromium V8, added 2024\-02\-06.
+.PP
+Google Chromium V8 Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium V8 contains a type confusion vulnerability that allows a remote attacker to execute code via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-02\-27.
+.PP
+\fIReferences:\fR
+.br
+https://chromereleases.googleblog.com/2023/09/stable\-channel\-update\-for\-desktop.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-4762
+.SS CVE\-2023\-23529
+Apple Multiple Products, added 2023\-02\-14.
+.PP
+Apple Multiple Products WebKit Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apple iOS, MacOS, Safari and iPadOS WebKit contain a type confusion vulnerability that leads to code execution when processing maliciously crafted web content. This vulnerability could impact HTML parsers that use WebKit, including but not limited to Apple Safari and non\-Apple products which rely on WebKit for HTML processing.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-03\-07.
+.PP
+\fIReferences:\fR
+.br
+https://support.apple.com/en\-us/HT213635
+.br
+https://support.apple.com/en\-us/HT213633
+.br
+https://support.apple.com/en\-us/HT213638
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-23529
+.SS CVE\-2023\-32439
+Apple Multiple Products, added 2023\-06\-23.
+.PP
+Apple Multiple Products WebKit Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apple iOS, iPadOS, macOS, and Safari WebKit contain a type confusion vulnerability that leads to code execution when processing maliciously crafted web content. This vulnerability could impact HTML parsers that use WebKit, including but not limited to Apple Safari and non\-Apple products which rely on WebKit for HTML processing.
+.PP
+\fIRemediation:\fR
+Apply updates per vendor instructions.
+ Due 2023\-07\-14.
+.PP
+\fIReferences:\fR
+.br
+https://support.apple.com/en\-us/HT213813
+.br
+https://support.apple.com/en\-us/HT213811
+.br
+https://support.apple.com/en\-us/HT213814
+.br
+https://support.apple.com/en\-us/HT213816
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2023\-32439
+.SS CVE\-2024\-4947
+Google Chromium V8, added 2024\-05\-20.
+.PP
+Google Chromium V8 Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium V8 contains a type confusion vulnerability that allows a remote attacker to execute code via a crafted HTML page.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-06\-10.
+.PP
+\fIReferences:\fR
+.br
+https://chromereleases.googleblog.com/2024/05/stable\-channel\-update\-for\-desktop_15.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-4947
+.SS CVE\-2024\-5274
+Google Chromium V8, added 2024\-05\-28.
+.PP
+Google Chromium V8 Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium V8 contains a type confusion vulnerability that allows a remote attacker to execute code via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-06\-18.
+.PP
+\fIReferences:\fR
+.br
+https://chromereleases.googleblog.com/2024/05/stable\-channel\-update\-for\-desktop_23.html?m=1
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-5274
+.SS CVE\-2024\-7971
+Google Chromium V8, added 2024\-08\-26.
+.PP
+Google Chromium V8 Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium V8 contains a type confusion vulnerability that allows a remote attacker to exploit heap corruption via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-09\-16.
+.PP
+\fIReferences:\fR
+.br
+https://chromereleases.googleblog.com/2024/08/stable\-channel\-update\-for\-desktop_21.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-7971
+.SS CVE\-2024\-23222
+Apple Multiple Products, added 2024\-01\-23.
+.PP
+Apple Multiple Products WebKit Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Apple iOS, iPadOS, macOS, tvOS, and Safari WebKit contain a type confusion vulnerability that leads to code execution when processing maliciously crafted web content. This vulnerability could impact HTML parsers that use WebKit, including but not limited to Apple Safari and non\-Apple products which rely on WebKit for HTML processing.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-02\-13.
+.PP
+\fIReferences:\fR
+.br
+https://support.apple.com/en\-us/HT214055
+.br
+https://support.apple.com/en\-us/HT214056
+.br
+https://support.apple.com/en\-us/HT214057
+.br
+https://support.apple.com/en\-us/HT214058
+.br
+https://support.apple.com/en\-us/HT214059
+.br
+https://support.apple.com/en\-us/HT214061
+.br
+https://support.apple.com/en\-us/HT214063
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-23222
+.SS CVE\-2024\-38178
+Microsoft Windows, added 2024\-08\-13.
+.PP
+Microsoft Windows Scripting Engine Memory Corruption Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Scripting Engine contains a memory corruption vulnerability that allows unauthenticated attacker to initiate remote code execution via a specially crafted URL.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2024\-09\-03.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2024\-38178
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2024\-38178
+.SS CVE\-2025\-6554
+Google Chromium V8, added 2025\-07\-02.
+.PP
+Google Chromium V8 Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium V8 contains a type confusion vulnerability that could allow a remote attacker to perform arbitrary read/write via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-07\-23.
+.PP
+\fIReferences:\fR
+.br
+https://chromereleases.googleblog.com/2025/06/stable\-channel\-update\-for\-desktop_30.html?m=1
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-6554
+.SS CVE\-2025\-10585
+Google Chromium V8, added 2025\-09\-23.
+.PP
+Google Chromium V8 Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium contains a type confusion vulnerability in the V8 JavaScript and WebAssembly engine.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-10\-14.
+.PP
+\fIReferences:\fR
+.br
+https://chromereleases.googleblog.com/2025/09/stable\-channel\-update\-for\-desktop_17.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-10585
+.SS CVE\-2025\-13223
+Google Chromium V8, added 2025\-11\-19.
+.PP
+Google Chromium V8 Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium V8 contains a type confusion vulnerability that allows for heap corruption.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-12\-10.
+.PP
+\fIReferences:\fR
+.br
+https://chromereleases.googleblog.com/2025/11/stable\-channel\-update\-for\-desktop_17.html
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-13223
+.SS CVE\-2025\-30397
+Microsoft Windows, added 2025\-05\-13.
+.PP
+Microsoft Windows Scripting Engine Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Windows Scripting Engine contains a type confusion vulnerability that allows an unauthorized attacker to execute code over a network via a specially crafted URL.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2025\-06\-03.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/en\-US/vulnerability/CVE\-2025\-30397
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2025\-30397
+.SS CVE\-2026\-21519
+Microsoft Windows, added 2026\-02\-10.
+.PP
+Microsoft Windows Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Microsoft Desktop Windows Manager contains a type confusion vulnerability that could allow an authorized attacker to elevate privileges locally.
+.PP
+\fIRemediation:\fR
+Apply mitigations per vendor instructions, or discontinue use.
+ Due 2026\-03\-03.
+.PP
+\fIReferences:\fR
+.br
+https://msrc.microsoft.com/update\-guide/vulnerability/CVE\-2026\-21519
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-21519
+.SS CVE\-2026\-85046
+Google Chromium V8, added 2026\-09\-04.
+.PP
+Google Chromium V8 Type Confusion Vulnerability.
+.PP
+\fIHow it is exploited (CISA):\fR
+Google Chromium V8 contains a type confusion vulnerability that allows a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.
+.PP
+\fIRemediation:\fR
+Apply vendor mitigations; follow CISA BOD 26\-04 (risk\-based patching) and forensics triage. Discontinue use if no mitigation exists.
+ Due 2026\-09\-18.
+.PP
+\fIReferences:\fR
+.br
+https://chromereleases.googleblog.com/2026/09/stable\-channel\-update\-for\-desktop_01882797386.html
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-prioritizing\-security\-updates\-based\-risk
+.br
+https://www.cisa.gov/news\-events/directives/bod\-26\-04\-implementation\-guidance\-prioritizing\-security\-updates\-based\-risk
+.br
+https://nvd.nist.gov/vuln/detail/CVE\-2026\-85046
 .SH EXAMPLES
 No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
 .SH SEE ALSO
@@ -21,4 +655,4 @@ Authoritative definition: https://cwe.mitre.org/data/definitions/843.html
 .SH NOTES
 Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
 .PP
-Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.
+Generated 2026\-11\-15 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-15.
