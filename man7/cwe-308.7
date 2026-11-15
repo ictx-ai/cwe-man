@@ -1,0 +1,24 @@
+.\" Educational secure-coding reference. Generated, not hand-edited.
+.TH CWE-308 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.SH NAME
+CWE\-308 \- Use of Single\-factor Authentication
+.SH RANK
+KEV\-referenced weakness. Not part of the 2025 CWE Top 25; documented here because it appears in the CISA KEV catalog.
+.SH CLASSIFICATION
+Class: KEV\-referenced weakness.
+.SH DESCRIPTION
+The use of single\-factor authentication can lead to unnecessary risk of compromise when compared with the benefits of a dual\-factor authentication scheme. While the use of multiple authentication schemes is simply piling on more complexity on top of authentication, it is inestimably valuable to have such measures of redundancy. The use of weak, reused, and common passwords is rampant on the internet. Without the added protection of multiple authentication schemes, a single mistake can result in the compromise of an account. For this reason, if multiple schemes are possible and also easy to use, they should be implemented and required.
+.SH KNOWN EXPLOITED VULNERABILITIES
+CISA KEV catalog (as of 2026-11-14): \fB1\fR exploited CVE mapped to this weakness.
+.PP
+CVE\-2026\-19868.
+.SH EXAMPLES
+No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
+.SH SEE ALSO
+\fBcwe\fR(7) (index).
+.PP
+Authoritative definition: https://cwe.mitre.org/data/definitions/308.html
+.SH NOTES
+Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
+.PP
+Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.

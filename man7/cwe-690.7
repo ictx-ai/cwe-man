@@ -1,0 +1,24 @@
+.\" Educational secure-coding reference. Generated, not hand-edited.
+.TH CWE-690 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.SH NAME
+CWE\-690 \- Unchecked Return Value to NULL Pointer Dereference
+.SH RANK
+KEV\-referenced weakness. Not part of the 2025 CWE Top 25; documented here because it appears in the CISA KEV catalog.
+.SH CLASSIFICATION
+Class: KEV\-referenced weakness.
+.SH DESCRIPTION
+The product does not check for an error after calling a function that can return with a NULL pointer if the function fails, which leads to a resultant NULL pointer dereference. While unchecked return value weaknesses are not limited to returns of NULL pointers (see the examples in CWE\-252), functions often return NULL to indicate an error status. When this error condition is not checked, a NULL pointer dereference can occur.
+.SH KNOWN EXPLOITED VULNERABILITIES
+CISA KEV catalog (as of 2026-11-14): \fB1\fR exploited CVE mapped to this weakness.
+.PP
+CVE\-2026\-76418.
+.SH EXAMPLES
+No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
+.SH SEE ALSO
+\fBcwe\fR(7) (index).
+.PP
+Authoritative definition: https://cwe.mitre.org/data/definitions/690.html
+.SH NOTES
+Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
+.PP
+Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.

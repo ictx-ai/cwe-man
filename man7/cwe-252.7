@@ -1,0 +1,24 @@
+.\" Educational secure-coding reference. Generated, not hand-edited.
+.TH CWE-252 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
+.SH NAME
+CWE\-252 \- Unchecked Return Value
+.SH RANK
+KEV\-referenced weakness. Not part of the 2025 CWE Top 25; documented here because it appears in the CISA KEV catalog.
+.SH CLASSIFICATION
+Class: KEV\-referenced weakness.
+.SH DESCRIPTION
+The product does not check the return value from a method or function, which can prevent it from detecting unexpected states and conditions. Two common programmer assumptions are this function call can never fail and it doesn't matter if this function call fails. If an attacker can force the function to fail or otherwise return a value that is not expected, then the subsequent program logic could lead to a vulnerability, because the product is not in a state that the programmer assumes. For example, if the program calls a function to drop privileges but does not check the return code to ensure that privileges were successfully dropped, then the program will continue to operate with the higher privileges.
+.SH KNOWN EXPLOITED VULNERABILITIES
+CISA KEV catalog (as of 2026-11-14): \fB1\fR exploited CVE mapped to this weakness.
+.PP
+CVE\-2026\-111497.
+.SH EXAMPLES
+No per\-language examples yet for this weakness. See the authoritative MITRE definition below, or contribute a vulnerable\->fixed pair to \fBcwe_data.py\fR.
+.SH SEE ALSO
+\fBcwe\fR(7) (index).
+.PP
+Authoritative definition: https://cwe.mitre.org/data/definitions/252.html
+.SH NOTES
+Defensive reference material. Each vulnerable snippet shows a pattern to recognize and avoid; the fixed snippet shows the recommended approach.
+.PP
+Generated 2026\-11\-14 from CWE Top 25 (2025). CISA KEV data as of 2026\-11\-14.

@@ -1,9 +1,9 @@
 '\" t
-.TH CWE 7 "2026-10-08" "CWE Top 25 (2025)" "Software Weakness Reference"
+.TH CWE 7 "2026-11-14" "CWE Top 25 (2025)" "Software Weakness Reference"
 .SH NAME
 cwe \- index of KEV\-referenced Common Weakness Enumerations
 .SH DESCRIPTION
-This manual set documents the 2025 CWE Top 25 (published by MITRE/CISA on December 11, 2025) together with every other CWE that appears in the CISA Known Exploited Vulnerabilities (KEV) catalog. 190 weaknesses are documented in total.
+This manual set documents the 2025 CWE Top 25 (published by MITRE/CISA on December 11, 2025) together with every other CWE that appears in the CISA Known Exploited Vulnerabilities (KEV) catalog. 203 weaknesses are documented in total.
 .PP
 26 pages are hand\-curated with a description, mitigation and a vulnerable\->fixed code example per ecosystem (Node.js, Python, Java, Go, PHP; C/C++ for the memory\-safety classes). The remainder are KEV stubs: MITRE name and description plus the list of exploited CVEs, pending curated examples.
 .PP
@@ -16,37 +16,37 @@ _
 1	CWE\-79	33	T{
 Improper Neutralization of Input During Web Page Generation (Cross\-site Scripting)
 T}
-2	CWE\-89	32	T{
+2	CWE\-89	33	T{
 Improper Neutralization of Special Elements used in an SQL Command (SQL Injection)
 T}
 3	CWE\-352	6	T{
 Cross\-Site Request Forgery (CSRF)
 T}
-4	CWE\-862	12	T{
+4	CWE\-862	14	T{
 Missing Authorization
 T}
-5	CWE\-787	105	T{
+5	CWE\-787	106	T{
 Out\-of\-bounds Write
 T}
-6	CWE\-22	81	T{
+6	CWE\-22	82	T{
 Improper Limitation of a Pathname to a Restricted Directory (Path Traversal)
 T}
-7	CWE\-416	93	T{
+7	CWE\-416	96	T{
 Use After Free
 T}
 8	CWE\-125	17	T{
 Out\-of\-bounds Read
 T}
-9	CWE\-78	110	T{
+9	CWE\-78	115	T{
 Improper Neutralization of Special Elements used in an OS Command (OS Command Injection)
 T}
-10	CWE\-94	71	T{
+10	CWE\-94	72	T{
 Improper Control of Generation of Code (Code Injection)
 T}
 11	CWE\-120	12	T{
 Buffer Copy without Checking Size of Input (Classic Buffer Overflow)
 T}
-12	CWE\-434	23	T{
+12	CWE\-434	24	T{
 Unrestricted Upload of File with Dangerous Type
 T}
 13	CWE\-476	1	T{
@@ -61,7 +61,7 @@ T}
 16	CWE\-122	33	T{
 Heap\-based Buffer Overflow
 T}
-17	CWE\-863	18	T{
+17	CWE\-863	19	T{
 Incorrect Authorization
 T}
 18	CWE\-20	119	T{
@@ -73,13 +73,13 @@ T}
 20	CWE\-200	25	T{
 Exposure of Sensitive Information to an Unauthorized Actor
 T}
-21	CWE\-306	42	T{
+21	CWE\-306	43	T{
 Missing Authentication for Critical Function
 T}
-22	CWE\-918	22	T{
+22	CWE\-918	24	T{
 Server\-Side Request Forgery (SSRF)
 T}
-23	CWE\-77	31	T{
+23	CWE\-77	34	T{
 Improper Neutralization of Special Elements used in a Command (Command Injection)
 T}
 24	CWE\-639	1	T{
@@ -94,7 +94,7 @@ T}
 \(em	CWE\-19	3	T{
 Data Processing Errors
 T}
-\(em	CWE\-23	9	T{
+\(em	CWE\-23	10	T{
 Relative Path Traversal
 T}
 \(em	CWE\-25	2	T{
@@ -127,7 +127,7 @@ T}
 \(em	CWE\-61	1	T{
 UNIX Symbolic Link (Symlink) Following
 T}
-\(em	CWE\-73	5	T{
+\(em	CWE\-73	6	T{
 External Control of File Name or Path
 T}
 \(em	CWE\-74	12	T{
@@ -135,6 +135,9 @@ Improper Neutralization of Special Elements in Output Used by a Downstream Compo
 T}
 \(em	CWE\-80	3	T{
 Improper Neutralization of Script\-Related HTML Tags in a Web Page (Basic XSS)
+T}
+\(em	CWE\-84	1	T{
+Improper Neutralization of Encoded URI Schemes in a Web Page
 T}
 \(em	CWE\-88	5	T{
 Improper Neutralization of Argument Delimiters in a Command ('Argument Injection')
@@ -181,6 +184,9 @@ T}
 \(em	CWE\-138	7	T{
 Improper Neutralization of Special Elements
 T}
+\(em	CWE\-140	1	T{
+Improper Neutralization of Delimiters
+T}
 \(em	CWE\-158	4	T{
 Improper Neutralization of Null Byte or NUL Character
 T}
@@ -196,7 +202,7 @@ T}
 \(em	CWE\-189	6	T{
 Numeric Errors
 T}
-\(em	CWE\-190	16	T{
+\(em	CWE\-190	17	T{
 Integer Overflow or Wraparound
 T}
 \(em	CWE\-191	2	T{
@@ -219,6 +225,9 @@ Improper Clearing of Heap Memory Before Release ('Heap Inspection')
 T}
 \(em	CWE\-250	3	T{
 Execution with Unnecessary Privileges
+T}
+\(em	CWE\-252	1	T{
+Unchecked Return Value
 T}
 \(em	CWE\-254	1	T{
 7PK \- Security Features
@@ -265,13 +274,13 @@ T}
 \(em	CWE\-285	3	T{
 Improper Authorization
 T}
-\(em	CWE\-287	47	T{
+\(em	CWE\-287	50	T{
 Improper Authentication
 T}
-\(em	CWE\-288	21	T{
+\(em	CWE\-288	22	T{
 Authentication Bypass Using an Alternate Path or Channel
 T}
-\(em	CWE\-290	5	T{
+\(em	CWE\-290	8	T{
 Authentication Bypass by Spoofing
 T}
 \(em	CWE\-294	1	T{
@@ -285,6 +294,9 @@ Incorrect Implementation of Authentication Algorithm
 T}
 \(em	CWE\-305	2	T{
 Authentication Bypass by Primary Weakness
+T}
+\(em	CWE\-308	1	T{
+Use of Single\-factor Authentication
 T}
 \(em	CWE\-310	1	T{
 Cryptographic Issues
@@ -307,7 +319,13 @@ T}
 \(em	CWE\-330	1	T{
 Use of Insufficiently Random Values
 T}
-\(em	CWE\-346	1	T{
+\(em	CWE\-340	1	T{
+Generation of Predictable Numbers or Identifiers
+T}
+\(em	CWE\-345	1	T{
+Insufficient Verification of Data Authenticity
+T}
+\(em	CWE\-346	2	T{
 Origin Validation Error
 T}
 \(em	CWE\-347	6	T{
@@ -319,6 +337,9 @@ T}
 \(em	CWE\-353	1	T{
 Missing Support for Integrity Check
 T}
+\(em	CWE\-356	1	T{
+Product UI does not Warn User of Unsafe Actions
+T}
 \(em	CWE\-357	1	T{
 Insufficient UI Warning of Dangerous Operations
 T}
@@ -328,7 +349,7 @@ T}
 \(em	CWE\-362	12	T{
 Concurrent Execution using Shared Resource with Improper Synchronization ('Race Condition')
 T}
-\(em	CWE\-367	5	T{
+\(em	CWE\-367	6	T{
 Time\-of\-check Time\-of\-use (TOCTOU) Race Condition
 T}
 \(em	CWE\-384	1	T{
@@ -339,6 +360,9 @@ T}
 T}
 \(em	CWE\-390	1	T{
 Detection of Error Condition Without Action
+T}
+\(em	CWE\-394	1	T{
+Unexpected Status Code or Return Value
 T}
 \(em	CWE\-399	18	T{
 Resource Management Errors
@@ -370,7 +394,7 @@ T}
 \(em	CWE\-426	2	T{
 Untrusted Search Path
 T}
-\(em	CWE\-427	2	T{
+\(em	CWE\-427	3	T{
 Uncontrolled Search Path Element
 T}
 \(em	CWE\-436	2	T{
@@ -384,6 +408,9 @@ Inconsistent Interpretation of HTTP Requests ('HTTP Request/Response Smuggling')
 T}
 \(em	CWE\-451	2	T{
 User Interface (UI) Misrepresentation of Critical Information
+T}
+\(em	CWE\-456	1	T{
+Missing Initialization of a Variable
 T}
 \(em	CWE\-472	1	T{
 External Control of Assumed\-Immutable Web Parameter
@@ -412,7 +439,7 @@ T}
 \(em	CWE\-532	2	T{
 Insertion of Sensitive Information into Log File
 T}
-\(em	CWE\-552	3	T{
+\(em	CWE\-552	4	T{
 Files or Directories Accessible to External Parties
 T}
 \(em	CWE\-565	1	T{
@@ -427,7 +454,7 @@ T}
 \(em	CWE\-610	2	T{
 Externally Controlled Reference to a Resource in Another Sphere
 T}
-\(em	CWE\-611	8	T{
+\(em	CWE\-611	9	T{
 Improper Restriction of XML External Entity Reference
 T}
 \(em	CWE\-641	1	T{
@@ -457,8 +484,11 @@ T}
 \(em	CWE\-668	1	T{
 Exposure of Resource to Wrong Sphere
 T}
-\(em	CWE\-669	1	T{
+\(em	CWE\-669	2	T{
 Incorrect Resource Transfer Between Spheres
+T}
+\(em	CWE\-690	1	T{
+Unchecked Return Value to NULL Pointer Dereference
 T}
 \(em	CWE\-693	11	T{
 Protection Mechanism Failure
@@ -478,20 +508,23 @@ T}
 \(em	CWE\-707	2	T{
 Improper Neutralization
 T}
-\(em	CWE\-732	2	T{
+\(em	CWE\-732	3	T{
 Incorrect Permission Assignment for Critical Resource
 T}
-\(em	CWE\-749	2	T{
+\(em	CWE\-749	3	T{
 Exposed Dangerous Method or Function
 T}
 \(em	CWE\-754	4	T{
 Improper Check for Unusual or Exceptional Conditions
 T}
-\(em	CWE\-755	3	T{
+\(em	CWE\-755	5	T{
 Improper Handling of Exceptional Conditions
 T}
 \(em	CWE\-772	1	T{
 Missing Release of Resource after Effective Lifetime
+T}
+\(em	CWE\-778	1	T{
+Insufficient Logging
 T}
 \(em	CWE\-782	1	T{
 Exposed IOCTL with Insufficient Access Control
@@ -517,7 +550,7 @@ T}
 \(em	CWE\-823	2	T{
 Use of Out\-of\-range Pointer Offset
 T}
-\(em	CWE\-824	1	T{
+\(em	CWE\-824	3	T{
 Access of Uninitialized Pointer
 T}
 \(em	CWE\-829	2	T{
@@ -571,6 +604,9 @@ T}
 \(em	CWE\-1321	1	T{
 Improperly Controlled Modification of Object Prototype Attributes ('Prototype Pollution')
 T}
+\(em	CWE\-1325	2	T{
+Improperly Controlled Sequential Memory Allocation
+T}
 \(em	CWE\-1336	3	T{
 Improper Neutralization of Special Elements Used in a Template Engine
 T}
@@ -583,12 +619,15 @@ T}
 \(em	CWE\-1393	1	T{
 Use of Default Password
 T}
+\(em	CWE\-1419	2	T{
+Incorrect Initialization of Resource
+T}
 .TE
 .PP
 Rank \(em marks weaknesses outside the official Top 25 (appendix or KEV\-only).
 .SH SEE ALSO
-cwe\-79(7), cwe\-89(7), cwe\-352(7), cwe\-862(7), cwe\-787(7), cwe\-22(7), cwe\-416(7), cwe\-125(7), cwe\-78(7), cwe\-94(7), cwe\-120(7), cwe\-434(7), cwe\-476(7), cwe\-121(7), cwe\-502(7), cwe\-122(7), cwe\-863(7), cwe\-20(7), cwe\-284(7), cwe\-200(7), cwe\-306(7), cwe\-918(7), cwe\-77(7), cwe\-639(7), cwe\-770(7), cwe\-470(7), cwe\-19(7), cwe\-23(7), cwe\-25(7), cwe\-27(7), cwe\-35(7), cwe\-36(7), cwe\-39(7), cwe\-40(7), cwe\-44(7), cwe\-55(7), cwe\-59(7), cwe\-61(7), cwe\-73(7), cwe\-74(7), cwe\-80(7), cwe\-88(7), cwe\-91(7), cwe\-93(7), cwe\-95(7), cwe\-96(7), cwe\-98(7), cwe\-114(7), cwe\-116(7), cwe\-119(7), cwe\-123(7), cwe\-124(7), cwe\-130(7), cwe\-131(7), cwe\-134(7), cwe\-138(7), cwe\-158(7), cwe\-177(7), cwe\-178(7), cwe\-184(7), cwe\-189(7), cwe\-190(7), cwe\-191(7), cwe\-193(7), cwe\-197(7), cwe\-203(7), cwe\-209(7), cwe\-244(7), cwe\-250(7), cwe\-254(7), cwe\-255(7), cwe\-257(7), cwe\-259(7), cwe\-264(7), cwe\-266(7), cwe\-267(7), cwe\-269(7), cwe\-273(7), cwe\-274(7), cwe\-276(7), cwe\-280(7), cwe\-281(7), cwe\-282(7), cwe\-285(7), cwe\-287(7), cwe\-288(7), cwe\-290(7), cwe\-294(7), cwe\-295(7), cwe\-303(7), cwe\-305(7), cwe\-310(7), cwe\-311(7), cwe\-312(7), cwe\-321(7), cwe\-324(7), cwe\-326(7), cwe\-330(7), cwe\-346(7), cwe\-347(7), cwe\-351(7), cwe\-353(7), cwe\-357(7), cwe\-358(7), cwe\-362(7), cwe\-367(7), cwe\-384(7), cwe\-388(7), cwe\-390(7), cwe\-399(7), cwe\-400(7), cwe\-401(7), cwe\-404(7), cwe\-406(7), cwe\-415(7), cwe\-420(7), cwe\-424(7), cwe\-425(7), cwe\-426(7), cwe\-427(7), cwe\-436(7), cwe\-441(7), cwe\-444(7), cwe\-451(7), cwe\-472(7), cwe\-473(7), cwe\-494(7), cwe\-497(7), cwe\-506(7), cwe\-521(7), cwe\-522(7), cwe\-528(7), cwe\-532(7), cwe\-552(7), cwe\-565(7), cwe\-591(7), cwe\-601(7), cwe\-610(7), cwe\-611(7), cwe\-641(7), cwe\-645(7), cwe\-647(7), cwe\-648(7), cwe\-653(7), cwe\-664(7), cwe\-665(7), cwe\-667(7), cwe\-668(7), cwe\-669(7), cwe\-693(7), cwe\-697(7), cwe\-703(7), cwe\-704(7), cwe\-706(7), cwe\-707(7), cwe\-732(7), cwe\-749(7), cwe\-754(7), cwe\-755(7), cwe\-772(7), cwe\-782(7), cwe\-783(7), cwe\-785(7), cwe\-790(7), cwe\-798(7), cwe\-807(7), cwe\-822(7), cwe\-823(7), cwe\-824(7), cwe\-829(7), cwe\-835(7), cwe\-841(7), cwe\-843(7), cwe\-908(7), cwe\-912(7), cwe\-913(7), cwe\-917(7), cwe\-923(7), cwe\-940(7), cwe\-1023(7), cwe\-1173(7), cwe\-1188(7), cwe\-1220(7), cwe\-1285(7), cwe\-1287(7), cwe\-1321(7), cwe\-1336(7), cwe\-1386(7), cwe\-1390(7), cwe\-1393(7).
+cwe\-79(7), cwe\-89(7), cwe\-352(7), cwe\-862(7), cwe\-787(7), cwe\-22(7), cwe\-416(7), cwe\-125(7), cwe\-78(7), cwe\-94(7), cwe\-120(7), cwe\-434(7), cwe\-476(7), cwe\-121(7), cwe\-502(7), cwe\-122(7), cwe\-863(7), cwe\-20(7), cwe\-284(7), cwe\-200(7), cwe\-306(7), cwe\-918(7), cwe\-77(7), cwe\-639(7), cwe\-770(7), cwe\-470(7), cwe\-19(7), cwe\-23(7), cwe\-25(7), cwe\-27(7), cwe\-35(7), cwe\-36(7), cwe\-39(7), cwe\-40(7), cwe\-44(7), cwe\-55(7), cwe\-59(7), cwe\-61(7), cwe\-73(7), cwe\-74(7), cwe\-80(7), cwe\-84(7), cwe\-88(7), cwe\-91(7), cwe\-93(7), cwe\-95(7), cwe\-96(7), cwe\-98(7), cwe\-114(7), cwe\-116(7), cwe\-119(7), cwe\-123(7), cwe\-124(7), cwe\-130(7), cwe\-131(7), cwe\-134(7), cwe\-138(7), cwe\-140(7), cwe\-158(7), cwe\-177(7), cwe\-178(7), cwe\-184(7), cwe\-189(7), cwe\-190(7), cwe\-191(7), cwe\-193(7), cwe\-197(7), cwe\-203(7), cwe\-209(7), cwe\-244(7), cwe\-250(7), cwe\-252(7), cwe\-254(7), cwe\-255(7), cwe\-257(7), cwe\-259(7), cwe\-264(7), cwe\-266(7), cwe\-267(7), cwe\-269(7), cwe\-273(7), cwe\-274(7), cwe\-276(7), cwe\-280(7), cwe\-281(7), cwe\-282(7), cwe\-285(7), cwe\-287(7), cwe\-288(7), cwe\-290(7), cwe\-294(7), cwe\-295(7), cwe\-303(7), cwe\-305(7), cwe\-308(7), cwe\-310(7), cwe\-311(7), cwe\-312(7), cwe\-321(7), cwe\-324(7), cwe\-326(7), cwe\-330(7), cwe\-340(7), cwe\-345(7), cwe\-346(7), cwe\-347(7), cwe\-351(7), cwe\-353(7), cwe\-356(7), cwe\-357(7), cwe\-358(7), cwe\-362(7), cwe\-367(7), cwe\-384(7), cwe\-388(7), cwe\-390(7), cwe\-394(7), cwe\-399(7), cwe\-400(7), cwe\-401(7), cwe\-404(7), cwe\-406(7), cwe\-415(7), cwe\-420(7), cwe\-424(7), cwe\-425(7), cwe\-426(7), cwe\-427(7), cwe\-436(7), cwe\-441(7), cwe\-444(7), cwe\-451(7), cwe\-456(7), cwe\-472(7), cwe\-473(7), cwe\-494(7), cwe\-497(7), cwe\-506(7), cwe\-521(7), cwe\-522(7), cwe\-528(7), cwe\-532(7), cwe\-552(7), cwe\-565(7), cwe\-591(7), cwe\-601(7), cwe\-610(7), cwe\-611(7), cwe\-641(7), cwe\-645(7), cwe\-647(7), cwe\-648(7), cwe\-653(7), cwe\-664(7), cwe\-665(7), cwe\-667(7), cwe\-668(7), cwe\-669(7), cwe\-690(7), cwe\-693(7), cwe\-697(7), cwe\-703(7), cwe\-704(7), cwe\-706(7), cwe\-707(7), cwe\-732(7), cwe\-749(7), cwe\-754(7), cwe\-755(7), cwe\-772(7), cwe\-778(7), cwe\-782(7), cwe\-783(7), cwe\-785(7), cwe\-790(7), cwe\-798(7), cwe\-807(7), cwe\-822(7), cwe\-823(7), cwe\-824(7), cwe\-829(7), cwe\-835(7), cwe\-841(7), cwe\-843(7), cwe\-908(7), cwe\-912(7), cwe\-913(7), cwe\-917(7), cwe\-923(7), cwe\-940(7), cwe\-1023(7), cwe\-1173(7), cwe\-1188(7), cwe\-1220(7), cwe\-1285(7), cwe\-1287(7), cwe\-1321(7), cwe\-1325(7), cwe\-1336(7), cwe\-1386(7), cwe\-1390(7), cwe\-1393(7), cwe\-1419(7).
 .PP
 https://cwe.mitre.org/top25/ and https://www.cisa.gov/known\-exploited\-vulnerabilities\-catalog
 .SH GENERATED
-These pages were generated on \fB2026\-10\-08\fR. CISA KEV data as of 2026\-10\-08.
+These pages were generated on \fB2026\-11\-14\fR. CISA KEV data as of 2026\-11\-14.
